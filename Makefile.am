@@ -5,6 +5,7 @@ sbin_PROGRAMS = \
 
 openpower_proc_control_SOURCES = \
 	proc_control.cpp \
+	p9_cfam_access.cpp \
 	p9_procedures.cpp \
 	directory.cpp \
 	filedescriptor.cpp \
