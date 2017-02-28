@@ -7,6 +7,7 @@ openpower_proc_control_SOURCES = \
 	proc_control.cpp \
 	p9_procedures.cpp \
 	directory.cpp \
+	filedescriptor.cpp \
 	targeting.cpp
 
 openpower_proc_control_LDFLAGS = $(PHOSPHOR_LOGGING_LIBS)
