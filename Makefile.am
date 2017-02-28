@@ -6,7 +6,8 @@ sbin_PROGRAMS = \
 openpower_proc_control_SOURCES = \
 	proc_control.cpp \
 	p9_procedures.cpp \
-	directory.cpp
+	directory.cpp \
+	targeting.cpp
 
 openpower_proc_control_LDFLAGS = $(PHOSPHOR_LOGGING_LIBS)
 openpower_proc_control_CXXFLAGS = $(PHOSPHOR_LOGGING_CFLAGS)
