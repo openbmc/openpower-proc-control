@@ -11,3 +11,5 @@ openpower_proc_control_SOURCES = \
 
 openpower_proc_control_LDFLAGS = $(PHOSPHOR_LOGGING_LIBS)
 openpower_proc_control_CXXFLAGS = $(PHOSPHOR_LOGGING_CFLAGS)
+
+SUBDIRS = test
