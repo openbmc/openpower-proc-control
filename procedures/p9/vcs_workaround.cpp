@@ -16,6 +16,7 @@
 #include <phosphor-logging/log.hpp>
 #include "cfam_access.hpp"
 #include "p9_cfam.hpp"
+#include "registration.hpp"
 #include "targeting.hpp"
 
 namespace openpower
@@ -54,6 +55,8 @@ void vcsWorkaround()
                          0x00000001, 0x00000001);
     }
 }
+
+REGISTER_PROCEDURE("vcsWorkaround", vcsWorkaround);
 
 }
 }
