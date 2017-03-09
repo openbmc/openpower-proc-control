@@ -36,7 +36,6 @@ void startHost()
     log<level::INFO>("Running P9 procedure startHost",
                      entry("NUM_PROCS=%d", targets.size()));
 
-
     //Ensure asynchronous clock mode is set
     writeReg(*master, P9_LL_MODE_REG, 0x00000001);
 
@@ -68,32 +67,6 @@ void startHost()
 }
 
 
-void vcsWorkaround()
-{
-    Targeting targets;
-    const auto& master = targets.begin();
-
-    log<level::INFO>("Running P9 procedure vcsWorkaround",
-                     entry("NUM_PROCS=%d", targets.size()));
-
-    //Set asynchronous clock mode
-    writeReg(*master, P9_LL_MODE_REG, 0x00000001);
-
-    for (const auto& t : targets)
-    {
-        //Unfence PLL controls
-        writeRegWithMask(t, P9_ROOT_CTRL0,
-                         0x00000000, 0x00010000);
-
-        //Assert Perv chiplet endpoint reset
-        writeRegWithMask(t, P9_PERV_CTRL0,
-                         0x40000000, 0x40000000);
-
-        //Enable Nest PLL
-        writeRegWithMask(t, P9_PERV_CTRL0,
-                         0x00000001, 0x00000001);
-    }
-}
-
 }
 }
+
