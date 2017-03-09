@@ -38,6 +38,19 @@ AS_IF([test "x$enable_oe_sdk" == "xyes"],
     AC_SUBST([OESDK_TESTCASE_FLAGS], [$testcase_flags])
 )
 
+AC_ARG_ENABLE([p9], AS_HELP_STRING([--enable-p9], [Use P9 procedures]))
+
+AC_ARG_VAR(CHIPS, [The list of chips to build the procedures for])
+
+AS_IF([test "x$enable_p9" == "xyes"], [CHIPS=$CHIPS" p9"])
+
+AS_IF([test "x$CHIPS" == "x"], 
+    AC_MSG_ERROR([A chip type must be enabled such as with --enable-p9]))
+
+AC_CONFIG_FILES([Makefile.generated],
+    [${srcdir}/gen_makefile.sh "$myChips" > Makefile.generated],
+    [myChips="$CHIPS"])
+
 PKG_CHECK_MODULES([PHOSPHOR_LOGGING], [phosphor-logging],, [AC_MSG_ERROR([Could not find phosphor-logging...openbmc/phosphor-logging package required])])
 
 AC_CONFIG_FILES([Makefile test/Makefile])
