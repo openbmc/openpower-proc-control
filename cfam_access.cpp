@@ -50,7 +50,7 @@ void writeReg(const std::unique_ptr<Target>& target,
         //Future: use a different exception to create an error log
         char msg[100];
         sprintf(msg, "writeCFAMReg: Failed seek for address 0x%X, "
-                "processor %d.  errno = %d",
+                "processor %u.  errno = %d",
                 address, target->getPos(), errno);
         throw std::runtime_error(msg);
     }
@@ -61,7 +61,7 @@ void writeReg(const std::unique_ptr<Target>& target,
         //Future: use a different exception to create an error log
         char msg[100];
         sprintf(msg, "writeCFAMReg: Failed write to address 0x%X, "
-                "processor %d. errno = %d",
+                "processor %u. errno = %d",
                 address, target->getPos(), errno);
         throw std::runtime_error(msg);
     }
@@ -79,7 +79,7 @@ cfam_data_t readReg(const std::unique_ptr<Target>& target,
         //Future: use a different exception to create an error log
         char msg[100];
         sprintf(msg, "readCFAMReg: Failed seek for address 0x%X, "
-                "processor %d.  errno = %d",
+                "processor %u.  errno = %d",
                 address, target->getPos(), errno);
         throw std::runtime_error(msg);
     }
@@ -90,7 +90,7 @@ cfam_data_t readReg(const std::unique_ptr<Target>& target,
         //Future: use a different exception to create an error log
         char msg[100];
         sprintf(msg, "readCFAMReg: Failed read for address 0x%X, "
-                "processor %d. errno = %d",
+                "processor %u. errno = %d",
                 address, target->getPos(), errno);
         throw std::runtime_error(msg);
     }
