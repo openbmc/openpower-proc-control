@@ -39,15 +39,20 @@ class TargetingTest : public ::testing::Test
             auto path = mkdtemp(dir);
             assert(path != nullptr);
 
-            _directory = path;
+            _slaveBaseDir = path;
+
+            _slaveDir = _slaveBaseDir / "hub@00";
+            fs::create_directory(_slaveDir);
         }
 
         virtual void TearDown()
         {
-            fs::remove_all(_directory);
+            fs::remove_all(_slaveDir);
+            fs::remove_all(_slaveBaseDir);
         }
 
-        std::string _directory;
+        fs::path _slaveBaseDir;
+        fs::path _slaveDir;
 };
 
 
@@ -56,7 +61,7 @@ TEST_F(TargetingTest, CreateTargets)
 
     //Test that we always create the first Target
     {
-        Targeting targets{masterDir, _directory};
+        Targeting targets{masterDir, _slaveDir};
         ASSERT_EQ(targets.size(), 1);
 
         auto t = targets.begin();
@@ -69,12 +74,12 @@ TEST_F(TargetingTest, CreateTargets)
     //Test that we can create multiple Targets
     {
         //make some fake slave entries
-        std::ofstream(_directory + "/slave@01:00");
-        std::ofstream(_directory + "/slave@02:00");
-        std::ofstream(_directory + "/slave@03:00");
-        std::ofstream(_directory + "/slave@04:00");
+        std::ofstream(_slaveDir / "slave@01:00");
+        std::ofstream(_slaveDir / "slave@02:00");
+        std::ofstream(_slaveDir / "slave@03:00");
+        std::ofstream(_slaveDir / "slave@04:00");
 
-        Targeting targets{masterDir, _directory};
+        Targeting targets{masterDir, _slaveDir};
 
         ASSERT_EQ(targets.size(), 5);
 
@@ -82,20 +87,28 @@ TEST_F(TargetingTest, CreateTargets)
 
         for (const auto& t : targets)
         {
-            std::ostringstream path;
+            fs::path path;
 
             ASSERT_EQ(t->getPos(), i);
 
             if (0 == i)
             {
-                path << masterDir;
+                path = masterDir;
             }
             else
             {
-                path << _directory << "/slave@0" << i << ":00/raw";
+                std::ostringstream subdir;
+                subdir << "slave@0" << i << ":00/raw";
+
+                path = _slaveDir;
+                path /= subdir.str();
             }
 
-            ASSERT_EQ(t->getCFAMPath(), path.str());
+            
+            std::cout << "t path = " << t->getCFAMPath() << std::endl;
+            std::cout << "path = " << path << std::endl;
+
+            ASSERT_EQ(t->getCFAMPath(), path);
             i++;
         }
     }
