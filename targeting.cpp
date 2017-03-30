@@ -37,6 +37,12 @@ int Target::getCFAMFD()
     return cfamFD->get();
 }
 
+void Targeting::getTarget(size_t pos)
+{
+    // how do i iterate through these targets?
+    return;
+}
+
 
 Targeting::Targeting(const std::string& fsiMasterDev,
                      const std::string& fsiSlaveDir) :

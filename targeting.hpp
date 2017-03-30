@@ -127,6 +127,11 @@ class Targeting
             return targets.size();
         }
 
+        /**
+         * Returns a target by position.
+         */
+        void getTarget(size_t pos);
+
     private:
 
         /**
