@@ -10,9 +10,14 @@ namespace targeting
 {
 
 constexpr auto fsiMasterDevPath =
+    "/sys/devices/platform/gpio-fsi/fsi0/slave@00:00/raw";
+constexpr auto fsiMasterDevPathOld =
     "/sys/devices/platform/fsi-master/slave@00:00/raw";
 
-constexpr auto fsiSlaveBaseDir = "/sys/devices/platform/fsi-master/slave@00:00/hub@00/";
+constexpr auto fsiSlaveBaseDir =
+    "/sys/devices/platform/gpio-fsi/fsi0/slave@00:00/00:00:00:0a/fsi1/";
+constexpr auto fsiSlaveBaseDirOld =
+    "/sys/devices/platform/fsi-master/slave@00:00/hub@00/";
 
 /**
  * Represents a specific P9 processor in the system.  Used by
@@ -128,6 +133,15 @@ class Targeting
         }
 
         /**
+         * Returns true if the CFAM data endianness should be swapped, false
+         * otherwise.
+         */
+        static inline const auto getSwapEndian()
+        {
+            return swapEndian;
+        }
+
+        /**
          * Returns a target by position.
          */
         std::unique_ptr<Target>& getTarget(size_t pos);
@@ -137,17 +151,23 @@ class Targeting
         /**
          * The path to the fsi-master sysfs device to access
          */
-        const std::string fsiMasterPath;
+        std::string fsiMasterPath;
 
         /**
          * The path to the fsi slave sysfs base directory
          */
-        const std::string fsiSlaveBasePath;
+        std::string fsiSlaveBasePath;
 
         /**
          * A container of Targets in the system
          */
         std::vector<std::unique_ptr<Target>> targets;
+
+        /**
+         * Holds a true value if the CFAM data endianness should be swapped,
+         * false if not.
+         */
+        static bool swapEndian;
 };
 
 }

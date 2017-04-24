@@ -56,17 +56,32 @@ std::unique_ptr<Target>& Targeting::getTarget(size_t pos)
 }
 
 
+bool Targeting::swapEndian(true);
+
 Targeting::Targeting(const std::string& fsiMasterDev,
                      const std::string& fsiSlaveDir) :
     fsiMasterPath(fsiMasterDev),
     fsiSlaveBasePath(fsiSlaveDir)
 {
+    std::regex exp{"fsi1/slave@([0-9]{2}):00", std::regex::extended};
+
+    if (!fs::exists(fsiMasterPath))
+    {
+        std::regex expOld{"hub@00/slave@([0-9]{2}):00", std::regex::extended};
+
+        //Fall back to old (4.7) path
+        exp = expOld;
+        fsiMasterPath = fsiMasterDevPathOld;
+        fsiSlaveBasePath = fsiSlaveBaseDirOld;
+
+        //And don't swap the endianness of CFAM data
+        swapEndian = false;
+    }
+
     //Always create P0, the FSI master.
     targets.push_back(std::make_unique<Target>(0, fsiMasterPath));
 
     //Find the the remaining P9s dynamically based on which files show up
-    std::regex exp{"hub@00/slave@([0-9]{2}):00", std::regex::extended};
-
     for (auto& file : fs::directory_iterator(fsiSlaveBasePath))
     {
         std::smatch match;
