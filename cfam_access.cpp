@@ -55,6 +55,9 @@ void writeReg(const std::unique_ptr<Target>& target,
         throw std::runtime_error(msg);
     }
 
+    if (Targeting::getSwapEndian())
+        data = __builtin_bswap32(data);
+
     rc = write(target->getCFAMFD(), &data, cfamRegSize);
     if (rc < 0)
     {
@@ -94,6 +97,9 @@ cfam_data_t readReg(const std::unique_ptr<Target>& target,
                 address, static_cast<int>(target->getPos()), errno);
         throw std::runtime_error(msg);
     }
+
+    if (Targeting::getSwapEndian())
+        data = __builtin_bswap32(data);
 
     return data;
 }
