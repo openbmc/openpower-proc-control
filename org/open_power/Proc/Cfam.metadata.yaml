@@ -1,0 +1,25 @@
+- name: OpenFailure
+  meta:
+    - str: "ERRNO=%d"
+      type: int32
+    - str: "Path=%s"
+      type: string
+
+- name: ReadFailure
+  inherits:
+    - xyz.openbmc_project.Common.Callout.Device
+
+- name: WriteFailure
+  inherits:
+    - xyz.openbmc_project.Common.Callout.Device
+
+- name: SeekFailure
+  meta:
+    - str: "ERRNO=%d"
+      type: int32
+    - str: "Address=0x%0x"
+      type: int32
+    - str: "Processor=%d"
+      type: int32
+    - str: "Offset=%d"
+      type: uint16
