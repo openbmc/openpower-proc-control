@@ -1,0 +1,33 @@
+- name: OpenFailure
+  meta:
+    - str: "ERRNO=%d"
+      type: int32
+    - str: "Path=%s"
+      type: string
+
+- name: ReadFailure
+  meta:
+    - str: "ERRNO=%d"
+      type: int32
+    - str: "Address=0x%0x"
+      type: int32
+    - str: "Processor=%d"
+      type: int32
+
+- name: WriteFailure
+  meta:
+    - str: "ERRNO=%d"
+      type: int32
+    - str: "Address=0x%0x"
+      type: int32
+    - str: "Processor=%d"
+      type: int32
+
+- name: SeekFailure
+  meta:
+    - str: "ERRNO=%d"
+      type: int32
+    - str: "Address=0x%0x"
+      type: int32
+    - str: "Processor=%d"
+      type: int32
