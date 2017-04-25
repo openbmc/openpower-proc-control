@@ -1,0 +1,15 @@
+# org.open_power.proc_control.cfam.OpenFailure
+- name: OpenFailure
+  description: Failed to open the device.
+
+# org.open_power.proc_control.cfam.ReadFailure
+- name: ReadFailure
+  description: Failed to read from the device.
+
+# org.open_power.proc_control.cfam.WriteFailure
+- name: WriteFailure
+  description: Failed to open the device.
+
+# org.open_power.proc_control.cfam.SeekFailure
+- name: SeekFailure
+  description: Failed to seek on the device.
