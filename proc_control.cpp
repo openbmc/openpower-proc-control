@@ -17,7 +17,9 @@
 #include <functional>
 #include <iostream>
 #include <phosphor-logging/log.hpp>
+#include <phosphor-logging/elog.hpp>
 #include "registration.hpp"
+#include "elog-errors.hpp"
 
 using namespace openpower::util;
 
@@ -34,6 +36,7 @@ void usage(char** argv, const ProcedureMap& procedures)
 
 int main(int argc, char** argv)
 {
+    using namespace phosphor::logging;
     const ProcedureMap& procedures = Registration::getProcedures();
 
     if (argc != 2)
@@ -56,10 +59,32 @@ int main(int argc, char** argv)
     {
         procedure->second();
     }
-    catch (std::exception& e)
+    catch (org::open_power::Proc::Cfam::SeekFailure& e)
     {
-        //TODO: commit an actual error that does a callout
-        phosphor::logging::log<phosphor::logging::level::ERR>(e.what());
+        std::cerr << argv[1] <<" Failed: " << e.what() <<std::endl;
+        log<level::ERR>(e.what());
+        commit<org::open_power::Proc::Cfam::SeekFailure>();
+        return -1;
+    }
+    catch (org::open_power::Proc::Cfam::OpenFailure& e)
+    {
+        std::cerr << argv[1] <<" Failed: " << e.what() <<std::endl;
+        log<level::ERR>(e.what());
+        commit<org::open_power::Proc::Cfam::OpenFailure>();
+        return -1;
+    }
+    catch (org::open_power::Proc::Cfam::WriteFailure& e)
+    {
+        std::cerr << argv[1] <<" Failed: " << e.what() <<std::endl;
+        log<level::ERR>(e.what());
+        commit<org::open_power::Proc::Cfam::WriteFailure>();
+        return -1;
+    }
+    catch (org::open_power::Proc::Cfam::ReadFailure& e)
+    {
+        std::cerr << argv[1] <<" Failed: " << e.what() <<std::endl;
+        log<level::ERR>(e.what());
+        commit<org::open_power::Proc::Cfam::ReadFailure>();
         return -1;
     }
 
