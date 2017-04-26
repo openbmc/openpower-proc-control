@@ -18,7 +18,10 @@
 #include <experimental/filesystem>
 #include <phosphor-logging/log.hpp>
 #include <regex>
+#include <phosphor-logging/elog.hpp>
+#include "elog-errors.hpp"
 #include "targeting.hpp"
+
 
 namespace openpower
 {
@@ -91,7 +94,8 @@ Targeting::Targeting(const std::string& fsiMasterDev,
 
     //Always create P0, the FSI master.
     targets.push_back(std::make_unique<Target>(0, fsiMasterPath, swapper));
-
+    try
+    {
     //Find the the remaining P9s dynamically based on which files show up
     for (auto& file : fs::directory_iterator(fsiSlaveBasePath))
     {
@@ -111,6 +115,13 @@ Targeting::Targeting(const std::string& fsiMasterDev,
 
             targets.push_back(std::make_unique<Target>(pos, path, swapper));
         }
+    }
+    }
+    catch (fs::filesystem_error &e)
+    {
+        elog<org::open_power::Proc::Cfam::OpenFailure>(
+            org::open_power::Proc::Cfam::OpenFailure::ERRNO(e.code().value()),
+            org::open_power::Proc::Cfam::OpenFailure::PATH(e.path1().c_str()));
     }
 
     auto sortTargets = [](const std::unique_ptr<Target>& left,
