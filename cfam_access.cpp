@@ -16,6 +16,8 @@
 #include <unistd.h>
 #include "cfam_access.hpp"
 #include "targeting.hpp"
+#include <phosphor-logging/elog.hpp>
+#include "elog-error.hpp"
 
 namespace openpower
 {
@@ -32,7 +34,7 @@ using namespace openpower::util;
 /**
  * Converts the CFAM register address used by the calling
  * code (because that's how it is in the spec) to the address
- * required by the device driver.
+  required by the device driver.
  */
 static inline cfam_address_t makeOffset(cfam_address_t address)
 {
@@ -44,26 +46,27 @@ void writeReg(const std::unique_ptr<Target>& target,
               cfam_address_t address,
               cfam_data_t data)
 {
+    using namespace phosphor::logging;
     int rc = lseek(target->getCFAMFD(), makeOffset(address), SEEK_SET);
     if (rc < 0)
     {
-        //Future: use a different exception to create an error log
-        char msg[100];
-        sprintf(msg, "writeCFAMReg: Failed seek for address 0x%X, "
-                "processor %d.  errno = %d",
-                address, static_cast<int>(target->getPos()), errno);
-        throw std::runtime_error(msg);
+        elog<org::open_power::Proc::Cfam::SeekFailure>(
+            org::open_power::Proc::Cfam::SeekFailure::ERRNO(errno),
+            org::open_power::Proc::Cfam::SeekFailure::Address(address),
+            org::open_power::Proc::Cfam::SeekFailure::Processor(static_cast<int>
+                    (target->getPos())),
+            org::open_power::Proc::Cfam::SeekFailure::Offset(makeOffset(address)));
+        return;
     }
 
     rc = write(target->getCFAMFD(), &data, cfamRegSize);
     if (rc < 0)
     {
-        //Future: use a different exception to create an error log
-        char msg[100];
-        sprintf(msg, "writeCFAMReg: Failed write to address 0x%X, "
-                "processor %d. errno = %d",
-                address, static_cast<int>(target->getPos()), errno);
-        throw std::runtime_error(msg);
+        elog<org::open_power::Proc::Cfam::WriteFailure>(
+            org::open_power::Proc::Cfam::WriteFailure::CALLOUT_ERRNO(errno),
+            org::open_power::Proc::Cfam::WriteFailure::CALLOUT_DEVICE_PATH(
+                target->getCFAMPath().c_str()));
+        return;
     }
 }
 
@@ -71,28 +74,30 @@ void writeReg(const std::unique_ptr<Target>& target,
 cfam_data_t readReg(const std::unique_ptr<Target>& target,
                     cfam_address_t address)
 {
+    using namespace phosphor::logging;
+
     cfam_data_t data = 0;
 
     int rc = lseek(target->getCFAMFD(), makeOffset(address), SEEK_SET);
     if (rc < 0)
     {
-        //Future: use a different exception to create an error log
-        char msg[100];
-        sprintf(msg, "readCFAMReg: Failed seek for address 0x%X, "
-                "processor %d.  errno = %d",
-                address, static_cast<int>(target->getPos()), errno);
-        throw std::runtime_error(msg);
+        elog<org::open_power::Proc::Cfam::SeekFailure>(
+            org::open_power::Proc::Cfam::SeekFailure::ERRNO(errno),
+            org::open_power::Proc::Cfam::SeekFailure::Address(address),
+            org::open_power::Proc::Cfam::SeekFailure::Processor(static_cast<int>
+                    (target->getPos())),
+            org::open_power::Proc::Cfam::SeekFailure::Offset(makeOffset(address)));
+            return rc;
     }
 
     rc = read(target->getCFAMFD(), &data, cfamRegSize);
     if (rc < 0)
     {
-        //Future: use a different exception to create an error log
-        char msg[100];
-        sprintf(msg, "readCFAMReg: Failed read for address 0x%X, "
-                "processor %d. errno = %d",
-                address, static_cast<int>(target->getPos()), errno);
-        throw std::runtime_error(msg);
+        elog<org::open_power::Proc::Cfam::WriteFailure>(
+            org::open_power::Proc::Cfam::WriteFailure::CALLOUT_ERRNO(errno),
+            org::open_power::Proc::Cfam::WriteFailure::CALLOUT_DEVICE_PATH(
+                target->getCFAMPath().c_str()));
+        return rc;
     }
 
     return data;
