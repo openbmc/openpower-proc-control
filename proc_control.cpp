@@ -17,6 +17,7 @@
 #include <functional>
 #include <iostream>
 #include <phosphor-logging/log.hpp>
+#include <phosphor-logging/elog.hpp>
 #include "registration.hpp"
 
 using namespace openpower::util;
@@ -56,10 +57,11 @@ int main(int argc, char** argv)
     {
         procedure->second();
     }
-    catch (std::exception& e)
+    catch (sdbusplus::exception_t& e)
     {
-        //TODO: commit an actual error that does a callout
+        std::cerr << argv[1] <<" Failed: " << e.what() <<std::endl;
         phosphor::logging::log<phosphor::logging::level::ERR>(e.what());
+        phosphor::logging::commit(e.name());
         return -1;
     }
 
