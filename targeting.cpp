@@ -16,6 +16,8 @@
 #include <experimental/filesystem>
 #include <phosphor-logging/log.hpp>
 #include <regex>
+#include <phosphor-logging/elog.hpp>
+#include "elog-errors.hpp"
 #include "targeting.hpp"
 
 namespace openpower
@@ -30,8 +32,8 @@ int Target::getCFAMFD()
 {
     if (cfamFD.get() == nullptr)
     {
-        cfamFD = std::make_unique<
-            openpower::util::FileDescriptor>(getCFAMPath());
+        cfamFD = std::make_unique <
+                 openpower::util::FileDescriptor > (getCFAMPath());
     }
 
     return cfamFD->get();
@@ -39,7 +41,7 @@ int Target::getCFAMFD()
 
 std::unique_ptr<Target>& Targeting::getTarget(size_t pos)
 {
-    auto search = [pos](const auto& t)
+    auto search = [pos](const auto & t)
     {
         return t->getPos() == pos;
     };
@@ -61,32 +63,40 @@ Targeting::Targeting(const std::string& fsiMasterDev,
     fsiMasterPath(fsiMasterDev),
     fsiSlaveBasePath(fsiSlaveDir)
 {
+    using namespace phosphor::logging;
     //Always create P0, the FSI master.
     targets.push_back(std::make_unique<Target>(0, fsiMasterPath));
 
     //Find the the remaining P9s dynamically based on which files show up
     std::regex exp{"hub@00/slave@([0-9]{2}):00", std::regex::extended};
-
-    for (auto& file : fs::directory_iterator(fsiSlaveBasePath))
+    try
     {
-        std::smatch match;
-        std::string path = file.path();
-        if (std::regex_search(path, match, exp))
+        for (auto& file : fs::directory_iterator(fsiSlaveBasePath))
         {
-            auto pos = atoi(match[1].str().c_str());
-            if (pos == 0)
+            std::smatch match;
+            std::string path = file.path();
+            if (std::regex_search(path, match, exp))
             {
-                log<level::ERR>("Unexpected FSI slave device name found",
-                                entry("DEVICE_NAME=%s", path.c_str()));
-                continue;
+                auto pos = atoi(match[1].str().c_str());
+                if (pos == 0)
+                {
+                    log<level::ERR>("Unexpected FSI slave device name found",
+                                    entry("DEVICE_NAME=%s", path.c_str()));
+                    continue;
+                }
+
+                path += "/raw";
+
+                targets.push_back(std::make_unique<Target>(pos, path));
             }
-
-            path += "/raw";
-
-            targets.push_back(std::make_unique<Target>(pos, path));
         }
     }
-
+    catch (fs::filesystem_error e)
+    {
+        elog<org::open_power::Proc::Cfam::OpenFailure>(
+            org::open_power::Proc::Cfam::OpenFailure::ERRNO(e.code().value()),
+            org::open_power::Proc::Cfam::OpenFailure::PATH(e.path1().c_str()));
+    }
     auto sortTargets = [](const std::unique_ptr<Target>& left,
                           const std::unique_ptr<Target>& right)
     {
