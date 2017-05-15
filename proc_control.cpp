@@ -79,6 +79,11 @@ int main(int argc, char** argv)
         commit<org::open_power::Proc::CFAM::ReadFailure>();
         return -1;
     }
+    catch (xyz::openbmc_project::Common::InvalidArgument& e)
+    {
+        commit<xyz::openbmc_project::Common::InvalidArgument>();
+        return -1;
+    }
 
     return 0;
 }
