@@ -20,6 +20,8 @@
 #include <phosphor-logging/elog.hpp>
 #include "registration.hpp"
 #include "elog-errors.hpp"
+#include <sdbusplus/server.hpp>
+#include <xyz/openbmc_project/Common/error.hpp>
 
 using namespace openpower::util;
 
@@ -77,6 +79,11 @@ int main(int argc, char** argv)
     catch (org::open_power::Proc::CFAM::ReadFailure& e)
     {
         commit<org::open_power::Proc::CFAM::ReadFailure>();
+        return -1;
+    }
+    catch (sdbusplus::xyz::openbmc_project::Common::Error::InvalidArgument& e)
+    {
+        commit<sdbusplus::xyz::openbmc_project::Common::Error::InvalidArgument>();
         return -1;
     }
 
