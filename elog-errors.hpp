@@ -171,6 +171,26 @@ namespace Error
 
 namespace sdbusplus
 {
+namespace org
+{
+namespace open_power
+{
+namespace Proc
+{
+namespace App
+{
+namespace Error
+{
+    struct ParameterError;
+} // namespace Error
+} // namespace App
+} // namespace Proc
+} // namespace open_power
+} // namespace org
+} // namespace sdbusplus
+
+namespace sdbusplus
+{
 namespace xyz
 {
 namespace openbmc_project
@@ -803,6 +823,69 @@ template <>
 struct map_exception_type<sdbusplus::org::open_power::Proc::CFAM::Error::SeekFailure>
 {
     using type = org::open_power::Proc::CFAM::SeekFailure;
+};
+
+}
+
+namespace org
+{
+namespace open_power
+{
+namespace Proc
+{
+namespace App
+{
+namespace _ParameterError
+{
+
+struct DESCRIPTION
+{
+    static constexpr auto str = "DESCRIPTION=%s";
+    static constexpr auto str_short = "DESCRIPTION";
+    using type = std::tuple<std::decay_t<decltype(str)>,const char*>;
+    explicit constexpr DESCRIPTION(const char* a) : _entry(entry(str, a)) {};
+    type _entry;
+};
+
+}  // namespace _ParameterError
+
+struct ParameterError : public sdbusplus::exception_t
+{
+    static constexpr auto errName = "org.open_power.Proc.App.ParameterError";
+    static constexpr auto errDesc = "Invalid or not enough parameters given.";
+    static constexpr auto L = level::INFO;
+    using DESCRIPTION = _ParameterError::DESCRIPTION;
+    using metadata_types = std::tuple<DESCRIPTION>;
+
+    const char* name() const noexcept
+    {
+        return errName;
+    }
+
+    const char* description() const noexcept
+    {
+        return errDesc;
+    }
+
+    const char* what() const noexcept
+    {
+        return errName;
+    }
+};
+
+} // namespace App
+} // namespace Proc
+} // namespace open_power
+} // namespace org
+
+
+namespace details
+{
+
+template <>
+struct map_exception_type<sdbusplus::org::open_power::Proc::App::Error::ParameterError>
+{
+    using type = org::open_power::Proc::App::ParameterError;
 };
 
 }

@@ -5,6 +5,7 @@
 #include "p9_cfam.hpp"
 #include "registration.hpp"
 #include "targeting.hpp"
+#include "elog-errors.hpp"
 
 /* File /var/lib/obmc/cfam_overrides requires whitespace-separated parameters
 Pos Address Data Mask with one register write per line. For example:
@@ -51,8 +52,11 @@ void CFAMOverride() {
                     }
                     else
                     {
-                        throw std::runtime_error("Cannot write to register - "
-                                "not enough parameters given.");
+                        using namespace phosphor::logging;
+                        using namespace org::open_power::Proc::App;
+                        elog<ParameterError>(
+                        ParameterError::DESCRIPTION("Cannot write to register - "
+                            "not enough parameters given."));
                     }
                 }
             }

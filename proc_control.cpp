@@ -79,6 +79,11 @@ int main(int argc, char** argv)
         commit<org::open_power::Proc::CFAM::ReadFailure>();
         return -1;
     }
+    catch (org::open_power::Proc::App::ParameterError& e)
+    {
+        commit<org::open_power::Proc::App::ParameterError>();
+        return -1;
+    }
 
     return 0;
 }
