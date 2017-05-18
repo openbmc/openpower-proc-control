@@ -65,7 +65,14 @@ void startHost()
 
     //Kick off the SBE to start the boot
 
-    //First ensure ISTEP stepping isn't enabled
+    // Choose seeprom side to boot from
+    // TODO - For now set to primary side, will use persistent field in later
+    //        commit
+    log<level::INFO>("Setting SBE seeprom side",
+                     entry("SBE_SIDE_SELECT=%d", 0));
+    writeRegWithMask(master, P9_SBE_CTRL_STATUS, 0x00004000, 0x00000000);
+
+    //Ensure ISTEP stepping isn't enabled
     writeRegWithMask(master, P9_SCRATCH_REGISTER_8, 0x20000000, 0x20000000);
 
     //Start the SBE
