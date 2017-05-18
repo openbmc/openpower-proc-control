@@ -9,12 +9,17 @@ openpower_proc_control_SOURCES = \
 	filedescriptor.cpp \
 	registration.cpp \
 	targeting.cpp \
-	openpower_procedures.cpp
+	openpower_procedures.cpp \
+	ext_interface.cpp
 
 CLEANFILES = openpower_procedures.cpp
 
-openpower_proc_control_LDFLAGS = $(PHOSPHOR_LOGGING_LIBS) -lstdc++fs
-openpower_proc_control_CXXFLAGS = $(PHOSPHOR_LOGGING_CFLAGS)
+openpower_proc_control_LDFLAGS = $(PHOSPHOR_LOGGING_LIBS) \
+                                 $(SDBUSPLUS_CFLAGS) \
+                                 -lstdc++fs
+                                 
+openpower_proc_control_CXXFLAGS = $(PHOSPHOR_LOGGING_CFLAGS) \
+                                  $(SDBUSPLUS_CFLAGS)
 
 SUBDIRS = test
 
