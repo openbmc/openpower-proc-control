@@ -20,9 +20,12 @@
 #include <phosphor-logging/elog.hpp>
 #include "registration.hpp"
 #include "elog-errors.hpp"
+#include <org/open_power/Proc/CFAM/error.hpp>
 #include <xyz/openbmc_project/Common/error.hpp>
 
 using namespace openpower::util;
+namespace cfam = sdbusplus::org::open_power::Proc::CFAM::Error;
+namespace common = sdbusplus::xyz::openbmc_project::Common::Error;
 
 void usage(char** argv, const ProcedureMap& procedures)
 {
@@ -60,29 +63,29 @@ int main(int argc, char** argv)
     {
         procedure->second();
     }
-    catch (org::open_power::Proc::CFAM::SeekFailure& e)
+    catch (cfam::SeekFailure& e)
     {
-        commit<org::open_power::Proc::CFAM::SeekFailure>();
+        commit<cfam::SeekFailure>();
         return -1;
     }
-    catch (org::open_power::Proc::CFAM::OpenFailure& e)
+    catch (cfam::OpenFailure& e)
     {
-        commit<org::open_power::Proc::CFAM::OpenFailure>();
+        commit<cfam::OpenFailure>();
         return -1;
     }
-    catch (org::open_power::Proc::CFAM::WriteFailure& e)
+    catch (cfam::WriteFailure& e)
     {
-        commit<org::open_power::Proc::CFAM::WriteFailure>();
+        commit<cfam::WriteFailure>();
         return -1;
     }
-    catch (org::open_power::Proc::CFAM::ReadFailure& e)
+    catch (cfam::ReadFailure& e)
     {
-        commit<org::open_power::Proc::CFAM::ReadFailure>();
+        commit<cfam::ReadFailure>();
         return -1;
     }
-    catch (sdbusplus::xyz::openbmc_project::Common::Error::InvalidArgument& e)
+    catch (common::InvalidArgument& e)
     {
-        commit<sdbusplus::xyz::openbmc_project::Common::Error::InvalidArgument>();
+        commit<common::InvalidArgument>();
         return -1;
     }
 

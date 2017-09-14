@@ -47,5 +47,11 @@ AC_CONFIG_FILES([Makefile.generated],
 
 PKG_CHECK_MODULES([PHOSPHOR_LOGGING], [phosphor-logging],, [AC_MSG_ERROR([Could not find phosphor-logging...openbmc/phosphor-logging package required])])
 PKG_CHECK_MODULES([PHOSPHOR_DBUS_INTERFACES], [phosphor-dbus-interfaces], [], [AC_MSG_ERROR(["phosphor-dbus-interfaces required and not found."])])
+PKG_CHECK_MODULES([SDBUSPLUS], [sdbusplus],, AC_MSG_ERROR(["Requires sdbusplus package."]))
+
+AC_PATH_PROG([SDBUSPLUSPLUS], [sdbus++])
+AS_IF([test "x$SDBUSPLUSPLUS" == "x"],
+    AC_MSG_ERROR(["Requires sdbus++"]))
+
 AC_CONFIG_FILES([Makefile test/Makefile])
 AC_OUTPUT
