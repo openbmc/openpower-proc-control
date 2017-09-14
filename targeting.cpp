@@ -18,6 +18,7 @@
 #include <experimental/filesystem>
 #include <phosphor-logging/log.hpp>
 #include <regex>
+#include <org/open_power/Proc/CFAM/error.hpp>
 #include <phosphor-logging/elog.hpp>
 #include "elog-errors.hpp"
 #include "targeting.hpp"
@@ -30,6 +31,7 @@ namespace targeting
 
 using namespace phosphor::logging;
 namespace fs = std::experimental::filesystem;
+namespace cfam = sdbusplus::org::open_power::Proc::CFAM::Error;
 
 int Target::getCFAMFD()
 {
@@ -119,9 +121,11 @@ Targeting::Targeting(const std::string& fsiMasterDev,
     }
     catch (fs::filesystem_error& e)
     {
-        elog<org::open_power::Proc::CFAM::OpenFailure>(
-            org::open_power::Proc::CFAM::OpenFailure::ERRNO(e.code().value()),
-            org::open_power::Proc::CFAM::OpenFailure::PATH(e.path1().c_str()));
+        using metadata = org::open_power::Proc::CFAM::OpenFailure;
+
+        elog<cfam::OpenFailure>(
+                metadata::ERRNO(e.code().value()),
+                metadata::PATH(e.path1().c_str()));
     }
 
     auto sortTargets = [](const std::unique_ptr<Target>& left,
