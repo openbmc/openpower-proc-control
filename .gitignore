@@ -29,3 +29,5 @@ stamp-h1
 test-driver
 *.log
 utest*
+-libtoolT
+org/open_power/Proc/CFAM/

@@ -15,9 +15,10 @@
  */
 #include <unistd.h>
 #include "cfam_access.hpp"
-#include "targeting.hpp"
-#include <phosphor-logging/elog.hpp>
 #include "elog-errors.hpp"
+#include "targeting.hpp"
+#include <org/open_power/Proc/CFAM/error.hpp>
+#include <phosphor-logging/elog.hpp>
 
 namespace openpower
 {
@@ -30,6 +31,7 @@ constexpr auto cfamRegSize = 4;
 
 using namespace openpower::targeting;
 using namespace openpower::util;
+namespace cfam = sdbusplus::org::open_power::Proc::CFAM::Error;
 
 /**
  * Converts the CFAM register address used by the calling
@@ -50,11 +52,13 @@ void writeReg(const std::unique_ptr<Target>& target,
     int rc = lseek(target->getCFAMFD(), makeOffset(address), SEEK_SET);
     if (rc < 0)
     {
-        elog<org::open_power::Proc::CFAM::SeekFailure>(
-            org::open_power::Proc::CFAM::SeekFailure::ERRNO(errno),
-            org::open_power::Proc::CFAM::SeekFailure::ADDRESS(address),
-            org::open_power::Proc::CFAM::SeekFailure::OFFSET(makeOffset(address)),
-            org::open_power::Proc::CFAM::SeekFailure::PATH(target->getCFAMPath().c_str()));
+        using metadata = org::open_power::Proc::CFAM::SeekFailure;
+
+        elog<cfam::SeekFailure>(
+                metadata::ERRNO(errno),
+                metadata::ADDRESS(address),
+                metadata::OFFSET(makeOffset(address)),
+                metadata::PATH(target->getCFAMPath().c_str()));
     }
 
     data = target->swapEndian(data);
@@ -62,10 +66,12 @@ void writeReg(const std::unique_ptr<Target>& target,
     rc = write(target->getCFAMFD(), &data, cfamRegSize);
     if (rc < 0)
     {
-        elog<org::open_power::Proc::CFAM::WriteFailure>(
-            org::open_power::Proc::CFAM::WriteFailure::CALLOUT_ERRNO(errno),
-            org::open_power::Proc::CFAM::WriteFailure::CALLOUT_DEVICE_PATH(
-                target->getCFAMPath().c_str()));
+        using metadata = org::open_power::Proc::CFAM::WriteFailure;
+
+        elog<cfam::WriteFailure>(
+                metadata::CALLOUT_ERRNO(errno),
+                metadata::CALLOUT_DEVICE_PATH(
+                        target->getCFAMPath().c_str()));
     }
 }
 
@@ -80,20 +86,23 @@ cfam_data_t readReg(const std::unique_ptr<Target>& target,
     int rc = lseek(target->getCFAMFD(), makeOffset(address), SEEK_SET);
     if (rc < 0)
     {
-        elog<org::open_power::Proc::CFAM::SeekFailure>(
-            org::open_power::Proc::CFAM::SeekFailure::ERRNO(errno),
-            org::open_power::Proc::CFAM::SeekFailure::ADDRESS(address),
-            org::open_power::Proc::CFAM::SeekFailure::OFFSET(makeOffset(address)),
-            org::open_power::Proc::CFAM::SeekFailure::PATH(target->getCFAMPath().c_str()));
+        using metadata = org::open_power::Proc::CFAM::SeekFailure;
+
+        elog<cfam::SeekFailure>(
+                metadata::ERRNO(errno),
+                metadata::ADDRESS(address),
+                metadata::OFFSET(makeOffset(address)),
+                metadata::PATH(target->getCFAMPath().c_str()));
     }
 
     rc = read(target->getCFAMFD(), &data, cfamRegSize);
     if (rc < 0)
     {
-        elog<org::open_power::Proc::CFAM::ReadFailure>(
-            org::open_power::Proc::CFAM::WriteFailure::CALLOUT_ERRNO(errno),
-            org::open_power::Proc::CFAM::WriteFailure::CALLOUT_DEVICE_PATH(
-                target->getCFAMPath().c_str()));
+        using metadata = org::open_power::Proc::CFAM::ReadFailure;
+
+        elog<cfam::ReadFailure>(
+            metadata::CALLOUT_ERRNO(errno),
+            metadata::CALLOUT_DEVICE_PATH(target->getCFAMPath().c_str()));
     }
 
     return target->swapEndian(data);
