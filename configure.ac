@@ -37,9 +37,9 @@ AS_IF([test "x$enable_oe_sdk" == "xyes"],
     AC_SUBST([OESDK_TESTCASE_FLAGS], [$testcase_flags])
 )
 
-#CHIPS can be passed in a from a recipe, or it will default to P9
+#CHIPS can be passed in a from a recipe, or it will default to P9 and openfsi
 AC_ARG_VAR(CHIPS, [The list of chips to build the procedures for])
-AS_IF([test "x$CHIPS" == "x"], [CHIPS="p9"])
+AS_IF([test "x$CHIPS" == "x"], [CHIPS="p9 openfsi"])
 
 AC_CONFIG_FILES([Makefile.generated],
     [${srcdir}/gen_makefile.sh ${srcdir} "$myChips" > Makefile.generated],

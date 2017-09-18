@@ -21,11 +21,13 @@
 #include "registration.hpp"
 #include "elog-errors.hpp"
 #include <org/open_power/Proc/CFAM/error.hpp>
+#include <org/open_power/Proc/FSI/error.hpp>
 #include <xyz/openbmc_project/Common/error.hpp>
 
 using namespace openpower::util;
 namespace cfam = sdbusplus::org::open_power::Proc::CFAM::Error;
 namespace common = sdbusplus::xyz::openbmc_project::Common::Error;
+namespace fsi = sdbusplus::org::open_power::Proc::FSI::Error;
 
 void usage(char** argv, const ProcedureMap& procedures)
 {
@@ -88,6 +90,17 @@ int main(int argc, char** argv)
         commit<common::InvalidArgument>();
         return -1;
     }
+    catch (fsi::MasterDetectionFailure& e)
+    {
+        commit<fsi::MasterDetectionFailure>();
+        return -1;
+    }
+    catch (fsi::SlaveDetectionFailure& e)
+    {
+        commit<fsi::SlaveDetectionFailure>();
+        return -1;
+    }
+
 
     return 0;
 }
