@@ -145,6 +145,26 @@ namespace Error
 
 namespace sdbusplus
 {
+namespace org
+{
+namespace open_power
+{
+namespace Proc
+{
+namespace FSI
+{
+namespace Error
+{
+    struct SlaveDetectionFailure;
+} // namespace Error
+} // namespace FSI
+} // namespace Proc
+} // namespace open_power
+} // namespace org
+} // namespace sdbusplus
+
+namespace sdbusplus
+{
 namespace xyz
 {
 namespace openbmc_project
@@ -158,17 +178,6 @@ namespace Error
 } // namespace Common
 } // namespace openbmc_project
 } // namespace xyz
-} // namespace sdbusplus
-
-namespace sdbusplus
-{
-namespace FSI
-{
-namespace Error
-{
-    struct MasterDetectionFailure;
-} // namespace Error
-} // namespace FSI
 } // namespace sdbusplus
 
 namespace sdbusplus
@@ -233,13 +242,22 @@ namespace Error
 
 namespace sdbusplus
 {
+namespace org
+{
+namespace open_power
+{
+namespace Proc
+{
 namespace FSI
 {
 namespace Error
 {
-    struct SlaveDetectionFailure;
+    struct MasterDetectionFailure;
 } // namespace Error
 } // namespace FSI
+} // namespace Proc
+} // namespace open_power
+} // namespace org
 } // namespace sdbusplus
 
 namespace sdbusplus
@@ -902,6 +920,12 @@ struct map_exception_type<sdbusplus::xyz::openbmc_project::Common::Callout::Erro
 
 }
 
+namespace org
+{
+namespace open_power
+{
+namespace Proc
+{
 namespace FSI
 {
 namespace _MasterDetectionFailure
@@ -913,49 +937,72 @@ namespace _MasterDetectionFailure
 struct MasterDetectionFailure
 {
     static constexpr auto L = level::ERR;
-    using metadata_types = std::tuple<>;
+    using CALLOUT_ERRNO = xyz::openbmc_project::Common::Callout::Device::CALLOUT_ERRNO;
+    using CALLOUT_DEVICE_PATH = xyz::openbmc_project::Common::Callout::Device::CALLOUT_DEVICE_PATH;
+    using metadata_types = std::tuple<CALLOUT_ERRNO, CALLOUT_DEVICE_PATH>;
 
 };
 
 } // namespace FSI
+} // namespace Proc
+} // namespace open_power
+} // namespace org
 
 
 namespace details
 {
 
 template <>
-struct map_exception_type<sdbusplus::FSI::Error::MasterDetectionFailure>
+struct map_exception_type<sdbusplus::org::open_power::Proc::FSI::Error::MasterDetectionFailure>
 {
-    using type = FSI::MasterDetectionFailure;
+    using type = org::open_power::Proc::FSI::MasterDetectionFailure;
 };
 
 }
 
+namespace org
+{
+namespace open_power
+{
+namespace Proc
+{
 namespace FSI
 {
 namespace _SlaveDetectionFailure
 {
 
+struct ERRNO
+{
+    static constexpr auto str = "ERRNO=%d";
+    static constexpr auto str_short = "ERRNO";
+    using type = std::tuple<std::decay_t<decltype(str)>,int32_t>;
+    explicit constexpr ERRNO(int32_t a) : _entry(entry(str, a)) {};
+    type _entry;
+};
 
 }  // namespace _SlaveDetectionFailure
 
 struct SlaveDetectionFailure
 {
     static constexpr auto L = level::ERR;
-    using metadata_types = std::tuple<>;
+    using ERRNO = _SlaveDetectionFailure::ERRNO;
+    using metadata_types = std::tuple<ERRNO>;
 
 };
 
 } // namespace FSI
+} // namespace Proc
+} // namespace open_power
+} // namespace org
 
 
 namespace details
 {
 
 template <>
-struct map_exception_type<sdbusplus::FSI::Error::SlaveDetectionFailure>
+struct map_exception_type<sdbusplus::org::open_power::Proc::FSI::Error::SlaveDetectionFailure>
 {
-    using type = FSI::SlaveDetectionFailure;
+    using type = org::open_power::Proc::FSI::SlaveDetectionFailure;
 };
 
 }
