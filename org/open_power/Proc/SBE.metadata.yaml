@@ -1,0 +1,16 @@
+- name: Status
+  meta:
+    - str: "PROC=%d"
+      type: uint16
+    - str: "SBE_BOOTED=%s"
+      type: string
+    - str: "ASYNC_FFDC=%s"
+      type: string
+    - str: "SBE_PREV_STATE=%s"
+      type: string
+    - str: "SBE_CURR_STATE=%s"
+      type: string
+    - str: "SBE_MAJOR_ISTEP=%d"
+      type: uint16
+    - str: "SBE_MINOR_ISTEP=%d"
+      type: uint16

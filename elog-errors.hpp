@@ -240,6 +240,25 @@ namespace Error
 } // namespace xyz
 } // namespace sdbusplus
 
+namespace sdbusplus
+{
+namespace org
+{
+namespace open_power
+{
+namespace Proc
+{
+namespace SBE
+{
+namespace Error
+{
+    struct Status;
+} // namespace Error
+} // namespace SBE
+} // namespace Proc
+} // namespace open_power
+} // namespace org
+} // namespace sdbusplus
 
 namespace phosphor
 {
@@ -1038,7 +1057,122 @@ struct map_exception_type<sdbusplus::xyz::openbmc_project::Common::Error::Intern
 
 }
 
+namespace org
+{
+namespace open_power
+{
+namespace Proc
+{
+namespace SBE
+{
+namespace _Status
+{
+
+struct PROC
+{
+    static constexpr auto str = "PROC=%d";
+    static constexpr auto str_short = "PROC";
+    using type = std::tuple<std::decay_t<decltype(str)>,uint16_t>;
+    explicit constexpr PROC(uint16_t a) : _entry(entry(str, a)) {};
+    type _entry;
+};
+struct SBE_BOOTED
+{
+    static constexpr auto str = "SBE_BOOTED=%s";
+    static constexpr auto str_short = "SBE_BOOTED";
+    using type = std::tuple<std::decay_t<decltype(str)>,const char*>;
+    explicit constexpr SBE_BOOTED(const char* a) : _entry(entry(str, a)) {};
+    type _entry;
+};
+struct ASYNC_FFDC
+{
+    static constexpr auto str = "ASYNC_FFDC=%s";
+    static constexpr auto str_short = "ASYNC_FFDC";
+    using type = std::tuple<std::decay_t<decltype(str)>,const char*>;
+    explicit constexpr ASYNC_FFDC(const char* a) : _entry(entry(str, a)) {};
+    type _entry;
+};
+struct SBE_PREV_STATE
+{
+    static constexpr auto str = "SBE_PREV_STATE=%s";
+    static constexpr auto str_short = "SBE_PREV_STATE";
+    using type = std::tuple<std::decay_t<decltype(str)>,const char*>;
+    explicit constexpr SBE_PREV_STATE(const char* a) : _entry(entry(str, a)) {};
+    type _entry;
+};
+struct SBE_CURR_STATE
+{
+    static constexpr auto str = "SBE_CURR_STATE=%s";
+    static constexpr auto str_short = "SBE_CURR_STATE";
+    using type = std::tuple<std::decay_t<decltype(str)>,const char*>;
+    explicit constexpr SBE_CURR_STATE(const char* a) : _entry(entry(str, a)) {};
+    type _entry;
+};
+struct SBE_MAJOR_ISTEP
+{
+    static constexpr auto str = "SBE_MAJOR_ISTEP=%d";
+    static constexpr auto str_short = "SBE_MAJOR_ISTEP";
+    using type = std::tuple<std::decay_t<decltype(str)>,uint16_t>;
+    explicit constexpr SBE_MAJOR_ISTEP(uint16_t a) : _entry(entry(str, a)) {};
+    type _entry;
+};
+struct SBE_MINOR_ISTEP
+{
+    static constexpr auto str = "SBE_MINOR_ISTEP=%d";
+    static constexpr auto str_short = "SBE_MINOR_ISTEP";
+    using type = std::tuple<std::decay_t<decltype(str)>,uint16_t>;
+    explicit constexpr SBE_MINOR_ISTEP(uint16_t a) : _entry(entry(str, a)) {};
+    type _entry;
+};
+
+}  // namespace _Status
+
+struct Status : public sdbusplus::exception_t
+{
+    static constexpr auto errName = "org.open_power.Proc.SBE.Status";
+    static constexpr auto errDesc = "SBE status from messaging register";
+    static constexpr auto L = level::ERR;
+    using PROC = _Status::PROC;
+    using SBE_BOOTED = _Status::SBE_BOOTED;
+    using ASYNC_FFDC = _Status::ASYNC_FFDC;
+    using SBE_PREV_STATE = _Status::SBE_PREV_STATE;
+    using SBE_CURR_STATE = _Status::SBE_CURR_STATE;
+    using SBE_MAJOR_ISTEP = _Status::SBE_MAJOR_ISTEP;
+    using SBE_MINOR_ISTEP = _Status::SBE_MINOR_ISTEP;
+    using metadata_types = std::tuple<PROC, SBE_BOOTED, ASYNC_FFDC, SBE_PREV_STATE, SBE_CURR_STATE, SBE_MAJOR_ISTEP, SBE_MINOR_ISTEP>;
+    const char* name() const noexcept
+    {
+        return errName;
+    }
+
+    const char* description() const noexcept
+    {
+        return errDesc;
+    }
+
+    const char* what() const noexcept
+    {
+        return errName;
+    }
+};
+
+} // namespace SBE
+} // namespace Proc
+} // namespace open_power
+} // namespace org
+
+namespace details
+{
+
+template <>
+struct map_exception_type<sdbusplus::org::open_power::Proc::SBE::Error::Status>
+{
+    using type = org::open_power::Proc::SBE::Status;
+};
+
+}
 
 } // namespace logging
 
 } // namespace phosphor
+

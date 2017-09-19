@@ -1,0 +1,3 @@
+# org.open_power.Proc.SBE.Status
+- name: Status
+  description: SBE status
