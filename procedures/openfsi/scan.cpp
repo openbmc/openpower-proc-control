@@ -88,7 +88,8 @@ void scan()
     {
         log<level::ERR>("Failed to run the FSI master scan");
 
-        using metadata = org::open_power::Proc::FSI::MasterDetectionFailure;
+        using metadata =
+            sdbusplus::org::open_power::Proc::FSI::MasterDetectionFailure;
 
         elog<fsi_error::MasterDetectionFailure>(
                 metadata::CALLOUT_ERRNO(e.code().value()),
@@ -99,7 +100,8 @@ void scan()
     {
         log<level::ERR>("The FSI master scan did not create a hub scan file");
 
-        using metadata = org::open_power::Proc::FSI::MasterDetectionFailure;
+        using metadata =
+            sdbusplus::org::open_power::Proc::FSI::MasterDetectionFailure;
 
         elog<fsi_error::MasterDetectionFailure>(
                 metadata::CALLOUT_ERRNO(0),
@@ -120,7 +122,8 @@ void scan()
 
         log<level::ERR>("Failed to run the FSI hub scan");
 
-        using metadata = org::open_power::Proc::FSI::SlaveDetectionFailure;
+        using metadata =
+            sdbusplus::org::open_power::Proc::FSI::SlaveDetectionFailure;
 
         elog<fsi_error::SlaveDetectionFailure>(
                 metadata::ERRNO(e.code().value()));
