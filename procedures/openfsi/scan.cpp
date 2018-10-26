@@ -15,6 +15,7 @@
  * limitations under the License.
  */
 #include <experimental/filesystem>
+#include <phosphor-logging/elog-errors.hpp>
 #include <fstream>
 #include <org/open_power/Proc/FSI/error.hpp>
 #include <phosphor-logging/log.hpp>
