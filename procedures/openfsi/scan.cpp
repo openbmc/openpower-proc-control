@@ -18,6 +18,7 @@
 #include <fstream>
 #include <org/open_power/Proc/FSI/error.hpp>
 #include <phosphor-logging/log.hpp>
+#include <phosphor-logging/elog-errors.hpp>
 #include "registration.hpp"
 
 namespace openpower
