@@ -1,5 +1,5 @@
 /**
- * Copyright © 2017 IBM Corporation
+ * Copyright (C) 2017 IBM Corporation
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,7 +27,6 @@ using namespace openpower::cfam::access;
 using namespace openpower::cfam::p9;
 using namespace openpower::targeting;
 
-
 /**
  * @Brief Sets the P9 FSI clock to synchronous mode.
  */
@@ -36,13 +35,11 @@ void setSynchronousFSIClock()
     Targeting targets;
     const auto& master = *(targets.begin());
 
-    //Set bit 31 to 0
+    // Set bit 31 to 0
     writeRegWithMask(master, P9_LL_MODE_REG, 0x00000000, 0x00000001);
 }
 
-
 REGISTER_PROCEDURE("setSyncFSIClock", setSynchronousFSIClock);
 
-}
-}
-
+} // namespace p9
+} // namespace openpower

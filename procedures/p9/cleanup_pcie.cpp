@@ -1,5 +1,5 @@
 /**
- * Copyright © 2018 IBM Corporation
+ * Copyright (C) 2018 IBM Corporation
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,11 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-#include <phosphor-logging/log.hpp>
 #include "cfam_access.hpp"
 #include "p9_cfam.hpp"
 #include "registration.hpp"
 #include "targeting.hpp"
+
+#include <phosphor-logging/log.hpp>
 
 namespace openpower
 {
@@ -46,5 +47,5 @@ void cleanupPcie()
 
 REGISTER_PROCEDURE("cleanupPcie", cleanupPcie);
 
-}
-}
+} // namespace p9
+} // namespace openpower
