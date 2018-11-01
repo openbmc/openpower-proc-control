@@ -1,5 +1,10 @@
 AM_DEFAULT_SOURCE_EXT = .cpp
 
+if HAVE_SYSTEMD
+systemdsystemunit_DATA = \
+  pcie-poweroff@.service
+endif
+
 sbin_PROGRAMS = \
 	openpower-proc-control
 
