@@ -1,6 +1,7 @@
 [Unit]
 Description=POWER9 PCIe Power-off Workaround
 Before=op-power-stop@%i.service
+After=xyz.openbmc_project.Ipmi.Internal.SoftPowerOff.service
 
 [Service]
 Type=oneshot
