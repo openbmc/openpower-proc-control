@@ -1,10 +1,13 @@
 AM_DEFAULT_SOURCE_EXT = .cpp
 
 systemdsystemunit_DATA = \
-  pcie-poweroff@.service
+  pcie-poweroff@.service \
+  sreset.service \
+  xyz.openbmc_project.Control.Host.NMI.service
 
 bin_PROGRAMS = \
-	openpower-proc-control
+	openpower-proc-control \
+        openpower-proc-sreset
 
 openpower_proc_control_SOURCES = \
 	proc_control.cpp \
@@ -15,6 +18,12 @@ openpower_proc_control_SOURCES = \
 	openpower_procedures.cpp \
 	ext_interface.cpp
 
+openpower_proc_sreset_SOURCES = \
+	filedescriptor.cpp \
+	targeting.cpp \
+        soft_reset_main.cpp \
+        soft_reset.cpp
+
 CLEANFILES = openpower_procedures.cpp
 
 openpower_proc_control_LDFLAGS = $(PHOSPHOR_LOGGING_LIBS) \
@@ -24,6 +33,17 @@ openpower_proc_control_LDFLAGS = $(PHOSPHOR_LOGGING_LIBS) \
                                  -lstdc++fs
 
 openpower_proc_control_CXXFLAGS = $(PHOSPHOR_LOGGING_CFLAGS) \
+                                  $(PHOSPHOR_DBUS_INTERFACES_CFLAGS) \
+                                  $(OPENPOWER_DBUS_INTERFACES_CFLAGS) \
+                                  $(SDBUSPLUS_CFLAGS)
+
+openpower_proc_sreset_LDFLAGS = $(PHOSPHOR_LOGGING_LIBS) \
+                                 $(PHOSPHOR_DBUS_INTERFACES_LIBS) \
+                                 $(OPENPOWER_DBUS_INTERFACES_LIBS) \
+                                 $(SDBUSPLUS_LIBS) \
+                                 -lstdc++fs
+
+openpower_proc_sreset_CXXFLAGS = $(PHOSPHOR_LOGGING_CFLAGS) \
                                   $(PHOSPHOR_DBUS_INTERFACES_CFLAGS) \
                                   $(OPENPOWER_DBUS_INTERFACES_CFLAGS) \
                                   $(SDBUSPLUS_CFLAGS)

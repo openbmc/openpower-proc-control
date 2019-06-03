@@ -1,0 +1,12 @@
+[Unit]
+Description=Start the Open Power SRESET service (NMI)
+
+[Service]
+ExecStart=/usr/bin/env openpower-proc-sreset
+SyslogIdentifier=openpower-proc-sreset
+Restart=always
+Type=dbus
+BusName={BUSNAME}
+
+[Install]
+WantedBy=multi-user.target
