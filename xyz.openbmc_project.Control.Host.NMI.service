@@ -1,0 +1,16 @@
+[Unit]
+Description=Start the Open Power Host Control NMI service
+Wants=obmc-host-start-pre@0.target
+Before=obmc-host-start-pre@0.target
+After=obmc-power-on@0.target
+Conflicts=obmc-chassis-poweroff@0.target
+
+[Service]
+ExecStart=/usr/bin/env openpower-proc-nmi
+SyslogIdentifier=openpower-proc-nmi
+Restart=always
+Type=dbus
+BusName=xyz.openbmc_project.Control.Host.NMI
+
+[Install]
+WantedBy=multi-user.target
