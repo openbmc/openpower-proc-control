@@ -1,0 +1,12 @@
+[Unit]
+Description=Open Power SRESET service (NMI)
+
+[Service]
+ExecStart=/usr/bin/env pdbg -a stop
+ExecStart=/usr/bin/env pdbg -a sreset
+SyslogIdentifier=openpower-proc-sreset
+Type=oneshot
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
