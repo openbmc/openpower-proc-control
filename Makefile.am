@@ -4,7 +4,8 @@ systemdsystemunit_DATA = \
   pcie-poweroff@.service
 
 bin_PROGRAMS = \
-	openpower-proc-control
+	openpower-proc-control \
+        openpower-boot-manager
 
 openpower_proc_control_SOURCES = \
 	proc_control.cpp \
@@ -14,6 +15,11 @@ openpower_proc_control_SOURCES = \
 	targeting.cpp \
 	openpower_procedures.cpp \
 	ext_interface.cpp
+
+openpower_boot_manager_SOURCES = \
+        boot_manager.cpp \
+        boot_manager_main.cpp
+
 
 CLEANFILES = openpower_procedures.cpp
 
@@ -27,6 +33,18 @@ openpower_proc_control_CXXFLAGS = $(PHOSPHOR_LOGGING_CFLAGS) \
                                   $(PHOSPHOR_DBUS_INTERFACES_CFLAGS) \
                                   $(OPENPOWER_DBUS_INTERFACES_CFLAGS) \
                                   $(SDBUSPLUS_CFLAGS)
+
+openpower_boot_manager_LDFLAGS = $(PHOSPHOR_LOGGING_LIBS) \
+                                 $(PHOSPHOR_DBUS_INTERFACES_LIBS) \
+                                 $(OPENPOWER_DBUS_INTERFACES_LIBS) \
+                                 $(SDBUSPLUS_LIBS) \
+                                 -lstdc++fs
+
+openpower_boot_manager_CXXFLAGS = $(PHOSPHOR_LOGGING_CFLAGS) \
+                                  $(PHOSPHOR_DBUS_INTERFACES_CFLAGS) \
+                                  $(OPENPOWER_DBUS_INTERFACES_CFLAGS) \
+                                  $(SDBUSPLUS_CFLAGS)
+
 
 SUBDIRS = test
 
