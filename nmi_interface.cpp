@@ -19,6 +19,7 @@
 #include <phosphor-logging/elog-errors.hpp>
 #include <phosphor-logging/elog.hpp>
 #include <xyz/openbmc_project/Common/error.hpp>
+#include <libpdbg.h>
 
 namespace openpower
 {
@@ -33,24 +34,22 @@ NMI::NMI(sdbusplus::bus::bus& bus, const char* path) :
 void NMI::nMI()
 {
     using namespace phosphor::logging;
-    using sdbusplus::exception::SdBusError;
     using InternalFailure =
         sdbusplus::xyz::openbmc_project::Common::Error::InternalFailure;
 
-    constexpr auto SYSTEMD_SERVICE = "org.freedesktop.systemd1";
-    constexpr auto SYSTEMD_OBJ_PATH = "/org/freedesktop/systemd1";
-    constexpr auto SYSTEMD_INTERFACE = "org.freedesktop.systemd1.Manager";
+    struct pdbg_target *target;
+    int rc;
 
-    auto method = bus.new_method_call(SYSTEMD_SERVICE, SYSTEMD_OBJ_PATH,
-                                      SYSTEMD_INTERFACE, "StartUnit");
-    method.append("nmi.service", "replace");
-    try
-    {
-        bus.call_noreply(method);
+    pdbg_for_each_class_target("thread", target) {
+        if (pdbg_target_probe(target) != PDBG_TARGET_ENABLED)
+            continue;
+
+        thread_stop(target);
     }
-    catch (const SdBusError& e)
-    {
-        log<level::ALERT>("Error in starting NMI service. ");
+
+    rc = thread_sreset_all();
+    if (rc < 0) {
+        log<level::ERR>("Failed to sreset all threads");
         report<InternalFailure>();
     }
 }
