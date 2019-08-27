@@ -1,0 +1,23 @@
+[Unit]
+Description=Execute step0 isteps
+Wants=obmc-host-start-pre@%i.target
+Before=obmc-host-start-pre@%i.target
+Wants=obmc-power-on@%i.target
+After=obmc-power-on@%i.target
+Conflicts=obmc-chassis-poweroff@%i.target
+ConditionPathExists=!/run/openbmc/chassis@%i-on
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/env openpower-boot-control --major 0 --minor 0
+ExecStart=/usr/bin/env openpower-boot-control --major 0 --minor 1
+ExecStart=/usr/bin/env openpower-boot-control --major 0 --minor 2
+ExecStart=/usr/bin/env openpower-boot-control --major 0 --minor 3
+ExecStart=/usr/bin/env openpower-boot-control --major 0 --minor 4
+ExecStart=/usr/bin/env openpower-boot-control --major 0 --minor 5
+ExecStart=/usr/bin/env openpower-boot-control --major 0 --minor 6
+SyslogIdentifier=openpower-boot-control
+RemainAfterExit=no
+
+[Install]
+WantedBy=obmc-chassis-poweron@%i.target
