@@ -18,6 +18,7 @@ struct optstruct
     uint8_t end_major;   // Ending major step
     uint8_t start_minor; // Starting minor step
     uint8_t end_minor;   // Ending minor step
+    bool singleStep;     // True when executing a single step
 };
 
 /**
