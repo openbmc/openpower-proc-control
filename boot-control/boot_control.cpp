@@ -2,6 +2,8 @@
 
 #include "bmc_boot_steps.hpp"
 
+#include <iostream>
+
 namespace open_power
 {
 namespace boot
@@ -9,7 +11,7 @@ namespace boot
 
 BmcStepList Control::bmcSteps = {
     {0,
-     {{0, []() { return bmc_steps::StubbedStep(); }},
+     {{0, []() { return bmc_steps::powerOn(); }},
       {1, []() { return bmc_steps::StubbedStep(); }},
       {2, []() { return bmc_steps::StubbedStep(); }},
       {3, []() { return bmc_steps::StubbedStep(); }},
@@ -25,7 +27,34 @@ int Control::executeHostStep(uint8_t stepMajor, uint8_t stepMinor)
 
 int Control::executeBmcStep(uint8_t stepMajor, uint8_t stepMinor)
 {
-    return 0;
+    int rc = -1;
+
+    auto mstep = bmcSteps.find(stepMajor);
+    if (mstep == bmcSteps.end())
+    {
+        std::cerr << "Invalid BMC Major step:" << stepMajor << "\n"
+                  << std::endl;
+        return -1;
+    }
+
+    auto istep = mstep->second.find(stepMinor);
+    if (istep == mstep->second.end())
+    {
+        std::cerr << "Invalid BMC Minor step:" << stepMinor << "\n"
+                  << std::endl;
+    }
+
+    try
+    {
+        rc = (istep->second)();
+    }
+    catch (const std::exception& e)
+    {
+        std::cerr << "Error in executing step\n" << std::endl;
+        rc = -1;
+    }
+
+    return rc;
 }
 
 int Control::executeStep(uint8_t stepMajor, uint8_t stepMinor)
