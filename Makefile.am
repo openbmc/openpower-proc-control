@@ -6,7 +6,8 @@ systemdsystemunit_DATA = \
 
 bin_PROGRAMS = \
 	openpower-proc-control \
-	openpower-proc-nmi
+	openpower-proc-nmi \
+        openpower-boot-control
 
 openpower_proc_control_SOURCES = \
 	proc_control.cpp \
@@ -20,6 +21,10 @@ openpower_proc_control_SOURCES = \
 openpower_proc_nmi_SOURCES = \
 	nmi_main.cpp \
 	nmi_interface.cpp
+
+openpower_boot_control_SOURCES = \
+        boot_control.cpp \
+        boot_control_main.cpp
 
 CLEANFILES = openpower_procedures.cpp
 
@@ -41,6 +46,10 @@ openpower_proc_nmi_LDFLAGS = $(PHOSPHOR_LOGGING_LIBS) \
 openpower_proc_nmi_CXXFLAGS = $(PHOSPHOR_LOGGING_CFLAGS) \
                               $(PHOSPHOR_DBUS_INTERFACES_CFLAGS) \
                               $(SDBUSPLUS_CFLAGS)
+
+openpower_boot_control_LDFLAGS = $(PHOSPHOR_LOGGING_LIBS) 
+
+openpower_boot_control_CXXFLAGS = $(PHOSPHOR_LOGGING_CFLAGS)
 
 SUBDIRS = test
 
