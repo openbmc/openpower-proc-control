@@ -1,10 +1,16 @@
 #pragma once
 #include <stdint.h>
 
+#include <functional>
+#include <map>
+
 namespace open_power
 {
 namespace boot
 {
+
+using BmcExecList = std::map<uint8_t, std::function<int(void)>>;
+using BmcStepList = std::map<uint8_t, BmcExecList>;
 
 /** @class Control
  *  @brief Implements boot step control
@@ -27,6 +33,7 @@ class Control
      *  @return    zero if success.
      */
     int executeStep(uint8_t stepMajor, uint8_t stepMinor);
+    static BmcStepList bmcSteps;
 
   private:
     /** @brief Execute a boot step in BMC.
