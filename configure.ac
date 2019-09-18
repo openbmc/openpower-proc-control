@@ -41,6 +41,30 @@ AS_IF([test "x$enable_oe_sdk" == "xyes"],
 AC_ARG_VAR(CHIPS, [The list of chips to build the procedures for])
 AS_IF([test "x$CHIPS" == "x"], [CHIPS="p9 openfsi"])
 
+AC_DEFINE(SYSTEMD_SERVICE, "org.freedesktop.systemd1",
+    [systemd service.])
+AC_DEFINE(SYSTEMD_OBJ_PATH, "/org/freedesktop/systemd1",
+    [systemd object path.])
+AC_DEFINE(SYSTEMD_INTERFACE, "org.freedesktop.systemd1.Manager",
+    [systemd interface.])
+AC_DEFINE(CHASSIS_ON_TGT, "obmc-chassis-poweron@0.target",
+    [chassis on target.])
+AC_DEFINE(MAPPER_BUSNAME, "xyz.openbmc_project.ObjectMapper",
+    [mapper bus name.])
+AC_DEFINE(MAPPER_PATH, "/xyz/openbmc_project/object_mapper",
+    [mapper path.])
+AC_DEFINE(MAPPER_INTERFACE, "xyz.openbmc_project.ObjectMapper",
+    [mapper interface.])
+AC_DEFINE(SYSTEMD_PROPERTY_INTERFACE, "org.freedesktop.DBus.Properties",
+    [systemd properties interface.])
+AC_DEFINE(CHASSIS_STATE_PATH, "/xyz/openbmc_project/state/chassis0",
+    [chassis state path.])
+AC_DEFINE(CHASSIS_STATE_OBJ, "xyz.openbmc_project.State.Chassis",
+    [chassis state object.])
+AC_DEFINE(CHASSIS_STATE_OFF, "xyz.openbmc_project.State.Chassis.PowerState.Off",
+    [chassis state off property.])
+
+
 AC_CONFIG_FILES([Makefile.generated],
     [${srcdir}/gen_makefile.sh ${srcdir} "$myChips" > Makefile.generated],
     [myChips="$CHIPS"])
@@ -71,4 +95,5 @@ AC_CONFIG_FILES([Makefile
         boot-control/Makefile])
 AC_CONFIG_FILES([pcie-poweroff@.service])
 AC_CONFIG_FILES([xyz.openbmc_project.Control.Host.NMI.service])
+AC_CONFIG_HEADERS([config.h])
 AC_OUTPUT
