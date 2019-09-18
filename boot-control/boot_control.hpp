@@ -1,5 +1,9 @@
 #pragma once
+
 #include <stdint.h>
+
+#include <functional>
+#include <map>
 
 namespace open_power
 {
@@ -28,6 +32,7 @@ class Control
      */
     int executeStep(uint8_t stepMajor, uint8_t stepMinor);
     static BmcStepList bmcSteps;
+
   private:
     int executeBmcStep(uint8_t stepMajor, uint8_t stepMinor);
     int executeHostStep(uint8_t stepMajor, uint8_t stepMinor);

@@ -11,7 +11,7 @@ int main(int argc, char** argv)
 
     open_power::boot::Control ctrl;
 
-    //Faster execution if only one step is specified
+    // Faster execution if only one step is specified
     if ((opt.start_major == opt.end_major) &&
         (opt.start_minor == opt.end_minor) && (opt.start_minor != 0xFF))
     {
