@@ -1,4 +1,5 @@
 #include "boot_control.hpp"
+#include "bmc_boot_steps.hpp"
 
 #include <iostream>
 
@@ -7,8 +8,23 @@ namespace open_power
 namespace boot
 {
 
-MajorStepsList Control::majorSteps =
-                                 {{0,{ExecStepType::BMC_STEP,{{0,"poweron"}}}}};
+BmcStepList bmcSteps = {{0,{{0,[](){return BmcExecutor::PowerOn();}},
+                           {1,[](){return BmcExecutor::StartIpl();}},
+                           {2,[](){return BmcExecutor::SetRefClock();}},
+                           {3,[](){return BmcExecutor::ProcClockTest();}},
+                           {4,[](){return BmcExecutor::ProcPrepIpl();}},
+                           {5,[](){return BmcExecutor::ProcSelectBootMater();}},
+                           {6,[](){return BmcExecutor::SbeConfigUpdate();}},
+                           {7,[](){return BmcExecutor::SbeStart();}}}}};
+
+MajorStepsList Control::majorSteps = {{0,{ExecStepType::BMC_STEP,{{0,"poweron"},
+                                                     {1,"startipl"},
+                                                     {2,"setrefclock"},
+                                                     {3,"procclocktest"},
+                                                     {4,"procprepipl"},
+                                                     {5,"procselectbootmaster"},
+                                                     {6,"sbeconfigupdate"},
+                                                     {7,"sbestart"}}}}};
 
 int BmcStep::executeStep(uint8_t stepMajor, uint8_t stepMinor)
 {
