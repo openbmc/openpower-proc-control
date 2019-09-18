@@ -28,7 +28,7 @@ MajorStepsList Control::majorSteps = {{0,{ExecStepType::BMC_STEP,{{0,"poweron"},
 
 int BmcStep::executeStep(uint8_t stepMajor, uint8_t stepMinor)
 {
-    return 0;
+    return bmcSteps[stepMajor][stepMinor]();
 }
 
 int SbeStep::executeStep(uint8_t stepMajor, uint8_t stepMinor)
