@@ -3,7 +3,6 @@
 
 int main(int argc, char** argv)
 {
-    int rc = -1;
     open_power::boot::util::optstruct opt;
     open_power::boot::util::parseArguments(argc, argv, opt);
 
@@ -14,5 +13,6 @@ int main(int argc, char** argv)
     {
         return ctrl.executeStep(opt.start_major, opt.start_minor);
     }
-    return rc;
+    // else execute the range
+    return ctrl.executeRange(opt.start_major, opt.end_major);
 }
