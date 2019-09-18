@@ -84,6 +84,7 @@ void parseArguments(int argc, char** argv, optstruct& opt)
         opt.end_major = opt.start_major;
         opt.start_minor = std::stoi(minor);
         opt.end_minor = opt.start_minor;
+        opt.singleStep = true;
         optionsValid = true;
     }
 
