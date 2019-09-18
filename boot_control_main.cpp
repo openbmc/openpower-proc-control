@@ -16,7 +16,8 @@ int main(int argc, char** argv)
         (opt.start_minor == opt.end_minor) &&
         (opt.start_minor != 0xFF))
     {
-        return ctrl.executeStep(opt.start_major, opt.start_minor);
+        return ctrl.executeRange(opt.start_major, opt.start_minor);
     } 
+    rc = ctrl.executeStep(opt.start_major, opt.end_major);
     return rc;
 }
