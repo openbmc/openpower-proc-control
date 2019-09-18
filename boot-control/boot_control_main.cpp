@@ -4,7 +4,6 @@
 #include <CLI/CLI.hpp>
 #include <iostream>
 #include <phosphor-logging/elog-errors.hpp>
-
 int main(int argc, char** argv)
 {
     using namespace phosphor::logging;
@@ -24,6 +23,12 @@ int main(int argc, char** argv)
     {
         openpower::boot::Control ctrl;
         ctrl.executeStep(major, minor);
+    }
+    catch (const InternalFailure& e)
+    {
+        std::cerr << "Error in executing the step " << e.what() << std::endl;
+        commit<InternalFailure>();
+        std::exit(EXIT_FAILURE);
     }
     catch (std::exception& e)
     {
