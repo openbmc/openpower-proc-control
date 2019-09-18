@@ -8,15 +8,16 @@ namespace open_power
 namespace boot
 {
 
-BmcStepList Control::bmcSteps =
-            {{0,{{0,[](){return bmc_steps::StubbedStep();}},
-                 {1,[](){return bmc_steps::StubbedStep();}},
-                 {2,[](){return bmc_steps::StubbedStep();}},
-                 {3,[](){return bmc_steps::StubbedStep();}},
-                 {4,[](){return bmc_steps::StubbedStep();}},
-                 {5,[](){return bmc_steps::StubbedStep();}},
-                 {6,[](){return bmc_steps::StubbedStep();}},
-                 {7,[](){return bmc_steps::StubbedStep();}}}}};
+BmcStepList Control::bmcSteps = {
+    {0,
+     {{0, []() { return bmc_steps::powerOn(); }},
+      {1, []() { return bmc_steps::StubbedStep(); }},
+      {2, []() { return bmc_steps::StubbedStep(); }},
+      {3, []() { return bmc_steps::StubbedStep(); }},
+      {4, []() {return bmc_steps::StubbedStep(); }},
+      {5, []() {return bmc_steps::StubbedStep(); }},
+      {6, []() {return bmc_steps::StubbedStep(); }},
+      {7, []() {return bmc_steps::StubbedStep(); }}}}};
 
 int Control::executeHostStep(uint8_t stepMajor, uint8_t stepMinor)
 {

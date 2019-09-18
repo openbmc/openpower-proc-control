@@ -1,4 +1,6 @@
 #pragma once
+#include <functional>
+#include <map>
 #include <stdint.h>
 
 namespace open_power
@@ -27,7 +29,8 @@ class Control
      *  @param[in] stepMinor - a Minor boot step or substep.
      */
     int executeStep(uint8_t stepMajor, uint8_t stepMinor);
-    static BmcStepList bmcSteps; 
+    static BmcStepList bmcSteps;
+
   private:
     int executeBmcStep(uint8_t stepMajor, uint8_t stepMinor);
     int executeHostStep(uint8_t stepMajor, uint8_t stepMinor);
