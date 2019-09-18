@@ -45,6 +45,23 @@ AC_CONFIG_FILES([Makefile.generated],
     [${srcdir}/gen_makefile.sh ${srcdir} "$myChips" > Makefile.generated],
     [myChips="$CHIPS"])
 
+AC_ARG_ENABLE([phal-boot],
+              [
+AS_HELP_STRING([--enable-phal-boot],
+               [Turn on pHAL infrastructure boot control application])
+              ])
+AC_MSG_CHECKING(pHAL boot application is required)
+AS_IF([test "x$enable_phal_boot" == "xyes"],
+      [
+       AC_MSG_RESULT(yes)
+       AC_CONFIG_FILES([boot-control/Makefile])
+      ],
+      [
+       AC_MSG_RESULT(no)
+      ]
+     )
+AM_CONDITIONAL([IS_PHAL_BOOT_REQUIRED], [test "x$enable_phal_boot" == "xyes"])
+
 AC_CHECK_LIB([pdbg], [thread_sreset_all])
 
 PKG_CHECK_MODULES([SYSTEMD], [libsystemd >= 221])
@@ -66,8 +83,9 @@ AS_IF([test "x$with_systemdsystemunitdir" = "xyes" -o "x$with_systemdsystemunitd
    [with_systemdsystemunitdir="$def_systemdsystemunitdir"])])
 AS_IF([test "x$with_systemdsystemunitdir" != "xno"],
       [AC_SUBST([systemdsystemunitdir], [$with_systemdsystemunitdir])])
+AC_CONFIG_FILES([Makefile
+        test/Makefile])
 
-AC_CONFIG_FILES([Makefile test/Makefile])
 AC_CONFIG_FILES([pcie-poweroff@.service])
 AC_CONFIG_FILES([xyz.openbmc_project.Control.Host.NMI.service])
 AC_OUTPUT

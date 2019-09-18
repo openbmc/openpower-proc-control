@@ -44,4 +44,8 @@ openpower_proc_nmi_CXXFLAGS = $(PHOSPHOR_LOGGING_CFLAGS) \
 
 SUBDIRS = test
 
+if IS_PHAL_BOOT_REQUIRED
+SUBDIRS += boot-control
+endif
+
 -include Makefile.generated
