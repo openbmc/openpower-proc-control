@@ -88,4 +88,5 @@ AC_CONFIG_FILES([Makefile
 
 AC_CONFIG_FILES([pcie-poweroff@.service])
 AC_CONFIG_FILES([xyz.openbmc_project.Control.Host.NMI.service])
+AC_CONFIG_HEADERS([config.h])
 AC_OUTPUT
