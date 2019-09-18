@@ -1,4 +1,5 @@
 #include "boot_control.hpp"
+
 #include "bmc_boot_steps.hpp"
 
 #include <iostream>
@@ -10,7 +11,7 @@ namespace boot
 
 BmcStepList Control::bmcSteps = {
     {0,
-     {{0, []() { return bmc_steps::StubbedStep(); }},
+     {{0, []() { return bmc_steps::powerOn(); }},
       {1, []() { return bmc_steps::StubbedStep(); }},
       {2, []() { return bmc_steps::StubbedStep(); }},
       {3, []() { return bmc_steps::StubbedStep(); }},
