@@ -24,7 +24,8 @@ openpower_proc_nmi_SOURCES = \
 
 openpower_boot_control_SOURCES = \
         boot_control.cpp \
-        boot_control_main.cpp
+        boot_control_main.cpp \
+        argument.cpp
 
 CLEANFILES = openpower_procedures.cpp
 
