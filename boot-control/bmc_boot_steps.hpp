@@ -4,6 +4,9 @@ namespace boot
 {
 namespace bmc_steps
 {
+/** @brief Apply power to the chassis.
+ */
+int powerOn();
 
 /** @brief An place holder for stubbed steps
  */

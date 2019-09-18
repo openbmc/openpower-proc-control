@@ -7,8 +7,8 @@ openpower_boot_control_SOURCES = \
         boot_control.cpp \
         boot_control_main.cpp \
         argument.cpp \
-        bmc_boot_steps.cpp
-
+        bmc_boot_steps.cpp \
+        util.cpp
 
 openpower_boot_control_LDFLAGS = $(PHOSPHOR_LOGGING_LIBS)
 
