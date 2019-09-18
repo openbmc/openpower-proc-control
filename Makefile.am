@@ -42,6 +42,6 @@ openpower_proc_nmi_CXXFLAGS = $(PHOSPHOR_LOGGING_CFLAGS) \
                               $(PHOSPHOR_DBUS_INTERFACES_CFLAGS) \
                               $(SDBUSPLUS_CFLAGS)
 
-SUBDIRS = test
+SUBDIRS = test boot-control
 
 -include Makefile.generated
