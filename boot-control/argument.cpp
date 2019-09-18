@@ -55,17 +55,21 @@ void ArgumentParser::usage(char** argv)
     std::cerr << "    --help            Print this menu\n";
     std::cerr << "    --major           Step Major Number\n";
     std::cerr << "    --minor           Step Minor Number\n";
+    std::cerr << "    --step            Execute boot steps\n";
+    std::cerr << "                      separate range of steps\n";
+    std::cerr << "                      by '..'\n";
     std::cerr << std::flush;
 }
 
 const option ArgumentParser::options[] = {
     {"major", required_argument, nullptr, 'm'},
     {"minor", required_argument, nullptr, 'i'},
+    {"step", required_argument, nullptr, 's'},
     {"help", no_argument, nullptr, 'h'},
     {0, 0, 0, 0},
 };
 
-const char* ArgumentParser::optionstr = "mih?";
+const char* ArgumentParser::optionstr = "mish?";
 
 const std::string ArgumentParser::true_string = "true";
 const std::string ArgumentParser::empty_string = "";
@@ -77,6 +81,7 @@ void parseArguments(int argc, char** argv, optstruct& opt)
 
     auto major = (options)["major"];
     auto minor = (options)["minor"];
+    auto steps = (options)["step"];
 
     if ((!minor.empty()) && (!major.empty()))
     {
@@ -84,6 +89,25 @@ void parseArguments(int argc, char** argv, optstruct& opt)
         opt.end_major = opt.start_major;
         opt.start_minor = std::stoi(minor);
         opt.end_minor = opt.start_minor;
+        optionsValid = true;
+    }
+    else if (!steps.empty())
+    {
+        auto splitPos = steps.find("..");
+        if (splitPos == std::string::npos)
+        {
+            opt.start_major = std::stoi(steps);
+            opt.end_major = std::stoi(steps);
+            opt.start_minor = 0xFF;
+            opt.end_minor = 0xFF;
+        }
+        else
+        {
+            opt.start_major = std::stoi(steps.substr(0, splitPos));
+            opt.end_major = std::stoi(steps.substr(splitPos + 2));
+            opt.start_minor = 0xFF;
+            opt.end_minor = 0xFF;
+        }
         optionsValid = true;
     }
 
