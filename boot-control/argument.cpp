@@ -59,13 +59,14 @@ void ArgumentParser::usage(char** argv)
 }
 
 const option ArgumentParser::options[] = {
-    {"major", required_argument, nullptr, 'm'},
-    {"minor", required_argument, nullptr, 'i'},
+    {"major", optional_argument, nullptr, 'm'},
+    {"minor", optional_argument, nullptr, 'i'},
+    {"minor", optional_argument, nullptr, 's'},
     {"help", no_argument, nullptr, 'h'},
     {0, 0, 0, 0},
 };
 
-const char* ArgumentParser::optionstr = "mih?";
+const char* ArgumentParser::optionstr = "mish?";
 
 const std::string ArgumentParser::true_string = "true";
 const std::string ArgumentParser::empty_string = "";
@@ -77,6 +78,7 @@ void parseArguments(int argc, char** argv, optstruct& opt)
 
     auto major = (options)["major"];
     auto minor = (options)["minor"];
+    auto steps = (options)["step"];
 
     if ((!minor.empty()) && (!major.empty()))
     {
@@ -84,6 +86,25 @@ void parseArguments(int argc, char** argv, optstruct& opt)
         opt.end_major = opt.start_major;
         opt.start_minor = std::stoi(minor);
         opt.end_minor = opt.start_minor;
+        optionsValid = true;
+    }
+    else if (!steps.empty())
+    {
+        auto splitPos = steps.find("..");
+        if (splitPos == std::string::npos)
+        {
+            opt.start_major = std::stoi(steps);
+            opt.end_major = std::stoi(steps);
+            opt.start_minor = 0xFF;
+            opt.end_minor = 0xFF;
+        }
+        else
+        {
+            opt.start_major = std::stoi(steps.substr(0, splitPos));
+            opt.end_major = std::stoi(steps.substr(splitPos));
+            opt.start_minor = 0xFF;
+            opt.end_minor = 0xFF;
+        }
         optionsValid = true;
     }
 
