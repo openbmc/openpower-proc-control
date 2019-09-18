@@ -1,10 +1,13 @@
 #include "boot_control.hpp"
+#include "xyz/openbmc_project/Common/error.hpp"
 
 #include <CLI/CLI.hpp>
 #include <iostream>
-
+#include <phosphor-logging/elog-errors.hpp>
 int main(int argc, char** argv)
 {
+    using namespace phosphor::logging;
+    using namespace sdbusplus::xyz::openbmc_project::Common::Error;
     CLI::App app{"OpenPOWER boot control"};
 
     // Boot step major number
@@ -33,6 +36,12 @@ int main(int argc, char** argv)
     try
     {
         ctrl.executeStep(major_number, minor_number);
+    }
+    catch (const InternalFailure& e)
+    {
+        std::cerr << "Error in executing the step " << e.what() << std::endl;
+        commit<InternalFailure>();
+        exit(-1);
     }
     catch (std::exception& e)
     {
