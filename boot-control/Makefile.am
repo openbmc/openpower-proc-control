@@ -27,10 +27,17 @@ openpower_boot_control_CXXFLAGS = $(PHOSPHOR_LOGGING_CFLAGS) \
 
 openpower_boot_control_LDADD = -lekb -latdb -lpdbg
 
+openpower_boot_controldir = @datadir@/boot/
+openpower_boot_control_DATA = boot_steps.json
+
+boot_steps.json :
+	ln -sf $(srcdir)/$(CHIP_VERSION)/boot_steps.json boot_steps.json
+
 bmc_boot_steps.cpp :
 	ln -sf $(srcdir)/$(CHIP_VERSION)/bmc_boot_steps.cpp bmc_boot_steps.cpp
 	ln -sf $(srcdir)/$(CHIP_VERSION)/bmc_boot_steps.hpp bmc_boot_steps.hpp
 
 CLEANFILES = bmc_boot_steps.cpp \
              bmc_boot_steps.hpp \
-             step0@.service
+             step0@.service \
+             boot_steps.json

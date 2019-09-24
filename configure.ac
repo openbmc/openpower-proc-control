@@ -113,6 +113,9 @@ AS_IF([test "x$enable_phal_boot" == "xyes"],
                           [Attributes information file path])
 
        AC_CONFIG_FILES([boot-control/step0@.service])
+
+       AC_DEFINE(BOOT_STEP_FILE, "/usr/share/boot/boot_steps.json",
+                 [boot step file location.])
       ],
       [
        AC_MSG_RESULT(no)
