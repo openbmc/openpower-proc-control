@@ -28,4 +28,4 @@ openpower_boot_control_CXXFLAGS = $(PHOSPHOR_LOGGING_CFLAGS) \
 
 openpower_boot_control_LDADD = -lekb -latdb -lpdbg
 
-CLEANFILES = bmc_boot_steps.cpp bmc_boot_steps.hpp
+CLEANFILES = bmc_boot_steps.cpp bmc_boot_steps.hpp boot_steps.json
