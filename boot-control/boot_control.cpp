@@ -2,7 +2,9 @@
 
 #include "bmc_boot_steps.hpp"
 
+#include <fstream>
 #include <iostream>
+#include <nlohmann/json.hpp>
 
 namespace open_power
 {
@@ -19,8 +21,6 @@ BmcStepList Control::bmcSteps = {
       {5, []() { return bmc_steps::StubbedStep(); }},
       {6, []() { return bmc_steps::StubbedStep(); }},
       {7, []() { return bmc_steps::StubbedStep(); }}}}};
-
-MajorStepsList Control::majorSteps = {{0, {{0, "poweron"}}}};
 
 int Control::executeHostStep(uint8_t stepMajor, uint8_t stepMinor)
 {
@@ -46,9 +46,54 @@ int Control::executeStep(uint8_t stepMajor, uint8_t stepMinor)
     return rc;
 }
 
+int Control::loadSteps()
+{
+    const char* stepsFilename = "/tmp/boot_steps.json";
+    std::ifstream stepsFile(stepsFilename);
+    if (!stepsFile.is_open())
+    {
+        std::cout << "failed to open file" << std::endl;
+        return -1;
+
+    }
+
+    auto data = nlohmann::json::parse(stepsFile, nullptr, false);
+    if (data.is_discarded())
+    {
+        std::cout << "invalid json file" << std::endl;
+        return -1;
+    }
+
+    try
+    {
+        for (const auto& entry : data)
+        {
+            MajorStepNumber majorStep =
+                entry.at("MajorStep").get<MajorStepNumber>();
+            auto minorSteps = entry.at("MinorSteps");
+            MinorStepList mList;
+            for (const auto& mEntry : minorSteps)
+            {
+                mList.insert(
+                   std::make_pair(mEntry.at("MinorStep").get<MinorStepNumber>(),
+                   mEntry.at("StepName").get<StepName>()));
+            }
+            majorSteps.insert(std::make_pair(majorStep, mList));
+        }
+    }
+    catch (const std::exception& e)
+    {
+        std::cout << "Error in parsing json file" << std::endl;
+        return -1;
+    }
+    return 0;
+}
+
 int Control::executeRange(uint8_t startStep, uint8_t endStep)
 {
     int rc = -1;
+
+    rc = loadSteps();
 
     auto begin_step = majorSteps.find(startStep);
     if (begin_step == majorSteps.end())
@@ -63,6 +108,7 @@ int Control::executeRange(uint8_t startStep, uint8_t endStep)
         std::cout << "Invalid end step :" << endStep << std::endl;
         return -1;
     }
+
     for (auto iter = begin_step; iter != majorSteps.end(); iter++)
     {
         for (auto miter = iter->second.begin(); miter != iter->second.end();
