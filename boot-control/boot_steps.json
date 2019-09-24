@@ -1,0 +1,26 @@
+[
+{
+    "MajorStep": 0,
+    "MinorSteps": [{
+            "MinorStep": 0,
+            "StepName": "PowerOn"
+        },
+        {
+            "MinorStep": 1,
+            "StepName": "StartIpl"
+        }
+    ]
+},
+{
+    "MajorStep": 1,
+    "MinorSteps": [{
+            "MinorStep": 0,
+            "StepName": "step10"
+        },
+        {
+            "MinorStep": 1,
+            "StepName": "step11"
+        }
+    ]
+}
+]
