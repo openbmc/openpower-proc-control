@@ -3,9 +3,12 @@
 #include "bmc_boot_steps.hpp"
 #include "xyz/openbmc_project/Common/error.hpp"
 
+#include <fstream>
 #include <iostream>
+#include <nlohmann/json.hpp>
 #include <phosphor-logging/elog-errors.hpp>
 
+#include "../config.h"
 namespace openpower
 {
 namespace boot
@@ -14,9 +17,6 @@ using namespace phosphor::logging;
 using namespace sdbusplus::xyz::openbmc_project::Common::Error;
 
 BMCStepList Control::bmcSteps = {{0, {{0, []() { bmc_steps::powerOn(); }}}}};
-
-MajorStepsList Control::majorSteps = {{0, {{0, "poweron"}}},
-                                      {1, {{0, "sbestub"}}}};
 
 void Control::executeBMCStep(uint8_t stepMajor, uint8_t stepMinor)
 {
@@ -48,6 +48,49 @@ void Control::executeStep(uint8_t stepMajor, uint8_t stepMinor)
     }
 }
 
+void Control::loadSteps()
+{
+    std::ifstream stepsFile(BOOT_STEP_FILE);
+    if (!stepsFile.is_open())
+    {
+        log<level::ERR>("Failed to open json file",
+                        entry("jsonFile=%s", BOOT_STEP_FILE));
+        elog<InternalFailure>();
+    }
+
+    auto data = nlohmann::json::parse(stepsFile, nullptr, false);
+    if (data.is_discarded())
+    {
+        log<level::ERR>("Invalid json file",
+                        entry("jsonFile=%s", BOOT_STEP_FILE));
+        elog<InternalFailure>();
+    }
+
+    try
+    {
+        for (const auto& entry : data)
+        {
+            MajorStepNumber majorStep =
+                entry.at("MajorStep").get<MajorStepNumber>();
+            auto minorSteps = entry.at("MinorSteps");
+            MinorStepList minorStepList;
+            for (const auto& minorStep : minorSteps)
+            {
+                minorStepList.insert(std::make_pair(
+                    minorStep.at("MinorStep").get<MinorStepNumber>(),
+                    minorStep.at("StepName").get<StepName>()));
+            }
+            majorSteps.insert(std::make_pair(majorStep, minorStepList));
+        }
+    }
+    catch (const std::exception& e)
+    {
+        log<level::ERR>("Error in parsing json file",
+                        entry("jsonFile=%s", BOOT_STEP_FILE));
+        elog<InternalFailure>();
+    }
+}
+
 void Control::executeRange(uint8_t startStep, uint8_t endStep)
 {
     if (endStep < startStep)
@@ -55,6 +98,20 @@ void Control::executeRange(uint8_t startStep, uint8_t endStep)
         log<level::ERR>("Start step cannot be grater than end step",
                         entry("STARTSTEP=%d", startStep),
                         entry("ENDSTEP=%d", endStep));
+        elog<InternalFailure>();
+    }
+
+    try
+    {
+        loadSteps();
+    }
+    catch (const InternalFailure& e)
+    {
+        throw;
+    }
+    catch (const std::exception& e)
+    {
+        log<level::ERR>("Error in loading steps");
         elog<InternalFailure>();
     }
 
@@ -71,6 +128,7 @@ void Control::executeRange(uint8_t startStep, uint8_t endStep)
         log<level::ERR>("Invalid end step", entry("ENDSTEP=%d", endStep));
         elog<InternalFailure>();
     }
+
     for (auto iter = begin_step; iter != majorSteps.end(); iter++)
     {
         for (auto& mStep : iter->second)
