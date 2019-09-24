@@ -111,6 +111,8 @@ AC_DEFINE(CHASSIS_STATE_OBJ, "xyz.openbmc_project.State.Chassis",
     [chassis state object.])
 AC_DEFINE(CHASSIS_STATE_OFF, "xyz.openbmc_project.State.Chassis.PowerState.Off",
     [chassis state off property.])
+AC_DEFINE(BOOT_STEP_FILE, "/usr/share/boot/step_file.json",
+    [boot step file location.])
 
 
 AC_CONFIG_FILES([Makefile.generated],
