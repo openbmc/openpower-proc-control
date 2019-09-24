@@ -13,6 +13,7 @@ int main(int argc, char** argv)
     {
         return ctrl.executeStep(opt.start_major, opt.start_minor);
     }
+
     // else execute the range
     return ctrl.executeRange(opt.start_major, opt.end_major);
 }
