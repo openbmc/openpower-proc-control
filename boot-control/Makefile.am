@@ -30,5 +30,6 @@ openpower_boot_control_LDADD = -lekb -latdb -lpdbg
 bmc_boot_steps.cpp :
 	ln -sf $(CHIP_VERSION)/bmc_boot_steps.cpp bmc_boot_steps.cpp
 	ln -sf $(CHIP_VERSION)/bmc_boot_steps.hpp bmc_boot_steps.hpp
+	ln -sf $(CHIP_VERSION)/boot_steps.json boot_steps.json
 
-CLEANFILES = bmc_boot_steps.cpp bmc_boot_steps.hpp
+CLEANFILES = bmc_boot_steps.cpp bmc_boot_steps.hpp boot_steps.json
