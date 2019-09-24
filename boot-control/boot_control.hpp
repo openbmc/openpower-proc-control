@@ -52,7 +52,7 @@ class Control
 
   private:
     static BMCStepList bmcSteps;
-    static MajorStepsList majorSteps;
+    MajorStepsList majorSteps;
 
     /** @brief Execute a boot step in BMC.
      *  @param[in] stepMajor - a Major boot step.
@@ -61,6 +61,12 @@ class Control
      *  @error  InternalFailure exception thrown
      */
     void executeBMCStep(uint8_t stepMajor, uint8_t stepMinor);
+
+    /** @brief Load step information from json file.
+     *
+     *  @error  InternalFailure exception thrown
+     */
+    void loadSteps();
 };
 } // namespace boot
 } // namespace openpower
