@@ -39,7 +39,6 @@ class Control
      *  @param[in] stepMinor - a Minor boot step or substep.
      *  @return    zero if success.
      */
-
     int executeStep(uint8_t stepMajor, uint8_t stepMinor);
 
     /*  @brief Execute a range of boot step.
@@ -49,7 +48,7 @@ class Control
     int executeRange(uint8_t startStep, uint8_t endStep);
 
     static BmcStepList bmcSteps;
-    static MajorStepsList majorSteps;
+    MajorStepsList majorSteps;
 
   private:
     /*  @brief Execute a boot step in BMC.
@@ -65,6 +64,7 @@ class Control
      *  @return    zero if success.
      */
     int executeHostStep(uint8_t stepMajor, uint8_t stepMinor);
+    int loadSteps();
 };
 } // namespace boot
 } // namespace open_power
