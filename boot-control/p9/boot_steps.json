@@ -1,0 +1,30 @@
+[
+{
+    "MajorStep": 0,
+    "MinorSteps": [{
+            "MinorStep": 0,
+            "StepName": "step0"
+        },
+        {
+            "MinorStep": 6,
+            "StepName": "sbeConfigUpdate"
+        },
+        {
+            "MinorStep": 7,
+            "StepName": "startSbe"
+        }
+    ]
+},
+{
+    "MajorStep": 1,
+    "MinorSteps": [{
+            "MinorStep": 0,
+            "StepName": "step10"
+        },
+        {
+            "MinorStep": 1,
+            "StepName": "step11"
+        }
+    ]
+}
+]
