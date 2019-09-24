@@ -51,7 +51,7 @@ class Control
     void executeRange(uint8_t startStep, uint8_t endStep);
 
     static BmcStepList bmcSteps;
-    static MajorStepsList majorSteps;
+    MajorStepsList majorSteps;
 
   private:
     /** @brief Execute a boot step in BMC.
@@ -61,6 +61,10 @@ class Control
      *  @error  InternalFailure exception thrown
      */
     void executeBmcStep(uint8_t stepMajor, uint8_t stepMinor);
+
+    /*  @brief Load step information from json file.
+     */
+    void loadSteps();
 };
 } // namespace boot
 } // namespace openpower
