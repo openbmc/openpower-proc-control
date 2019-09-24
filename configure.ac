@@ -94,6 +94,9 @@ AS_IF([test "x$ATTRIBUTES_INFO_FILE_PATH" == "x"],
 AC_DEFINE_UNQUOTED([ATTRIBUTES_INFO_FILE_PATH], ["$ATTRIBUTES_INFO_FILE_PATH"],
                    [Attributes information file path])
 
+AC_DEFINE(BOOT_STEP_FILE, "/usr/share/boot/step_file.json",
+    [boot step file location.])
+
 AC_CONFIG_FILES([Makefile.generated],
     [${srcdir}/gen_makefile.sh ${srcdir} "$myChips" > Makefile.generated],
     [myChips="$CHIPS"])
