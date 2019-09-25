@@ -8,9 +8,18 @@ namespace bmc_steps
  */
 int powerOn();
 
+/** @brief Execute SBE Config update hardware procedure
+ */
+int sbeConfigUpdate();
+
+/** @brief Execute Start CBS hardware procedure
+ */
+int startCbs();
+
 /** @brief An place holder for stubbed steps
  */
-int StubbedStep();
+int stubbedStep();
+
 } // namespace bmc_steps
 } // namespace boot
 } // namespace open_power

@@ -12,13 +12,13 @@ namespace boot
 BmcStepList Control::bmcSteps = {
     {0,
      {{0, []() { return bmc_steps::powerOn(); }},
-      {1, []() { return bmc_steps::StubbedStep(); }},
-      {2, []() { return bmc_steps::StubbedStep(); }},
-      {3, []() { return bmc_steps::StubbedStep(); }},
-      {4, []() { return bmc_steps::StubbedStep(); }},
-      {5, []() { return bmc_steps::StubbedStep(); }},
-      {6, []() { return bmc_steps::StubbedStep(); }},
-      {7, []() { return bmc_steps::StubbedStep(); }}}}};
+      {1, []() { return bmc_steps::stubbedStep(); }},
+      {2, []() { return bmc_steps::stubbedStep(); }},
+      {3, []() { return bmc_steps::stubbedStep(); }},
+      {4, []() { return bmc_steps::stubbedStep(); }},
+      {5, []() { return bmc_steps::stubbedStep(); }},
+      {6, []() { return bmc_steps::sbeConfigUpdate(); }},
+      {7, []() { return bmc_steps::startCbs(); }}}}};
 
 MajorStepsList Control::majorSteps = {{0, {{0, "poweron"}}}};
 

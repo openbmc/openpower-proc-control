@@ -109,6 +109,7 @@ void parseArguments(int argc, char** argv, optstruct& opt)
             opt.start_minor = 0xFF;
             opt.end_minor = 0xFF;
         }
+        opt.singleStep = false;
         optionsValid = true;
     }
 
