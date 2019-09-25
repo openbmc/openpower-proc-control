@@ -1,4 +1,5 @@
 #include "boot_control.hpp"
+#include "pdbg_wrapper.hpp"
 #include "xyz/openbmc_project/Common/error.hpp"
 
 #include <CLI/CLI.hpp>
@@ -36,6 +37,9 @@ int main(int argc, char** argv)
 
     try
     {
+        openpower::boot::util::pdbg::initatdb();
+        openpower::boot::util::pdbg::initTargets();
+
         if ((minor) && (major))
         {
             uint8_t major_number = 0;
