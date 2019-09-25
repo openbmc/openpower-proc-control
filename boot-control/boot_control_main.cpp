@@ -1,4 +1,5 @@
 #include "boot_control.hpp"
+#include "util.hpp"
 
 #include <CLI/CLI.hpp>
 #include <iostream>
@@ -28,6 +29,16 @@ int main(int argc, char** argv)
         ->group(rangeOptions);
     CLI11_PARSE(app, argc, argv);
 
+    try
+    {
+        openpower::boot::util::initatdb();
+    }
+    catch (std::exception& e)
+    {
+        std::cerr << "Atdb file loading is failed" << std::endl;
+        exit(-1);
+    }
+
     openpower::boot::Control ctrl;
     if ((minor) && (major))
     {
@@ -46,6 +57,12 @@ int main(int argc, char** argv)
 
         try
         {
+            // Call InitTagrgets expect poweron, becasuse after chassis is on
+            // during poweron initTargets will invoke
+            if (!((major_number == 0) && (minor_number == 0)))
+            {
+                openpower::boot::util::initTargets();
+            }
             ctrl.executeStep(major_number, minor_number);
         }
         catch (std::exception& e)
@@ -88,6 +105,12 @@ int main(int argc, char** argv)
 
         try
         {
+            // Call InitTagrgets expect poweron, becasuse after chassis is on
+            // during poweron initTargets will invoke
+            if (start_major > 0)
+            {
+                openpower::boot::util::initTargets();
+            }
             ctrl.executeRange(start_major, end_major);
         }
         catch (std::exception& e)

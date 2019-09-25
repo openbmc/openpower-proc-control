@@ -33,6 +33,16 @@ bool isChassisOn();
  */
 void chassisPowerOn();
 
+/**
+ * @brief Load attributes atdb file
+ */
+void initatdb();
+
+/**
+ * @brief Initialize targets and it will update only for master processor
+ */
+void initTargets();
+
 } // namespace util
 } // namespace boot
 } // namespace openpower

@@ -1,8 +1,14 @@
-#include "bmc_boot_steps.hpp"
+extern "C" {
+#include <libpdbg.h>
+}
 
+#include "bmc_boot_steps.hpp"
 #include "util.hpp"
 #include "xyz/openbmc_project/Common/error.hpp"
 
+#include <p9_nv_ref_clk_enable.H>
+#include <p9_setup_sbe_config.H>
+#include <p9_start_cbs.H>
 #include <unistd.h>
 
 #include <chrono>
@@ -30,6 +36,8 @@ void powerOn()
     {
         if (util::isChassisOn())
         {
+            // Init targets only if chassin is on
+            util::initTargets();
             return;
         }
         std::this_thread::sleep_for(sleepTime);
@@ -38,6 +46,48 @@ void powerOn()
 
     log<level::ERR>("Timeout encountered while waiting for chassis on");
     elog<InternalFailure>();
+}
+
+void sbeConfigUpdate()
+{
+    struct pdbg_target* pib;
+
+    pdbg_for_each_class_target("pib", pib)
+    {
+        int rc = -1;
+        if ((rc = p9_setup_sbe_config(pib)) != 0)
+        {
+            log<level::ERR>("sbeConfigUpdate is failed",
+                            entry("RETURNCODE=%d", rc));
+            elog<InternalFailure>();
+        }
+        return;
+    }
+}
+
+void startCbs()
+{
+    int rc = -1;
+    struct pdbg_target* pib;
+
+    pdbg_for_each_class_target("pib", pib)
+    {
+        if ((rc = p9_start_cbs(pib, true)) != 0)
+        {
+            log<level::ERR>("startCbs is failed", entry("RETURNCODE=%d", rc));
+            elog<InternalFailure>();
+        }
+        else
+        {
+            if ((rc = p9_nv_ref_clk_enable(pib)) != 0)
+            {
+                log<level::ERR>("nvRefClkEnable is failed",
+                                entry("RETURNCODE=%d", rc));
+                elog<InternalFailure>();
+            }
+            return;
+        }
+    }
 }
 
 void stubbedStep()
