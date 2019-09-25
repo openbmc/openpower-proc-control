@@ -1,8 +1,13 @@
-#include "bmc_boot_steps.hpp"
+extern "C" {
+#include <libpdbg.h>
+}
 
+#include "bmc_boot_steps.hpp"
+#include "pdbg_wrapper.hpp"
 #include "util.hpp"
 #include "xyz/openbmc_project/Common/error.hpp"
 
+#include <p10_start_cbs.H>
 #include <unistd.h>
 
 #include <chrono>
@@ -30,6 +35,8 @@ void powerOn()
     {
         if (util::isChassisOn())
         {
+            // Init targets only if chassin is on
+            util::pdbg::initTargets();
             return;
         }
         std::this_thread::sleep_for(sleepTime);
@@ -38,6 +45,22 @@ void powerOn()
 
     log<level::ERR>("Timeout encountered while waiting for chassis on");
     elog<InternalFailure>();
+}
+
+void startSbe()
+{
+    int rc = -1;
+    struct pdbg_target* pib;
+
+    pdbg_for_each_class_target("pib", pib)
+    {
+        if ((rc = p10_start_cbs(pib)) != 0)
+        {
+            log<level::ERR>("startSbe is failed", entry("RETURNCODE=%d", rc));
+            elog<InternalFailure>();
+        }
+        return;
+    }
 }
 
 void stubbedStep()
