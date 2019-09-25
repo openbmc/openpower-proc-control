@@ -1,4 +1,5 @@
 #include "boot_control.hpp"
+#include "pdbg.hpp"
 #include "xyz/openbmc_project/Common/error.hpp"
 
 #include <CLI/CLI.hpp>
@@ -56,6 +57,9 @@ int main(int argc, char** argv)
         CLI11_PARSE(app, argc, argv);
 
         openpower::boot::Control ctrl;
+
+        openpower::boot::pdbg::initatdb();
+        openpower::boot::pdbg::initTargets();
 
         if ((minor) && (major))
         {
