@@ -1,4 +1,5 @@
 #include "boot_control.hpp"
+#include "pdbg.hpp"
 #include "xyz/openbmc_project/Common/error.hpp"
 
 #include <CLI/CLI.hpp>
@@ -57,6 +58,9 @@ int main(int argc, char** argv)
 
         openpower::boot::Control ctrl;
 
+        openpower::boot::pdbg::initatdb();
+        openpower::boot::pdbg::initTargets();
+
         if ((minor) && (major))
         {
             ctrl.executeStep(*major, *minor);
@@ -78,7 +82,7 @@ int main(int argc, char** argv)
     catch (const std::exception& e)
     {
         log<level::ERR>("Error in executing boot steps ",
-                                entry("ERROR=%s", e.what());
+                        entry("ERROR=%s", e.what()));
         report<InternalFailure>();
         std::exit(EXIT_FAILURE);
     }
