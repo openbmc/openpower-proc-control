@@ -8,6 +8,10 @@ namespace bmc_steps
  */
 void powerOn();
 
+/** @brief Execute Start SBE hardware procedure
+ */
+void startSbe();
+
 /** @brief An place holder for stubbed steps
  */
 void stubbedStep();
