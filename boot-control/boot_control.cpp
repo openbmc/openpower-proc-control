@@ -17,8 +17,8 @@ BmcStepList Control::bmcSteps = {
       {3, []() { return bmc_steps::StubbedStep(); }},
       {4, []() { return bmc_steps::StubbedStep(); }},
       {5, []() { return bmc_steps::StubbedStep(); }},
-      {6, []() { return bmc_steps::StubbedStep(); }},
-      {7, []() { return bmc_steps::StubbedStep(); }}}}};
+      {6, []() { return bmc_steps::SbeConfigUpdate(); }},
+      {7, []() { return bmc_steps::StartCbs(); }}}}};
 
 MajorStepsList Control::majorSteps = {{0, {{0, "poweron"}}}};
 

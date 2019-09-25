@@ -28,6 +28,20 @@ bool isChassisOn();
  */
 int chassisPowerOn();
 
+/**
+ * @brief Load attributes atdb file
+ *
+ * @return 0 for success
+ */
+int initatdb();
+
+/**
+ * @brief Initialize targets and it will update only for master processor
+ *
+ * @return 0 for success
+ */
+int initTargets();
+
 } // namespace util
 } // namespace boot
 } // namespace open_power

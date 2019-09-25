@@ -1,10 +1,17 @@
-#include "util.hpp"
+extern "C" {
+#include <atdb/atdb_blob.h>
+}
 
+#include "util.hpp"
 #include "xyz/openbmc_project/Common/error.hpp"
 
+#include <iostream>
 #include <phosphor-logging/elog-errors.hpp>
 
 #include "../config.h"
+#include "plat_trace.H"
+#include "plat_utils.H"
+
 namespace open_power
 {
 namespace boot
@@ -88,6 +95,38 @@ bool isChassisOn()
         log<level::ERR>("Error in fetching current Chassis State");
         elog<InternalFailure>();
     }
+}
+
+int initatdb()
+{
+    std::cout << "Loading attributes.atdb file" << std::endl;
+
+    struct atdb_blob_info* binfo;
+
+    binfo = atdb_blob_open(ATTRIBUTES_INFO_FILE_PATH, false);
+    if (!binfo)
+    {
+        log<level::ERR>("Unable to open atdb file",
+                        entry("ATDBFILEPATH=%s", ATTRIBUTES_INFO_FILE_PATH));
+        elog<InternalFailure>();
+        return -1;
+    }
+
+    plat_set_atdb_context(atdb_blob_atdb(binfo));
+
+    return 0;
+}
+
+int initTargets()
+{
+    std::cout << "initTargets" << std::endl;
+    struct pdbg_target* pib;
+    pdbg_for_each_class_target("pib", pib)
+    {
+        pdbg_target_probe(pib);
+        return 0;
+    }
+    return 0;
 }
 
 } // namespace util
