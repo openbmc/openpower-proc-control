@@ -13,9 +13,11 @@ namespace boot
 using namespace phosphor::logging;
 using namespace sdbusplus::xyz::openbmc_project::Common::Error;
 
-BMCStepList Control::bmcSteps = {{0, {{0, []() { bmc_steps::powerOn(); }}}}};
+BMCStepList Control::bmcSteps = {{0,
+                                  {{0, []() { bmc_steps::powerOn(); }},
+                                   {7, []() { bmc_steps::startSbe(); }}}}};
 
-MajorStepsList Control::majorSteps = {{0, {{0, "poweron"}}},
+MajorStepsList Control::majorSteps = {{0, {{0, "poweron"}, {7, "startsbe"}}},
                                       {1, {{0, "sbestub"}}}};
 
 void Control::executeBMCStep(uint8_t stepMajor, uint8_t stepMinor)

@@ -1,8 +1,13 @@
-#include "bmc_boot_steps.hpp"
+extern "C" {
+#include <libpdbg.h>
+}
 
+#include "bmc_boot_steps.hpp"
+#include "pdbg.hpp"
 #include "util.hpp"
 #include "xyz/openbmc_project/Common/error.hpp"
 
+#include <p10_start_cbs.H>
 #include <unistd.h>
 
 #include <chrono>
@@ -31,6 +36,8 @@ void powerOn()
     {
         if (util::isChassisOn())
         {
+            // Init targets only if chassin is on
+            pdbg::initTargets();
             return;
         }
         std::this_thread::sleep_for(sleepTime);
@@ -39,6 +46,29 @@ void powerOn()
 
     log<level::ERR>("Timeout encountered while waiting for chassis on");
     elog<InternalFailure>();
+}
+
+void startSbe()
+{
+    int rc = -1;
+    struct pdbg_target* pib;
+
+    // TODO - Curently no attribute support available to check master
+    // processor. First processor in the list is the master processor.
+    // This should change, once master processor attribute is enabled
+    pdbg_for_each_class_target("pib", pib)
+    {
+        if (pdbg_target_index(pib) == 0)
+        {
+            if ((rc = p10_start_cbs(pib, true)) != 0)
+            {
+                log<level::ERR>("p10_start_cbs failed",
+                                entry("ERRORCODE=%d", rc));
+                elog<InternalFailure>();
+            }
+            break;
+        }
+    }
 }
 
 void stubbedStep()
