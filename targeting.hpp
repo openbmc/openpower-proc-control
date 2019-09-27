@@ -12,13 +12,9 @@ namespace targeting
 
 constexpr auto fsiMasterDevPath =
     "/sys/devices/platform/gpio-fsi/fsi0/slave@00:00/raw";
-constexpr auto fsiMasterDevPathOld =
-    "/sys/devices/platform/fsi-master/slave@00:00/raw";
 
 constexpr auto fsiSlaveBaseDir =
     "/sys/devices/platform/gpio-fsi/fsi0/slave@00:00/00:00:00:0a/fsi1/";
-constexpr auto fsiSlaveBaseDirOld =
-    "/sys/devices/platform/fsi-master/slave@00:00/hub@00/";
 
 typedef uint32_t (*swap_endian_t)(uint32_t);
 

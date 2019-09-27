@@ -78,19 +78,6 @@ Targeting::Targeting(const std::string& fsiMasterDev,
     swap_endian_t swapper = endianSwap;
     std::regex exp{"fsi1/slave@([0-9]{2}):00", std::regex::extended};
 
-    if (!fs::exists(fsiMasterPath))
-    {
-        std::regex expOld{"hub@00/slave@([0-9]{2}):00", std::regex::extended};
-
-        // Fall back to old (4.7) path
-        exp = expOld;
-        fsiMasterPath = fsiMasterDevPathOld;
-        fsiSlaveBasePath = fsiSlaveBaseDirOld;
-
-        // And don't swap the endianness of CFAM data
-        swapper = noEndianSwap;
-    }
-
     // Always create P0, the FSI master.
     targets.push_back(std::make_unique<Target>(0, fsiMasterPath, swapper));
     try
