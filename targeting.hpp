@@ -16,8 +16,6 @@ constexpr auto fsiMasterDevPath =
 constexpr auto fsiSlaveBaseDir =
     "/sys/devices/platform/gpio-fsi/fsi0/slave@00:00/00:00:00:0a/fsi1/";
 
-typedef uint32_t (*swap_endian_t)(uint32_t);
-
 /**
  * Represents a specific P9 processor in the system.  Used by
  * the access APIs to specify the chip to operate on.
@@ -30,12 +28,10 @@ class Target
      *
      * @param[in] - The logical position of the target
      * @param[in] - The sysfs device path
-     * @param[in] - The function pointer for swapping endianness
      */
-    Target(size_t position, const std::string& devPath,
-           const swap_endian_t swapper) :
+    Target(size_t position, const std::string& devPath) :
         pos(position),
-        cfamPath(devPath), doSwapEndian(swapper)
+        cfamPath(devPath)
     {
     }
 
@@ -67,16 +63,6 @@ class Target
      */
     int getCFAMFD();
 
-    /**
-     * Returns correct byte-order data. (May or may not swap it depending
-     * on the function received during construction from Targeting and the
-     * host endianness).
-     */
-    inline uint32_t swapEndian(uint32_t data) const
-    {
-        return doSwapEndian(data);
-    }
-
   private:
     /**
      * The logical position of this target
@@ -92,11 +78,6 @@ class Target
      * The file descriptor to use for read/writeCFAMReg
      */
     std::unique_ptr<openpower::util::FileDescriptor> cfamFD;
-
-    /**
-     * The function pointer for swapping endianness
-     */
-    const swap_endian_t doSwapEndian;
 };
 
 /**
