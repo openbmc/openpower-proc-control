@@ -125,6 +125,7 @@ AC_CONFIG_FILES([Makefile
 AS_IF([test "$MACHINE" == "rainier"],
       [
         AC_CONFIG_FILES([boot-control/Makefile])
+        AC_CONFIG_FILES([boot-control/step0@.service])
       ])
 AM_CONDITIONAL([BOOT_BUILD], [test "$MACHINE" == "rainier"])
 
