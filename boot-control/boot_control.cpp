@@ -1,8 +1,11 @@
+extern "C" {
+#include <libpdbg.h>
+}
+
 #include "config.h"
 
-#include "boot_control.hpp"
-
 #include "bmc_boot_steps.hpp"
+#include "boot_control.hpp"
 #include "xyz/openbmc_project/Common/error.hpp"
 
 #include <fstream>
@@ -43,6 +46,30 @@ void Control::executeBMCStep(uint8_t stepMajor, uint8_t stepMinor)
 
     // Execute the BMC step
     (istep->second)();
+}
+
+void Control::executeHostStep(uint8_t stepMajor, uint8_t stepMinor)
+{
+    // TODO This type of direct execution of istep chipop to SBE
+    // is only until common HWP is available to trigger step in
+    // both SBE and Hostboot.
+    int rc;
+    if ((stepMajor > 0) && (stepMajor < 6))
+    {
+        struct pdbg_target* target;
+        pdbg_for_each_class_target("pib", target)
+        {
+            if (pdbg_target_status(target) != PDBG_TARGET_ENABLED)
+            {
+                continue;
+            }
+            if ((rc = sbe_istep(target, stepMajor, stepMinor)) != 0)
+            {
+                log<level::ERR>("Error executing SBE step", entry("RC=%d", rc));
+                elog<InternalFailure>();
+            }
+        }
+    }
 }
 
 void Control::executeStep(uint8_t stepMajor, uint8_t stepMinor)
