@@ -2,13 +2,30 @@ extern "C" {
 #include <libpdbg.h>
 }
 
+#include "config.h"
+
 #include "bmc_boot_steps.hpp"
 #include "util.hpp"
 #include "xyz/openbmc_project/Common/error.hpp"
 
+#ifdef VERSION
+#define PKG_VERSION VERSION
+#undef VERSION
+#endif
+
+#if P10_CHIP
+#include <p10_start_cbs.H>
+#else
 #include <p9_nv_ref_clk_enable.H>
 #include <p9_setup_sbe_config.H>
 #include <p9_start_cbs.H>
+#endif
+
+#ifdef PKG_VERSION
+#define VERSION PKG_VERSION
+#undef PKG_VERSION
+#endif
+
 #include <unistd.h>
 
 #include <chrono>
@@ -55,7 +72,11 @@ void sbeConfigUpdate()
     pdbg_for_each_class_target("pib", pib)
     {
         int rc = -1;
+#if P10_CHIP
+        // TODO
+#else
         if ((rc = p9_setup_sbe_config(pib)) != 0)
+#endif
         {
             log<level::ERR>("sbeConfigUpdate is failed",
                             entry("RETURNCODE=%d", rc));
@@ -72,11 +93,19 @@ void startCbs()
 
     pdbg_for_each_class_target("pib", pib)
     {
+#if P10_CHIP
+        if ((rc = p10_start_cbs(pib)) != 0)
+#else
         if ((rc = p9_start_cbs(pib, true)) != 0)
+#endif
         {
             log<level::ERR>("startCbs is failed", entry("RETURNCODE=%d", rc));
             elog<InternalFailure>();
         }
+#if P10_CHIP
+        return;
+        // TODO
+#else
         else
         {
             if ((rc = p9_nv_ref_clk_enable(pib)) != 0)
@@ -87,6 +116,7 @@ void startCbs()
             }
             return;
         }
+#endif
     }
 }
 
