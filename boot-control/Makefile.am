@@ -6,7 +6,7 @@ HWP_INC = -DFAPI2_NO_FFDC \
 	-I$(INCDIR)/hwpf/fapi2/include/error_info \
 	-I$(INCDIR)/hwpf/fapi2/include/plat \
 	-I$(INCDIR)/ekb/hwpf/fapi2/include \
-	-I$(INCDIR)/ekb/chips/p10/procedures/hwp/perv/
+	-I$(INCDIR)/ekb/chips/$(CHIP_VERSION)/procedures/hwp/perv/
 
 bin_PROGRAMS = \
         openpower-boot-control
@@ -24,3 +24,5 @@ openpower_boot_control_CXXFLAGS = $(PHOSPHOR_LOGGING_CFLAGS) \
                                   $(HWP_INC)
 
 openpower_boot_control_LDADD = -lekb -latdb -lpdbg
+
+CLEANFILES = bmc_boot_steps.cpp
