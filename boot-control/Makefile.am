@@ -1,5 +1,8 @@
 AM_DEFAULT_SOURCE_EXT = .cpp
 
+systemdsystemunit_DATA = \
+	step0@.service
+
 HWP_INC = -DFAPI2_NO_FFDC \
           -I$(INCDIR)/hwpf/fapi2/include \
           -I$(INCDIR)/hwpf/fapi2/include/attributes \
@@ -29,4 +32,5 @@ bmc_boot_steps.cpp :
 	ln -sf $(srcdir)/$(CHIP_VERSION)/bmc_boot_steps.hpp bmc_boot_steps.hpp
 
 CLEANFILES = bmc_boot_steps.cpp \
-             bmc_boot_steps.hpp
+             bmc_boot_steps.hpp \
+             step0@.service

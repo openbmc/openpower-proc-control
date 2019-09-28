@@ -111,6 +111,8 @@ AS_IF([test "x$enable_phal_boot" == "xyes"],
                [ATTRIBUTES_INFO_FILE_PATH="/usr/share/pdata/attributes.atdb"])
        AC_DEFINE_UNQUOTED([ATTRIBUTES_INFO_FILE_PATH], ["$ATTRIBUTES_INFO_FILE_PATH"],
                           [Attributes information file path])
+
+       AC_CONFIG_FILES([boot-control/step0@.service])
       ],
       [
        AC_MSG_RESULT(no)
