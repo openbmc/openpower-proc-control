@@ -130,5 +130,6 @@ AM_CONDITIONAL([BOOT_BUILD], [test "$MACHINE" != "witherspoon"])
 
 AC_CONFIG_FILES([pcie-poweroff@.service])
 AC_CONFIG_FILES([xyz.openbmc_project.Control.Host.NMI.service])
+AC_CONFIG_FILES([boot-control/step0@.service])
 AC_CONFIG_HEADERS([config.h])
 AC_OUTPUT
