@@ -48,17 +48,43 @@ AC_CONFIG_FILES([Makefile.generated],
 AC_ARG_ENABLE([phal-boot],
               [
 AS_HELP_STRING([--enable-phal-boot],
-               [Turn on pHAL infrastructure boot control application])
+               [Turn on pHAL infrastructure boot control application.
+                This feature is required chip version.
+                Please check the supported chip verion in --with-chip-version under optional
+                packages list])
               ])
+AC_ARG_WITH([chip-version],
+            [
+AS_HELP_STRING([--with-chip-version],
+               [To use pHAL boot control application chip version is required.
+                Supported chip version=p9,p10.
+                Ex: --with-chip-version=p10])
+            ])
 AC_MSG_CHECKING(pHAL boot application is required)
 AS_IF([test "x$enable_phal_boot" == "xyes"],
       [
        AC_MSG_RESULT(yes)
 
-       AC_CHECK_LIB([ekb], [p10_start_cbs], [LIBS="-lekb"], [], [])
-       if test x"$ac_cv_lib_ekb_p10_start_cbs" != "xyes" ; then
-               AC_MSG_ERROR([EKB library not found])
-       fi
+       case "$with_chip_version" in
+           p9)  {
+                 AC_CHECK_LIB([ekb], [p9_start_cbs], [LIBS="-lekb"], [], [])
+                 if test x"$ac_cv_lib_ekb_p9_start_cbs" != "xyes" ; then
+                        AC_MSG_ERROR([EKB library not found])
+                 fi
+                } ;;
+           p10) {
+                 AC_CHECK_LIB([ekb], [p10_start_cbs], [LIBS="-lekb"], [], [])
+                 if test x"$ac_cv_lib_ekb_p10_start_cbs" != "xyes" ; then
+                        AC_MSG_ERROR([EKB library not found])
+                 fi
+                } ;;
+           *)   AC_MSG_ERROR("Chips version is not given. To use pHAL boot application chip version is required. Please check the supported chip version in --with-chip-version under optional packages list by using ./configure --help");;
+       esac
+       AC_SUBST([CHIP_VERSION], [$with_chip_version])
+
+       AS_IF([test "$with_chip_version" == "p10"], [P10_CHIP=1], [P10_CHIP=0])
+       AC_DEFINE_UNQUOTED([P10_CHIP], [$P10_CHIP], [To check whether chip is p10])
+       AC_SUBST([P10_CHIP])
 
        AX_ABSOLUTE_HEADER([libpdbg.h])
        if test x"$gl_cv_absolute_libpdbg_h" == "x" ; then
