@@ -1,5 +1,8 @@
 AM_DEFAULT_SOURCE_EXT = .cpp
 
+systemdsystemunit_DATA = \
+	step0@.service
+
 HWP_INC = -DFAPI2_NO_FFDC \
           -I$(INCDIR)/hwpf/fapi2/include \
           -I$(INCDIR)/hwpf/fapi2/include/attributes \
