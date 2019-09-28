@@ -20,9 +20,17 @@ using namespace sdbusplus::xyz::openbmc_project::Common::Error;
 
 BMCStepList Control::bmcSteps = {{0,
                                   {{0, []() { bmc_steps::powerOn(); }},
+#if !(P10_CHIP)
+                                   {6, []() { bmc_steps::sbeConfigUpdate(); }},
+#endif
                                    {7, []() { bmc_steps::startSbe(); }}}}};
 
-MajorStepsList Control::majorSteps = {{0, {{0, "poweron"}, {7, "startsbe"}}},
+MajorStepsList Control::majorSteps = {{0,
+                                       {{0, "poweron"},
+#if !(P10_CHIP)
+                                        {6, "sbeconfigupdate"},
+#endif
+                                        {7, "startsbe"}}},
                                       {1, {{0, "sbestub"}}}};
 
 void Control::executeBMCStep(uint8_t stepMajor, uint8_t stepMinor)
@@ -42,7 +50,6 @@ void Control::executeBMCStep(uint8_t stepMajor, uint8_t stepMinor)
                         entry("MINORSTEP=%d", stepMinor));
         elog<InternalFailure>();
     }
-
     // Execute the BMC step
     (istep->second)();
 }
