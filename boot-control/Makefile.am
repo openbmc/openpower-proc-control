@@ -1,5 +1,8 @@
 AM_DEFAULT_SOURCE_EXT = .cpp
 
+systemdsystemunit_DATA = \
+	step0@.service
+
 bin_PROGRAMS = \
         openpower-boot-control
 
