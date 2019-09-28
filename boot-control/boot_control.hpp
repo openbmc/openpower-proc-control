@@ -61,6 +61,15 @@ class Control
      *  @error  InternalFailure exception thrown
      */
     void executeBMCStep(uint8_t stepMajor, uint8_t stepMinor);
+
+    /** @brief Execute a boot step in SBE or Hostboot.
+     *  @details execute the steps in respective host subsystem.
+     *  @param[in] stepMajor - a Major boot step.
+     *  @param[in] stepMinor - a Minor boot step or substep.
+     *
+     *  @error  InternalFailure exception thrown
+     */
+    void executeHostStep(uint8_t stepMajor, uint8_t stepMinor);
 };
 } // namespace boot
 } // namespace openpower
