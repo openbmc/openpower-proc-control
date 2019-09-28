@@ -1,8 +1,14 @@
 #include "config.h"
 
 #include "util.hpp"
-
 #include "xyz/openbmc_project/Common/error.hpp"
+
+#include <plat_trace.H>
+#if P10_CHIP
+#include "utils.H"
+#else
+#include <plat_utils.H>
+#endif
 
 #include <phosphor-logging/elog-errors.hpp>
 namespace openpower
