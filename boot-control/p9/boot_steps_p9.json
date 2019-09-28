@@ -3,11 +3,15 @@
     "MajorStep": 0,
     "MinorSteps": [{
             "MinorStep": 0,
-            "StepName": "PowerOn"
+            "StepName": "powerOn"
         },
         {
-            "MinorStep": 1,
-            "StepName": "StartIpl"
+            "MinorStep": 6,
+            "StepName": "sbeConfigUpdate"
+        },
+        {
+            "MinorStep": 7,
+            "StepName": "startSbe"
         }
     ]
 },

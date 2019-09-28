@@ -44,15 +44,33 @@ fi
 INCDIR=$(dirname $gl_cv_absolute_libpdbg_h)
 AC_SUBST([INCDIR])
 
+#CHIP_VERSION can be passed from a recipe otherwlse default as p10.
+AC_ARG_VAR(CHIP_VERSION, [Chips version to invoke respective hardware procedures])
+AS_IF([test "x$CHIP_VERSION" == "x"], [CHIP_VERSION="p10"])
+AC_SUBST([CHIP_VERSION])
+
+AC_ARG_VAR(P10_CHIP, [To check whether chip is p10])
+AS_IF([test "$CHIP_VERSION" == "p10"], [P10_CHIP=1], [P10_CHIP=0])
+AC_DEFINE_UNQUOTED([P10_CHIP], [$P10_CHIP], [To check whether chip is p10])
+AC_SUBST([P10_CHIP])
+
 AC_CHECK_LIB([pdbg], [pdbg_targets_init], [LIBS="-lpdbg"], [], [])
 if test x"$ac_cv_lib_pdbg_pdbg_targets_init" != "xyes" ; then
         AC_MSG_ERROR([PDBG library not found])
 fi
 
-AC_CHECK_LIB([ekb], [p10_start_cbs], [LIBS="-lekb"], [], [])
-if test x"$ac_cv_lib_ekb_p10_start_cbs" != "xyes" ; then
-        AC_MSG_ERROR([EKB library not found])
-fi
+AS_IF([test "$CHIP_VERSION" == "p10"],
+      [
+       AC_CHECK_LIB([ekb], [p10_start_cbs], [LIBS="-lekb"], [], [])
+       if test x"$ac_cv_lib_ekb_p10_start_cbs" != "xyes" ; then
+               AC_MSG_ERROR([EKB library not found])
+       fi],
+      [
+       AC_CHECK_LIB([ekb], [p9_start_cbs], [LIBS="-lekb"], [], [])
+       if test x"$ac_cv_lib_ekb_p9_start_cbs" != "xyes" ; then
+               AC_MSG_ERROR([EKB library not found])
+       fi
+       ])
 
 AC_CHECK_LIB([atdb], [atdb_blob_open], [LIBS="-latdb"], [], [])
 if test x"$ac_cv_lib_atdb_atdb_blob_open" != "xyes" ; then
@@ -100,6 +118,10 @@ AC_DEFINE(BOOT_STEP_FILE, "/usr/share/boot/step_file.json",
 AC_CONFIG_FILES([Makefile.generated],
     [${srcdir}/gen_makefile.sh ${srcdir} "$myChips" > Makefile.generated],
     [myChips="$CHIPS"])
+
+AC_CONFIG_FILES([${srcdir}/boot-control/bmc_boot_steps.cpp],
+    [${srcdir}/boot-control/gen_bmc_boot_steps.sh ${srcdir} "$chipverison"],
+    [chipverison="$CHIP_VERSION"])
 
 AC_CHECK_LIB([pdbg], [thread_sreset_all])
 
