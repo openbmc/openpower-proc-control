@@ -104,6 +104,15 @@ int main(int argc, char** argv)
         commit<fsi_error::SlaveDetectionFailure>();
         return -1;
     }
+    /* TODO GitIssue: Openpower-proc-control: Revisit the phal errors. #1470
+     * Need to update for replacing error log with actual one,
+     * Once phal error handling infrastructure in place.
+     */
+    catch (common_error::InternalFailure& e)
+    {
+        commit<common_error::InternalFailure>();
+        return -1;
+    }
 
     return 0;
 }
