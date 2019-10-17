@@ -104,6 +104,11 @@ int main(int argc, char** argv)
         commit<fsi_error::SlaveDetectionFailure>();
         return -1;
     }
+    catch (common_error::InternalFailure& e)
+    {
+        commit<common_error::InternalFailure>();
+        return -1;
+    }
 
     return 0;
 }

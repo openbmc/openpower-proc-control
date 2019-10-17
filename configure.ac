@@ -41,9 +41,37 @@ AS_IF([test "x$enable_oe_sdk" == "xyes"],
 AC_ARG_VAR(CHIPS, [The list of chips to build the procedures for])
 AS_IF([test "x$CHIPS" == "x"], [CHIPS="p9 openfsi"])
 
+AC_ARG_ENABLE([phal],
+              [
+AS_HELP_STRING([--enable-phal],
+               [Turn on pHAL infrastructure based startHost])
+              ])
+AC_MSG_CHECKING(pHAL is required)
+AS_IF([test "$enable_phal" == "yes"],
+      [
+       AC_MSG_RESULT(yes)
+
+       AX_ABSOLUTE_HEADER([libipl.h])
+       if test x"$gl_cv_absolute_libipl_h" == "x" ; then
+               AC_MSG_ERROR([Cannot find libipl.h path])
+       fi
+
+       AC_CHECK_LIB([ipl], [ipl_init])
+       if test x"$ac_cv_lib_ipl_ipl_init" != "xyes" ; then
+               AC_MSG_ERROR([IPL library not found])
+       fi
+      ],
+      [
+       AC_MSG_RESULT(no)
+      ]
+     )
+
 AC_CONFIG_FILES([Makefile.generated],
-    [${srcdir}/gen_makefile.sh ${srcdir} "$myChips" > Makefile.generated],
-    [myChips="$CHIPS"])
+    [${srcdir}/gen_makefile.sh ${srcdir} "$myChips" "$isPHALRequired" > Makefile.generated],
+    [
+     myChips="$CHIPS"
+     isPHALRequired="$enable_phal"
+    ])
 
 AC_CHECK_LIB([pdbg], [thread_sreset_all])
 
