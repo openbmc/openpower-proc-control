@@ -104,6 +104,14 @@ int main(int argc, char** argv)
         commit<fsi_error::SlaveDetectionFailure>();
         return -1;
     }
+    /* TODO: Need to remove InternalFailure once phal returned
+     * respective hwp failure error code
+     */
+    catch (common_error::InternalFailure& e)
+    {
+        commit<common_error::InternalFailure>();
+        return -1;
+    }
 
     return 0;
 }
