@@ -39,11 +39,77 @@ AS_IF([test "x$enable_oe_sdk" == "xyes"],
 
 #CHIPS can be passed in a from a recipe, or it will default to P9 and openfsi
 AC_ARG_VAR(CHIPS, [The list of chips to build the procedures for])
-AS_IF([test "x$CHIPS" == "x"], [CHIPS="p9 openfsi"])
+AS_IF([test "x$CHIPS" == "x"], [CHIPS="p10 openfsi"])
 
+TARGET_CHIP="$(awk -F[' '] '{
+for(i=1; i<=NF;i++)
+{
+   if ($i == "p9" || $i == "p10")
+   {
+       print $i
+       break
+   }
+};
+}' <<< $CHIPS)"
+
+AC_ARG_ENABLE([phal],
+              [
+AS_HELP_STRING([--enable-phal],
+               [Turn on pHAL infrastructure to boot the host.
+                This feature is required target chip and same can be pass from CHIPS variable.
+                Supported chips=p9, p10])
+              ])
+AC_MSG_CHECKING(pHAL is required)
+AS_IF([test "$enable_phal" == "yes"],
+      [
+       AC_MSG_RESULT(yes)
+       CHIPS="ekb/phal-utils "$CHIPS
+
+       case "$TARGET_CHIP" in
+           p10) {
+                 AC_CHECK_LIB([ekb], [p10_start_cbs])
+                 if test x"$ac_cv_lib_ekb_p10_start_cbs" != "xyes" ; then
+                        AC_MSG_ERROR([EKB library not found])
+                 fi
+                 P10_CHIP=1
+                } ;;
+       esac
+
+       #TODO This p10 chip macro is not required once plat_utils.H changed to support p10 compilation
+       #Currenlty using utils.H for p10 from ekb
+       AC_DEFINE_UNQUOTED([P10_CHIP], [$P10_CHIP], [To check whether chip is p10])
+       AC_SUBST([P10_CHIP])
+
+       AX_ABSOLUTE_HEADER([libpdbg.h])
+       if test x"$gl_cv_absolute_libpdbg_h" == "x" ; then
+               AC_MSG_ERROR([Cannot find libpdbg.h path])
+       fi
+       INCDIR=$(dirname $gl_cv_absolute_libpdbg_h)
+       AC_SUBST([INCDIR])
+
+       AC_CHECK_LIB([atdb], [atdb_blob_open])
+       if test x"$ac_cv_lib_atdb_atdb_blob_open" != "xyes" ; then
+               AC_MSG_ERROR([ATDB library not found])
+       fi
+
+       #ATTRIBUTES_INFO_FILE_PATH can be passed from a recipe otherwlse setting default path
+       AC_ARG_VAR(ATTRIBUTES_INFO_FILE_PATH, [Attributes information file path])
+       AS_IF([test "x$ATTRIBUTES_INFO_FILE_PATH" == "x"], [ATTRIBUTES_INFO_FILE_PATH="/usr/share/pdata/attributes.atdb"])
+       AC_DEFINE_UNQUOTED([ATTRIBUTES_INFO_FILE_PATH], ["$ATTRIBUTES_INFO_FILE_PATH"], [Attributes information file path])
+      ],
+      [
+       AC_MSG_RESULT(no)
+      ]
+     )
+
+echo $enable_phal
 AC_CONFIG_FILES([Makefile.generated],
-    [${srcdir}/gen_makefile.sh ${srcdir} "$myChips" > Makefile.generated],
-    [myChips="$CHIPS"])
+    [${srcdir}/gen_makefile.sh ${srcdir} "$myChips" "$myIsEKBRequired" "$myTargetChip" > Makefile.generated],
+    [
+     myChips="$CHIPS"
+     myIsEKBRequired="$enable_phal"
+     myTargetChip="$TARGET_CHIP"
+    ])
 
 AC_CHECK_LIB([pdbg], [thread_sreset_all])
 
@@ -70,4 +136,5 @@ AS_IF([test "x$with_systemdsystemunitdir" != "xno"],
 AC_CONFIG_FILES([Makefile test/Makefile])
 AC_CONFIG_FILES([pcie-poweroff@.service])
 AC_CONFIG_FILES([xyz.openbmc_project.Control.Host.NMI.service])
+AC_CONFIG_HEADERS([config.h])
 AC_OUTPUT
