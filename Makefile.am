@@ -17,6 +17,11 @@ openpower_proc_control_SOURCES = \
 	openpower_procedures.cpp \
 	ext_interface.cpp
 
+if IPL_LIB_BUILD 
+openpower_proc_control_SOURCES += \
+    create_pel.cpp
+endif
+
 openpower_proc_nmi_SOURCES = \
 	nmi_main.cpp \
 	nmi_interface.cpp
@@ -28,10 +33,19 @@ openpower_proc_control_LDFLAGS = $(PHOSPHOR_LOGGING_LIBS) \
                                  $(SDBUSPLUS_LIBS) \
                                  -lstdc++fs
 
+if IPL_LIB_BUILD 
+openpower_proc_control_LDFLAGS += -lipl
+endif
+
 openpower_proc_control_CXXFLAGS = $(PHOSPHOR_LOGGING_CFLAGS) \
                                   $(PHOSPHOR_DBUS_INTERFACES_CFLAGS) \
-                                  $(SDBUSPLUS_CFLAGS)
+                                  $(SDBUSPLUS_CFLAGS) \
+                                  $(EKB_CXXFLAGS)
 
+if IPL_LIB_BUILD
+openpower_proc_control_CXXFLAGS += $(EKB_CXXFLAGS)
+endif
+ 
 openpower_proc_nmi_LDFLAGS = $(PHOSPHOR_LOGGING_LIBS) \
                              $(PHOSPHOR_DBUS_INTERFACES_LIBS) \
                              $(SDBUSPLUS_LIBS)
