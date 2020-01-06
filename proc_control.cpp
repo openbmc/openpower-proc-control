@@ -25,7 +25,11 @@
 #include <xyz/openbmc_project/Common/Device/error.hpp>
 #include <xyz/openbmc_project/Common/File/error.hpp>
 #include <xyz/openbmc_project/Common/error.hpp>
+#ifdef ENABLE_PHAL
+#include <return_code.H>
 
+#include <create_pel.hpp>
+#endif
 using namespace openpower::util;
 
 namespace common_error = sdbusplus::xyz::openbmc_project::Common::Error;
@@ -104,10 +108,16 @@ int main(int argc, char** argv)
         commit<fsi_error::SlaveDetectionFailure>();
         return -1;
     }
-    // TODO ibm-openbmc#1470
-    catch (common_error::InternalFailure& e)
+#ifdef ENABLE_PHAL
+    catch (fapi2::ReturnCode& rc)
     {
-        commit<common_error::InternalFailure>();
+        log<level::ERR>("HWP execution failed");
+        return openpower::pel::createHwpPel(rc);
+    }
+#endif
+    catch (std::exception& ex)
+    {
+        log<level::ERR>("std::Exception thrown");
         return -1;
     }
 
