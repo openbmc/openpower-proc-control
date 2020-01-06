@@ -1,8 +1,7 @@
-extern "C" {
-#include <libipl.h>
-}
-
 #include "xyz/openbmc_project/Common/error.hpp"
+
+#include <libipl.H>
+#include <return_code.H>
 
 #include <phosphor-logging/elog-errors.hpp>
 #include <phosphor-logging/log.hpp>
@@ -29,11 +28,11 @@ void startHost()
         elog<InternalFailure>();
     }
 
-    if (ipl_run_major(0) > 0)
+    fapi2::ReturnCode rc = ipl_run_major(0);
+    if (rc != fapi2::FAPI2_RC_SUCCESS && rc != static_cast<uint32_t>(-1))
     {
         log<level::ERR>("step 0 failed to start the host");
-        // TODO ibm-openbmc#1470
-        elog<InternalFailure>();
+        throw rc;
     }
 }
 
