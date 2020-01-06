@@ -6,6 +6,7 @@ AM_SILENT_RULES([yes])
 
 # Checks for programs
 AC_PROG_CXX
+AM_PROG_AR
 AC_PROG_INSTALL #Checks/sets the install variable to be used
 AC_PROG_MAKE_SET
 
@@ -54,9 +55,9 @@ AS_IF([ test "$enable_phal" == "yes" && test "$enable_p9" == "yes"],
 
 AS_IF([test "$enable_phal" == "yes"],
       [
-       AX_ABSOLUTE_HEADER([libipl.h])
-       if test x"$gl_cv_absolute_libipl_h" == "x" ; then
-               AC_MSG_ERROR([Cannot find libipl.h path])
+       AX_ABSOLUTE_HEADER([libipl.H])
+       if test x"$gl_cv_absolute_libipl_H" == "x" ; then
+               AC_MSG_ERROR([Cannot find libipl.H path])
        fi
 
        AC_CHECK_LIB([ipl], [ipl_init])
@@ -65,10 +66,28 @@ AS_IF([test "$enable_phal" == "yes"],
        fi
 
        CHIPS+=" phal"
+       AM_CONDITIONAL(ENABLE_PHAL, [true])
+       AC_DEFINE([PARSER],[],[Enable libekb parser flag.])
        AC_CONFIG_FILES([set-spi-mux.service])
       ]
      )
-AM_CONDITIONAL([ENABLE_PHAL], [test "$enable_phal" == "yes"])
+
+# Find path to libekb.H
+AX_ABSOLUTE_HEADER([libekb.H])
+if [ x"$gl_cv_absolute_libekb_H" = "x" ] ; then
+    AC_MSG_ERROR([Cannot find libekb.H path])
+fi
+INCDIR=$(dirname $gl_cv_absolute_libekb_H)
+AC_SUBST([INCDIR])
+
+EKB_CXXFLAGS=" \
+    -I${INCDIR}/hwpf/fapi2/include \
+    -I${INCDIR}/hwpf/fapi2/include/attributes \
+    -I${INCDIR}/hwpf/fapi2/include/error_info \
+    -I${INCDIR}/hwpf/fapi2/include/plat \
+    -I${INCDIR}/ekb/hwpf/fapi2/include \
+    -I${INCDIR}/ekb/chips/${CHIP}/procedures/hwp/ffdc"
+AC_SUBST([EKB_CXXFLAGS])
 
 AS_IF([test "x$CHIPS" == "x"], [CHIPS="p9 openfsi"])
 
