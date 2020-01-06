@@ -1,12 +1,11 @@
-extern "C" {
-#include <libipl.h>
-}
+#include <libipl.H>
 
 #include "xyz/openbmc_project/Common/error.hpp"
 
 #include <phosphor-logging/elog-errors.hpp>
 #include <phosphor-logging/log.hpp>
 #include <registration.hpp>
+#include <return_code.H>
 namespace openpower
 {
 namespace phal
@@ -29,11 +28,11 @@ void startHost()
         elog<InternalFailure>();
     }
 
-    if (ipl_run_major(0) > 0)
+    fapi2::ReturnCode rc = ipl_run_major(0);
+    if (rc !=  fapi2::FAPI2_RC_SUCCESS && rc != static_cast<uint32_t>(-1))
     {
         log<level::ERR>("step 0 failed to start the host");
-        // TODO ibm-openbmc#1470
-        elog<InternalFailure>();
+        throw rc;
     }
 }
 

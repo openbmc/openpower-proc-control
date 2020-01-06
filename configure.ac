@@ -52,21 +52,31 @@ AS_IF([ test "$enable_phal" == "yes" && test "$enable_p9" == "yes"],
       [ AC_MSG_ERROR([Internal POWER9 and PHAL-provided procedures conflict, please configure only one])]
      )
 
+
+# Assume EKB is installed at the same place as libpdbg.h
+AX_ABSOLUTE_HEADER([libpdbg.h])
+if [ x"$gl_cv_absolute_libpdbg_h" = "x" ] ; then
+    AC_MSG_ERROR([Cannot find libpdbg.h path])
+fi
+EKB_INC_DIR=$(dirname $gl_cv_absolute_libpdbg_h)
+AC_SUBST([EKB_INC_DIR])
+
+EKB_CXXFLAGS=" \
+    -I${EKB_INC_DIR}/hwpf/fapi2/include \
+    -I${EKB_INC_DIR}/hwpf/fapi2/include/attributes \
+    -I${EKB_INC_DIR}/hwpf/fapi2/include/error_info \
+    -I${EKB_INC_DIR}/hwpf/fapi2/include/plat \
+    -I${EKB_INC_DIR}/ekb/hwpf/fapi2/include \
+    -I${EKB_INC_DIR}/ekb/chips/p10/procedures/hwp/ffdc"
+
+AC_SUBST([EKB_CXXFLAGS])
+
 AS_IF([test "$enable_phal" == "yes"],
-      [
-       AX_ABSOLUTE_HEADER([libipl.h])
-       if test x"$gl_cv_absolute_libipl_h" == "x" ; then
-               AC_MSG_ERROR([Cannot find libipl.h path])
-       fi
-
-       AC_CHECK_LIB([ipl], [ipl_init])
-       if test x"$ac_cv_lib_ipl_ipl_init" != "xyes" ; then
-               AC_MSG_ERROR([IPL library not found])
-       fi
-
-       CHIPS+=" phal"
-      ]
-     )
+    CHIPS+=" phal"
+    AC_DEFINE([IPL_LIB],[],[Enable ipl.])
+    AC_DEFINE([PARSER],[],[Enable libekb parser flag.])
+    AM_CONDITIONAL(IPL_LIB_BUILD, [true])
+    )
 
 AS_IF([test "x$CHIPS" == "x"], [CHIPS="p9 openfsi"])
 
@@ -79,6 +89,7 @@ AC_CHECK_LIB([pdbg], [thread_sreset_all])
 PKG_CHECK_MODULES([SYSTEMD], [libsystemd >= 221])
 PKG_CHECK_MODULES([PHOSPHOR_LOGGING], [phosphor-logging])
 PKG_CHECK_MODULES([PHOSPHOR_DBUS_INTERFACES], [phosphor-dbus-interfaces])
+PKG_CHECK_MODULES([OPENPOWER_DBUS_INTERFACES], [openpower-dbus-interfaces])
 
 PKG_PROG_PKG_CONFIG
 AC_ARG_WITH([systemdsystemunitdir],
@@ -94,8 +105,9 @@ AS_IF([test "x$with_systemdsystemunitdir" = "xyes" -o "x$with_systemdsystemunitd
    [with_systemdsystemunitdir="$def_systemdsystemunitdir"])])
 AS_IF([test "x$with_systemdsystemunitdir" != "xno"],
       [AC_SUBST([systemdsystemunitdir], [$with_systemdsystemunitdir])])
+AC_CONFIG_FILES([Makefile
+        test/Makefile])
 
-AC_CONFIG_FILES([Makefile test/Makefile])
 AC_CONFIG_FILES([pcie-poweroff@.service])
 AC_CONFIG_FILES([xyz.openbmc_project.Control.Host.NMI.service])
 AC_OUTPUT
