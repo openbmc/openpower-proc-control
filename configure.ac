@@ -74,6 +74,9 @@ AC_CONFIG_FILES([Makefile.generated],
     [${srcdir}/gen_makefile.sh ${srcdir} "$myChips" > Makefile.generated],
     [myChips="$CHIPS"])
 
+# Always include misc procedures
+CHIPS+=" misc"
+
 AC_CHECK_LIB([pdbg], [thread_sreset_all])
 
 PKG_CHECK_MODULES([SYSTEMD], [libsystemd >= 221])
