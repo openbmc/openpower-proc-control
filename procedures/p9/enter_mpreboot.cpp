@@ -44,7 +44,7 @@ void mpipl_enter(struct pdbg_target *tgt)
  * @brief Calls enter mpipl on each SBE.
  * @return void
  */
-void enterMpipl()
+void enterMpReboot()
 {
     using namespace phosphor::logging;
     struct pdbg_target* target;
@@ -67,7 +67,7 @@ void enterMpipl()
     }
 }
 
-REGISTER_PROCEDURE("enterMpipl", enterMpipl);
+REGISTER_PROCEDURE("enterMpReboot", enterMpReboot);
 
 } // namespace p9
 } // namespace openpower

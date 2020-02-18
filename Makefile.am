@@ -2,7 +2,9 @@ AM_DEFAULT_SOURCE_EXT = .cpp
 
 systemdsystemunit_DATA = \
   pcie-poweroff@.service \
-  xyz.openbmc_project.Control.Host.NMI.service
+  xyz.openbmc_project.Control.Host.NMI.service \
+  op-continue-mpreboot@.service \
+  op-enter-mpreboot@.service
 
 if ENABLE_PHAL
   systemdsystemunit_DATA += set-spi-mux.service

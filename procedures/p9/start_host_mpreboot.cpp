@@ -34,10 +34,10 @@ using namespace openpower::cfam::p9;
 using namespace openpower::targeting;
 
 /**
- * @brief Starts the self boot engine on P9 position 0 to kick off a boot.
+ * @brief Continue with memory preserving reboot.
  * @return void
  */
-void startHostMpipl()
+void startHostMpReboot()
 {
     using namespace phosphor::logging;
     using InternalFailure =
@@ -106,7 +106,7 @@ void startHostMpipl()
     }
 }
 
-REGISTER_PROCEDURE("startHostMpipl", startHostMpipl);
+REGISTER_PROCEDURE("startHostMpReboot", startHostMpReboot);
 
 } // namespace p9
 } // namespace openpower
