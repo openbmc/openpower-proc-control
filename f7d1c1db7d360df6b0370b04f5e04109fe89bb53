@@ -1,0 +1,9 @@
+Ok-To-Test+1: Jenkins <openbmc-ci-admin@ozlabs.org>
+Verified+1: Jenkins <openbmc-ci-admin@ozlabs.org>
+Code-Review+1: <rameshi1@in.ibm.com>
+Code-Review+2: Matt Spinler <spinler@us.ibm.com>
+Submitted-by: Jayanth Othayoth <ojayanth@in.ibm.com>
+Submitted-at: Tue, 18 Feb 2020 14:50:17 +0000
+Reviewed-on: https://gerrit.openbmc-project.xyz/c/openbmc/openpower-proc-control/+/29323
+Project: openbmc/openpower-proc-control
+Branch: refs/heads/master
