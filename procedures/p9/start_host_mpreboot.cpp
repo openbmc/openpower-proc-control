@@ -94,9 +94,10 @@ void startHostMpReboot()
         {
             continue;
         }
-        if (sbe_mpipl_continue(target) < 0)
+
+        int error = 0;
+        if ((error = sbe_mpipl_continue(target)) < 0)
         {
-            auto error = errno;
             log<level::ERR>("Failed to execute sbe_mpipl_contiue");
             throw std::system_error(error, std::generic_category(),
                                     "Failed to continue with mp reboot");

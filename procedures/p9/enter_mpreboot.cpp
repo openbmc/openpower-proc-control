@@ -32,15 +32,16 @@ namespace p9
 void sbeEnterMpReboot(struct pdbg_target* tgt)
 {
     using namespace phosphor::logging;
-    if (sbe_mpipl_enter(tgt) < 0)
+    int error = 0;
+    if ((error = sbe_mpipl_enter(tgt)) < 0)
     {
-        auto error = errno;
         log<level::ERR>("Failed to initiate memory preserving reboot");
         // TODO Create a PEL in the future for this failure case.
         throw std::system_error(error, std::generic_category(),
                                 "Failed to initiate memory preserving reboot");
     }
 }
+
 /**
  * @brief initiate memory preserving reboot on each SBE.
  * @return void
