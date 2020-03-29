@@ -68,10 +68,15 @@ AS_IF([test "$enable_phal" == "yes"],
        if test x"$gl_cv_absolute_libekb_H" == "x" ; then
                AC_MSG_ERROR([Cannot find libekb.H path])
        fi
-       AC_CHECK_LIB([ekb], [libekb_init])
-       if test x"$ac_cv_lib_ekb_libekb_init" != "xyes" ; then
-               AC_MSG_ERROR([EKB library not found])
-       fi
+
+       # Added ldt-api as other library because to resolve autoconf
+       # test program unresolved symbols and the added library is not used
+       # by op-proc-control so not adding into LIBS
+       AC_CHECK_LIB([ekb],
+                    [libekb_init],
+                    [LIBS+="-lekb"],
+                    [AC_MSG_ERROR([ libekb not found])],
+                    [-ldt-api])
 
        CHIPS+=" phal common"
        AC_CONFIG_FILES([set-spi-mux.service])
