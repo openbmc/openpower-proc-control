@@ -1,10 +1,10 @@
 [Unit]
 Description=CFAM reset
-Wants=obmc-host-stopped@0.target
-After=obmc-host-stopped@0.target
-After=op-occ-disable@0.service
-Before=obmc-host-startmin@0.target
-Conflicts=obmc-host-startmin@0.target
+Wants=obmc-power-on@%i.target
+After=obmc-power-on@%i.target
+Wants=obmc-host-start-pre@0.target
+Before=obmc-host-start-pre@0.target
+Conflicts=obmc-host-stop@0.target
 ConditionPathExists=!/run/openbmc/mpreboot@0
 
 [Service]
