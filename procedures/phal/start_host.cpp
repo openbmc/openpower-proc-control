@@ -174,7 +174,18 @@ void startHost()
     }
 }
 
+void startHostMpReboot()
+{
+    //set as memory preserving reboot and call the startHost
+    //the libipl will take care of the memory preserving reboot
+    //handling
+    ipl_set_mpipl();
+    startHost();
+}
+
+
 REGISTER_PROCEDURE("startHost", startHost);
+REGISTER_PROCEDURE("startHostMpReboot", startHostMpReboot);
 
 } // namespace phal
 } // namespace openpower
