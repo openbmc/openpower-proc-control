@@ -17,12 +17,13 @@
 #include <libpdbg.h>
 
 #include <phosphor-logging/log.hpp>
-#include <thread>
+#include <sys/wait.h>
 #include <vector>
+#include <unistd.h>
 
 namespace openpower
 {
-namespace p9
+namespace misc
 {
 
 /**
@@ -50,7 +51,7 @@ void enterMpReboot()
 {
     using namespace phosphor::logging;
     struct pdbg_target* target;
-    std::vector<std::thread> threads;
+    std::vector<pid_t> pidList;
     pdbg_targets_init(NULL);
 
     log<level::INFO>("Starting memory preserving reboot");
@@ -60,17 +61,36 @@ void enterMpReboot()
         {
             continue;
         }
-        std::thread t(sbeEnterMpReboot, target);
-        threads.push_back(std::move(t));
+        
+        pid_t pid = fork();
+
+        if (pid == 0)
+        {
+            sbeEnterMpReboot(target);
+            std::exit(EXIT_SUCCESS);
+        }   
+        pidList.push_back(std::move(pid));
     }
 
-    for (auto& t : threads)
+    bool failed = false;
+    for (auto& p : pidList)
     {
-        t.join();
+        int status = 0;
+        waitpid(p, &status, 0);
+        if (WEXITSTATUS(status))
+        {
+            log<level::ERR>("Memory preserving ipl failed");
+            failed = true;
+        }
+    }
+
+    if (failed)
+    {
+        std::exit(EXIT_FAILURE);
     }
 }
 
 REGISTER_PROCEDURE("enterMpReboot", enterMpReboot);
 
-} // namespace p9
+} // namespace misc
 } // namespace openpower
