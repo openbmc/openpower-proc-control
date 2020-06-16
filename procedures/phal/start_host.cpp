@@ -152,20 +152,25 @@ void startHost(enum ipl_type iplType = IPL_TYPE_NORMAL)
     // To clear trace if success
     openpower::pel::detail::processBootErrorCallback(true);
 
-    // Run select seeprom before poweron
-    try
+    // Skip select boot Seeprom in memory preserving reboot
+    if (iplType != IPL_TYPE_MPIPL)
     {
-        selectBootSeeprom();
+        // Run select seeprom before poweron
+        try
+        {
+            selectBootSeeprom();
 
-        // To clear trace as it is success
-        openpower::pel::detail::processBootErrorCallback(true);
-    }
-    catch (const std::exception& ex)
-    {
-        // create PEL in failure
-        openpower::pel::detail::processBootErrorCallback(false);
-        log<level::ERR>("SEEPROM selection failed", entry("ERR=%s", ex.what()));
-        throw ex;
+            // To clear trace as it is success
+            openpower::pel::detail::processBootErrorCallback(true);
+        }
+        catch (const std::exception& ex)
+        {
+            // create PEL in failure
+            openpower::pel::detail::processBootErrorCallback(false);
+            log<level::ERR>("SEEPROM selection failed",
+                            entry("ERR=%s", ex.what()));
+            throw ex;
+        }
     }
 
     // callback method will be called upon failure which will create the PEL
