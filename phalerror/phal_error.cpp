@@ -89,12 +89,36 @@ void pDBGLogTraceCallbackHelper(int log_level, const char* fmt, va_list ap)
 }
 } // namespace detail
 
+static inline int8_t getLogLevelFromEnv( const char* env, const int8_t dValue)
+{
+    auto logLevel = dValue;
+    try
+    {
+         if(const char* env_p = std::getenv(env))
+         {
+              logLevel = std::stoi(env_p);
+         }
+    }
+    catch (std::exception& e)
+    {
+         log<level::ERR>(("Conversion Failure"),
+                    entry("ENVIRONMENT=%s", env),
+                    entry("EXCEPTION=%s", e.what()));
+    }
+    return logLevel;
+}
+
 void addBootErrorCallbacks()
 {
+    // Get individual phal repos log level from environment variable.
+    auto pdbgLevel = getLogLevelFromEnv("PDBG_LOG", PDBG_INFO) ;
+    auto iplLevel = getLogLevelFromEnv("IPL_LOG", IPL_INFO);
+    auto libekbLevel = getLogLevelFromEnv("LIBEKB_LOG", LIBEKB_LOG_IMP);
+    
     // set log level to info
-    pdbg_set_loglevel(PDBG_INFO);
-    libekb_set_loglevel(LIBEKB_LOG_INF);
-    ipl_set_loglevel(IPL_INFO);
+    pdbg_set_loglevel(pdbgLevel);
+    libekb_set_loglevel(libekbLevel);
+    ipl_set_loglevel(iplLevel);
 
     // add callback for debug traces
     pdbg_set_logfunc(detail::pDBGLogTraceCallbackHelper);
@@ -104,5 +128,6 @@ void addBootErrorCallbacks()
     // add callback for ipl failures
     ipl_set_error_callback_func(detail::processBootErrorCallback);
 }
+
 } // namespace pel
 } // namespace openpower
