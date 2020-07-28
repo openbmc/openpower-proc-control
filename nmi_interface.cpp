@@ -38,7 +38,7 @@ void NMI::nMI()
     using InternalFailure =
         sdbusplus::xyz::openbmc_project::Common::Error::InternalFailure;
 
-    struct pdbg_target* target;
+    struct pdbg_target* target = nullptr;
 
     pdbg_for_each_class_target("thread", target)
     {
@@ -51,11 +51,19 @@ void NMI::nMI()
             report<InternalFailure>();
             return;
         }
+        break;
     }
 
-    if (thread_sreset_all() < 0)
+    if (!target)
     {
-        log<level::ERR>("Failed to sreset all threads");
+        log<level::ERR>("Thread not found");
+        report<InternalFailure>();
+        return;
+    }
+
+    if (thread_sreset(target) < 0)
+    {
+        log<level::ERR>("Failed to sreset thread");
         report<InternalFailure>();
     }
 }
