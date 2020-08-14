@@ -1,0 +1,17 @@
+[Unit]
+Description=Start memory preserving reboot host%i
+Wants=obmc-host-stop-pre@%i.target
+Before=obmc-host-stop-pre@%i.target
+After=op-stop-instructions@%i.service
+Conflicts=obmc-host-startmin@%i.target
+
+[Service]
+Environment="PDBG_DTB=/var/lib/phosphor-software-manager/pnor/rw/DEVTREE"
+RemainAfterExit=yes
+Type=oneshot
+ExecStart=/usr/bin/openpower-proc-control enterMpReboot
+ExecStart=/bin/mkdir -p /run/openbmc/
+ExecStart=/bin/touch /run/openbmc/mpreboot@%i
+
+[Install]
+WantedBy=obmc-host-diagnostic-mode@%i.target

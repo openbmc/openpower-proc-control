@@ -82,6 +82,13 @@ AS_IF([test "$enable_phal" == "yes"],
       ]
      )
 
+AS_IF([test "$enable_phal" == "yes"],
+      [cp op-enter-mpreboot@.service.in.phal op-enter-mpreboot@.service.in
+       cp op-continue-mpreboot@.service.in.phal op-continue-mpreboot@.service.in ],
+	  [test "$enable_phal" != "no"],
+      [cp op-enter-mpreboot@.service.in.nophal op-enter-mpreboot@.service.in
+       cp op-continue-mpreboot@.service.in.nophal op-continue-mpreboot@.service.in ])
+
 AM_CONDITIONAL([ENABLE_PHAL], [test "$enable_phal" == "yes"])
 AS_IF([test "x$CHIPS" == "x"], [CHIPS="p9 openfsi common"])
 

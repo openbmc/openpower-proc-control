@@ -2,7 +2,13 @@
 
 AUTOCONF_FILES="Makefile.in aclocal.m4 ar-lib autom4te.cache compile \
         config.guess config.h.in config.sub configure depcomp install-sh \
-        ltmain.sh missing *libtool test-driver"
+        ltmain.sh missing *libtool test-driver op-enter-mpreboot@.service.in \
+		op-continue-mpreboot@.service.in"
+
+if [ ! -f *mpreboot@.service.in ]; then
+    touch op-enter-mpreboot@.service.in
+	touch op-continue-mpreboot@.service.in
+fi
 
 case $1 in
     clean)
