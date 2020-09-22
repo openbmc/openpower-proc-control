@@ -1,5 +1,6 @@
 #pragma once
 
+#include <nlohmann/json.hpp>
 #include <sdbusplus/bus.hpp>
 #include <string>
 #include <vector>
@@ -22,12 +23,16 @@ std::string getService(sdbusplus::bus::bus& bus, const std::string& objectPath,
 namespace pel
 {
 using FFDCData = std::vector<std::pair<std::string, std::string>>;
+
+using json = nlohmann::json;
+
 /**
  * Create boot error PEL
  *
  * @param[in] ffdcData - failure data to append to PEL
+ * @param[in] calloutData - callout data to append to PEL
  */
-void createBootErrorPEL(const FFDCData& ffdcData);
+void createBootErrorPEL(const FFDCData& ffdcData, const json& calloutData);
 
 } // namespace pel
 } // namespace openpower
