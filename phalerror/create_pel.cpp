@@ -10,12 +10,12 @@
 #include <cstdlib>
 #include <cstring>
 #include <map>
+#include <org/open_power/Logging/PEL/server.hpp>
 #include <phosphor-logging/elog.hpp>
 #include <stdexcept>
 #include <string>
 #include <tuple>
 #include <vector>
-#include <xyz/openbmc_project/Logging/Create/server.hpp>
 #include <xyz/openbmc_project/Logging/Entry/server.hpp>
 
 namespace openpower
@@ -62,7 +62,7 @@ namespace pel
 void createBootErrorPEL(const FFDCData& ffdcData, const json& calloutData)
 {
     constexpr auto loggingObjectPath = "/xyz/openbmc_project/logging";
-    constexpr auto loggingInterface = "xyz.openbmc_project.Logging.Create";
+    constexpr auto loggingInterface = "org.open_power.Logging.PEL";
 
     std::map<std::string, std::string> additionalData;
     auto bus = sdbusplus::bus::new_default();
@@ -72,6 +72,7 @@ void createBootErrorPEL(const FFDCData& ffdcData, const json& calloutData)
         additionalData.emplace(data);
     }
 
+    std::tuple<uint32_t, uint32_t> pelResp;
     try
     {
         FFDCFile ffdcFile(calloutData);
@@ -93,13 +94,14 @@ void createBootErrorPEL(const FFDCData& ffdcData, const json& calloutData)
             util::getService(bus, loggingObjectPath, loggingInterface);
         auto method =
             bus.new_method_call(service.c_str(), loggingObjectPath,
-                                loggingInterface, "CreateWithFFDCFiles");
+                                loggingInterface, "CreatePELWithFFDCFiles");
         auto level =
             sdbusplus::xyz::openbmc_project::Logging::server::convertForMessage(
                 sdbusplus::xyz::openbmc_project::Logging::server::Entry::Level::
                     Error);
         method.append(bootErrorMessage, level, additionalData, pelCalloutInfo);
         auto resp = bus.call(method);
+        resp.read(pelResp);
     }
     catch (const sdbusplus::exception::SdBusError& e)
     {
@@ -115,6 +117,14 @@ void createBootErrorPEL(const FFDCData& ffdcData, const json& calloutData)
     {
         throw e;
     }
+
+    auto eventLogId = std::get<0>(pelResp);
+    auto pelLogId = std::get<1>(pelResp);
+    log<level::DEBUG>(
+        fmt::format("Returned BMC_EventLogID: {} and PELID: {:x} for "
+                    "created phal PEL record",
+                    eventLogId, pelLogId)
+            .c_str());
 }
 
 FFDCFile::FFDCFile(const json& pHALCalloutData) :
