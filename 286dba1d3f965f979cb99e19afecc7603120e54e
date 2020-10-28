@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "824e4404_32df890e",
+        "filename": "phalerror/create_pel.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2020-10-28T09:40:52Z",
+      "side": 1,
+      "message": "Is this really usefull? incase d-bus call failed already printing error here.",
+      "range": {
+        "startLine": 121,
+        "startChar": 3,
+        "endLine": 128,
+        "endChar": 2
+      },
+      "revId": "286dba1d3f965f979cb99e19afecc7603120e54e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
