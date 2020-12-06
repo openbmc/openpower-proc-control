@@ -1,0 +1,11 @@
+[Unit]
+Description=Preparation to poweroff host%i
+Wants=obmc-chassis-poweroff@%i.target
+Before=obmc-chassis-poweroff@%i.target
+Conflicts=obmc-chassis-poweron@%i.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=no
+ExecStart=/usr/bin/openpower-proc-control prePoweroff
+
