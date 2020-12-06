@@ -92,6 +92,7 @@ executable(
         'procedures/common/cfam_overrides.cpp',
         'procedures/common/cfam_reset.cpp',
         'procedures/common/enter_mpreboot.cpp',
+        'procedures/common/pre_poweroff.cpp',
         'procedures/common/collect_sbe_hb_data.cpp',
     ] + extra_sources,
     dependencies: [
@@ -127,6 +128,7 @@ unit_files = [
     'op-cfam-reset.service',
     'op-continue-mpreboot@.service',
     'op-enter-mpreboot@.service',
+    'op-prep-for-poweroff@.service'
 ] + extra_unit_files
 
 systemd_system_unit_dir = dependency('systemd').get_pkgconfig_variable(

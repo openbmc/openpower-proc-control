@@ -6,7 +6,8 @@ systemdsystemunit_DATA = \
   op-stop-instructions@.service \
   op-cfam-reset.service \
   op-continue-mpreboot@.service \
-  op-enter-mpreboot@.service
+  op-enter-mpreboot@.service \
+  op-prep-for-poweroff.service
 
 if ENABLE_PHAL
   systemdsystemunit_DATA += set-spi-mux.service \
