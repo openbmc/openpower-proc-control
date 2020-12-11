@@ -5,6 +5,7 @@ extern "C"
 
 #include "attributes_info.H"
 
+#include "common_utils.hpp"
 #include "phalerror/phal_error.hpp"
 #include "procedures/phal/common_utils.hpp"
 #include "util.hpp"
@@ -204,15 +205,15 @@ void startHost(enum ipl_type iplType = IPL_TYPE_NORMAL)
 {
     try
     {
-        phal_init();
-        ipl_set_type(iplType);
+        initPHAL(openpower::pel::detail::processBootErrorCallback, IPL_AUTOBOOT,
+                 iplType);
     }
     catch (std::exception& ex)
     {
         log<level::ERR>("Exception raised during init PHAL",
                         entry("EXCEPTION=%s", ex.what()));
         openpower::pel::detail::processBootErrorCallback(false);
-        throw std::runtime_error("PHAL initialization failed");
+        throw std::runtime_error("Failed to init PHAL");
     }
 
     // To clear trace if success
