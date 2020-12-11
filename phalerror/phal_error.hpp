@@ -33,17 +33,19 @@ void processLogTraceCallback(void* private_data, const char* fmt, va_list ap);
 void processBootErrorCallback(bool status);
 
 /**
+ * @brief Process processor pre-poweroff failure/success status
+ *
+ * If status is success log traces are cleared else used in the
+ * creation of failure
+ *
+ * @param[in] status used to pass pre-poweroff execution status
+ */
+void processProcPowerOffErrorCallback(bool status);
+
+/**
  * @brief Reset trace log list
  */
 void reset();
 } // namespace detail
-
-/**
- * @brief Add callbacks for debug traces and boot errors
- *
- * This function adds callback for debug traces and for boot
- * errors
- */
-void addBootErrorCallbacks();
 } // namespace pel
 } // namespace openpower

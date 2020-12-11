@@ -2,6 +2,7 @@
 
 #include <nlohmann/json.hpp>
 #include <sdbusplus/bus.hpp>
+#include <xyz/openbmc_project/Logging/Entry/server.hpp>
 
 #include <string>
 #include <vector>
@@ -24,16 +25,19 @@ std::string getService(sdbusplus::bus::bus& bus, const std::string& objectPath,
 namespace pel
 {
 using FFDCData = std::vector<std::pair<std::string, std::string>>;
-
+using Severity = sdbusplus::xyz::openbmc_project::Logging::server::Entry::Level;
 using json = nlohmann::json;
 
 /**
- * Create boot error PEL
+ * @brief Used to create PEL
  *
+ * @param[in] msg - message info to append to PEL
+ * @param[in] severity - severity of PEL
  * @param[in] ffdcData - failure data to append to PEL
  * @param[in] calloutData - callout data to append to PEL
  */
-void createBootErrorPEL(const FFDCData& ffdcData, const json& calloutData);
+void createPEL(const std::string& msg, const Severity severity,
+               const FFDCData& ffdcData, const json& calloutData);
 
 /**
  * @class FFDCFile
