@@ -62,6 +62,7 @@ if build_openfsi
 endif
 if build_phal
     extra_sources += [
+        'procedures/phal/common_utils.cpp',
         'procedures/phal/start_host.cpp',
         'procedures/phal/set_SPI_mux.cpp',
         'phalerror/create_pel.cpp',

@@ -37,13 +37,5 @@ void processBootErrorCallback(bool status);
  */
 void reset();
 } // namespace detail
-
-/**
- * @brief Add callbacks for debug traces and boot errors
- *
- * This function adds callback for debug traces and for boot
- * errors
- */
-void addBootErrorCallbacks();
 } // namespace pel
 } // namespace openpower

@@ -7,7 +7,6 @@
 
 #include <phosphor-logging/elog.hpp>
 #include <xyz/openbmc_project/Logging/Create/server.hpp>
-#include <xyz/openbmc_project/Logging/Entry/server.hpp>
 
 #include <cerrno>
 #include <cstdio>
@@ -60,7 +59,8 @@ std::string getService(sdbusplus::bus::bus& bus, const std::string& objectPath,
 
 namespace pel
 {
-void createBootErrorPEL(const FFDCData& ffdcData, const json& calloutData)
+void createPEL(const std::string& msg, const Severity severity,
+               const FFDCData& ffdcData, const json& calloutData)
 {
     constexpr auto loggingObjectPath = "/xyz/openbmc_project/logging";
     constexpr auto loggingInterface = "xyz.openbmc_project.Logging.Create";
@@ -88,8 +88,6 @@ void createBootErrorPEL(const FFDCData& ffdcData, const json& calloutData)
                             static_cast<uint8_t>(0xCA),
                             static_cast<uint8_t>(0x01), ffdcFile.getFileFD()));
 
-        static constexpr auto bootErrorMessage =
-            "org.open_power.PHAL.Error.Boot";
         std::string service =
             util::getService(bus, loggingObjectPath, loggingInterface);
         auto method =
@@ -97,9 +95,8 @@ void createBootErrorPEL(const FFDCData& ffdcData, const json& calloutData)
                                 loggingInterface, "CreateWithFFDCFiles");
         auto level =
             sdbusplus::xyz::openbmc_project::Logging::server::convertForMessage(
-                sdbusplus::xyz::openbmc_project::Logging::server::Entry::Level::
-                    Error);
-        method.append(bootErrorMessage, level, additionalData, pelCalloutInfo);
+                severity);
+        method.append(msg, level, additionalData, pelCalloutInfo);
         auto resp = bus.call(method);
     }
     catch (const sdbusplus::exception::SdBusError& e)
