@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "45a22095_7e93bff6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-02-24T10:46:03Z",
+      "side": 1,
+      "message": "I think commit message header and body width is large than expected size 80. will fix it in next patch set but, I feel to review it not blocker. Let me know if anyone  want fix that before review.",
+      "revId": "d89c744a9778c746db1b038055cffe0d86c11cd4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
