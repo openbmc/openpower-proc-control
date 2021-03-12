@@ -34,6 +34,24 @@
       "revId": "26c4d763d3dcddc3638a960973cefef506b3735b",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "476c3ec4_90531fb5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2021-03-12T21:22:29Z",
+      "side": 1,
+      "message": "I put some commits up over at https://gerrit.openbmc-project.xyz/c/openbmc/phosphor-state-manager/+/41267/1 to ensure these files are cleared correctly. I realized we don\u0027t have an issue currently with this commit on it\u0027s own though because:\n- On a witherspoon, warm reboots are disabled (they are mapped to a full chassis reboot)\n- On a rainier, a reset of the BMC with the host up does not work (PLDM/PHYP code still being written)\n\nSo my vote is we get this in because it helps the PHYP team to debug other issues in the reset path that they are working on. I\u0027ll ensure we either get my state-manager commits in or some other workaround by the time the full R/R support comes in.",
+      "parentUuid": "3024b8bc_c0c15f20",
+      "revId": "26c4d763d3dcddc3638a960973cefef506b3735b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
