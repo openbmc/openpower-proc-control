@@ -16,6 +16,24 @@
       "revId": "26c4d763d3dcddc3638a960973cefef506b3735b",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3024b8bc_c0c15f20",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2021-03-12T14:43:23Z",
+      "side": 1,
+      "message": "Yeah, darn, I\u0027m not sure if this path works anyway but this would contribute to breaking it. i.e. if you did a reboot of the BMC with the host up, and then followed that by a warm re-ipl, we would not run this service like we need to. The file only gets cleared when a chassis off is done.",
+      "parentUuid": "8aa2ea00_4829a30c",
+      "revId": "26c4d763d3dcddc3638a960973cefef506b3735b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
