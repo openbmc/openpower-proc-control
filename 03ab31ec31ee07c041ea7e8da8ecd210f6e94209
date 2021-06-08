@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "01d82f21_3f08f615",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2021-06-08T14:00:02Z",
+      "side": 1,
+      "message": "I think this may need to be two sentences.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 15
+      },
+      "revId": "03ab31ec31ee07c041ea7e8da8ecd210f6e94209",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "22d0310f_298d3608",
         "filename": "procedures/phal/start_host.cpp",
         "patchSetId": 7
@@ -13,6 +36,23 @@
       "writtenOn": "2021-06-08T13:06:29Z",
       "side": 1,
       "message": "Do you not want to use the mapper to get the Service and object by the interface?",
+      "revId": "03ab31ec31ee07c041ea7e8da8ecd210f6e94209",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a0474ed9_9c54d91a",
+        "filename": "procedures/phal/start_host.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2021-06-08T14:00:02Z",
+      "side": 1,
+      "message": "FYI, on method errors, sdbusplus will always through an exception in the call() function so this check will never be true.",
       "revId": "03ab31ec31ee07c041ea7e8da8ecd210f6e94209",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
@@ -48,6 +88,23 @@
       "side": 1,
       "message": "HW key is ay 2 0 2  : array of uint8, 2 bytes long. Do you see any issue in using this way.",
       "parentUuid": "5d662038_da801c0f",
+      "revId": "03ab31ec31ee07c041ea7e8da8ecd210f6e94209",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "77585c4a_82a79bc4",
+        "filename": "procedures/phal/start_host.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2021-06-08T14:00:02Z",
+      "side": 1,
+      "message": "Change this to debug?  If someone really wants to know this on a system, they can just check the inventory D-Bus object.",
       "revId": "03ab31ec31ee07c041ea7e8da8ecd210f6e94209",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
