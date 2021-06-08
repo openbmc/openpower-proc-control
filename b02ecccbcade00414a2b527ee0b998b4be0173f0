@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "fc0ce4b3_dab700a7",
+        "filename": "procedures/phal/start_host.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-06-08T09:27:41Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "59322b0b_d3ef0b47",
+      "range": {
+        "startLine": 119,
+        "startChar": 5,
+        "endLine": 119,
+        "endChar": 28
+      },
+      "revId": "b02ecccbcade00414a2b527ee0b998b4be0173f0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d9690ebb_71957399",
         "filename": "procedures/phal/start_host.cpp",
         "patchSetId": 1
@@ -59,6 +83,30 @@
       "writtenOn": "2021-06-08T09:20:20Z",
       "side": 1,
       "message": "Why this enum need to define here ?\nis it derived from ekb attribute xml right? if so, you can use from \"attributes_info.H\" which is include like below. \n\n```\ntypedef uint8_t ATTR_SYS_CLK_NE_TERMINATION_SITE_Type;\nenum ATTR_SYS_CLK_NE_TERMINATION_SITE_Enum\n{\n    ENUM_ATTR_SYS_CLK_NE_TERMINATION_SITE_PLANAR \u003d 0,\n    ENUM_ATTR_SYS_CLK_NE_TERMINATION_SITE_PROC \u003d 1,\n};\n```\n\nor you added purposefully to handle \"invalid\" ? I guess device tree will have \"planar\" as default value. if so, please update respective attribute xml to include \"SYS_CLK_NE_TERMINATION_SITE_INVALID\".",
+      "range": {
+        "startLine": 125,
+        "startChar": 4,
+        "endLine": 130,
+        "endChar": 6
+      },
+      "revId": "b02ecccbcade00414a2b527ee0b998b4be0173f0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "82dd4083_a4c1677f",
+        "filename": "procedures/phal/start_host.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-06-08T09:27:41Z",
+      "side": 1,
+      "message": "Good point. i will use this",
+      "parentUuid": "d9690ebb_71957399",
       "range": {
         "startLine": 125,
         "startChar": 4,
@@ -94,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "1d7c9690_fe012707",
+        "filename": "procedures/phal/start_host.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-06-08T09:27:41Z",
+      "side": 1,
+      "message": "Not required if this failed , no point in continuing IPL.",
+      "parentUuid": "5aa3e03c_e1062fd9",
+      "range": {
+        "startLine": 139,
+        "startChar": 3,
+        "endLine": 156,
+        "endChar": 54
+      },
+      "revId": "b02ecccbcade00414a2b527ee0b998b4be0173f0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ca7ae8ff_822ad99a",
         "filename": "procedures/phal/start_host.cpp",
         "patchSetId": 1
@@ -117,6 +189,30 @@
     },
     {
       "key": {
+        "uuid": "a3f8470c_e32e3008",
+        "filename": "procedures/phal/start_host.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-06-08T09:27:41Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "ca7ae8ff_822ad99a",
+      "range": {
+        "startLine": 180,
+        "startChar": 0,
+        "endLine": 182,
+        "endChar": 39
+      },
+      "revId": "b02ecccbcade00414a2b527ee0b998b4be0173f0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ec72a105_0d32f777",
         "filename": "procedures/phal/start_host.cpp",
         "patchSetId": 1
@@ -128,6 +224,30 @@
       "writtenOn": "2021-06-08T09:20:20Z",
       "side": 1,
       "message": "is it applicable to MPIPL as well ?",
+      "range": {
+        "startLine": 230,
+        "startChar": 4,
+        "endLine": 230,
+        "endChar": 27
+      },
+      "revId": "b02ecccbcade00414a2b527ee0b998b4be0173f0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "004199c6_a423c485",
+        "filename": "procedures/phal/start_host.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-06-08T09:27:41Z",
+      "side": 1,
+      "message": "Not required. We preserves the attribute in MPIPL path",
+      "parentUuid": "ec72a105_0d32f777",
       "range": {
         "startLine": 230,
         "startChar": 4,
