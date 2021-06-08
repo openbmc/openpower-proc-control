@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5c5cbc08_e10eeb1a",
+        "filename": "meson.build",
+        "patchSetId": 1
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-06-08T08:58:19Z",
+      "side": 1,
+      "message": "openpower-proc-control did not switch to meson in openbmc/openbmc (https://github.com/openbmc/openbmc/blob/master/meta-openpower/recipes-phosphor/host/op-proc-control_git.bb#L10) so, please add into Makefile.am as well.",
+      "range": {
+        "startLine": 99,
+        "startChar": 8,
+        "endLine": 99,
+        "endChar": 18
+      },
+      "revId": "9b898c1f20ee4f62cf171e6dc1a7c4fc54c1bacf",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "74d40679_1999a716",
+        "filename": "util.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-06-08T08:58:19Z",
+      "side": 1,
+      "message": "JS: You can use fmt library (which is used for phal feature) to include more application data into journal itself, so user can look from journal itself rather than looking based on \"MESSAGE\" field to get all entries.\n\nI think you did in some other patch for phosphor-logging.",
+      "range": {
+        "startLine": 31,
+        "startChar": 24,
+        "endLine": 33,
+        "endChar": 57
+      },
+      "revId": "9b898c1f20ee4f62cf171e6dc1a7c4fc54c1bacf",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
