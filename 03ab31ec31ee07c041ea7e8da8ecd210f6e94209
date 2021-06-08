@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "22d0310f_298d3608",
+        "filename": "procedures/phal/start_host.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1000338
+      },
+      "writtenOn": "2021-06-08T13:06:29Z",
+      "side": 1,
+      "message": "Do you not want to use the mapper to get the Service and object by the interface?",
+      "revId": "03ab31ec31ee07c041ea7e8da8ecd210f6e94209",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5d662038_da801c0f",
+        "filename": "procedures/phal/start_host.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1000338
+      },
+      "writtenOn": "2021-06-08T13:06:29Z",
+      "side": 1,
+      "message": "This can throw if the type of the D-Bus property is not a vector\u003cuint8_t\u003e. Is that OK?",
+      "revId": "03ab31ec31ee07c041ea7e8da8ecd210f6e94209",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
