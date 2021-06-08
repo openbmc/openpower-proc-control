@@ -96,6 +96,7 @@ executable(
         'procedures/common/cfam_reset.cpp',
         'procedures/common/enter_mpreboot.cpp',
         'procedures/common/collect_sbe_hb_data.cpp',
+        'util.cpp',
     ] + extra_sources,
     dependencies: [
         dependency('libgpiodcxx'),
