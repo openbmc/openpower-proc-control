@@ -6,6 +6,7 @@ extern "C"
 #include "cfam_access.hpp"
 #include "common_utils.hpp"
 #include "p10_cfam.hpp"
+#include "phalerror/create_pel.hpp"
 #include "procedures/phal/common_utils.hpp"
 #include "registration.hpp"
 #include "targeting.hpp"
@@ -88,7 +89,8 @@ void checkHostRunning()
         // CFAM indicates host is running.
         log<level::ERR>("CFAM read indicates host is running");
 
-        // TODO - Create Error
+        // Create an error so user knows system is in a bad state
+        openpower::pel::createHostRunningPEL();
 
         // Create file for host instance and create in filesystem to
         // indicate to services that host is running
