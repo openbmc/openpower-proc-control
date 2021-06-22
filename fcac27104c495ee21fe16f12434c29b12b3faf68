@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e3bf5428_0273afc6",
+        "filename": "procedures/phal/check_host_running.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2021-06-22T20:14:15Z",
+      "side": 1,
+      "message": "spelling",
+      "range": {
+        "startLine": 70,
+        "startChar": 36,
+        "endLine": 70,
+        "endChar": 48
+      },
+      "revId": "fcac27104c495ee21fe16f12434c29b12b3faf68",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
