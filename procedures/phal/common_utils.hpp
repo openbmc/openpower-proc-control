@@ -43,5 +43,26 @@ bool isMasterProc(struct pdbg_target* procTarget);
 uint32_t getCFAM(struct pdbg_target* procTarget, const uint16_t reg,
                  uint32_t& val);
 
+/**
+ *  @brief  Write the input CFAM register
+ *
+ *  @param[in]  procTarget - The Target to perform the operation on
+ *  @param[in]  reg - The register address to write
+ *  @param[out] val - The value to write to the register
+ *
+ *  @return 0 on success, non-0 on failure
+ */
+uint32_t putCFAM(struct pdbg_target* procTarget, const uint16_t reg,
+                 const uint32_t val);
+
+/**
+ *  @brief  Helper function to find FSI target needed for FSI operations
+ *
+ *  @param[in]  procTarget - The processor Target to find the FSI target on
+ *
+ *  @return Valid pointer to FSI target on success, nullptr on failure
+ */
+pdbg_target* getFsiTarget(struct pdbg_target* procTarget);
+
 } // namespace phal
 } // namespace openpower

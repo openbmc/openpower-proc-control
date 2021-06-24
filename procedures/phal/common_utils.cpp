@@ -69,8 +69,7 @@ bool isMasterProc(struct pdbg_target* procTarget)
     }
 }
 
-uint32_t getCFAM(struct pdbg_target* procTarget, const uint16_t reg,
-                 uint32_t& val)
+pdbg_target* getFsiTarget(struct pdbg_target* procTarget)
 {
     auto procIdx = pdbg_target_index(procTarget);
     char path[16];
@@ -80,14 +79,14 @@ uint32_t getCFAM(struct pdbg_target* procTarget, const uint16_t reg,
     if (nullptr == pibTarget)
     {
         log<level::ERR>("pib path of target not found");
-        return -1;
+        return nullptr;
     }
 
     // probe PIB and ensure it's enabled
     if (PDBG_TARGET_ENABLED != pdbg_target_probe(pibTarget))
     {
         log<level::ERR>("probe on pib target failed");
-        return -1;
+        return nullptr;
     }
 
     // now build FSI path and read the input reg
@@ -96,6 +95,20 @@ uint32_t getCFAM(struct pdbg_target* procTarget, const uint16_t reg,
     if (nullptr == fsiTarget)
     {
         log<level::ERR>("fsi path or target not found");
+        return nullptr;
+    }
+
+    return fsiTarget;
+}
+
+uint32_t getCFAM(struct pdbg_target* procTarget, const uint16_t reg,
+                 uint32_t& val)
+{
+
+    pdbg_target* fsiTarget = getFsiTarget(procTarget);
+    if (nullptr == fsiTarget)
+    {
+        log<level::ERR>("getCFAM: fsi path or target not found");
         return -1;
     }
 
@@ -103,6 +116,26 @@ uint32_t getCFAM(struct pdbg_target* procTarget, const uint16_t reg,
     if (rc)
     {
         log<level::ERR>("failed to read input cfam", entry("RC=%u", rc),
+                        entry("CFAM=0x%X", reg));
+        return rc;
+    }
+    return 0;
+}
+
+uint32_t putCFAM(struct pdbg_target* procTarget, const uint16_t reg,
+                 const uint32_t val)
+{
+    pdbg_target* fsiTarget = getFsiTarget(procTarget);
+    if (nullptr == fsiTarget)
+    {
+        log<level::ERR>("putCFAM: fsi path or target not found");
+        return -1;
+    }
+
+    auto rc = fsi_write(fsiTarget, reg, val);
+    if (rc)
+    {
+        log<level::ERR>("failed to write input cfam", entry("RC=%u", rc),
                         entry("CFAM=0x%X", reg));
         return rc;
     }
