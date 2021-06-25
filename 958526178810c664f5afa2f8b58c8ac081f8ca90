@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d2224d21_4bfb40a4",
+        "filename": "procedures/phal/common_utils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2021-06-25T18:07:18Z",
+      "side": 1,
+      "message": "probably good to log the target/path here too",
+      "revId": "958526178810c664f5afa2f8b58c8ac081f8ca90",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
