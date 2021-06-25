@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "68d42f1d_cd912de5",
+        "filename": "procedures/phal/check_host_running.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2021-06-25T18:03:28Z",
+      "side": 1,
+      "message": "since you\u0027ll already be tracing the outcome of this procedure, do you need the entrance trace?",
+      "range": {
+        "startLine": 43,
+        "startChar": 3,
+        "endLine": 43,
+        "endChar": 50
+      },
+      "revId": "5cba29aaf22d49775e356020a0dd4e9f0715b8e1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f0f8cf47_c7d003aa",
+        "filename": "procedures/phal/common_utils.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2021-06-25T18:03:28Z",
+      "side": 1,
+      "message": "maybe also have an entry for path, unless there\u0027s another way to convert the target to a string?",
+      "revId": "5cba29aaf22d49775e356020a0dd4e9f0715b8e1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
