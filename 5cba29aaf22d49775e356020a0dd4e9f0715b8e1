@@ -2,6 +2,75 @@
   "comments": [
     {
       "key": {
+        "uuid": "d606bc5d_92f8049b",
+        "filename": "procedures/phal/check_host_running.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-06-28T07:58:03Z",
+      "side": 1,
+      "message": "Why need this , we should be using pdbg based apis.",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 26
+      },
+      "revId": "5cba29aaf22d49775e356020a0dd4e9f0715b8e1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "457d76b3_8d2db2f7",
+        "filename": "procedures/phal/check_host_running.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-06-28T07:58:03Z",
+      "side": 1,
+      "message": "Why need this , we should be using pdbg based apis.",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 24
+      },
+      "revId": "5cba29aaf22d49775e356020a0dd4e9f0715b8e1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fad5a64f_08a98cfe",
+        "filename": "procedures/phal/check_host_running.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-06-28T07:58:03Z",
+      "side": 1,
+      "message": "pdbg based interface is better.",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 37
+      },
+      "revId": "5cba29aaf22d49775e356020a0dd4e9f0715b8e1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "68d42f1d_cd912de5",
         "filename": "procedures/phal/check_host_running.cpp",
         "patchSetId": 5
@@ -19,6 +88,149 @@
         "endLine": 43,
         "endChar": 50
       },
+      "revId": "5cba29aaf22d49775e356020a0dd4e9f0715b8e1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4362a3cd_58d4579e",
+        "filename": "procedures/phal/check_host_running.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-06-28T07:58:03Z",
+      "side": 1,
+      "message": "design direction is to move these api\u0027s as part of pdbg.  i will add a requirement in pdbg to add this api support. For now we can use this code and once the pdbg api is ready we canremove this code.",
+      "range": {
+        "startLine": 58,
+        "startChar": 4,
+        "endLine": 80,
+        "endChar": 9
+      },
+      "revId": "5cba29aaf22d49775e356020a0dd4e9f0715b8e1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "088011cd_b89135b2",
+        "filename": "procedures/phal/check_host_running.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-06-28T07:58:03Z",
+      "side": 1,
+      "message": "am little confused with this check,( val \u003d\u003d HOST_RUNNING_INDICATION) is not good indiaction to say host is ruuing?",
+      "range": {
+        "startLine": 82,
+        "startChar": 8,
+        "endLine": 82,
+        "endChar": 48
+      },
+      "revId": "5cba29aaf22d49775e356020a0dd4e9f0715b8e1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "68448890_553e283a",
+        "filename": "procedures/phal/check_host_running.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-06-28T07:58:03Z",
+      "side": 1,
+      "message": "when this file is going to delete? shpould  we remove not running use case here , or saparate service to celar this?",
+      "revId": "5cba29aaf22d49775e356020a0dd4e9f0715b8e1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f4d884fb_4b9dc66a",
+        "filename": "procedures/phal/check_host_running.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-06-28T07:58:03Z",
+      "side": 1,
+      "message": "Note : MPIPL/concurrent code update path use case make sure this logic will work good ,",
+      "range": {
+        "startLine": 93,
+        "startChar": 7,
+        "endLine": 94,
+        "endChar": 68
+      },
+      "revId": "5cba29aaf22d49775e356020a0dd4e9f0715b8e1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6b81f90e_4e2a8141",
+        "filename": "procedures/phal/check_host_running.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-06-28T07:58:03Z",
+      "side": 1,
+      "message": "replace master with primary?",
+      "revId": "5cba29aaf22d49775e356020a0dd4e9f0715b8e1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "65e7d63a_c0195e15",
+        "filename": "procedures/phal/common_utils.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-06-28T07:58:03Z",
+      "side": 1,
+      "message": "usually register definition is 32/64 bit.",
+      "range": {
+        "startLine": 72,
+        "startChar": 49,
+        "endLine": 72,
+        "endChar": 63
+      },
+      "revId": "5cba29aaf22d49775e356020a0dd4e9f0715b8e1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "950946fb_fffb589f",
+        "filename": "procedures/phal/common_utils.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-06-28T07:58:03Z",
+      "side": 1,
+      "message": "please look https://gerrit.openbmc-project.xyz/c/openbmc/openpower-proc-control/+/44443/1/procedures/phal/common_utils.cpp comments related to this function",
       "revId": "5cba29aaf22d49775e356020a0dd4e9f0715b8e1",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
