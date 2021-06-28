@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f8d8ee56_baffb539",
+        "filename": "procedures/phal/common_utils.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-06-28T07:27:23Z",
+      "side": 1,
+      "message": "Change to , if (type \u003d\u003d ENUM_ATTR_PROC_MASTER_TYPE_ACTING_MASTER)",
+      "range": {
+        "startLine": 67,
+        "startChar": 4,
+        "endLine": 67,
+        "endChar": 18
+      },
+      "revId": "cfbe1d3766f9f659e1be053943b29b392719c145",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9075a2e6_356c9013",
+        "filename": "procedures/phal/common_utils.hpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-06-28T07:27:23Z",
+      "side": 1,
+      "message": "primary? with new naming guide lines. If possible using primary/secondary.",
+      "range": {
+        "startLine": 26,
+        "startChar": 21,
+        "endLine": 26,
+        "endChar": 27
+      },
+      "revId": "cfbe1d3766f9f659e1be053943b29b392719c145",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
