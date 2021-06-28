@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "c6dd86f5_a4cbcd00",
+        "filename": "procedures/phal/common_utils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-06-28T06:43:07Z",
+      "side": 1,
+      "message": "getting fsi target , below code is sufficient.\n\nProbe is expensive operation, and only required only for hw access ,better to move this function move under hw access function. Need to figure out better way of handling prob. like adding at one place from the application scope.\n\ninline struct pdbg_target *get_fsi_target(struct pdbg_target *proc)\n{\n\tstruct pdbg_target *fsi \u003d NULL;\n\n\t/* We assume each processor chip contains one and only one pib */\n\tpdbg_for_each_target(\"fsi\", proc, fsi) {\n\t\tbreak;\n\t}\n\n\tif (!fsi) {\n      \u003cError\u003e\t\t\n\t}\n      \n\treturn fsi;\n}",
+      "range": {
+        "startLine": 72,
+        "startChar": 1,
+        "endLine": 102,
+        "endChar": 1
+      },
+      "revId": "958526178810c664f5afa2f8b58c8ac081f8ca90",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d2224d21_4bfb40a4",
         "filename": "procedures/phal/common_utils.cpp",
         "patchSetId": 1
@@ -13,6 +36,29 @@
       "writtenOn": "2021-06-25T18:07:18Z",
       "side": 1,
       "message": "probably good to log the target/path here too",
+      "revId": "958526178810c664f5afa2f8b58c8ac081f8ca90",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "81b7dcba_cbd89222",
+        "filename": "procedures/phal/common_utils.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-06-28T06:43:07Z",
+      "side": 1,
+      "message": "\"Processor target\"",
+      "range": {
+        "startLine": 49,
+        "startChar": 29,
+        "endLine": 49,
+        "endChar": 30
+      },
       "revId": "958526178810c664f5afa2f8b58c8ac081f8ca90",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
