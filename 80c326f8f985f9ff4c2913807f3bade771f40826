@@ -22,6 +22,30 @@
       "revId": "80c326f8f985f9ff4c2913807f3bade771f40826",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f04ab92b_13439166",
+        "filename": "procedures/common/enter_mpreboot.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-06-29T11:36:00Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "b8c52877_4dea6241",
+      "range": {
+        "startLine": 56,
+        "startChar": 33,
+        "endLine": 56,
+        "endChar": 41
+      },
+      "revId": "80c326f8f985f9ff4c2913807f3bade771f40826",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
