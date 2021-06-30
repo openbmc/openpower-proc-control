@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "080f48d9_832b8e0c",
+        "filename": "procedures/phal/check_host_running.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2021-06-30T19:14:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d606bc5d_92f8049b",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 26
+      },
+      "revId": "5cba29aaf22d49775e356020a0dd4e9f0715b8e1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "457d76b3_8d2db2f7",
         "filename": "procedures/phal/check_host_running.cpp",
         "patchSetId": 5
@@ -45,6 +69,30 @@
       "revId": "5cba29aaf22d49775e356020a0dd4e9f0715b8e1",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1528c8c6_8e0e6129",
+        "filename": "procedures/phal/check_host_running.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2021-06-30T19:14:05Z",
+      "side": 1,
+      "message": "yeah, I think initially I was going down the path of using the P9 interfaces.",
+      "parentUuid": "457d76b3_8d2db2f7",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 24
+      },
+      "revId": "5cba29aaf22d49775e356020a0dd4e9f0715b8e1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "308ce3e8_d278fa62",
+        "filename": "procedures/phal/check_host_running.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2021-06-30T19:14:05Z",
+      "side": 1,
+      "message": "I do need the openpower::cfam::p10 to get the CFAM reg definition but will delete the access one.",
+      "parentUuid": "fad5a64f_08a98cfe",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 37
+      },
+      "revId": "5cba29aaf22d49775e356020a0dd4e9f0715b8e1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "68d42f1d_cd912de5",
         "filename": "procedures/phal/check_host_running.cpp",
         "patchSetId": 5
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "8ab7ff83_2a94d20d",
+        "filename": "procedures/phal/check_host_running.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2021-06-30T19:14:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "68d42f1d_cd912de5",
+      "range": {
+        "startLine": 43,
+        "startChar": 3,
+        "endLine": 43,
+        "endChar": 50
+      },
+      "revId": "5cba29aaf22d49775e356020a0dd4e9f0715b8e1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4362a3cd_58d4579e",
         "filename": "procedures/phal/check_host_running.cpp",
         "patchSetId": 5
@@ -105,6 +201,30 @@
       "writtenOn": "2021-06-28T07:58:03Z",
       "side": 1,
       "message": "design direction is to move these api\u0027s as part of pdbg.  i will add a requirement in pdbg to add this api support. For now we can use this code and once the pdbg api is ready we canremove this code.",
+      "range": {
+        "startLine": 58,
+        "startChar": 4,
+        "endLine": 80,
+        "endChar": 9
+      },
+      "revId": "5cba29aaf22d49775e356020a0dd4e9f0715b8e1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "41fc91d9_4f9e586d",
+        "filename": "procedures/phal/check_host_running.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2021-06-30T19:14:05Z",
+      "side": 1,
+      "message": "sounds good, I was surprised there wasn\u0027t anything available to do this so good to hear.",
+      "parentUuid": "4362a3cd_58d4579e",
       "range": {
         "startLine": 58,
         "startChar": 4,
@@ -140,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "31ed21cf_ced461d8",
+        "filename": "procedures/phal/check_host_running.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2021-06-30T19:14:05Z",
+      "side": 1,
+      "message": "If this hw procedure is running, it\u0027s because the BMC was unable to talk with the host over PLDM or IPMI. So, it\u0027s good that we\u0027ve used the CFAM register and detected the host is running, but it\u0027s bad because it means PLDM/IPMI is not working.",
+      "parentUuid": "088011cd_b89135b2",
+      "range": {
+        "startLine": 82,
+        "startChar": 8,
+        "endLine": 82,
+        "endChar": 48
+      },
+      "revId": "5cba29aaf22d49775e356020a0dd4e9f0715b8e1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "68448890_553e283a",
         "filename": "procedures/phal/check_host_running.cpp",
         "patchSetId": 5
@@ -151,6 +295,24 @@
       "writtenOn": "2021-06-28T07:58:03Z",
       "side": 1,
       "message": "when this file is going to delete? shpould  we remove not running use case here , or saparate service to celar this?",
+      "revId": "5cba29aaf22d49775e356020a0dd4e9f0715b8e1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "64679f54_76a7a35c",
+        "filename": "procedures/phal/check_host_running.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2021-06-30T19:14:05Z",
+      "side": 1,
+      "message": "The phosphor-state-manager app clears this file once the obmc-host-start@.target completes so no need to worry about it here.",
+      "parentUuid": "68448890_553e283a",
       "revId": "5cba29aaf22d49775e356020a0dd4e9f0715b8e1",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
@@ -180,6 +342,30 @@
     },
     {
       "key": {
+        "uuid": "c0d3fc3d_7b0600ed",
+        "filename": "procedures/phal/check_host_running.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2021-06-30T19:14:05Z",
+      "side": 1,
+      "message": "Yep, we\u0027ll only run this service on the way to BMC Ready so it\u0027s not a part of the host boot targets so we should be good.",
+      "parentUuid": "f4d884fb_4b9dc66a",
+      "range": {
+        "startLine": 93,
+        "startChar": 7,
+        "endLine": 94,
+        "endChar": 68
+      },
+      "revId": "5cba29aaf22d49775e356020a0dd4e9f0715b8e1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6b81f90e_4e2a8141",
         "filename": "procedures/phal/check_host_running.cpp",
         "patchSetId": 5
@@ -194,6 +380,24 @@
       "revId": "5cba29aaf22d49775e356020a0dd4e9f0715b8e1",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9609b744_322ada6d",
+        "filename": "procedures/phal/check_host_running.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2021-06-30T19:14:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6b81f90e_4e2a8141",
+      "revId": "5cba29aaf22d49775e356020a0dd4e9f0715b8e1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     },
     {
       "key": {
@@ -220,6 +424,30 @@
     },
     {
       "key": {
+        "uuid": "28f30f65_339d9036",
+        "filename": "procedures/phal/common_utils.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2021-06-30T19:14:05Z",
+      "side": 1,
+      "message": "ok, I saw in cfam_access.hpp, cfam_address_t was a uint16_t but fsi_read wants a uint32_t so let me just do that.",
+      "parentUuid": "65e7d63a_c0195e15",
+      "range": {
+        "startLine": 72,
+        "startChar": 49,
+        "endLine": 72,
+        "endChar": 63
+      },
+      "revId": "5cba29aaf22d49775e356020a0dd4e9f0715b8e1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "950946fb_fffb589f",
         "filename": "procedures/phal/common_utils.cpp",
         "patchSetId": 5
@@ -231,6 +459,24 @@
       "writtenOn": "2021-06-28T07:58:03Z",
       "side": 1,
       "message": "please look https://gerrit.openbmc-project.xyz/c/openbmc/openpower-proc-control/+/44443/1/procedures/phal/common_utils.cpp comments related to this function",
+      "revId": "5cba29aaf22d49775e356020a0dd4e9f0715b8e1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "09c92198_f86d08ee",
+        "filename": "procedures/phal/common_utils.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2021-06-30T19:14:05Z",
+      "side": 1,
+      "message": "ok, I\u0027ll keep the probe in this function than based on that comment.",
+      "parentUuid": "950946fb_fffb589f",
       "revId": "5cba29aaf22d49775e356020a0dd4e9f0715b8e1",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
@@ -251,6 +497,24 @@
       "revId": "5cba29aaf22d49775e356020a0dd4e9f0715b8e1",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5794a201_6c84f57e",
+        "filename": "procedures/phal/common_utils.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2021-06-30T19:14:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f0f8cf47_c7d003aa",
+      "revId": "5cba29aaf22d49775e356020a0dd4e9f0715b8e1",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
