@@ -5,7 +5,7 @@ extern "C"
 
 #include "common_utils.hpp"
 #include "p10_cfam.hpp"
-#include "phalerror/create_pel.hpp"
+#include "extensions/phal/create_pel.hpp"
 #include "procedures/phal/common_utils.hpp"
 #include "registration.hpp"
 
