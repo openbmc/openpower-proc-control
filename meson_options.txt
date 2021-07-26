@@ -2,3 +2,8 @@ option('tests', type: 'feature', description: 'Build tests.')
 option('p9', type: 'feature', description: 'Enable support for POWER9')
 option('openfsi', type: 'feature', description: 'Enable support for OpenFSI')
 option('phal', type: 'feature', description: 'Enable support for PHAL')
+
+option('DEVTREE_EXPORT_FILTER_FILE', type : 'string',
+        value : '/usr/share/openpower-proc-control/phal/devtree_export_filter',
+        description : 'Path to the phal devtree export filter file'
+)

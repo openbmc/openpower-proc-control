@@ -27,6 +27,17 @@ extra_sources = []
 extra_dependencies = []
 extra_unit_files = []
 
+# Configuration header file(config.h) generation
+conf_data = configuration_data()
+
+conf_data.set_quoted('DEVTREE_EXPORT_FILTER_FILE', get_option('DEVTREE_EXPORT_FILTER_FILE'),
+                      description : 'Path to the phal devtree export filter file'
+                    )                                                           
+                                                                                
+configure_file(configuration : conf_data,                                       
+               output : 'config.h'                                              
+              )
+
 unit_subs = configuration_data()
 unit_subs.set('bindir', join_paths(get_option('prefix'), get_option('bindir')))
 unit_subs.set('ENABLE_PHAL_TRUE', '#')
