@@ -4,6 +4,7 @@ extern "C"
 }
 
 #include "extensions/phal/common_utils.hpp"
+#include "extensions/phal/pdbg_utils.hpp"
 #include "extensions/phal/create_pel.hpp"
 #include "p10_cfam.hpp"
 #include "registration.hpp"
