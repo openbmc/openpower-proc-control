@@ -7,3 +7,7 @@ option('DEVTREE_EXPORT_FILTER_FILE', type : 'string',
         value : '/usr/share/openpower-proc-control/phal/devtree_export_filter',
         description : 'Path to the phal devtree export filter file'
 )
+option('DEVTREE_EXP_FILE', type : 'string',
+        value : '/var/lib/phal/exportdevtree',
+        description : 'Path to the devtree export copy file'
+)
