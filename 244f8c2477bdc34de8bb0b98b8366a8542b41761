@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "159dc40d_994e996e",
+        "filename": "extensions/phal/data/devtree_export_filter",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2021-07-30T13:14:14Z",
+      "side": 1,
+      "message": "My main concern here is the maintenance and chances to miss things. Is there any process where we could generate this automatically during build? How often are new r/w attributes added? Do we put this on the host team to update this?",
+      "revId": "244f8c2477bdc34de8bb0b98b8366a8542b41761",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
