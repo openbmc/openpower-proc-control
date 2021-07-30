@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aedbff7a_46817165",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2021-07-30T13:20:23Z",
+      "side": 1,
+      "message": "Not sure why this had to be in the same git series as the PDBG_DTB one\u0027s before this?",
+      "revId": "f7b4113da3368b5c7d95e8fb0b16b076637ecc0c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "90618183_99c14992",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2021-07-30T13:20:23Z",
+      "side": 1,
+      "message": "Always good to include a \"why\" you did this commit. I assume it\u0027s because a following commit will utilize this new helper function.",
+      "revId": "f7b4113da3368b5c7d95e8fb0b16b076637ecc0c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d4e1914f_8990d57c",
+        "filename": "extensions/phal/create_pel.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2021-07-30T13:20:23Z",
+      "side": 1,
+      "message": "I guess this can\u0027t be merged with createPEL()? So createPEL() will be for generic errors and we\u0027ll still specialize the more cmoplex one\u0027s like this function (i.e. FFDC ones)?",
+      "revId": "f7b4113da3368b5c7d95e8fb0b16b076637ecc0c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
