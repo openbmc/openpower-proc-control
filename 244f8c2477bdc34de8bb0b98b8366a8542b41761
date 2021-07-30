@@ -34,6 +34,24 @@
       "revId": "244f8c2477bdc34de8bb0b98b8366a8542b41761",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f41c3985_b62d136c",
+        "filename": "extensions/phal/data/devtree_export_filter",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-07-30T13:26:25Z",
+      "side": 1,
+      "message": "Also, How the attribute list is prepared? \nI am seeing a bunch of attributes in the pdata attribute filter list https://github.com/open-power/pdata/blob/main/data/p10/filter_AttributesList.lsv - is it possible to generate the below attribute list by using that list so that we can avoid maintaining attributes in two places right? - I am wondering about future processor generation as well.",
+      "parentUuid": "159dc40d_994e996e",
+      "revId": "244f8c2477bdc34de8bb0b98b8366a8542b41761",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
