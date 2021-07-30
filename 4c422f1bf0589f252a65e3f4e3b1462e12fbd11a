@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a98ed3c3_c7444ff8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2021-07-30T18:28:52Z",
+      "side": 1,
+      "message": "Hmm, but we\u0027re going to run it every boot since it doesn\u0027t hurt anything?",
+      "range": {
+        "startLine": 10,
+        "startChar": 26,
+        "endLine": 11,
+        "endChar": 32
+      },
+      "revId": "4c422f1bf0589f252a65e3f4e3b1462e12fbd11a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bdee0f5f_16c6fd68",
+        "filename": "service_files/phal-export-devtree@.service.in",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2021-07-30T18:28:52Z",
+      "side": 1,
+      "message": "Any reason to not make oneshot?",
+      "revId": "4c422f1bf0589f252a65e3f4e3b1462e12fbd11a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2293a4fb_f871cbfe",
+        "filename": "service_files/phal-export-devtree@.service.in",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2021-07-30T18:28:52Z",
+      "side": 1,
+      "message": "obmc-host-started is a synch target, not something you install into. If you want to ensure this runs on every boot, you\u0027d put it in the \"obmc-host-startmin@0.target\"",
+      "revId": "4c422f1bf0589f252a65e3f4e3b1462e12fbd11a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
