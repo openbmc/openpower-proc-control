@@ -16,6 +16,24 @@
       "revId": "244f8c2477bdc34de8bb0b98b8366a8542b41761",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "50150f17_083c59c6",
+        "filename": "extensions/phal/data/devtree_export_filter",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-07-30T13:25:09Z",
+      "side": 1,
+      "message": "Good point, I am planing to get this automated . found some issues with existing xml, some of the attributes keyword are not correctly updated. Need to work with  hw team on this.",
+      "parentUuid": "159dc40d_994e996e",
+      "revId": "244f8c2477bdc34de8bb0b98b8366a8542b41761",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
