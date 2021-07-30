@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "01751655_3f6482eb",
+        "filename": "service_files/phal-import-devtree@.service.in",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2021-07-30T18:25:43Z",
+      "side": 1,
+      "message": "I\u0027m trying to simplify all of this. You can just replace all of this with:\nAfter\u003dobmc-host-reset-running@%i.target",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 36
+      },
+      "revId": "4f361c5c0b075cfacd11e1a27744ebecfea0fcf5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "61ad4aea_8fa88655",
+        "filename": "service_files/phal-import-devtree@.service.in",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2021-07-30T18:25:43Z",
+      "side": 1,
+      "message": "Just replace this with:\nWantedBy\u003dmulti-user.target\n\nSo this service will run on every BMC reboot, after we\u0027ve determine if host is up, but the service will do nothing if the /run/openbmc/host@%i-on file has not been created indicating the host is up.",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 34
+      },
+      "revId": "4f361c5c0b075cfacd11e1a27744ebecfea0fcf5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
