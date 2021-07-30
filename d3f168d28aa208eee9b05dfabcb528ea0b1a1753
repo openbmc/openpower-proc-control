@@ -16,6 +16,24 @@
       "revId": "d3f168d28aa208eee9b05dfabcb528ea0b1a1753",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8348c952_688881b6",
+        "filename": "extensions/phal/common_utils.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-07-30T13:38:48Z",
+      "side": 1,
+      "message": "phal_init got depedncy on libekb/pdata/ippdbg dependency. \nisPrimaryProc got dependency on pdata\n\npdbg_utils intended to keep only pdbg specific function and no other lib dependncy. New application we added here joust need pdbg api\u0027s  \n\nBasically this split is intended to split pdbg only and phal to reduce dependncy complixity.",
+      "parentUuid": "d93fae31_d7c18c18",
+      "revId": "d3f168d28aa208eee9b05dfabcb528ea0b1a1753",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
