@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e53a8058_95fa8f27",
+        "filename": "extensions/phal/fw_update_watch.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2021-07-30T14:04:37Z",
+      "side": 1,
+      "message": "InternalFailures are bad, I\u0027d say just throw the existing error or use one from https://github.com/openbmc/phosphor-dbus-interfaces/blob/master/yaml/xyz/openbmc_project/Common/File.errors.yaml",
+      "revId": "7a4252e4891d297ff92699859d66a9c142822d52",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8738002a_4df97728",
+        "filename": "extensions/phal/fw_update_watch.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2021-07-30T14:04:37Z",
+      "side": 1,
+      "message": "setSoftwareUpdateProgress(false) needed?",
+      "revId": "7a4252e4891d297ff92699859d66a9c142822d52",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ee691c81_f28761de",
+        "filename": "extensions/phal/fw_update_watch.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2021-07-30T14:04:37Z",
+      "side": 1,
+      "message": "Log pid value for debug? These \"this should never happen\" InternalFailure errors seem to happen a lot more then we expect and debugging them is a nightmare. https://github.com/openbmc/docs/blob/master/anti-patterns.md#handling-unexpected-error-codes-and-exceptions",
+      "revId": "7a4252e4891d297ff92699859d66a9c142822d52",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
