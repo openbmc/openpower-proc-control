@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d93fae31_d7c18c18",
+        "filename": "extensions/phal/common_utils.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2021-07-30T13:29:52Z",
+      "side": 1,
+      "message": "Seems like both of these functions, phal_init and isPrimaryProc utilize pdbg_target. Shouldn\u0027t they also be in the new pdbg specific file? In fact, could you have just renamed this file pdbg_utils.hpp?",
+      "revId": "d3f168d28aa208eee9b05dfabcb528ea0b1a1753",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
