@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "224f21ea_af77672f",
+        "filename": "extensions/phal/fw_update_watch.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-07-30T14:15:30Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e53a8058_95fa8f27",
+      "revId": "7a4252e4891d297ff92699859d66a9c142822d52",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8738002a_4df97728",
         "filename": "extensions/phal/fw_update_watch.cpp",
         "patchSetId": 3
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "142a0271_1efa4d10",
+        "filename": "extensions/phal/fw_update_watch.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-07-30T14:15:30Z",
+      "side": 1,
+      "message": "Noticed multiple signal fire . false will initiate another file creation. Adriana sugested to handle via state varible to limit onee time file cretaion.  In the code update path aftre code update BMC initiates reboot , so we are good here.",
+      "parentUuid": "8738002a_4df97728",
+      "revId": "7a4252e4891d297ff92699859d66a9c142822d52",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ee691c81_f28761de",
         "filename": "extensions/phal/fw_update_watch.cpp",
         "patchSetId": 3
@@ -47,6 +83,41 @@
       "writtenOn": "2021-07-30T14:04:37Z",
       "side": 1,
       "message": "Log pid value for debug? These \"this should never happen\" InternalFailure errors seem to happen a lot more then we expect and debugging them is a nightmare. https://github.com/openbmc/docs/blob/master/anti-patterns.md#handling-unexpected-error-codes-and-exceptions",
+      "revId": "7a4252e4891d297ff92699859d66a9c142822d52",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ffc437c3_156e5927",
+        "filename": "extensions/phal/fw_update_watch.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-07-30T14:15:30Z",
+      "side": 1,
+      "message": "Since system call failure , thought journal  log specific to the process data would be good some time for debug. If you think pid info is good , then i can update here.",
+      "parentUuid": "ee691c81_f28761de",
+      "revId": "7a4252e4891d297ff92699859d66a9c142822d52",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d573c177_e5f91630",
+        "filename": "meson.build",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-07-30T14:15:30Z",
+      "side": 1,
+      "message": "will fix in next commit.",
       "revId": "7a4252e4891d297ff92699859d66a9c142822d52",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
