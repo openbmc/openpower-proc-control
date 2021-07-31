@@ -25,6 +25,23 @@
     },
     {
       "key": {
+        "uuid": "c5290b01_b4755ae8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000414
+      },
+      "writtenOn": "2021-07-31T07:04:12Z",
+      "side": 1,
+      "message": "Is it tested?",
+      "revId": "4c422f1bf0589f252a65e3f4e3b1462e12fbd11a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "bdee0f5f_16c6fd68",
         "filename": "service_files/phal-export-devtree@.service.in",
         "patchSetId": 1
