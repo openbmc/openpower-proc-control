@@ -56,6 +56,24 @@
       "revId": "4c422f1bf0589f252a65e3f4e3b1462e12fbd11a",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d7dad4fc_75aa6ad1",
+        "filename": "service_files/phal-export-devtree@.service.in",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-07-31T05:56:25Z",
+      "side": 1,
+      "message": "This is required to run after hostboot IPL window . can you suggest the right way to get this. functionally need to restrict to start this before chassis on  to skip this in regular code update path. H",
+      "parentUuid": "2293a4fb_f871cbfe",
+      "revId": "4c422f1bf0589f252a65e3f4e3b1462e12fbd11a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
