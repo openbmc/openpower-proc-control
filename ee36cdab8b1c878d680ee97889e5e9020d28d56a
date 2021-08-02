@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "8f2e3ba3_deaa2369",
+        "filename": "meson.build",
+        "patchSetId": 3
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-08-02T15:24:04Z",
+      "side": 1,
+      "message": "reorderd- Moved under procedures/phal",
+      "parentUuid": "847c9810_dfbd3bb3",
+      "revId": "ee36cdab8b1c878d680ee97889e5e9020d28d56a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "1c5e311c_d307cf13",
         "filename": "procedures/phal/import_devtree.cpp",
         "patchSetId": 3
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "312ff9ae_9f5a4d31",
+        "filename": "procedures/phal/import_devtree.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-08-02T15:24:04Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "1c5e311c_d307cf13",
+      "revId": "ee36cdab8b1c878d680ee97889e5e9020d28d56a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b1de2b4c_469e8c95",
         "filename": "procedures/phal/import_devtree.cpp",
         "patchSetId": 3
@@ -47,6 +83,24 @@
       "writtenOn": "2021-07-30T18:03:16Z",
       "side": 1,
       "message": "nit: I\u0027m not a huge fan of calling command line tools from our source code. It doesn\u0027t give us the enterprise level of error handling and FFDC we strive for. But I also understand we don\u0027t want to rewrite all of this logic in this app and it \"should\" be a fairly safe tool since it\u0027s really just file manipulation.",
+      "revId": "ee36cdab8b1c878d680ee97889e5e9020d28d56a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4a02d7c3_e2b5b3ba",
+        "filename": "procedures/phal/import_devtree.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-08-02T15:24:04Z",
+      "side": 1,
+      "message": "Agreed , https://github.com/ibm-openbmc/dev/issues/3272 -- is used create lib for this . Once it is available will moved to lib based call.",
+      "parentUuid": "b1de2b4c_469e8c95",
       "revId": "ee36cdab8b1c878d680ee97889e5e9020d28d56a",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
@@ -70,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "60801b5e_4872c239",
+        "filename": "procedures/phal/import_devtree.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-08-02T15:24:04Z",
+      "side": 1,
+      "message": "https://linux.die.net/man/3/execl\n\nThe exec() functions only return if an error has occurred. The return value is -1, and errno is set to indicate the error.",
+      "parentUuid": "b54a824f_a635cc6f",
+      "revId": "ee36cdab8b1c878d680ee97889e5e9020d28d56a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "90c84ab0_e4a46328",
         "filename": "procedures/phal/import_devtree.cpp",
         "patchSetId": 3
@@ -81,6 +153,24 @@
       "writtenOn": "2021-07-30T18:03:16Z",
       "side": 1,
       "message": "Set status to non-zero so waiting process sees it and only log the error in that path?",
+      "revId": "ee36cdab8b1c878d680ee97889e5e9020d28d56a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "91e7cc27_6f5ce1e9",
+        "filename": "procedures/phal/import_devtree.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-08-02T15:24:04Z",
+      "side": 1,
+      "message": "If fork() returns a negative value, the creation of a child process was unsuccessful. Here child process created successfully and execl function failed.  Here error path is handled for for -ve return cases.",
+      "parentUuid": "90c84ab0_e4a46328",
       "revId": "ee36cdab8b1c878d680ee97889e5e9020d28d56a",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
@@ -101,6 +191,24 @@
       "revId": "ee36cdab8b1c878d680ee97889e5e9020d28d56a",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "53ba239f_d89602a7",
+        "filename": "procedures/phal/import_devtree.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-08-02T15:24:04Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "a477a415_32886c53",
+      "revId": "ee36cdab8b1c878d680ee97889e5e9020d28d56a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
