@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1420be75_3e625ca1",
+        "filename": "service_files/phal-import-devtree@.service.in",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-08-02T09:22:01Z",
+      "side": 1,
+      "message": "Ack.\nThis service should run prior to Phyp TI. honors from BMC , like before attn service. Fisrt consumer of this device tree data is attn handler and TI/MPIPL processing. Should we add any additional condition to satisfy this?",
+      "parentUuid": "01751655_3f6482eb",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 36
+      },
+      "revId": "4f361c5c0b075cfacd11e1a27744ebecfea0fcf5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "61ad4aea_8fa88655",
         "filename": "service_files/phal-import-devtree@.service.in",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "4f361c5c0b075cfacd11e1a27744ebecfea0fcf5",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e7344271_46ce345a",
+        "filename": "service_files/phal-import-devtree@.service.in",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-08-02T09:22:01Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "61ad4aea_8fa88655",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 34
+      },
+      "revId": "4f361c5c0b075cfacd11e1a27744ebecfea0fcf5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
