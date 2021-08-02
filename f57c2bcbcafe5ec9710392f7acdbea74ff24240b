@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "df0009a2_be445f51",
+        "filename": "extensions/phal/fw_update_watch.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2021-08-02T14:54:55Z",
+      "side": 1,
+      "message": "sdbusplus now supports reading enums directly.  https://gerrit.openbmc-project.xyz/c/openbmc/phosphor-logging/+/45012/3/log_manager.cpp",
+      "revId": "f57c2bcbcafe5ec9710392f7acdbea74ff24240b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
