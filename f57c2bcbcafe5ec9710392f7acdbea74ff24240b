@@ -378,6 +378,30 @@
     },
     {
       "key": {
+        "uuid": "0023e4e3_0bd47e8d",
+        "filename": "extensions/phal/fw_update_watch.hpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-08-03T13:34:13Z",
+      "side": 1,
+      "message": "\u003e will update only when apply guard record in next boot of the host\n\nJust only guard then this is correct - and I guess, we don\u0027t have runtime deconfiguration (without guard) use case in rainier (p10).\n\nSo, IMO, no device tree update.",
+      "parentUuid": "68d36fbd_d4a7294a",
+      "range": {
+        "startLine": 24,
+        "startChar": 7,
+        "endLine": 26,
+        "endChar": 27
+      },
+      "revId": "f57c2bcbcafe5ec9710392f7acdbea74ff24240b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9c7bf72f_871516d4",
         "filename": "extensions/phal/fw_update_watch.hpp",
         "patchSetId": 5
