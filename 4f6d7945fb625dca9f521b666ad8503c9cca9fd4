@@ -22,6 +22,30 @@
       "revId": "4f6d7945fb625dca9f521b666ad8503c9cca9fd4",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6b5850fe_acca1e8f",
+        "filename": "service_files/phal-export-devtree@.service.in",
+        "patchSetId": 5
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-08-03T06:59:55Z",
+      "side": 1,
+      "message": "Thae above case is desruptive code update and in the BMC reboot path system initiate host reboot. no  need to preserve this ,",
+      "parentUuid": "4748074a_d7587fec",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 4,
+        "endChar": 33
+      },
+      "revId": "4f6d7945fb625dca9f521b666ad8503c9cca9fd4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
