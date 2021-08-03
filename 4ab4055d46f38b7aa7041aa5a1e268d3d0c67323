@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "bb1fd54d_07f45efd",
+        "filename": "extensions/phal/fw_update_watch.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-08-03T09:27:04Z",
+      "side": 1,
+      "message": "Just realized in the shell context this is already seeting now , that is am not issue in my testing",
+      "parentUuid": "492699f5_52bbfe87",
+      "range": {
+        "startLine": 142,
+        "startChar": 16,
+        "endLine": 142,
+        "endChar": 22
+      },
+      "revId": "4ab4055d46f38b7aa7041aa5a1e268d3d0c67323",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d8b9b95e_9743e4c3",
         "filename": "meson.build",
         "patchSetId": 7
