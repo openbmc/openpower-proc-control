@@ -2,6 +2,46 @@
   "comments": [
     {
       "key": {
+        "uuid": "43a43569_a496c341",
+        "filename": "extensions/phal/devtree_export.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-08-03T06:40:06Z",
+      "side": 1,
+      "message": "new line required here?",
+      "revId": "f57c2bcbcafe5ec9710392f7acdbea74ff24240b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2564aa83_3f2b6c30",
+        "filename": "extensions/phal/fw_update_watch.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-08-03T06:40:06Z",
+      "side": 1,
+      "message": "AttributeName \u003d\u003d PropertyName?\nPropertyName \u003d\u003d InterfaceName?\n\nCan you change it?",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 57
+      },
+      "revId": "f57c2bcbcafe5ec9710392f7acdbea74ff24240b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "df0009a2_be445f51",
         "filename": "extensions/phal/fw_update_watch.cpp",
         "patchSetId": 5
@@ -30,6 +70,178 @@
       "writtenOn": "2021-08-02T16:18:35Z",
       "side": 1,
       "message": "Discussed with Matt he is fine with existing flow.",
+      "revId": "f57c2bcbcafe5ec9710392f7acdbea74ff24240b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "60bc3834_692de62e",
+        "filename": "extensions/phal/fw_update_watch.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-08-03T06:40:06Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 69,
+        "startChar": 34,
+        "endLine": 69,
+        "endChar": 42
+      },
+      "revId": "f57c2bcbcafe5ec9710392f7acdbea74ff24240b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "25e85171_861672bd",
+        "filename": "extensions/phal/fw_update_watch.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-08-03T06:40:06Z",
+      "side": 1,
+      "message": "Couple of questions:\n - You are looking Ready state even received Interface added signal, right? Do we need to check `!isSoftwareUpdateInProgress()`?\n - I assumed, the state will be `Activating`, right? If so, do we need to set this flags and check before trying to export device tree to preserve?",
+      "range": {
+        "startLine": 69,
+        "startChar": 11,
+        "endLine": 71,
+        "endChar": 50
+      },
+      "revId": "f57c2bcbcafe5ec9710392f7acdbea74ff24240b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fb1490c5_8decd587",
+        "filename": "extensions/phal/fw_update_watch.hpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-08-03T06:40:06Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 22,
+        "startChar": 30,
+        "endLine": 22,
+        "endChar": 41
+      },
+      "revId": "f57c2bcbcafe5ec9710392f7acdbea74ff24240b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5d13af1a_bb74fbbc",
+        "filename": "extensions/phal/fw_update_watch.hpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-08-03T06:40:06Z",
+      "side": 1,
+      "message": "Before start the code update, we need to collect attributes data, right? I think you used \"Ready\" so I assume same and do we need to change the above rules order? - Correct me if I am wrong.",
+      "range": {
+        "startLine": 24,
+        "startChar": 7,
+        "endLine": 26,
+        "endChar": 27
+      },
+      "revId": "f57c2bcbcafe5ec9710392f7acdbea74ff24240b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9c7bf72f_871516d4",
+        "filename": "extensions/phal/fw_update_watch.hpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-08-03T06:40:06Z",
+      "side": 1,
+      "message": "Do you need to align?",
+      "range": {
+        "startLine": 51,
+        "startChar": 8,
+        "endLine": 51,
+        "endChar": 12
+      },
+      "revId": "f57c2bcbcafe5ec9710392f7acdbea74ff24240b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "78060e73_e5694853",
+        "filename": "extensions/phal/fw_update_watch.hpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-08-03T06:40:06Z",
+      "side": 1,
+      "message": "Do you need to make as const function?",
+      "revId": "f57c2bcbcafe5ec9710392f7acdbea74ff24240b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "44a643bd_35719d93",
+        "filename": "extensions/phal/fw_update_watch.hpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-08-03T06:40:06Z",
+      "side": 1,
+      "message": "Do we need this special API for this? There is specific state \"Activating\", right? https://github.com/openbmc/phosphor-dbus-interfaces/blob/master/yaml/xyz/openbmc_project/Software/Activation.interface.yaml#L28",
+      "range": {
+        "startLine": 58,
+        "startChar": 15,
+        "endLine": 58,
+        "endChar": 72
+      },
+      "revId": "f57c2bcbcafe5ec9710392f7acdbea74ff24240b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aaadb444_1450fcb4",
+        "filename": "meson.build",
+        "patchSetId": 5
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-08-03T06:40:06Z",
+      "side": 1,
+      "message": "Why is not added into existing phal feature check block? https://gerrit.openbmc-project.xyz/c/openbmc/openpower-proc-control/+/44994/5/meson.build#63\n\nIt will be great if we added all phal stuff into same block - Different opinion?",
       "revId": "f57c2bcbcafe5ec9710392f7acdbea74ff24240b",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
