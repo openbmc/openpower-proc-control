@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "492699f5_52bbfe87",
+        "filename": "extensions/phal/fw_update_watch.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-08-03T08:06:59Z",
+      "side": 1,
+      "message": "Good point, downstream code already had support to set these environment varible globally.  Will update in the service file to export this env variable as pre-req.",
+      "parentUuid": "54ab371e_93d30baa",
+      "range": {
+        "startLine": 142,
+        "startChar": 16,
+        "endLine": 142,
+        "endChar": 22
+      },
+      "revId": "4ab4055d46f38b7aa7041aa5a1e268d3d0c67323",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d8b9b95e_9743e4c3",
         "filename": "meson.build",
         "patchSetId": 7
@@ -36,6 +60,30 @@
       "writtenOn": "2021-08-03T06:40:22Z",
       "side": 1,
       "message": "Do we need separate config file (phal_config.h) for phal feature?",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 15
+      },
+      "revId": "4ab4055d46f38b7aa7041aa5a1e268d3d0c67323",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "40bc2105_dd8a28eb",
+        "filename": "meson.build",
+        "patchSetId": 7
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-08-03T08:06:59Z",
+      "side": 1,
+      "message": "this is newly added congig header file. and no use case of feature based . we can revist this if relally required infuture.",
+      "parentUuid": "d8b9b95e_9743e4c3",
       "range": {
         "startLine": 30,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "4c056c25_6e839bee",
+        "filename": "meson_options.txt",
+        "patchSetId": 7
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-08-03T08:06:59Z",
+      "side": 1,
+      "message": "Used import/export based naming convention in this implementation.",
+      "parentUuid": "15e872e1_9f09ed90",
+      "range": {
+        "startLine": 6,
+        "startChar": 8,
+        "endLine": 6,
+        "endChar": 34
+      },
+      "revId": "4ab4055d46f38b7aa7041aa5a1e268d3d0c67323",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "cd6d90ee_2ff1903b",
         "filename": "meson_options.txt",
         "patchSetId": 7
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "20855fbe_4a0da547",
+        "filename": "meson_options.txt",
+        "patchSetId": 7
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-08-03T08:06:59Z",
+      "side": 1,
+      "message": "samed as above",
+      "parentUuid": "cd6d90ee_2ff1903b",
+      "range": {
+        "startLine": 10,
+        "startChar": 8,
+        "endLine": 10,
+        "endChar": 24
+      },
+      "revId": "4ab4055d46f38b7aa7041aa5a1e268d3d0c67323",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6cf3f697_30c3fff5",
         "filename": "meson_options.txt",
         "patchSetId": 7
@@ -105,6 +201,30 @@
       "writtenOn": "2021-08-03T06:40:22Z",
       "side": 1,
       "message": "preserved_devtree_attrs_data?",
+      "range": {
+        "startLine": 11,
+        "startChar": 31,
+        "endLine": 11,
+        "endChar": 44
+      },
+      "revId": "4ab4055d46f38b7aa7041aa5a1e268d3d0c67323",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "41533ee3_1f671fb3",
+        "filename": "meson_options.txt",
+        "patchSetId": 7
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-08-03T08:06:59Z",
+      "side": 1,
+      "message": "same as abouve",
+      "parentUuid": "6cf3f697_30c3fff5",
       "range": {
         "startLine": 11,
         "startChar": 31,
