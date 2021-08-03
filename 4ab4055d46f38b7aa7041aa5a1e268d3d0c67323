@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "54ab371e_93d30baa",
+        "filename": "extensions/phal/fw_update_watch.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-08-03T06:40:22Z",
+      "side": 1,
+      "message": "I think, export subcommand will expect attributes info db to get metadata of attributes to read from device tree, right? If so, do you need to set the attribute infodb file by using PDATA_INFODB like PDBG_DTB.",
+      "range": {
+        "startLine": 142,
+        "startChar": 16,
+        "endLine": 142,
+        "endChar": 22
+      },
+      "revId": "4ab4055d46f38b7aa7041aa5a1e268d3d0c67323",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d8b9b95e_9743e4c3",
+        "filename": "meson.build",
+        "patchSetId": 7
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-08-03T06:40:22Z",
+      "side": 1,
+      "message": "Do we need separate config file (phal_config.h) for phal feature?",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 43,
+        "endChar": 15
+      },
+      "revId": "4ab4055d46f38b7aa7041aa5a1e268d3d0c67323",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "15e872e1_9f09ed90",
+        "filename": "meson_options.txt",
+        "patchSetId": 7
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-08-03T06:40:22Z",
+      "side": 1,
+      "message": "PRESERVE_DEVTREE_ATTRS_LIST?",
+      "range": {
+        "startLine": 6,
+        "startChar": 8,
+        "endLine": 6,
+        "endChar": 34
+      },
+      "revId": "4ab4055d46f38b7aa7041aa5a1e268d3d0c67323",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cd6d90ee_2ff1903b",
+        "filename": "meson_options.txt",
+        "patchSetId": 7
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-08-03T06:40:22Z",
+      "side": 1,
+      "message": "PRESERVED_DEVTREE_ATTRS_FILE?",
+      "range": {
+        "startLine": 10,
+        "startChar": 8,
+        "endLine": 10,
+        "endChar": 24
+      },
+      "revId": "4ab4055d46f38b7aa7041aa5a1e268d3d0c67323",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6cf3f697_30c3fff5",
+        "filename": "meson_options.txt",
+        "patchSetId": 7
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-08-03T06:40:22Z",
+      "side": 1,
+      "message": "preserved_devtree_attrs_data?",
+      "range": {
+        "startLine": 11,
+        "startChar": 31,
+        "endLine": 11,
+        "endChar": 44
+      },
+      "revId": "4ab4055d46f38b7aa7041aa5a1e268d3d0c67323",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
