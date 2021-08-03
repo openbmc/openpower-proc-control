@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "050503ce_33345fdb",
+        "filename": "procedures/phal/import_devtree.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-08-03T06:40:37Z",
+      "side": 1,
+      "message": "is it required? Looks you are not using that.",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 68
+      },
+      "revId": "83b4ae4f81d9ce1f40263701fe301cd098819ef7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "407f5fb2_5561ca18",
+        "filename": "procedures/phal/import_devtree.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-08-03T06:40:37Z",
+      "side": 1,
+      "message": "I think, import subcommand will expect attributes info db to get metadata of attributes to read from device tree, right? If so, do you need to set the attribute infodb file by using PDATA_INFODB like PDBG_DTB.",
+      "range": {
+        "startLine": 47,
+        "startChar": 16,
+        "endLine": 47,
+        "endChar": 22
+      },
+      "revId": "83b4ae4f81d9ce1f40263701fe301cd098819ef7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f687be58_7c43aad4",
+        "filename": "procedures/phal/import_devtree.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-08-03T06:40:37Z",
+      "side": 1,
+      "message": "is it required? it wont go into \"else if\" if `execl` is failed?",
+      "range": {
+        "startLine": 56,
+        "startChar": 8,
+        "endLine": 56,
+        "endChar": 15
+      },
+      "revId": "83b4ae4f81d9ce1f40263701fe301cd098819ef7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
