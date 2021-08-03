@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "aba025e3_84e23555",
+        "filename": "extensions/phal/fw_update_watch.cpp",
+        "patchSetId": 7
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-08-03T13:35:27Z",
+      "side": 1,
+      "message": "ah ok, new info to me, I assumed systemd and global environment (if not setting systemd context) setting are different shell.",
+      "parentUuid": "bb1fd54d_07f45efd",
+      "range": {
+        "startLine": 142,
+        "startChar": 16,
+        "endLine": 142,
+        "endChar": 22
+      },
+      "revId": "4ab4055d46f38b7aa7041aa5a1e268d3d0c67323",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d8b9b95e_9743e4c3",
         "filename": "meson.build",
         "patchSetId": 7
