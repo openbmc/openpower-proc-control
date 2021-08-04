@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "319649b0_3bc391e7",
+        "filename": "extensions/phal/fw_update_watch.hpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2021-08-04T13:29:43Z",
+      "side": 1,
+      "message": "Does this function and the next one need to be public?  I don\u0027t see any external callers.",
+      "revId": "d0b14a772e054a15d00dfb18204fda0bc45a24f0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
