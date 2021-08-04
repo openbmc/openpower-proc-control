@@ -177,6 +177,24 @@
     },
     {
       "key": {
+        "uuid": "2f127889_ec03f22e",
+        "filename": "procedures/phal/import_devtree.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2021-08-04T12:30:04Z",
+      "side": 1,
+      "message": "I\u0027m not sure what -ve is? I\u0027m just trying to be sure that if the execl fails, we return an error status to the waiting process below (via an exit()) call. Not an expert here though so if you confirm this is already the case, I\u0027m good.",
+      "parentUuid": "91e7cc27_6f5ce1e9",
+      "revId": "ee36cdab8b1c878d680ee97889e5e9020d28d56a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a477a415_32886c53",
         "filename": "procedures/phal/import_devtree.cpp",
         "patchSetId": 3
