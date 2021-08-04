@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "80f47a8d_7573e429",
+        "filename": "service_files/phal-import-devtree@.service.in",
+        "patchSetId": 6
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2021-08-04T12:40:09Z",
+      "side": 1,
+      "message": "I missed this one. Since we moved this to multi-user.target. We don\u0027t actually want this service to ever stop. It gets run once, after a BMC reset, and if the host is up it does a one time importDevtree.",
+      "revId": "e0725c5fa15bcfe5a9d5551ca069d9ea9debebc5",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
