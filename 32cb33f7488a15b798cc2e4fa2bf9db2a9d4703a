@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "976e5eaa_c82ccc28",
+        "filename": "extensions/phal/fw_update_watch.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-08-04T14:18:28Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "1f7acf90_b7cfc2be",
+      "range": {
+        "startLine": 118,
+        "startChar": 34,
+        "endLine": 118,
+        "endChar": 74
+      },
+      "revId": "32cb33f7488a15b798cc2e4fa2bf9db2a9d4703a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d18c948c_cd713b6d",
         "filename": "extensions/phal/fw_update_watch.cpp",
         "patchSetId": 8
@@ -42,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "60ab72cd_4600738a",
+        "filename": "extensions/phal/fw_update_watch.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-08-04T14:18:28Z",
+      "side": 1,
+      "message": "please see the previous discussion related to this.",
+      "parentUuid": "d18c948c_cd713b6d",
+      "revId": "32cb33f7488a15b798cc2e4fa2bf9db2a9d4703a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "61863984_d49eb73d",
         "filename": "meson_options.txt",
         "patchSetId": 8
@@ -53,6 +95,24 @@
       "writtenOn": "2021-08-04T13:32:00Z",
       "side": 1,
       "message": "Is there any use case where you would change this value?",
+      "revId": "32cb33f7488a15b798cc2e4fa2bf9db2a9d4703a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d9d7541d_9818c6fc",
+        "filename": "meson_options.txt",
+        "patchSetId": 8
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-08-04T14:18:28Z",
+      "side": 1,
+      "message": "less chance.\nThis is set by pdata reposiory. .",
+      "parentUuid": "61863984_d49eb73d",
       "revId": "32cb33f7488a15b798cc2e4fa2bf9db2a9d4703a",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true

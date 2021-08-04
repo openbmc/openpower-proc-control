@@ -108,6 +108,24 @@
     },
     {
       "key": {
+        "uuid": "285b22e3_91ba8c42",
+        "filename": "extensions/phal/fw_update_watch.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-08-04T14:18:28Z",
+      "side": 1,
+      "message": "Normal boot path - BMC ready phase -- delete this file.\nthis application start only during host poweron path -- no data collection for code update at statndby.\nCurrent version of debtree write\u0027s limited till HB runtime -- NO update aftre that.\nBMC run time -- code update request ---\u003e captures r/w attributes.\n  -- if fails .and \nnew  code update request \n  -- deletes the old version first and capture new file.\n\nKey point is  no devtree update during runtime .",
+      "parentUuid": "965e194f_d708036e",
+      "revId": "7a4252e4891d297ff92699859d66a9c142822d52",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ee691c81_f28761de",
         "filename": "extensions/phal/fw_update_watch.cpp",
         "patchSetId": 3
