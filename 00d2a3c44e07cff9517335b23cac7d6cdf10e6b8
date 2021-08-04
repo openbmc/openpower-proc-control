@@ -22,6 +22,30 @@
       "revId": "00d2a3c44e07cff9517335b23cac7d6cdf10e6b8",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "972134a8_c73f4de0",
+        "filename": "service_files/phal-export-devtree@.service.in",
+        "patchSetId": 6
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-08-04T14:24:24Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "c5866c9d_3a7c24e7",
+      "range": {
+        "startLine": 13,
+        "startChar": 9,
+        "endLine": 13,
+        "endChar": 26
+      },
+      "revId": "00d2a3c44e07cff9517335b23cac7d6cdf10e6b8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
