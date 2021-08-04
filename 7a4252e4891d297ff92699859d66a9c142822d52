@@ -90,6 +90,24 @@
     },
     {
       "key": {
+        "uuid": "965e194f_d708036e",
+        "filename": "extensions/phal/fw_update_watch.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2021-08-04T12:20:00Z",
+      "side": 1,
+      "message": "Is there a chance in this scenario we could get in trouble? Code update fails, but we\u0027ve fired and backed up dev tree. Some changes occur in the host, something that potentially changes the device tree. A new code update is done, but we don\u0027t update the device tree in this case so when we reset we restore the older device tree. Or is the device tree static once the host is booted?",
+      "parentUuid": "2b89d321_784ba9c9",
+      "revId": "7a4252e4891d297ff92699859d66a9c142822d52",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ee691c81_f28761de",
         "filename": "extensions/phal/fw_update_watch.cpp",
         "patchSetId": 3

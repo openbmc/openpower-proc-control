@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d18c948c_cd713b6d",
+        "filename": "extensions/phal/fw_update_watch.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2021-08-04T12:20:00Z",
+      "side": 1,
+      "message": "I think you need this forked process to return a non-zero so the other waiting process below gets something in status? (i.e. exit(errno) or something.)",
+      "revId": "32cb33f7488a15b798cc2e4fa2bf9db2a9d4703a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
