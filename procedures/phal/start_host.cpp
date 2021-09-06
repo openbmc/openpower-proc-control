@@ -178,6 +178,11 @@ void startHost(enum ipl_type iplType = IPL_TYPE_NORMAL)
     {
         phal_init();
         ipl_set_type(iplType);
+
+        // Don't apply guard records if the HardwareIsolation (aka guard)
+        // policy is enabled
+        bool apply_guards = !(getHWIsolationPolicy());
+        ipl_set_apply_guards(apply_guards);
     }
     catch (std::exception& ex)
     {

@@ -4,6 +4,7 @@
 
 #include "extensions/phal/pdbg_utils.hpp"
 #include "extensions/phal/phal_error.hpp"
+#include "util.hpp"
 
 #include <fmt/format.h>
 #include <libekb.H>
@@ -69,6 +70,47 @@ bool isPrimaryProc(struct pdbg_target* procTarget)
     {
         return false;
     }
+}
+
+bool getHWIsolationPolicy()
+{
+    bool applyIsolatedHwRecords = true;
+
+    constexpr auto hwIsolationPolicyObjPath =
+        "/xyz/openbmc_project/hardware_isolation/hw_isolation_policy";
+    constexpr auto hwIsolationPolicyIface = "xyz.openbmc_project.Object.Enable";
+
+    try
+    {
+        auto bus = sdbusplus::bus::new_default();
+
+        std::string service = util::getService(bus, hwIsolationPolicyObjPath,
+                                               hwIsolationPolicyIface);
+
+        auto method =
+            bus.new_method_call(service.c_str(), hwIsolationPolicyObjPath,
+                                "org.freedesktop.DBus.Properties", "Get");
+        method.append(hwIsolationPolicyIface, "Enabled");
+
+        auto reply = bus.call(method);
+
+        std::variant<bool> resp;
+
+        reply.read(resp);
+
+        applyIsolatedHwRecords = std::get<bool>(resp);
+    }
+    catch (const sdbusplus::exception::exception& e)
+    {
+        log<level::ERR>(
+            fmt::format("Exception [{}] to get the HardwareIsolation "
+                        " policy in path [{}} interface [{}]",
+                        e.what(), hwIsolationPolicyObjPath,
+                        hwIsolationPolicyIface)
+                .c_str());
+    }
+
+    return applyIsolatedHwRecords;
 }
 
 } // namespace phal
