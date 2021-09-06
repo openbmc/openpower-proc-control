@@ -31,5 +31,14 @@ void phal_init(enum ipl_mode mode = IPL_AUTOBOOT);
  */
 bool isPrimaryProc(struct pdbg_target* procTarget);
 
+/**
+ * @brief Get Hardware Isolation policy
+ *
+ * @return xyz.openbmc_project.Object.Enable::Enabled value on success
+ *         true on failure since hardware isolation feature should be
+ *         enabled by default.
+ */
+bool getHWIsolationPolicy();
+
 } // namespace phal
 } // namespace openpower

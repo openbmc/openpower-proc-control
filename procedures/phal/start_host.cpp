@@ -178,6 +178,7 @@ void startHost(enum ipl_type iplType = IPL_TYPE_NORMAL)
     {
         phal_init();
         ipl_set_type(iplType);
+        ipl_set_apply_guards(getHWIsolationPolicy());
     }
     catch (std::exception& ex)
     {
