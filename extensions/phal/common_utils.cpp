@@ -5,6 +5,7 @@
 #include "extensions/phal/pdbg_utils.hpp"
 #include "extensions/phal/phal_env.hpp"
 #include "extensions/phal/phal_error.hpp"
+#include "util.hpp"
 
 #include <fmt/format.h>
 #include <libekb.H>
@@ -39,6 +40,65 @@ static void init_libekb()
 }
 
 /**
+ * @brief Helper function to decide the hardware isolation (aka guard)
+ *
+ * @return xyz.openbmc_project.Object.Enable::Enabled value on success
+ *         true on failure since hardware isolation feature should be
+ *         enabled by default.
+ */
+static bool allowHwIsolation()
+{
+    bool allowHwIsolation{true};
+
+    constexpr auto hwIsolationPolicyObjPath =
+        "/xyz/openbmc_project/hardware_isolation/allow_hw_isolation";
+    constexpr auto hwIsolationPolicyIface = "xyz.openbmc_project.Object.Enable";
+
+    try
+    {
+        auto bus = sdbusplus::bus::new_default();
+
+        std::string service = util::getService(bus, hwIsolationPolicyObjPath,
+                                               hwIsolationPolicyIface);
+
+        auto method =
+            bus.new_method_call(service.c_str(), hwIsolationPolicyObjPath,
+                                "org.freedesktop.DBus.Properties", "Get");
+        method.append(hwIsolationPolicyIface, "Enabled");
+
+        auto reply = bus.call(method);
+
+        std::variant<bool> resp;
+
+        reply.read(resp);
+
+        if (const bool* enabledPropVal = std::get_if<bool>(&resp))
+        {
+            allowHwIsolation = *enabledPropVal;
+        }
+        else
+        {
+            log<level::ERR>(
+                fmt::format("Failed to read the HardwareIsolation "
+                            "policy from the path [{}] interface [{}]",
+                            hwIsolationPolicyObjPath, hwIsolationPolicyIface)
+                    .c_str());
+        }
+    }
+    catch (const sdbusplus::exception::exception& e)
+    {
+        log<level::ERR>(
+            fmt::format("Exception [{}] to get the HardwareIsolation "
+                        "policy from the path [{}] interface [{}]",
+                        e.what(), hwIsolationPolicyObjPath,
+                        hwIsolationPolicyIface)
+                .c_str());
+    }
+
+    return allowHwIsolation;
+}
+
+/**
  * @brief Helper function to init the libipl
  *
  * @param[in] iplType - the IPL type
@@ -61,6 +121,13 @@ static void init_libipl(const enum ipl_type& iplType,
     ipl_set_error_callback_func(iplErrCallback);
 
     ipl_set_type(iplType);
+
+    // Don't apply guard records if the HardwareIsolation (aka guard)
+    // policy is disabled (false)
+    if (!allowHwIsolation())
+    {
+        ipl_ignore_guard();
+    }
 
     // phal specific openpower-proc-control commands will always run
     // in the autoboot mode
