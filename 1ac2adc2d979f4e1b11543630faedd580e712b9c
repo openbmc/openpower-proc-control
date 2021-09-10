@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "df7d969e_60e519e4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2021-09-10T20:51:34Z",
+      "side": 1,
+      "message": "Always nice to have the \"why\" in the commit message. Why is this all of a sudden needed? What does it do?",
+      "revId": "1ac2adc2d979f4e1b11543630faedd580e712b9c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6862ad21_687a72b4",
+        "filename": "extensions/phal/pdbg_utils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2021-09-10T20:51:34Z",
+      "side": 1,
+      "message": "I assume there\u0027s no reason to make this a config variable that bitbake could override? Pretty static location and file name?",
+      "revId": "1ac2adc2d979f4e1b11543630faedd580e712b9c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
