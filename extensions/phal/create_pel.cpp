@@ -86,6 +86,61 @@ void createBootErrorPEL(const FFDCData& ffdcData, const json& calloutData)
     }
 }
 
+void createSbeErrorPEL(const std::string& event, const sbeError_t& error,
+                       const FFDCData& ffdcData)
+{
+    std::map<std::string, std::string> additionalData;
+    auto bus = sdbusplus::bus::new_default();
+
+    additionalData.emplace("_PID", std::to_string(getpid()));
+    additionalData.emplace("SBE_ERR_MSG", error.what());
+
+    for (auto& data : ffdcData)
+    {
+        additionalData.emplace(data);
+    }
+
+    try
+    {
+        std::vector<std::tuple<sdbusplus::xyz::openbmc_project::Logging::
+                                   server::Create::FFDCFormat,
+                               uint8_t, uint8_t, sdbusplus::message::unix_fd>>
+            pelFFDCInfo;
+
+        pelFFDCInfo.push_back(
+            std::make_tuple(sdbusplus::xyz::openbmc_project::Logging::server::
+                                Create::FFDCFormat::Custom,
+                            static_cast<uint8_t>(0xCB),
+                            static_cast<uint8_t>(0x01), error.getFd()));
+
+        std::string service =
+            util::getService(bus, loggingObjectPath, loggingInterface);
+        auto method =
+            bus.new_method_call(service.c_str(), loggingObjectPath,
+                                loggingInterface, "CreateWithFFDCFiles");
+        auto level =
+            sdbusplus::xyz::openbmc_project::Logging::server::convertForMessage(
+                sdbusplus::xyz::openbmc_project::Logging::server::Entry::Level::
+                    Error);
+        method.append(event, level, additionalData, pelFFDCInfo);
+        auto resp = bus.call(method);
+    }
+    catch (const sdbusplus::exception::exception& e)
+    {
+        log<level::ERR>("D-Bus call exception",
+                        entry("OBJPATH=%s", loggingObjectPath),
+                        entry("INTERFACE=%s", loggingInterface),
+                        entry("EXCEPTION=%s", e.what()));
+
+        throw std::runtime_error(
+            "Error in invoking D-Bus logging create interface");
+    }
+    catch (std::exception& e)
+    {
+        throw e;
+    }
+}
+
 void createPEL(const std::string& event, const FFDCData& ffdcData)
 {
     std::map<std::string, std::string> additionalData;

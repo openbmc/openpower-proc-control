@@ -1,5 +1,7 @@
 #pragma once
 
+#include <phal_exception.H>
+
 #include <nlohmann/json.hpp>
 
 #include <string>
@@ -12,6 +14,8 @@ using FFDCData = std::vector<std::pair<std::string, std::string>>;
 
 using json = nlohmann::json;
 
+using namespace openpower::phal;
+
 /**
  * Create boot error PEL
  *
@@ -19,6 +23,16 @@ using json = nlohmann::json;
  * @param[in] calloutData - callout data to append to PEL
  */
 void createBootErrorPEL(const FFDCData& ffdcData, const json& calloutData);
+
+/**
+ * Create SBE boot error PEL
+ *
+ * @param event - the event type
+ * @param error - SBE error object
+ * @param[in] ffdcData - failure data to append to PEL
+ */
+void createSbeErrorPEL(const std::string& event, const sbeError_t& error,
+                       const FFDCData& ffdcData);
 
 /**
  * @brief Create a PEL for the specified event type and additional data
