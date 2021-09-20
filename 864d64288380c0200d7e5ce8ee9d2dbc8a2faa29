@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ecd59a94_a5d55b1b",
+        "filename": "extensions/phal/phal_error.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 531,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2021-09-20T16:09:20Z",
+      "side": 1,
+      "message": "missing a space",
+      "range": {
+        "startLine": 531,
+        "startChar": 37,
+        "endLine": 531,
+        "endChar": 48
+      },
+      "revId": "864d64288380c0200d7e5ce8ee9d2dbc8a2faa29",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "547ad40f_a422d8f8",
+        "filename": "extensions/phal/phal_error.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 535,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2021-09-20T16:09:20Z",
+      "side": 1,
+      "message": "in",
+      "range": {
+        "startLine": 535,
+        "startChar": 59,
+        "endLine": 535,
+        "endChar": 63
+      },
+      "revId": "864d64288380c0200d7e5ce8ee9d2dbc8a2faa29",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
