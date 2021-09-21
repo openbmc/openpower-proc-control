@@ -1,0 +1,101 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "086e3503_bb4931f3",
+        "filename": "extensions/phal/create_pel.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2021-09-21T19:26:18Z",
+      "side": 1,
+      "message": "We tend to do this just to get \"something\". Since you are putting real data in the PEL in the next line, I don\u0027t think you need this.",
+      "revId": "83b7307c768bfe753da00d5ccde6b06467db3490",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4c032821_abd5c996",
+        "filename": "extensions/phal/create_pel.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2021-09-21T19:26:18Z",
+      "side": 1,
+      "message": "nit: this try should really only be around the sdbusplus operations. The pelFFDCInfo stuff is not going to generate sdbusplus exceptions?",
+      "revId": "83b7307c768bfe753da00d5ccde6b06467db3490",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1a690fe1_dee9157c",
+        "filename": "extensions/phal/create_pel.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2021-09-21T19:26:18Z",
+      "side": 1,
+      "message": "Some comments or descriptive variable names for these hard codes?",
+      "range": {
+        "startLine": 113,
+        "startChar": 48,
+        "endLine": 113,
+        "endChar": 54
+      },
+      "revId": "83b7307c768bfe753da00d5ccde6b06467db3490",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a6eb5952_a47d3487",
+        "filename": "extensions/phal/create_pel.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2021-09-21T19:26:18Z",
+      "side": 1,
+      "message": "Seems like a lot of copy/paste of code from createBootErrorPEL() above. Move into a common function? Will there be more of these type of functions coming down the line?",
+      "revId": "83b7307c768bfe753da00d5ccde6b06467db3490",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "46756330_dc1a40a3",
+        "filename": "extensions/phal/create_pel.hpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2021-09-21T19:26:18Z",
+      "side": 1,
+      "message": "I found a good bug when converting over to lg2. It uses \"error\" for error journal entries. Best to name this something a bit more specific, like sbeError.",
+      "range": {
+        "startLine": 34,
+        "startChar": 67,
+        "endLine": 34,
+        "endChar": 72
+      },
+      "revId": "83b7307c768bfe753da00d5ccde6b06467db3490",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
