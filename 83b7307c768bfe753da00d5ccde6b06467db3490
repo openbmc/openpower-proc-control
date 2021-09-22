@@ -76,6 +76,87 @@
     },
     {
       "key": {
+        "uuid": "231d1a71_a22ea4a6",
+        "filename": "extensions/phal/create_pel.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-09-22T04:14:46Z",
+      "side": 1,
+      "message": "+1 and I suspect we will add more PEL for a different reason.",
+      "parentUuid": "a6eb5952_a47d3487",
+      "revId": "83b7307c768bfe753da00d5ccde6b06467db3490",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ed29324a_af3ea49a",
+        "filename": "extensions/phal/create_pel.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-09-22T04:14:46Z",
+      "side": 1,
+      "message": "JS: lg2 (community preferred one) or fmt so that we can avoid journal entry look-up.",
+      "range": {
+        "startLine": 130,
+        "startChar": 1,
+        "endLine": 133,
+        "endChar": 57
+      },
+      "revId": "83b7307c768bfe753da00d5ccde6b06467db3490",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a9fca67b_8ca374c2",
+        "filename": "extensions/phal/create_pel.hpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-09-22T04:14:46Z",
+      "side": 1,
+      "message": "Do you want add @brief?",
+      "revId": "83b7307c768bfe753da00d5ccde6b06467db3490",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "366d015b_b18f9d71",
+        "filename": "extensions/phal/create_pel.hpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-09-22T04:14:46Z",
+      "side": 1,
+      "message": "Looks format is not correct, can you change it?",
+      "range": {
+        "startLine": 30,
+        "startChar": 1,
+        "endLine": 32,
+        "endChar": 54
+      },
+      "revId": "83b7307c768bfe753da00d5ccde6b06467db3490",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "46756330_dc1a40a3",
         "filename": "extensions/phal/create_pel.hpp",
         "patchSetId": 2
@@ -87,6 +168,30 @@
       "writtenOn": "2021-09-21T19:26:18Z",
       "side": 1,
       "message": "I found a good bug when converting over to lg2. It uses \"error\" for error journal entries. Best to name this something a bit more specific, like sbeError.",
+      "range": {
+        "startLine": 34,
+        "startChar": 67,
+        "endLine": 34,
+        "endChar": 72
+      },
+      "revId": "83b7307c768bfe753da00d5ccde6b06467db3490",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "207d32f9_ec3d24d2",
+        "filename": "extensions/phal/create_pel.hpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-09-22T04:14:46Z",
+      "side": 1,
+      "message": "Thanks for the info.",
+      "parentUuid": "46756330_dc1a40a3",
       "range": {
         "startLine": 34,
         "startChar": 67,
