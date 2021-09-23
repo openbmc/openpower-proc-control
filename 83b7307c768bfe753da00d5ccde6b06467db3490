@@ -190,6 +190,24 @@
     },
     {
       "key": {
+        "uuid": "0f88df6d_e1949f7e",
+        "filename": "extensions/phal/create_pel.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-09-23T14:48:03Z",
+      "side": 1,
+      "message": "am trying to get this createPEL SBE specfifc to support other sbe chip-op failures hanndling in this repo also  to keep SBE specific custom data.",
+      "parentUuid": "2e67bac9_70dd476e",
+      "revId": "83b7307c768bfe753da00d5ccde6b06467db3490",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ed29324a_af3ea49a",
         "filename": "extensions/phal/create_pel.cpp",
         "patchSetId": 2
