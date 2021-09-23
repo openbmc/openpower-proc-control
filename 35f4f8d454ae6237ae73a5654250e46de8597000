@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a0950983_7ebfc5df",
+        "filename": "extensions/phal/phal_error.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 550,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2021-09-23T15:27:36Z",
+      "side": 1,
+      "message": "const",
+      "revId": "35f4f8d454ae6237ae73a5654250e46de8597000",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b970cde7_6ae07ccd",
+        "filename": "extensions/phal/phal_error.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 557,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2021-09-23T15:27:36Z",
+      "side": 1,
+      "message": "const",
+      "revId": "35f4f8d454ae6237ae73a5654250e46de8597000",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3247f08c_25c41dbb",
+        "filename": "extensions/phal/phal_error.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 557,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2021-09-23T15:27:36Z",
+      "side": 1,
+      "message": "can\u0027t we just check std::exception here, so that there is no need to 2 seperate catch statements. we only need 2 seperate catch statements when we want special handling for each exception.",
+      "range": {
+        "startLine": 557,
+        "startChar": 0,
+        "endLine": 557,
+        "endChar": 33
+      },
+      "revId": "35f4f8d454ae6237ae73a5654250e46de8597000",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a3093230_77d25f28",
+        "filename": "meson.build",
+        "patchSetId": 6
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2021-09-23T15:27:36Z",
+      "side": 1,
+      "message": "tab",
+      "revId": "35f4f8d454ae6237ae73a5654250e46de8597000",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
