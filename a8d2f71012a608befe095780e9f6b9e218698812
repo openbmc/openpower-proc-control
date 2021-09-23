@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "40d3a3a3_62918f06",
+        "filename": "extensions/phal/create_pel.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2021-09-23T15:32:24Z",
+      "side": 1,
+      "message": "can we use for_each, also suspect code merge issue, this code was shown in the previous commit",
+      "range": {
+        "startLine": 95,
+        "startChar": 0,
+        "endLine": 98,
+        "endChar": 5
+      },
+      "revId": "a8d2f71012a608befe095780e9f6b9e218698812",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
