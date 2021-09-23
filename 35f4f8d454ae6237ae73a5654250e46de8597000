@@ -59,6 +59,52 @@
     },
     {
       "key": {
+        "uuid": "7a24afb5_3609f0de",
+        "filename": "extensions/phal/phal_error.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 566,
+      "author": {
+        "id": 1001084
+      },
+      "writtenOn": "2021-09-23T17:01:44Z",
+      "side": 1,
+      "message": "Does captureFFDC throws an exception for SBEFFDC_NO_DATA and SBECMD_TIMEOUT? If it does then there is no need to check these since dumpIsRequired is set to true.",
+      "range": {
+        "startLine": 565,
+        "startChar": 8,
+        "endLine": 566,
+        "endChar": 50
+      },
+      "revId": "35f4f8d454ae6237ae73a5654250e46de8597000",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e0701fc2_ba3f6551",
+        "filename": "extensions/phal/phal_error.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 570,
+      "author": {
+        "id": 1001084
+      },
+      "writtenOn": "2021-09-23T17:01:44Z",
+      "side": 1,
+      "message": "Does this apply for all sbeError types (ex: SBE_FFDC_NO_DATA) and runtime_error?",
+      "range": {
+        "startLine": 570,
+        "startChar": 12,
+        "endLine": 570,
+        "endChar": 59
+      },
+      "revId": "35f4f8d454ae6237ae73a5654250e46de8597000",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a3093230_77d25f28",
         "filename": "meson.build",
         "patchSetId": 6
