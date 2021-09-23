@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "317350e5_fd654f0b",
+        "filename": "extensions/phal/create_pel.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2021-09-23T13:09:56Z",
+      "side": 1,
+      "message": "Actually, by adding _PID the application name will then show up in a UserData section of  the PEL.  (With the report\u003c\u003e() and commit\u003c\u003e() interfaces that was added under the covers, but with the dbus API one needs to add it manually.",
+      "revId": "45e21a1a01758e4d413ad2b0324908ff3eb42456",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "07069c00_ee7b9136",
         "filename": "extensions/phal/create_pel.hpp",
         "patchSetId": 3
