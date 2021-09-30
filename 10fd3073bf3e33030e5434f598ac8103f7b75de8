@@ -34,6 +34,24 @@
       "revId": "10fd3073bf3e33030e5434f598ac8103f7b75de8",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3d56051f_d883963f",
+        "filename": "README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-09-30T07:03:35Z",
+      "side": 1,
+      "message": "Are you planing to update include .gitignore as part of this commit?",
+      "parentUuid": "73ff2029_225fb958",
+      "revId": "10fd3073bf3e33030e5434f598ac8103f7b75de8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
