@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e4ea8caf_f3a21c80",
+        "filename": "procedures/phal/enter_mpreboot.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2021-10-14T17:08:05Z",
+      "side": 1,
+      "message": "return in catch block , is it valid? first time seen such a thing, in this context looks ok though",
+      "revId": "368031cc70f1210fb9d9866220c6cc9b8535d6c4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
