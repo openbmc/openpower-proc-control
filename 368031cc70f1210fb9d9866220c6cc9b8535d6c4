@@ -16,6 +16,24 @@
       "revId": "368031cc70f1210fb9d9866220c6cc9b8535d6c4",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7f597f2f_491fa5ee",
+        "filename": "procedures/phal/enter_mpreboot.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-10-14T17:13:19Z",
+      "side": 1,
+      "message": "https://stackoverflow.com/questions/449099/is-it-bad-practice-to-return-from-within-a-try-catch-finally-block",
+      "parentUuid": "e4ea8caf_f3a21c80",
+      "revId": "368031cc70f1210fb9d9866220c6cc9b8535d6c4",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
