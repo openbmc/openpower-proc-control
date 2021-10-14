@@ -16,6 +16,24 @@
       "revId": "0a07a815920c4a6f33c773b928a6de27f5f42b53",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2042f92a_d0f568d2",
+        "filename": "extensions/phal/phal_error.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 585,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-10-14T12:27:02Z",
+      "side": 1,
+      "message": "you are correct , just log message is good here. we already have error log for dump failure",
+      "parentUuid": "87912bd0_2c602c2e",
+      "revId": "0a07a815920c4a6f33c773b928a6de27f5f42b53",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
