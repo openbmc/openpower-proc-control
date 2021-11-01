@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "20588217_3b8e64a0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2021-11-01T14:23:23Z",
+      "side": 1,
+      "message": "extra space and misspelled word",
+      "range": {
+        "startLine": 13,
+        "startChar": 21,
+        "endLine": 13,
+        "endChar": 27
+      },
+      "revId": "ef829fe6e5512d40d284854e22b13c19bf7df6be",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "926fa17a_2de83fac",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2021-11-01T14:23:23Z",
+      "side": 1,
+      "message": "spelling",
+      "range": {
+        "startLine": 14,
+        "startChar": 42,
+        "endLine": 14,
+        "endChar": 54
+      },
+      "revId": "ef829fe6e5512d40d284854e22b13c19bf7df6be",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4bc5a513_af0a43b2",
+        "filename": "procedures/phal/start_host.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2021-11-01T14:23:23Z",
+      "side": 1,
+      "message": "spelling",
+      "range": {
+        "startLine": 191,
+        "startChar": 53,
+        "endLine": 191,
+        "endChar": 65
+      },
+      "revId": "ef829fe6e5512d40d284854e22b13c19bf7df6be",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
