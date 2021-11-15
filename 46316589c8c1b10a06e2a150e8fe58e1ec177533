@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b3062641_a1f692b9",
+        "filename": "extensions/phal/phal_error.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 551,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2021-11-15T13:20:17Z",
+      "side": 1,
+      "message": "json jsonCalloutDataList \u003d  json::array();\n\nwill this work?",
+      "range": {
+        "startLine": 550,
+        "startChar": 0,
+        "endLine": 551,
+        "endChar": 44
+      },
+      "revId": "46316589c8c1b10a06e2a150e8fe58e1ec177533",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
