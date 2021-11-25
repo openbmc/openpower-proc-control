@@ -282,6 +282,13 @@ void processIplErrorCallback(const ipl_error_info& errInfo)
         return;
     }
 
+    if (errInfo.type == IPL_ERR_CLK_FAILED)
+    {
+        // Handle clock failure
+        processClockError((struct clk_err_private_data*)errInfo.private_data);
+        return;
+    }
+
     // Log PEL for any other failures
     if (errInfo.type != IPL_ERR_OK)
     {
@@ -290,6 +297,98 @@ void processIplErrorCallback(const ipl_error_info& errInfo)
         reset();
         return;
     }
+}
+
+static void addPlanarCalloutForClockError(json& jsonCalloutDataList)
+{
+    log<level::INFO>("addPlanarCalloutForClockError");
+
+    json jsonCalloutData;
+
+    // Inventory path for planar
+    jsonCalloutData["InventoryPath"] =
+        "/xyz/openbmc_project/inventory/system/chassis/motherboard";
+    jsonCalloutData["Deconfigured"] = false;
+    jsonCalloutData["Guarded"] = false;
+    jsonCalloutData["Priority"] = "HIGH";
+
+    jsonCalloutDataList.emplace_back(jsonCalloutData);
+}
+
+void processClockError(const struct clk_err_private_data* err_data)
+{
+    log<level::INFO>("processClockError ", entry("fail_type=%d",
+        err_data->fail_type));
+    log<level::INFO>(
+        fmt::format("err_data: clock_pos[{}], i2c_rc[{}], clock_status[{}]",
+            err_data->clock_pos, err_data->i2c_rc, err_data->clock_status)
+            .c_str());
+
+    try
+    {
+        // To store callouts details in json format as per pel expectation.
+        json jsonCalloutDataList;
+        jsonCalloutDataList = json::array();
+
+        // To store phal trace and other additional data about ffdc.
+        FFDCData pelAdditionalData;
+
+        // Callout planar for all type of clock errors
+        addPlanarCalloutForClockError(jsonCalloutDataList);
+
+        switch (err_data->fail_type)
+        {
+        case CLOCK_FAIL_SOFT_RESET:
+            pelAdditionalData.emplace_back("Description",
+                "Failed while issuing i2c soft reset command");
+            pelAdditionalData.emplace_back("clock_pos",
+                std::to_string(err_data->clock_pos));
+            pelAdditionalData.emplace_back("i2c_rc",
+                std::to_string(err_data->i2c_rc));
+            break;
+        case CLOCK_FAIL_STATUS_READ:
+            pelAdditionalData.emplace_back("Description",
+                "Failed while reading status register through i2c");
+            pelAdditionalData.emplace_back("clock_pos",
+                std::to_string(err_data->clock_pos));
+            pelAdditionalData.emplace_back("i2c_rc",
+                std::to_string(err_data->i2c_rc));
+            break;
+        case CLOCK_FAIL_CALIB_ERR:
+            pelAdditionalData.emplace_back("Description",
+                "Clock chip reported calibration error in status register");
+            pelAdditionalData.emplace_back("clock_pos",
+                std::to_string(err_data->clock_pos));
+            pelAdditionalData.emplace_back("clock_status",
+                std::to_string(err_data->clock_status));
+            break;
+
+        default:
+            log<level::ERR>(
+                fmt::format("Unsupported clock error type to create PEL. "
+                            "error_type: {}", err_data->fail_type)
+                    .c_str());
+            break;
+        }
+
+        // Adding collected phal logs into PEL additional data
+        for_each(traceLog.begin(), traceLog.end(),
+                 [&pelAdditionalData](
+                     std::pair<std::string, std::string>& ele) -> void {
+                     pelAdditionalData.emplace_back(ele.first, ele.second);
+                 });
+
+        // Not sorting callout list, since ony one callout is there
+
+        openpower::pel::createErrorPEL("org.open_power.PHAL.Error.Boot",
+            pelAdditionalData, jsonCalloutDataList);
+    }
+    catch (const std::exception& ex)
+    {
+        reset();
+        throw ex;
+    }
+    reset();
 }
 
 void processBootError(bool status)

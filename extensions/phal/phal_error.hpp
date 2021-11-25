@@ -57,6 +57,16 @@ void processBootError(bool status);
 void processSbeBootError();
 
 /**
+ * @brief Process Clock initializing failure status
+ *
+ * This function is used for clock initialization related failure handling
+ * during boot path.
+ * 
+ * @param err_data - clock failure details
+ */
+void processClockError(const struct clk_err_private_data* err_data);
+
+/**
  * @brief Reset trace log list
  */
 void reset();
