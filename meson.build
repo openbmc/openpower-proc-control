@@ -158,6 +158,7 @@ if build_phal
             'extensions/phal/pdbg_utils.cpp',
             'extensions/phal/create_pel.cpp',
             'util.cpp',
+            'temporary_file.cpp',
         ],
         dependencies: [
             dependency('phosphor-logging'),
