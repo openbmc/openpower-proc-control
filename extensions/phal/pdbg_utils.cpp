@@ -4,6 +4,7 @@ extern "C"
 }
 
 #include "extensions/phal/pdbg_utils.hpp"
+#include "extensions/phal/phal_env.hpp"
 #include "extensions/phal/phal_error.hpp"
 
 #include <fmt/format.h>
@@ -16,6 +17,28 @@ namespace phal
 {
 
 using namespace phosphor::logging;
+
+// Helper function to match with pdbg log callback function
+void pDBGLogTraceCallbackHelper(int, const char* fmt, va_list ap)
+{
+    pel::detail::processLogTraceCallback(NULL, fmt, ap);
+}
+
+void init_libpdbg()
+{
+    // PDBG_DTB environment variable set to CEC device tree path
+    phal::env::setDevtreeEnv();
+
+    // Set the log level and callback to get the traces
+    pdbg_set_loglevel(phal::env::getLogLevelFromEnv("PDBG_LOG", PDBG_INFO));
+    pdbg_set_logfunc(pDBGLogTraceCallbackHelper);
+
+    if (!pdbg_targets_init(NULL))
+    {
+        log<level::ERR>("pdbg_targets_init failed");
+        throw std::runtime_error("pdbg target initialization failed");
+    }
+}
 
 pdbg_target* getFsiTarget(struct pdbg_target* procTarget)
 {

@@ -27,14 +27,7 @@ void phal_init(enum ipl_mode mode)
     // add callback methods for debug traces and for boot failures
     openpower::pel::addBootErrorCallbacks();
 
-    // PDBG_DTB environment variable set to CEC device tree path
-    phal::env::setDevtreeEnv();
-
-    if (!pdbg_targets_init(NULL))
-    {
-        log<level::ERR>("pdbg_targets_init failed");
-        throw std::runtime_error("pdbg target initialization failed");
-    }
+    init_libpdbg();
 
     if (libekb_init())
     {

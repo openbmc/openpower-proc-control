@@ -644,23 +644,17 @@ void reset()
     counter = 0;
 }
 
-void pDBGLogTraceCallbackHelper(int, const char* fmt, va_list ap)
-{
-    processLogTraceCallback(NULL, fmt, ap);
-}
 } // namespace detail
 
 void addBootErrorCallbacks()
 {
     // Get individual phal repos log level from environment variable
     // and update the  log level.
-    pdbg_set_loglevel(phal::env::getLogLevelFromEnv("PDBG_LOG", PDBG_INFO));
     libekb_set_loglevel(
         phal::env::getLogLevelFromEnv("LIBEKB_LOG", LIBEKB_LOG_IMP));
     ipl_set_loglevel(phal::env::getLogLevelFromEnv("IPL_LOG", IPL_INFO));
 
     // add callback for debug traces
-    pdbg_set_logfunc(detail::pDBGLogTraceCallbackHelper);
     libekb_set_logfunc(detail::processLogTraceCallback, NULL);
     ipl_set_logfunc(detail::processLogTraceCallback, NULL);
 

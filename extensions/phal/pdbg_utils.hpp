@@ -13,6 +13,14 @@ namespace phal
 {
 
 /**
+ * @brief Used to init the libpdbg
+ *
+ * @return void on success
+ *         Throws an exception on failure
+ */
+void init_libpdbg();
+
+/**
  *  @brief  Read the input CFAM register
  *
  *  @param[in]  procTarget - Processor target to perform the operation on
