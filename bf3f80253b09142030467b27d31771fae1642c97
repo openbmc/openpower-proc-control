@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e73dd395_d13c5604",
+        "filename": "extensions/phal/phal_error.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-11-26T03:00:55Z",
+      "side": 1,
+      "message": "Keeping Private data in FFDC structre format (https://github.com/open-power/libekb_p10/blob/main/libekb.H#L144) will help to maintaing common code for hwp failure and IPl specific  failure handling in common way. Devender already anbling similiar one for plat cfam/scom failure use case. This looks like just cutmize for ipl i2c read failures only right?",
+      "revId": "bf3f80253b09142030467b27d31771fae1642c97",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
