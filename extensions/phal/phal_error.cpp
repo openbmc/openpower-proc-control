@@ -6,6 +6,7 @@ extern "C"
 #include "create_pel.hpp"
 #include "dump_utils.hpp"
 #include "extensions/phal/common_utils.hpp"
+#include "extensions/phal/phal_env.hpp"
 #include "phal_error.hpp"
 
 #include <attributes_info.H>
@@ -649,31 +650,14 @@ void pDBGLogTraceCallbackHelper(int, const char* fmt, va_list ap)
 }
 } // namespace detail
 
-static inline uint8_t getLogLevelFromEnv(const char* env, const uint8_t dValue)
-{
-    auto logLevel = dValue;
-    try
-    {
-        if (const char* env_p = std::getenv(env))
-        {
-            logLevel = std::stoi(env_p);
-        }
-    }
-    catch (const std::exception& e)
-    {
-        log<level::ERR>(("Conversion Failure"), entry("ENVIRONMENT=%s", env),
-                        entry("EXCEPTION=%s", e.what()));
-    }
-    return logLevel;
-}
-
 void addBootErrorCallbacks()
 {
     // Get individual phal repos log level from environment variable
     // and update the  log level.
-    pdbg_set_loglevel(getLogLevelFromEnv("PDBG_LOG", PDBG_INFO));
-    libekb_set_loglevel(getLogLevelFromEnv("LIBEKB_LOG", LIBEKB_LOG_IMP));
-    ipl_set_loglevel(getLogLevelFromEnv("IPL_LOG", IPL_INFO));
+    pdbg_set_loglevel(phal::env::getLogLevelFromEnv("PDBG_LOG", PDBG_INFO));
+    libekb_set_loglevel(
+        phal::env::getLogLevelFromEnv("LIBEKB_LOG", LIBEKB_LOG_IMP));
+    ipl_set_loglevel(phal::env::getLogLevelFromEnv("IPL_LOG", IPL_INFO));
 
     // add callback for debug traces
     pdbg_set_logfunc(detail::pDBGLogTraceCallbackHelper);

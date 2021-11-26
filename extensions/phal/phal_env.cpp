@@ -45,6 +45,25 @@ void setPdataInfoDBEnv()
     }
 }
 
+uint8_t getLogLevelFromEnv(const char* env, const uint8_t dValue)
+{
+    auto logLevel = dValue;
+    try
+    {
+        if (const char* env_p = std::getenv(env))
+        {
+            logLevel = std::stoi(env_p);
+        }
+    }
+    catch (const std::exception& e)
+    {
+        log<level::ERR>(fmt::format("Exception [{}] while trying to get the "
+                                    "given environment variable [{}] value",
+                                    e.what(), env)
+                            .c_str());
+    }
+    return logLevel;
+}
 } // namespace env
 } // namespace phal
 } // namespace openpower

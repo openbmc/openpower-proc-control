@@ -2,6 +2,8 @@
 
 #pragma once
 
+#include <cstdint>
+
 namespace openpower
 {
 namespace phal
@@ -28,6 +30,19 @@ void setDevtreeEnv();
  *         Throws an exception on failure.
  */
 void setPdataInfoDBEnv();
+
+/**
+ * @brief Used to get the log level from the given environment variable
+ *
+ * @param[in] env - The name of the environment variable
+ * @param[in] dValue - The default log level
+ *
+ * @return The log level of the given environment variable
+ *
+ * @note This function will return the given default log level if failed
+ *       to find the given environment variable log level
+ */
+uint8_t getLogLevelFromEnv(const char* env, const uint8_t dValue);
 
 } // namespace env
 } // namespace phal
