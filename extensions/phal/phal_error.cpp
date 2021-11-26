@@ -6,7 +6,6 @@ extern "C"
 #include "create_pel.hpp"
 #include "dump_utils.hpp"
 #include "extensions/phal/common_utils.hpp"
-#include "extensions/phal/phal_env.hpp"
 #include "phal_error.hpp"
 
 #include <attributes_info.H>
@@ -645,22 +644,5 @@ void reset()
 }
 
 } // namespace detail
-
-void addBootErrorCallbacks()
-{
-    // Get individual phal repos log level from environment variable
-    // and update the  log level.
-    libekb_set_loglevel(
-        phal::env::getLogLevelFromEnv("LIBEKB_LOG", LIBEKB_LOG_IMP));
-    ipl_set_loglevel(phal::env::getLogLevelFromEnv("IPL_LOG", IPL_INFO));
-
-    // add callback for debug traces
-    libekb_set_logfunc(detail::processLogTraceCallback, NULL);
-    ipl_set_logfunc(detail::processLogTraceCallback, NULL);
-
-    // add callback for ipl failures
-    ipl_set_error_callback_func(detail::processIplErrorCallback);
-}
-
 } // namespace pel
 } // namespace openpower
