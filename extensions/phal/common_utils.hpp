@@ -15,12 +15,18 @@ namespace phal
 /**
  * @brief This function will initialize required phal
  *        libraries.
- * Throws an exception on error.
  *
- * @param[in] mode - IPL mode, default IPL_AUTOBOOT
+ * @param[in] iplType - the IPL type
+ * @param[in] iplErrCallback - the callback to handle IPL error
  *
+ * @return NULL on success
+ *         Throws an exception on failures
+ *
+ * @note Refer https://github.com/open-power/ipl/blob/main/libipl/libipl.H
+ *       to get more details about the supported ipl mode and type
  */
-void phal_init(enum ipl_mode mode = IPL_AUTOBOOT);
+void phal_init(const enum ipl_type& iplType,
+               const ipl_error_callback_func_t iplErrCallback);
 
 /**
  *  @brief  Check if primary processor or not

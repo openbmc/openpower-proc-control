@@ -41,30 +41,38 @@ static void init_libekb()
 /**
  * @brief Helper function to init the libipl
  *
+ * @param[in] iplType - the IPL type
+ * @param[in] iplErrCallback - the callback to handle IPL error
+ *
  * @return NULL on success
  *         Throws an exception on failure
+ *
+ * @note Refer https://github.com/open-power/ipl/blob/main/libipl/libipl.H
+ *       to get more details about the supported ipl mode and type
  */
-static void init_libipl(const enum ipl_mode& ipl_mode)
+static void init_libipl(const enum ipl_type& iplType,
+                        const ipl_error_callback_func_t iplErrCallback)
 {
     // Set the log level and callback to get the traces
     ipl_set_loglevel(phal::env::getLogLevelFromEnv("IPL_LOG", IPL_INFO));
     ipl_set_logfunc(pel::detail::processLogTraceCallback, NULL);
 
-    // TODO: Setting boot error callback should not be in common code
-    //       because, we wont get proper reason in PEL for failure.
-    //       So, need to make code like caller of this function pass error
-    //       handling callback.
     // Set the callback to handle libipl failures
-    ipl_set_error_callback_func(pel::detail::processIplErrorCallback);
+    ipl_set_error_callback_func(iplErrCallback);
 
-    if (ipl_init(ipl_mode) != 0)
+    ipl_set_type(iplType);
+
+    // phal specific openpower-proc-control commands will always run
+    // in the autoboot mode
+    if (ipl_init(IPL_AUTOBOOT) != 0)
     {
         log<level::ERR>("ipl_init failed");
         throw std::runtime_error("libipl initialization failed");
     }
 }
 
-void phal_init(enum ipl_mode mode)
+void phal_init(const enum ipl_type& iplType,
+               const ipl_error_callback_func_t iplErrCallback)
 {
     /**
      * PHAL contained many libraries, and those libraries need to
@@ -74,7 +82,7 @@ void phal_init(enum ipl_mode mode)
      */
     init_libpdbg();
     init_libekb();
-    init_libipl(mode);
+    init_libipl(iplType, iplErrCallback);
 }
 
 bool isPrimaryProc(struct pdbg_target* procTarget)

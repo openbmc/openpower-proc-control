@@ -177,8 +177,8 @@ void startHost(enum ipl_type iplType = IPL_TYPE_NORMAL)
 {
     try
     {
-        phal_init();
-        ipl_set_type(iplType);
+        phal_init(iplType, pel::detail::processIplErrorCallback);
+
         if (iplType == IPL_TYPE_NORMAL)
         {
             // Update SEEPROM side only for NORMAL boot

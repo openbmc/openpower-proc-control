@@ -17,7 +17,10 @@ void prePoweroff(void)
 {
     try
     {
-        phal_init();
+        // TODO: Should use PrePowerOff specific error handler instead of
+        //       IPL boot error handler because, we wont get proper reason
+        //       in the PEL for failure.
+        phal_init(IPL_TYPE_NORMAL, pel::detail::processIplErrorCallback);
     }
     catch (const std::exception& ex)
     {
