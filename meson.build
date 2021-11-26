@@ -88,6 +88,7 @@ if build_phal
         'extensions/phal/common_utils.cpp',
         'extensions/phal/pdbg_utils.cpp',
         'extensions/phal/create_pel.cpp',
+        'extensions/phal/phal_env.cpp',
         'extensions/phal/phal_error.cpp',
         'extensions/phal/dump_utils.cpp',
     ]
@@ -155,8 +156,8 @@ if build_phal
         [
             'extensions/phal/devtree_export.cpp',
             'extensions/phal/fw_update_watch.cpp',
-            'extensions/phal/pdbg_utils.cpp',
             'extensions/phal/create_pel.cpp',
+            'extensions/phal/phal_env.cpp',
             'util.cpp',
         ],
         dependencies: [
@@ -165,7 +166,6 @@ if build_phal
             dependency('sdeventplus'),
             dependency('fmt'),
             dependency('phosphor-dbus-interfaces'),
-            cxx.find_library('pdbg'),
        ],
        install: true
    )

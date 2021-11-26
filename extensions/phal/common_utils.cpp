@@ -3,6 +3,7 @@
 #include "attributes_info.H"
 
 #include "extensions/phal/pdbg_utils.hpp"
+#include "extensions/phal/phal_env.hpp"
 #include "extensions/phal/phal_error.hpp"
 
 #include <fmt/format.h>
@@ -27,7 +28,7 @@ void phal_init(enum ipl_mode mode)
     openpower::pel::addBootErrorCallbacks();
 
     // PDBG_DTB environment variable set to CEC device tree path
-    setDevtreeEnv();
+    phal::env::setDevtreeEnv();
 
     if (!pdbg_targets_init(NULL))
     {

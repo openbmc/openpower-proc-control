@@ -4,7 +4,7 @@
 
 #include "common_utils.hpp"
 #include "create_pel.hpp"
-#include "pdbg_utils.hpp"
+#include "phal_env.hpp"
 
 #include <fmt/format.h>
 #include <sys/stat.h>
@@ -135,10 +135,10 @@ void exportDevtree()
     }
 
     // Update PDBG_DTB value
-    openpower::phal::setDevtreeEnv();
+    phal::env::setDevtreeEnv();
 
     // Update PDATA_INFODB value
-    openpower::phal::setPdataInfoDBEnv();
+    phal::env::setPdataInfoDBEnv();
 
     int status = 0;
     pid_t pid = fork();

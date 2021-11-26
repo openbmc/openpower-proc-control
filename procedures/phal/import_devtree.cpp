@@ -1,7 +1,7 @@
 #include "config.h"
 
 #include "extensions/phal/create_pel.hpp"
-#include "extensions/phal/pdbg_utils.hpp"
+#include "extensions/phal/phal_env.hpp"
 #include "registration.hpp"
 
 #include <fmt/format.h>
@@ -35,10 +35,10 @@ void importDevtree()
     }
 
     // Update PDBG_DTB value
-    openpower::phal::setDevtreeEnv();
+    phal::env::setDevtreeEnv();
 
     // Update PDATA_INFODB value
-    openpower::phal::setPdataInfoDBEnv();
+    phal::env::setPdataInfoDBEnv();
 
     int status = 0;
     pid_t pid = fork();
