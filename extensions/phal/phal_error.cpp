@@ -299,7 +299,8 @@ void processIplErrorCallback(const ipl_error_info& errInfo)
     }
 }
 
-static void addPlanarCalloutForClockError(json& jsonCalloutDataList)
+static void addPlanarCalloutForClockError(json& jsonCalloutDataList,
+            std::string priority)
 {
     log<level::INFO>("addPlanarCalloutForClockError");
 
@@ -310,7 +311,7 @@ static void addPlanarCalloutForClockError(json& jsonCalloutDataList)
         "/xyz/openbmc_project/inventory/system/chassis/motherboard";
     jsonCalloutData["Deconfigured"] = false;
     jsonCalloutData["Guarded"] = false;
-    jsonCalloutData["Priority"] = "HIGH";
+    jsonCalloutData["Priority"] = priority;
 
     jsonCalloutDataList.emplace_back(jsonCalloutData);
 }
@@ -334,7 +335,7 @@ void processClockError(const struct clk_err_private_data* err_data)
         FFDCData pelAdditionalData;
 
         // Callout planar for all type of clock errors
-        addPlanarCalloutForClockError(jsonCalloutDataList);
+        addPlanarCalloutForClockError(jsonCalloutDataList, "HIGH");
 
         switch (err_data->fail_type)
         {
@@ -472,11 +473,31 @@ void processBootError(bool status)
                              std::string(keyPrefix.str()).append("CLK_POS"),
                              std::to_string(hwCallout.clkPos));
 
-                         json jsonCalloutData;
-                         jsonCalloutData["LocationCode"] = locationCode;
+                         pelAdditionalData.emplace_back(
+                             std::string(keyPrefix.str()).append("IS_PLANAR"),
+                             std::to_string(hwCallout.isPlanarCallout));
+
+                         pelAdditionalData.emplace_back(
+                             std::string(keyPrefix.str()).append("GARD_REF_TGT"),
+                             std::to_string(hwCallout.gardRefTarget));
+
                          std::string pelPriority =
                              getPelPriority(hwCallout.callout_priority);
+
+                         if(hwCallout.isPlanarCallout){
+                             addPlanarCalloutForClockError(jsonCalloutDataList,
+                                 pelPriority);
+                         }
+
+                         json jsonCalloutData;
+                         jsonCalloutData["LocationCode"] = locationCode;
                          jsonCalloutData["Priority"] = pelPriority;
+
+                         if(hwCallout.gardRefTarget){
+                            jsonCalloutData["Deconfigured"] = true;
+                            jsonCalloutData["Guarded"] = true;
+                            jsonCalloutData["GuardType"] = "GARD_Predictive";
+                         }
 
                          if (targetInfo.mruId != 0)
                          {
