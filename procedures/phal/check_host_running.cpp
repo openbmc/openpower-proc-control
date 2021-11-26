@@ -40,15 +40,15 @@ void checkHostRunning()
 
     try
     {
-        phal_init();
+        init_libpdbg();
     }
     catch (const std::exception& ex)
     {
         // This should "never" happen so just throw the exception and let
         // our systemd error handling process this
-        log<level::ERR>("Exception raised during init PHAL",
+        log<level::ERR>("Exception raised during init PDBG",
                         entry("EXCEPTION=%s", ex.what()));
-        throw std::runtime_error("PHAL initialization failed");
+        throw std::runtime_error("PDBG initialization failed");
     }
 
     pdbg_for_each_class_target("proc", procTarget)
@@ -117,15 +117,15 @@ void clearHostRunning()
 
     try
     {
-        phal_init();
+        init_libpdbg();
     }
     catch (const std::exception& ex)
     {
         // This should "never" happen so just throw the exception and let
         // our systemd error handling process this
-        log<level::ERR>("Exception raised during init PHAL",
+        log<level::ERR>("Exception raised during init PDBG",
                         entry("EXCEPTION=%s", ex.what()));
-        throw std::runtime_error("PHAL initialization failed");
+        throw std::runtime_error("PDBG initialization failed");
     }
 
     pdbg_for_each_class_target("proc", procTarget)
