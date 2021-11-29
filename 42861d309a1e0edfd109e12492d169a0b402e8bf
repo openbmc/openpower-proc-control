@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "50bed009_03d76988",
+        "filename": "extensions/phal/phal_error.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2021-11-29T23:10:19Z",
+      "side": 1,
+      "message": "const std::string\u0026 is preferred",
+      "range": {
+        "startLine": 303,
+        "startChar": 12,
+        "endLine": 303,
+        "endChar": 23
+      },
+      "revId": "42861d309a1e0edfd109e12492d169a0b402e8bf",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "830f90b5_ad441da1",
+        "filename": "extensions/phal/phal_error.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2021-11-29T23:10:19Z",
+      "side": 1,
+      "message": "for reasons I can\u0027t remember, I made the priorities in the JSON to just be the first letter, so \"H\" - https://github.com/openbmc/phosphor-logging/tree/master/extensions/openpower-pels#specifying-multiple-callouts-using-json-format-ffdc-files",
+      "range": {
+        "startLine": 338,
+        "startChar": 59,
+        "endLine": 338,
+        "endChar": 66
+      },
+      "revId": "42861d309a1e0edfd109e12492d169a0b402e8bf",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
