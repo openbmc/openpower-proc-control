@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "076cc5a8_5e7a55f6",
+        "filename": "extensions/phal/phal_error.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2021-11-29T23:06:41Z",
+      "side": 1,
+      "message": "needs to be all caps inside an entry()",
+      "range": {
+        "startLine": 320,
+        "startChar": 50,
+        "endLine": 320,
+        "endChar": 59
+      },
+      "revId": "6103262c3699a243e2647acef2f160afe6a9e333",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e7e97f02_37111960",
+        "filename": "extensions/phal/phal_error.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2021-11-29T23:06:41Z",
+      "side": 1,
+      "message": "Is a PEL still going to be created in this case? If so, you may want this error trace as part of the PEL additional data too so it will show up there.",
+      "revId": "6103262c3699a243e2647acef2f160afe6a9e333",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7b0049f0_3746ef99",
+        "filename": "extensions/phal/phal_error.hpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2021-11-29T23:06:41Z",
+      "side": 1,
+      "message": "extra space",
+      "revId": "6103262c3699a243e2647acef2f160afe6a9e333",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b47f1bb4_62879bba",
+        "filename": "extensions/phal/phal_error.hpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2021-11-29T23:06:41Z",
+      "side": 1,
+      "message": "I don\u0027t think this is needed in c++.",
+      "range": {
+        "startLine": 67,
+        "startChar": 29,
+        "endLine": 67,
+        "endChar": 35
+      },
+      "revId": "6103262c3699a243e2647acef2f160afe6a9e333",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
