@@ -1,0 +1,164 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0aae450a_efa946af",
+        "filename": "meson.build",
+        "patchSetId": 3
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2021-11-30T22:22:32Z",
+      "side": 1,
+      "message": "nit: I think in general we\u0027ve started moving away from defining all of these config variables that no one ever use anything but the default. This is very IBM specific, do we really think these will ever change?",
+      "revId": "bf864ccc2aabe38a18c4bd11400a2a279309dd48",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cd4a9f1e_aa0cf510",
+        "filename": "meson_options.txt",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2021-11-30T22:22:32Z",
+      "side": 1,
+      "message": "This name seems a bit off to me. Isn\u0027t this really a \"DEVTREE_ATTR_PRESERVE_LIST\"? i.e. the list of attributes the BMC code needs to preserve between fresh boots? We\u0027re not re-initializing them, we\u0027re preserving them.",
+      "revId": "bf864ccc2aabe38a18c4bd11400a2a279309dd48",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "af73daae_ac5322ff",
+        "filename": "procedures/phal/reinit_devtree.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2021-11-30T22:22:32Z",
+      "side": 1,
+      "message": "I\u0027m struggling to follow the logic in this function. Please add some more comments or maybe better variable names? This function exports the current rw device tree but also does something with the REINIT_ATTRS_LIST? Does it only export the one\u0027s in the REINIT_ATTRS_LIST?",
+      "revId": "bf864ccc2aabe38a18c4bd11400a2a279309dd48",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "941616e2_1f455828",
+        "filename": "procedures/phal/reinit_devtree.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2021-11-30T22:22:32Z",
+      "side": 1,
+      "message": "Weird that a \".reset()\" is a file close? That sounds like it\u0027s resetting the file?",
+      "revId": "bf864ccc2aabe38a18c4bd11400a2a279309dd48",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ed3db4ac_aa667d31",
+        "filename": "procedures/phal/reinit_devtree.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2021-11-30T22:22:32Z",
+      "side": 1,
+      "message": "fbImport is what we exported above? It\u0027s using the same tmpFile object? Or I don\u0027t understand what this is doing.",
+      "range": {
+        "startLine": 117,
+        "startChar": 34,
+        "endLine": 117,
+        "endChar": 42
+      },
+      "revId": "bf864ccc2aabe38a18c4bd11400a2a279309dd48",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "04ac6449_ce629dbe",
+        "filename": "procedures/phal/reinit_devtree.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2021-11-30T22:22:32Z",
+      "side": 1,
+      "message": "nit: spelling",
+      "range": {
+        "startLine": 150,
+        "startChar": 38,
+        "endLine": 150,
+        "endChar": 45
+      },
+      "revId": "bf864ccc2aabe38a18c4bd11400a2a279309dd48",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "62835613_7394a506",
+        "filename": "procedures/phal/reinit_devtree.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2021-11-30T22:22:32Z",
+      "side": 1,
+      "message": "nit: spelling",
+      "range": {
+        "startLine": 151,
+        "startChar": 40,
+        "endLine": 151,
+        "endChar": 47
+      },
+      "revId": "bf864ccc2aabe38a18c4bd11400a2a279309dd48",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c7992d5a_e085312d",
+        "filename": "procedures/phal/reinit_devtree.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2021-11-30T22:22:32Z",
+      "side": 1,
+      "message": "We\u0027re just copying the same file here?",
+      "range": {
+        "startLine": 160,
+        "startChar": 34,
+        "endLine": 160,
+        "endChar": 53
+      },
+      "revId": "bf864ccc2aabe38a18c4bd11400a2a279309dd48",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
