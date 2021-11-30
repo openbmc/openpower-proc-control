@@ -282,6 +282,12 @@ void processIplErrorCallback(const ipl_error_info& errInfo)
         return;
     }
 
+    if (errInfo.type == IPL_ERR_PLAT) 
+    {   
+        processPlatBootError(errInfo);
+        return;
+    }
+
     // Log PEL for any other failures
     if (errInfo.type != IPL_ERR_OK)
     {
@@ -292,21 +298,30 @@ void processIplErrorCallback(const ipl_error_info& errInfo)
     }
 }
 
-void processBootError(bool status)
+static void addPlanarCalloutForClockError(json& jsonCalloutDataList,
+            const std::string& priority)
 {
-    log<level::INFO>("processBootError ", entry("STATUS=%d", status));
+    log<level::INFO>("addPlanarCalloutForClockError");
+
+    json jsonCalloutData;
+
+    // Inventory path for planar
+    jsonCalloutData["InventoryPath"] =
+        "/xyz/openbmc_project/inventory/system/chassis/motherboard";
+    jsonCalloutData["Deconfigured"] = false;
+    jsonCalloutData["Guarded"] = false;
+    jsonCalloutData["Priority"] = priority;
+
+    jsonCalloutDataList.emplace_back(jsonCalloutData);
+}
+
+static void processBootErrorHelper(FFDC* ffdc)
+{
+    log<level::INFO>("processBootErrorHelper ");
     try
     {
-        // return If no failure during hwp execution
-        if (status)
-            return;
-
-        // Collecting ffdc details from phal
-        FFDC ffdc;
-        libekb_get_ffdc(ffdc);
-
         log<level::INFO>(
-            fmt::format("PHAL FFDC: Return Message[{}]", ffdc.message).c_str());
+            fmt::format("PHAL FFDC: Return Message[{}]", ffdc->message).c_str());
 
         // To store callouts details in json format as per pel expectation.
         json jsonCalloutDataList;
@@ -315,16 +330,16 @@ void processBootError(bool status)
         // To store phal trace and other additional data about ffdc.
         FFDCData pelAdditionalData;
 
-        if (ffdc.ffdc_type == FFDC_TYPE_HWP)
+        if (ffdc->ffdc_type == FFDC_TYPE_HWP)
         {
             // Adding hardware procedures return code details
-            pelAdditionalData.emplace_back("HWP_RC", ffdc.hwp_errorinfo.rc);
+            pelAdditionalData.emplace_back("HWP_RC", ffdc->hwp_errorinfo.rc);
             pelAdditionalData.emplace_back("HWP_RC_DESC",
-                                           ffdc.hwp_errorinfo.rc_desc);
+                                           ffdc->hwp_errorinfo.rc_desc);
 
             // Adding hardware procedures required ffdc data for debug
-            for_each(ffdc.hwp_errorinfo.ffdcs_data.begin(),
-                     ffdc.hwp_errorinfo.ffdcs_data.end(),
+            for_each(ffdc->hwp_errorinfo.ffdcs_data.begin(),
+                     ffdc->hwp_errorinfo.ffdcs_data.end(),
                      [&pelAdditionalData](
                          std::pair<std::string, std::string>& ele) -> void {
                          std::string keyWithPrefix("HWP_FFDC_");
@@ -336,8 +351,8 @@ void processBootError(bool status)
 
             // Adding hardware callout details
             int calloutCount = 0;
-            for_each(ffdc.hwp_errorinfo.hwcallouts.begin(),
-                     ffdc.hwp_errorinfo.hwcallouts.end(),
+            for_each(ffdc->hwp_errorinfo.hwcallouts.begin(),
+                     ffdc->hwp_errorinfo.hwcallouts.end(),
                      [&pelAdditionalData, &calloutCount, &jsonCalloutDataList](
                          const HWCallout& hwCallout) -> void {
                          calloutCount++;
@@ -373,27 +388,38 @@ void processBootError(bool status)
                              std::string(keyPrefix.str()).append("CLK_POS"),
                              std::to_string(hwCallout.clkPos));
 
-                         json jsonCalloutData;
-                         jsonCalloutData["LocationCode"] = locationCode;
+                         pelAdditionalData.emplace_back(
+                             std::string(keyPrefix.str()).append("IS_PLANAR"),
+                             std::to_string(hwCallout.isPlanarCallout));
+
                          std::string pelPriority =
                              getPelPriority(hwCallout.callout_priority);
-                         jsonCalloutData["Priority"] = pelPriority;
 
-                         if (targetInfo.mruId != 0)
-                         {
-                             jsonCalloutData["MRUs"] = json::array({
-                                 {{"ID", targetInfo.mruId},
-                                  {"Priority", pelPriority}},
-                             });
+                         if(hwCallout.isPlanarCallout){
+                             addPlanarCalloutForClockError(jsonCalloutDataList,
+                                 pelPriority);
                          }
+                         else{
+                             json jsonCalloutData;
+                             jsonCalloutData["LocationCode"] = locationCode;
+                             jsonCalloutData["Priority"] = pelPriority;
 
-                         jsonCalloutDataList.emplace_back(jsonCalloutData);
+                             if (targetInfo.mruId != 0)
+                             {
+                                 jsonCalloutData["MRUs"] = json::array({
+                                     {{"ID", targetInfo.mruId},
+                                     {"Priority", pelPriority}},
+                                 });
+                             }
+
+                             jsonCalloutDataList.emplace_back(jsonCalloutData);
+                         }
                      });
 
             // Adding CDG (callout, deconfigure and guard) targets details
             calloutCount = 0;
-            for_each(ffdc.hwp_errorinfo.cdg_targets.begin(),
-                     ffdc.hwp_errorinfo.cdg_targets.end(),
+            for_each(ffdc->hwp_errorinfo.cdg_targets.begin(),
+                     ffdc->hwp_errorinfo.cdg_targets.end(),
                      [&pelAdditionalData, &calloutCount,
                       &jsonCalloutDataList](const CDG_Target& cdg_tgt) -> void {
                          calloutCount++;
@@ -462,8 +488,8 @@ void processBootError(bool status)
             // Adding procedure callout
             calloutCount = 0;
             for_each(
-                ffdc.hwp_errorinfo.procedures_callout.begin(),
-                ffdc.hwp_errorinfo.procedures_callout.end(),
+                ffdc->hwp_errorinfo.procedures_callout.begin(),
+                ffdc->hwp_errorinfo.procedures_callout.end(),
                 [&pelAdditionalData, &calloutCount, &jsonCalloutDataList](
                     const ProcedureCallout& procCallout) -> void {
                     calloutCount++;
@@ -487,13 +513,13 @@ void processBootError(bool status)
                     jsonCalloutDataList.emplace_back(jsonCalloutData);
                 });
         }
-        else if ((ffdc.ffdc_type != FFDC_TYPE_NONE) &&
-                 (ffdc.ffdc_type != FFDC_TYPE_UNSUPPORTED))
+        else if ((ffdc->ffdc_type != FFDC_TYPE_NONE) &&
+                 (ffdc->ffdc_type != FFDC_TYPE_UNSUPPORTED))
         {
             log<level::ERR>(
                 fmt::format("Unsupported phal FFDC type to create PEL. "
                             "MSG: {}",
-                            ffdc.message)
+                            ffdc->message)
                     .c_str());
         }
 
@@ -537,6 +563,30 @@ void processBootError(bool status)
         throw ex;
     }
     reset();
+}
+
+void processPlatBootError(const ipl_error_info& errInfo)
+{
+    log<level::INFO>("processPlatBootError ");
+
+    // Collecting ffdc details from phal
+    FFDC* ffdc = reinterpret_cast<FFDC*>(errInfo.private_data);
+    ffdc->ffdc_type = FFDC_TYPE_HWP;
+    processBootErrorHelper(ffdc);
+}
+
+void processBootError(bool status)
+{
+    log<level::INFO>("processBootError ", entry("STATUS=%d", status));
+    // return If no failure during hwp execution
+    if(status)
+        return;
+
+    // Collecting ffdc details from phal
+    FFDC ffdc;
+    libekb_get_ffdc(ffdc);
+
+    processBootErrorHelper(&ffdc);
 }
 
 void processSbeBootError()

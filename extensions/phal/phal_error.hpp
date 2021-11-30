@@ -46,6 +46,13 @@ void processIplErrorCallback(const ipl_error_info& errInfo);
 void processBootError(bool status);
 
 /**
+ * @brief Process platform realted boot failure
+ *
+ * @param[in] errInfo - error details
+ */
+void processPlatBootError(const ipl_error_info& errInfo);
+
+/**
  * @brief Process SBE boot failure/success status
  *
  * This function is used for SBE related failure handling during
