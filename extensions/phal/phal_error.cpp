@@ -283,6 +283,10 @@ void processIplErrorCallback(const ipl_error_info& errInfo)
             processBootError(false);
             break;
         case IPL_ERR_PLAT:
+        case IPL_ERR_ATTR_READ_FAIL:
+        case IPL_ERR_CLK:
+        case IPL_ERR_INVALID_NUM_CLOCK:
+        case IPL_ERR_ATTR_WRITE:
             processPlatBootError(errInfo);
             break;
         default:
@@ -293,7 +297,34 @@ void processIplErrorCallback(const ipl_error_info& errInfo)
     }
 }
 
-void processBootErrorHelper(FFDC* ffdc)
+/**
+ * @brief addPlanarCallout
+ *
+ * This function will add a json for planar callout in the input json list.
+ * The caller can pass this json list into createErrorPEL to apply the callout.
+ *
+ * @param[in,out] jsonCalloutDataList - json list where callout json will be
+ *                  emplaced
+ * @param[in]     priority - string indicating priority.
+ */
+static void addPlanarCallout(json& jsonCalloutDataList,
+            const std::string& priority)
+{
+    log<level::INFO>("addPlanarCalloutForClockError");
+
+    json jsonCalloutData;
+
+    // Inventory path for planar
+    jsonCalloutData["InventoryPath"] =
+        "/xyz/openbmc_project/inventory/system/chassis/motherboard";
+    jsonCalloutData["Deconfigured"] = false;
+    jsonCalloutData["Guarded"] = false;
+    jsonCalloutData["Priority"] = priority;
+
+    jsonCalloutDataList.emplace_back(jsonCalloutData);
+}
+
+void processBootErrorHelper(FFDC* ffdc, const std::string& ffdc_prefix)
 {
     log<level::INFO>("processBootErrorHelper ");
     try
@@ -311,17 +342,20 @@ void processBootErrorHelper(FFDC* ffdc)
 
         if (ffdc->ffdc_type == FFDC_TYPE_HWP)
         {
+            std::string keyWithPrefix(ffdc_prefix + "RC");
             // Adding hardware procedures return code details
-            pelAdditionalData.emplace_back("HWP_RC", ffdc->hwp_errorinfo.rc);
-            pelAdditionalData.emplace_back("HWP_RC_DESC",
+            pelAdditionalData.emplace_back(keyWithPrefix,
+                                           ffdc->hwp_errorinfo.rc);
+            keyWithPrefix = ffdc_prefix + "RC_DESC";
+            pelAdditionalData.emplace_back(keyWithPrefix,
                                            ffdc->hwp_errorinfo.rc_desc);
 
             // Adding hardware procedures required ffdc data for debug
             for_each(ffdc->hwp_errorinfo.ffdcs_data.begin(),
                      ffdc->hwp_errorinfo.ffdcs_data.end(),
-                     [&pelAdditionalData](
+                     [&pelAdditionalData, &ffdc_prefix](
                          std::pair<std::string, std::string>& ele) -> void {
-                         std::string keyWithPrefix("HWP_FFDC_");
+                         std::string keyWithPrefix(ffdc_prefix + "FFDC_");
                          keyWithPrefix.append(ele.first);
 
                          pelAdditionalData.emplace_back(keyWithPrefix,
@@ -332,11 +366,12 @@ void processBootErrorHelper(FFDC* ffdc)
             int calloutCount = 0;
             for_each(ffdc->hwp_errorinfo.hwcallouts.begin(),
                      ffdc->hwp_errorinfo.hwcallouts.end(),
-                     [&pelAdditionalData, &calloutCount, &jsonCalloutDataList](
-                         const HWCallout& hwCallout) -> void {
+                     [&pelAdditionalData, &calloutCount, &jsonCalloutDataList,
+                      &ffdc_prefix](const HWCallout& hwCallout) -> void {
                          calloutCount++;
                          std::stringstream keyPrefix;
-                         keyPrefix << "HWP_HW_CO_" << std::setfill('0')
+                         keyPrefix << ffdc_prefix << "HW_CO_"
+                                   << std::setfill('0')
                                    << std::setw(2) << calloutCount << "_";
 
                          pelAdditionalData.emplace_back(
@@ -347,41 +382,44 @@ void processBootErrorHelper(FFDC* ffdc)
                              std::string(keyPrefix.str()).append("PRIORITY"),
                              hwCallout.callout_priority);
 
-                         phal::TargetInfo targetInfo;
-                         phal::getTgtReqAttrsVal(hwCallout.target_entity_path,
-                                                 targetInfo);
+                         // Log target details only if entity path is
+                         // available. For example target entity path will not
+                         // be available for non-hwp clock failure.
+                         if(hwCallout.target_entity_path.size()) {
+                             phal::TargetInfo targetInfo;
+                                 phal::getTgtReqAttrsVal(
+                                     hwCallout.target_entity_path, targetInfo);
 
-                         std::string locationCode =
-                             std::string(targetInfo.locationCode);
-                         pelAdditionalData.emplace_back(
-                             std::string(keyPrefix.str()).append("LOC_CODE"),
-                             locationCode);
+                             std::string locationCode =
+                                 std::string(targetInfo.locationCode);
+                             pelAdditionalData.emplace_back(
+                                 std::string(keyPrefix.str()).append("LOC_CODE"),
+                                 locationCode);
 
-                         std::string physPath =
-                             std::string(targetInfo.physDevPath);
-                         pelAdditionalData.emplace_back(
-                             std::string(keyPrefix.str()).append("PHYS_PATH"),
-                             physPath);
+                             std::string physPath =
+                                 std::string(targetInfo.physDevPath);
+                             pelAdditionalData.emplace_back(
+                                 std::string(keyPrefix.str()).append("PHYS_PATH"),
+                                 physPath);
+                         }
 
                          pelAdditionalData.emplace_back(
                              std::string(keyPrefix.str()).append("CLK_POS"),
                              std::to_string(hwCallout.clkPos));
 
-                         json jsonCalloutData;
-                         jsonCalloutData["LocationCode"] = locationCode;
+                         pelAdditionalData.emplace_back(
+                             std::string(keyPrefix.str()).append(
+                                                            "CALLOUT_PLANAR"),
+                             (hwCallout.isPlanarCallout == true ?
+                                                    "true" : "false"));
+
                          std::string pelPriority =
                              getPelPriority(hwCallout.callout_priority);
-                         jsonCalloutData["Priority"] = pelPriority;
 
-                         if (targetInfo.mruId != 0)
-                         {
-                             jsonCalloutData["MRUs"] = json::array({
-                                 {{"ID", targetInfo.mruId},
-                                  {"Priority", pelPriority}},
-                             });
+                         if(hwCallout.isPlanarCallout){
+                             addPlanarCallout(jsonCalloutDataList,
+                                 pelPriority);
                          }
-
-                         jsonCalloutDataList.emplace_back(jsonCalloutData);
                      });
 
             // Adding CDG (callout, deconfigure and guard) targets details
@@ -389,10 +427,12 @@ void processBootErrorHelper(FFDC* ffdc)
             for_each(ffdc->hwp_errorinfo.cdg_targets.begin(),
                      ffdc->hwp_errorinfo.cdg_targets.end(),
                      [&pelAdditionalData, &calloutCount,
-                      &jsonCalloutDataList](const CDG_Target& cdg_tgt) -> void {
+                      &jsonCalloutDataList, &ffdc_prefix](
+                          const CDG_Target& cdg_tgt) -> void {
                          calloutCount++;
                          std::stringstream keyPrefix;
-                         keyPrefix << "HWP_CDG_TGT_" << std::setfill('0')
+                         keyPrefix << ffdc_prefix << "CDG_TGT_"
+                                   << std::setfill('0')
                                    << std::setw(2) << calloutCount << "_";
 
                          phal::TargetInfo targetInfo;
@@ -458,11 +498,12 @@ void processBootErrorHelper(FFDC* ffdc)
             for_each(
                 ffdc->hwp_errorinfo.procedures_callout.begin(),
                 ffdc->hwp_errorinfo.procedures_callout.end(),
-                [&pelAdditionalData, &calloutCount, &jsonCalloutDataList](
+                [&pelAdditionalData, &calloutCount, &jsonCalloutDataList,
+                 &ffdc_prefix](
                     const ProcedureCallout& procCallout) -> void {
                     calloutCount++;
                     std::stringstream keyPrefix;
-                    keyPrefix << "HWP_PROC_CO_" << std::setfill('0')
+                    keyPrefix << ffdc_prefix << "PROC_CO_" << std::setfill('0')
                               << std::setw(2) << calloutCount << "_";
 
                     pelAdditionalData.emplace_back(
@@ -541,7 +582,7 @@ void processPlatBootError(const ipl_error_info& errInfo)
     FFDC* ffdc = reinterpret_cast<FFDC*>(errInfo.private_data);
     try
     {
-        processBootErrorHelper(ffdc);
+        processBootErrorHelper(ffdc, "PLAT_");
     }
     catch (const std::exception& ex)
     {
@@ -567,7 +608,7 @@ void processBootError(bool status)
         FFDC ffdc;
         libekb_get_ffdc(ffdc);
 
-        processBootErrorHelper(&ffdc);
+        processBootErrorHelper(&ffdc, "HWP_");
     }
     catch (const std::exception& ex)
     {
