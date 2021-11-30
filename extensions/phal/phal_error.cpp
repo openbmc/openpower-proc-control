@@ -305,6 +305,23 @@ void processIplErrorCallback(const ipl_error_info& errInfo)
     }
 }
 
+static void addPlanarCalloutForClockError(json& jsonCalloutDataList,
+            const std::string& priority)
+{
+    log<level::INFO>("addPlanarCalloutForClockError");
+
+    json jsonCalloutData;
+
+    // Inventory path for planar
+    jsonCalloutData["InventoryPath"] =
+        "/xyz/openbmc_project/inventory/system/chassis/motherboard";
+    jsonCalloutData["Deconfigured"] = false;
+    jsonCalloutData["Guarded"] = false;
+    jsonCalloutData["Priority"] = priority;
+
+    jsonCalloutDataList.emplace_back(jsonCalloutData);
+}
+
 void processBootErrorHelper(FFDC* ffdc)
 {
     log<level::INFO>("processBootErrorHelper ");
@@ -359,41 +376,21 @@ void processBootErrorHelper(FFDC* ffdc)
                              std::string(keyPrefix.str()).append("PRIORITY"),
                              hwCallout.callout_priority);
 
-                         phal::TargetInfo targetInfo;
-                         phal::getTgtReqAttrsVal(hwCallout.target_entity_path,
-                                                 targetInfo);
-
-                         std::string locationCode =
-                             std::string(targetInfo.locationCode);
-                         pelAdditionalData.emplace_back(
-                             std::string(keyPrefix.str()).append("LOC_CODE"),
-                             locationCode);
-
-                         std::string physPath =
-                             std::string(targetInfo.physDevPath);
-                         pelAdditionalData.emplace_back(
-                             std::string(keyPrefix.str()).append("PHYS_PATH"),
-                             physPath);
-
                          pelAdditionalData.emplace_back(
                              std::string(keyPrefix.str()).append("CLK_POS"),
                              std::to_string(hwCallout.clkPos));
 
-                         json jsonCalloutData;
-                         jsonCalloutData["LocationCode"] = locationCode;
+                         pelAdditionalData.emplace_back(
+                             std::string(keyPrefix.str()).append("IS_PLANAR"),
+                             std::to_string(hwCallout.isPlanarCallout));
+
                          std::string pelPriority =
                              getPelPriority(hwCallout.callout_priority);
-                         jsonCalloutData["Priority"] = pelPriority;
 
-                         if (targetInfo.mruId != 0)
-                         {
-                             jsonCalloutData["MRUs"] = json::array({
-                                 {{"ID", targetInfo.mruId},
-                                  {"Priority", pelPriority}},
-                             });
+                         if(hwCallout.isPlanarCallout){
+                             addPlanarCalloutForClockError(jsonCalloutDataList,
+                                 pelPriority);
                          }
-
-                         jsonCalloutDataList.emplace_back(jsonCalloutData);
                      });
 
             // Adding CDG (callout, deconfigure and guard) targets details
