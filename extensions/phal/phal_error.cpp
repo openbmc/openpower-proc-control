@@ -289,11 +289,7 @@ void processIplErrorCallback(const ipl_error_info& errInfo)
         return;
     }
 
-    //TODO: need to use IPL_ERR_PLAT from IPL code after
-    //it is integrated, nod defining local variable to
-    //remove dependency
-    static const uint32_t MY_IPL_ERR_PLAT = 8;
-    if (errInfo.type == MY_IPL_ERR_PLAT)
+    if (errInfo.type == IPL_ERR_PLAT)
     {
         processPlatBootError(errInfo);
         return;
