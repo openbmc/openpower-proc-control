@@ -22,6 +22,30 @@
       "revId": "1870321629d3fdace632292030ee890b0fbd3a41",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0eb4f05b_de37c45a",
+        "filename": "extensions/phal/phal_error.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2021-12-01T13:22:34Z",
+      "side": 1,
+      "message": "not sure",
+      "parentUuid": "be64bbf6_8dbe34e5",
+      "range": {
+        "startLine": 402,
+        "startChar": 25,
+        "endLine": 416,
+        "endChar": 26
+      },
+      "revId": "1870321629d3fdace632292030ee890b0fbd3a41",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
