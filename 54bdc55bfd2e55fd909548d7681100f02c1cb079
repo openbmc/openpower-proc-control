@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a8c0e655_936bae15",
+        "filename": "procedures/phal/thread_stopall.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2021-12-02T21:14:42Z",
+      "side": 1,
+      "message": "what is this comment?",
+      "revId": "54bdc55bfd2e55fd909548d7681100f02c1cb079",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ddedd857_414c07fa",
+        "filename": "procedures/phal/thread_stopall.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2021-12-02T21:14:42Z",
+      "side": 1,
+      "message": "Are we sure we want to be doing sbe dumps on stop instruction fails? We seem to hit these pretty regularly in different paths on p10bmc systems. I thought the idea was just ignore and keep going?",
+      "revId": "54bdc55bfd2e55fd909548d7681100f02c1cb079",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "46aff720_36e7b703",
+        "filename": "procedures/phal/thread_stopall.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2021-12-02T21:14:42Z",
+      "side": 1,
+      "message": "Hmm, same question here, do we really want an error create for these?",
+      "revId": "54bdc55bfd2e55fd909548d7681100f02c1cb079",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d9dcfb89_69001aa5",
+        "filename": "procedures/phal/thread_stopall.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2021-12-02T21:14:42Z",
+      "side": 1,
+      "message": "Going to update the op-stop-instructions@.service.in within this code review or separate one?",
+      "revId": "54bdc55bfd2e55fd909548d7681100f02c1cb079",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
