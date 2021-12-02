@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "95088b1a_ad6878b1",
+        "filename": "meson.build",
+        "patchSetId": 3
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-12-02T11:03:44Z",
+      "side": 1,
+      "message": "These value will chnage during devlopment window, \nwhat is the alternative path to keep repository level const edfecintion , defing in common header file?",
+      "parentUuid": "0aae450a_efa946af",
+      "revId": "bf864ccc2aabe38a18c4bd11400a2a279309dd48",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "cd4a9f1e_aa0cf510",
         "filename": "meson_options.txt",
         "patchSetId": 3
@@ -30,6 +48,24 @@
       "writtenOn": "2021-11-30T22:22:32Z",
       "side": 1,
       "message": "This name seems a bit off to me. Isn\u0027t this really a \"DEVTREE_ATTR_PRESERVE_LIST\"? i.e. the list of attributes the BMC code needs to preserve between fresh boots? We\u0027re not re-initializing them, we\u0027re preserving them.",
+      "revId": "bf864ccc2aabe38a18c4bd11400a2a279309dd48",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c7986b6a_56050df8",
+        "filename": "meson_options.txt",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-12-02T11:03:44Z",
+      "side": 1,
+      "message": "_PRESERVE_LIST is alreay used for runtime code updates attribute presever use case. That is why satterd keeping use case specific perseve list now. https://github.com/open-power/pdata/blob/main/Makefile.am#L26",
+      "parentUuid": "cd4a9f1e_aa0cf510",
       "revId": "bf864ccc2aabe38a18c4bd11400a2a279309dd48",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "8f4d2fdd_8815a392",
+        "filename": "procedures/phal/reinit_devtree.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-12-02T11:03:44Z",
+      "side": 1,
+      "message": "yes, refer line 34. for details \n will add additional documentation.",
+      "parentUuid": "af73daae_ac5322ff",
+      "revId": "bf864ccc2aabe38a18c4bd11400a2a279309dd48",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "941616e2_1f455828",
         "filename": "procedures/phal/reinit_devtree.cpp",
         "patchSetId": 3
@@ -70,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "45c9ef54_fbc117d2",
+        "filename": "procedures/phal/reinit_devtree.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-12-02T11:03:44Z",
+      "side": 1,
+      "message": "correct, restructured code to clsoe the fp.",
+      "parentUuid": "941616e2_1f455828",
+      "revId": "bf864ccc2aabe38a18c4bd11400a2a279309dd48",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ed3db4ac_aa667d31",
         "filename": "procedures/phal/reinit_devtree.cpp",
         "patchSetId": 3
@@ -81,6 +153,30 @@
       "writtenOn": "2021-11-30T22:22:32Z",
       "side": 1,
       "message": "fbImport is what we exported above? It\u0027s using the same tmpFile object? Or I don\u0027t understand what this is doing.",
+      "range": {
+        "startLine": 117,
+        "startChar": 34,
+        "endLine": 117,
+        "endChar": 42
+      },
+      "revId": "bf864ccc2aabe38a18c4bd11400a2a279309dd48",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "458c886d_d3ad9238",
+        "filename": "procedures/phal/reinit_devtree.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-12-02T11:03:44Z",
+      "side": 1,
+      "message": "fpExport - attriburte data . ( file opene in write mode) . here import function need readonly access to update into devtree tempoarray copy. restructred the code to avoid confusion.",
+      "parentUuid": "ed3db4ac_aa667d31",
       "range": {
         "startLine": 117,
         "startChar": 34,
@@ -116,6 +212,30 @@
     },
     {
       "key": {
+        "uuid": "dce2f88e_79684646",
+        "filename": "procedures/phal/reinit_devtree.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-12-02T11:03:44Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "04ac6449_ce629dbe",
+      "range": {
+        "startLine": 150,
+        "startChar": 38,
+        "endLine": 150,
+        "endChar": 45
+      },
+      "revId": "bf864ccc2aabe38a18c4bd11400a2a279309dd48",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "62835613_7394a506",
         "filename": "procedures/phal/reinit_devtree.cpp",
         "patchSetId": 3
@@ -139,6 +259,30 @@
     },
     {
       "key": {
+        "uuid": "917e387a_596380d7",
+        "filename": "procedures/phal/reinit_devtree.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-12-02T11:03:44Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "62835613_7394a506",
+      "range": {
+        "startLine": 151,
+        "startChar": 40,
+        "endLine": 151,
+        "endChar": 47
+      },
+      "revId": "bf864ccc2aabe38a18c4bd11400a2a279309dd48",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c7992d5a_e085312d",
         "filename": "procedures/phal/reinit_devtree.cpp",
         "patchSetId": 3
@@ -150,6 +294,30 @@
       "writtenOn": "2021-11-30T22:22:32Z",
       "side": 1,
       "message": "We\u0027re just copying the same file here?",
+      "range": {
+        "startLine": 160,
+        "startChar": 34,
+        "endLine": 160,
+        "endChar": 53
+      },
+      "revId": "bf864ccc2aabe38a18c4bd11400a2a279309dd48",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4cfcb951_249bab1a",
+        "filename": "procedures/phal/reinit_devtree.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-12-02T11:03:44Z",
+      "side": 1,
+      "message": "Good catch ,",
+      "parentUuid": "c7992d5a_e085312d",
       "range": {
         "startLine": 160,
         "startChar": 34,
