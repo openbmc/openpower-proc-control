@@ -1,0 +1,239 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c48c873c_b0fe99a8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-12-02T15:25:52Z",
+      "side": 1,
+      "message": "is it only for the non hardware procedure clock error handling?",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 36
+      },
+      "revId": "d312c5cdefdb76d5de8787636cbe1bbf602ab966",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9c16242b_96c076b0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-12-02T15:25:52Z",
+      "side": 1,
+      "message": "Include \"PHAL: \" as prefix.\n\nWe are following that rule for phal specific code.",
+      "revId": "d312c5cdefdb76d5de8787636cbe1bbf602ab966",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fa4e2521_02bfa7c5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-12-02T15:25:52Z",
+      "side": 1,
+      "message": "Looks commit message is not accurate as per the latest patch. Please update",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 63
+      },
+      "revId": "d312c5cdefdb76d5de8787636cbe1bbf602ab966",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eb78fb9f_2fca77f3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-12-02T15:25:52Z",
+      "side": 1,
+      "message": "Tested:?\nFYR:https://github.com/openbmc/docs/blob/master/CONTRIBUTING.md#testing",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 5
+      },
+      "revId": "d312c5cdefdb76d5de8787636cbe1bbf602ab966",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e4bdacb7_7ff5f5ca",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-12-02T15:25:52Z",
+      "side": 1,
+      "message": "Where these is coming? I am not seeing the related code for this.",
+      "range": {
+        "startLine": 56,
+        "startChar": 4,
+        "endLine": 57,
+        "endChar": 27
+      },
+      "revId": "d312c5cdefdb76d5de8787636cbe1bbf602ab966",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3e428d79_717cb245",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-12-02T15:25:52Z",
+      "side": 1,
+      "message": "Why RC is some different value? is it the correct one?\nand RC_DESC is missing?",
+      "revId": "d312c5cdefdb76d5de8787636cbe1bbf602ab966",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "36c05cd5_ff9020db",
+        "filename": "extensions/phal/phal_error.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-12-02T15:25:52Z",
+      "side": 1,
+      "message": "addPlanarCallout?\n\ncan you add documentation for this function?",
+      "range": {
+        "startLine": 308,
+        "startChar": 12,
+        "endLine": 308,
+        "endChar": 41
+      },
+      "revId": "d312c5cdefdb76d5de8787636cbe1bbf602ab966",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ee7b51c1_3dde46cf",
+        "filename": "extensions/phal/phal_error.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-12-02T15:25:52Z",
+      "side": 1,
+      "message": "is it needed to get based on `xyz.openbmc_project.Inventory.Item.Board.Motherboard` instead of hard code?",
+      "range": {
+        "startLine": 317,
+        "startChar": 9,
+        "endLine": 317,
+        "endChar": 66
+      },
+      "revId": "d312c5cdefdb76d5de8787636cbe1bbf602ab966",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b8fbd342_c3aec2cf",
+        "filename": "extensions/phal/phal_error.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-12-02T15:25:52Z",
+      "side": 1,
+      "message": "CALLOUT_PLANAR?",
+      "range": {
+        "startLine": 384,
+        "startChar": 66,
+        "endLine": 384,
+        "endChar": 75
+      },
+      "revId": "d312c5cdefdb76d5de8787636cbe1bbf602ab966",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "157be34b_182a9193",
+        "filename": "extensions/phal/phal_error.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 385,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-12-02T15:25:52Z",
+      "side": 1,
+      "message": "Do you think adding like LN434 will give more readable than 0/1?",
+      "range": {
+        "startLine": 385,
+        "startChar": 29,
+        "endLine": 385,
+        "endChar": 70
+      },
+      "revId": "d312c5cdefdb76d5de8787636cbe1bbf602ab966",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e3e1bf4e_f91d0826",
+        "filename": "extensions/phal/phal_error.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 390,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-12-02T15:25:52Z",
+      "side": 1,
+      "message": "What will happen for other error cases?\n\nIf HwCallout is added without a planar callout request from the PHAL layer means, is it will break? \n\nLooks like you removed the old code which will callout the target by using the phal device tree so please include other error case test details in the commit message.",
+      "revId": "d312c5cdefdb76d5de8787636cbe1bbf602ab966",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
