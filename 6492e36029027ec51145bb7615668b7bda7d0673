@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bb8fa0bd_11b69969",
+        "filename": "extensions/phal/phal_error.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-12-02T08:05:39Z",
+      "side": 0,
+      "message": "Better way is to create separate commit jsut define static const uint32_t IPL_ERR_PLAT \u003d 8;\n\nand once the back-end support is rteady just revert this.",
+      "revId": "6492e36029027ec51145bb7615668b7bda7d0673",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
