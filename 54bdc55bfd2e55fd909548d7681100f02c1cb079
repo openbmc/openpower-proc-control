@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "7c62e98d_6543c4d7",
+        "filename": "procedures/phal/thread_stopall.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2021-12-02T22:42:35Z",
+      "side": 1,
+      "message": "yea, agree, i\u0027ve seen stopping instructions on a power off fail a lot.  I guess could check a the power state?",
+      "parentUuid": "ddedd857_414c07fa",
+      "revId": "54bdc55bfd2e55fd909548d7681100f02c1cb079",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "46aff720_36e7b703",
         "filename": "procedures/phal/thread_stopall.cpp",
         "patchSetId": 4
