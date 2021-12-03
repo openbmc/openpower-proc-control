@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "1d57ec81_5c2e8064",
+        "filename": "extensions/phal/phal_error.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2021-12-03T07:55:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ccc4dfc7_bfff4977",
+      "revId": "2d6b5214de26ce16c47d74492984105a2f054b07",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4d4f2d93_c14ebe30",
         "filename": "extensions/phal/phal_error.cpp",
         "patchSetId": 5
@@ -30,6 +48,24 @@
       "writtenOn": "2021-12-02T14:16:04Z",
       "side": 1,
       "message": "I think there are multiple if statements to check the `errInfo.type` do we need to use the switch or if-else if block statement?",
+      "revId": "2d6b5214de26ce16c47d74492984105a2f054b07",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b2af4f0e_893b35b5",
+        "filename": "extensions/phal/phal_error.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2021-12-03T07:55:37Z",
+      "side": 1,
+      "message": "yes u have the point",
+      "parentUuid": "4d4f2d93_c14ebe30",
       "revId": "2d6b5214de26ce16c47d74492984105a2f054b07",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
@@ -50,6 +86,24 @@
       "revId": "2d6b5214de26ce16c47d74492984105a2f054b07",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c6114144_14ef7a19",
+        "filename": "extensions/phal/phal_error.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 558,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2021-12-03T07:55:37Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "cb21acd4_91fb6640",
+      "revId": "2d6b5214de26ce16c47d74492984105a2f054b07",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     },
     {
       "key": {
