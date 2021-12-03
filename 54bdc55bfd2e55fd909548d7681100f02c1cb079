@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "ab86d6af_d0ae8dfa",
+        "filename": "procedures/phal/thread_stopall.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-12-03T16:04:42Z",
+      "side": 1,
+      "message": "will remove.",
+      "parentUuid": "a8c0e655_936bae15",
+      "revId": "54bdc55bfd2e55fd909548d7681100f02c1cb079",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ddedd857_414c07fa",
         "filename": "procedures/phal/thread_stopall.cpp",
         "patchSetId": 4
@@ -54,6 +72,24 @@
     },
     {
       "key": {
+        "uuid": "d4b805e8_64a6db72",
+        "filename": "procedures/phal/thread_stopall.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-12-03T16:04:42Z",
+      "side": 1,
+      "message": "Existing design skips stop instruction request , if SBE is not in correct state,  libphal maintain sbe state.  Usually stop instruction failure , sbe team need dump/error log to debug. I think we can enable now , if we are seeing too many issue we can remove this support later.\nAlso stop instructions run with ignorhw error mode.",
+      "parentUuid": "7c62e98d_6543c4d7",
+      "revId": "54bdc55bfd2e55fd909548d7681100f02c1cb079",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "46aff720_36e7b703",
         "filename": "procedures/phal/thread_stopall.cpp",
         "patchSetId": 4
@@ -71,6 +107,24 @@
     },
     {
       "key": {
+        "uuid": "5dc772b7_cc5d7407",
+        "filename": "procedures/phal/thread_stopall.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-12-03T16:04:42Z",
+      "side": 1,
+      "message": "Same above.",
+      "parentUuid": "46aff720_36e7b703",
+      "revId": "54bdc55bfd2e55fd909548d7681100f02c1cb079",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d9dcfb89_69001aa5",
         "filename": "procedures/phal/thread_stopall.cpp",
         "patchSetId": 4
@@ -82,6 +136,24 @@
       "writtenOn": "2021-12-02T21:14:42Z",
       "side": 1,
       "message": "Going to update the op-stop-instructions@.service.in within this code review or separate one?",
+      "revId": "54bdc55bfd2e55fd909548d7681100f02c1cb079",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1254fea7_6733c2e5",
+        "filename": "procedures/phal/thread_stopall.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-12-03T16:04:42Z",
+      "side": 1,
+      "message": "planing separate commit",
+      "parentUuid": "d9dcfb89_69001aa5",
       "revId": "54bdc55bfd2e55fd909548d7681100f02c1cb079",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
