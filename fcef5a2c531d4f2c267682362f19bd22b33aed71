@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "68c4dbd9_759d68c5",
+        "filename": "procedures/phal/reinit_devtree.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2021-12-03T17:34:13Z",
+      "side": 1,
+      "message": "I def prefer /tmp/ but is there a user expectation that overrides be persistent over BMC reboots? Does the current \"attributes\" tool provide persistence?",
+      "revId": "fcef5a2c531d4f2c267682362f19bd22b33aed71",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
