@@ -135,6 +135,30 @@
     },
     {
       "key": {
+        "uuid": "4ff35197_61fa34a0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-12-03T04:14:23Z",
+      "side": 1,
+      "message": "So, this is coming from the plat layer, right? The prefix `HWP_` will give confusion, right? can we change it to `PLAT_` i.e can we add that prefix based on the error code.",
+      "parentUuid": "5c88d93f_715c0c89",
+      "range": {
+        "startLine": 56,
+        "startChar": 4,
+        "endLine": 57,
+        "endChar": 27
+      },
+      "revId": "d312c5cdefdb76d5de8787636cbe1bbf602ab966",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "3e428d79_717cb245",
         "filename": "/COMMIT_MSG",
         "patchSetId": 4
@@ -164,6 +188,24 @@
       "side": 1,
       "message": "this rc indicates fapi2::FAPI2_RC_PLAT_ERR_SEE_DATA",
       "parentUuid": "3e428d79_717cb245",
+      "revId": "d312c5cdefdb76d5de8787636cbe1bbf602ab966",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7e6d3963_b90703a0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-12-03T04:14:23Z",
+      "side": 1,
+      "message": "Can you change it to a human-readable format? as like we did today for other RC with RC_DESC?\nIMO, some numeric values won\u0027t help us while debugging by using the PEL, and also, no traces in this case.",
+      "parentUuid": "03ea0db7_3022ab10",
       "revId": "d312c5cdefdb76d5de8787636cbe1bbf602ab966",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
@@ -291,6 +333,24 @@
       "side": 1,
       "message": "As per my understanding, hwcallout indicates we have to callout something other than FAPI targets.\nTarget passed inside this is, reference target which can be used to find the actual callout.\nSo, for other target type, (if it need to be supported), we may have to write custome code for each hw type.\n\nI think callingout the reference target is not correct.",
       "parentUuid": "e3e1bf4e_f91d0826",
+      "revId": "d312c5cdefdb76d5de8787636cbe1bbf602ab966",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8986f333_06a475fa",
+        "filename": "extensions/phal/phal_error.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 390,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-12-03T04:14:23Z",
+      "side": 1,
+      "message": "\u003e hwcallout indicates we have to call out something other than FAPI targets.\n\nWhat you mean by \"something other than FAPI targets.\"? Non-FAPI (aka plat-specific targets)?\n\nI am a bit concerned about the case where the reference target (FAPI and Non-FAPI target, respective FRU Location code will be identified by openpower::phal::pdbg::getLocationCode())) is available in the device tree and that is different than the CDG (Callout/Deconfigure/Guard) target means, we will lose that case to handle, right? The current code will support that, right? \n\nIf you are looking for the clock error alone to handle based on the reference target then, that should decide by the PHAL layer as you did `hwCallout.isPlanarCallout` i.e you should not add the reference target in the plat layer if you want to callout the planer instead of the reference target since you indicated by the `isPlanarCallout`, right?\n\nI think we could do like below\n\n```\nif (hwCallout.isPlanarCallout)\n{\n   calloutPlanar();\n   // comments to why continue to other targets\n   // Note, We should not continue if we want to callout the planar along with reference target (different than planar)\n   continue;\n}\n```\n\n\nand noted, reference target and CDG target are the same in the https://github.com/open-power/pub-ekb/blob/main-p10/chips/p10/procedures/xml/error_info/p10_clock_test_errors.xml#L53? Do you know why? I think we will callout the same target twice.",
+      "parentUuid": "8543331f_e87c3c7c",
       "revId": "d312c5cdefdb76d5de8787636cbe1bbf602ab966",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
