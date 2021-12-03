@@ -121,6 +121,24 @@
       "revId": "2d6b5214de26ce16c47d74492984105a2f054b07",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6cc2de75_57c1054d",
+        "filename": "extensions/phal/phal_error.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 571,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-12-03T14:03:45Z",
+      "side": 1,
+      "message": "Any concern on this?",
+      "parentUuid": "d96df190_3b974f9d",
+      "revId": "2d6b5214de26ce16c47d74492984105a2f054b07",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }

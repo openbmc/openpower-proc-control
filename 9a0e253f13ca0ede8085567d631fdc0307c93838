@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eff14d9e_97962d37",
+        "filename": "extensions/phal/phal_error.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-12-03T14:03:45Z",
+      "side": 1,
+      "message": "Sorry missed it,\nFile scope: It is time to change the prefix based on the error code? since now changing as a helper function?",
+      "range": {
+        "startLine": 315,
+        "startChar": 44,
+        "endLine": 315,
+        "endChar": 47
+      },
+      "revId": "9a0e253f13ca0ede8085567d631fdc0307c93838",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
