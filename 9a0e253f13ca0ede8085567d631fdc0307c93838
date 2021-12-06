@@ -22,6 +22,30 @@
       "revId": "9a0e253f13ca0ede8085567d631fdc0307c93838",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "692113bf_069304bf",
+        "filename": "extensions/phal/phal_error.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2021-12-06T05:54:34Z",
+      "side": 1,
+      "message": "as get/put cfam is still used in hwp and we are dealing with hwp releated errors, leaving as is. If we have stand-along get/put cfam and its error handling we can use different err strings.",
+      "parentUuid": "eff14d9e_97962d37",
+      "range": {
+        "startLine": 315,
+        "startChar": 44,
+        "endLine": 315,
+        "endChar": 47
+      },
+      "revId": "9a0e253f13ca0ede8085567d631fdc0307c93838",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
