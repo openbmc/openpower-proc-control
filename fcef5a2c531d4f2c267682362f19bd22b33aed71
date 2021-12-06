@@ -16,6 +16,24 @@
       "revId": "fcef5a2c531d4f2c267682362f19bd22b33aed71",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5b68473a_559f00cc",
+        "filename": "procedures/phal/reinit_devtree.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-12-06T05:42:10Z",
+      "side": 1,
+      "message": "Checked with Hostboot team  and agreed to keep in /tmp path to avoid BMC reboot persist-ency. Since this is lab only use case",
+      "parentUuid": "68c4dbd9_759d68c5",
+      "revId": "fcef5a2c531d4f2c267682362f19bd22b33aed71",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
