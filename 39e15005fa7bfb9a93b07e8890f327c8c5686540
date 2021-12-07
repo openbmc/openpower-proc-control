@@ -22,6 +22,30 @@
       "revId": "39e15005fa7bfb9a93b07e8890f327c8c5686540",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "03d87d18_1d6a4e96",
+        "filename": "procedures/phal/proc_pre_poweroff.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-12-07T12:38:41Z",
+      "side": 1,
+      "message": "We have a patch for this already but, we did not get it merged due to some major refactoring.\n\nand also, we did some pretty cleanup as part of the SBE error handling so the old code needs to change as per the new code design. I will push that changes soon.\n\nhttps://gerrit.openbmc-project.xyz/c/openbmc/openpower-proc-control/+/38975",
+      "parentUuid": "8e3a874e_0bf32d2d",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 40
+      },
+      "revId": "39e15005fa7bfb9a93b07e8890f327c8c5686540",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
