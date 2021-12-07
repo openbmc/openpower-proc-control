@@ -16,6 +16,24 @@
       "revId": "ae8f0ba6b6ceda86d49db2a57f237623d3b90c33",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b91d0c2d_43c3a86a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-12-07T16:33:57Z",
+      "side": 1,
+      "message": "Agree, I think we can push the separate patch to switch libdtree from the attributes tool since that library does not depend on other PHAL components.\n\nIn this patch, we can just remove the pdbg dependency right?",
+      "parentUuid": "c3ed34be_8e0a4de7",
+      "revId": "ae8f0ba6b6ceda86d49db2a57f237623d3b90c33",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
