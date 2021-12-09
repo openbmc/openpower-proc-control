@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "00b1e99e_b4cfb8e3",
+        "filename": "extensions/phal/common_utils.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-12-09T11:10:35Z",
+      "side": 1,
+      "message": "You should log error and with BMC001 with medium prioryty. also upadet log message saying continueing with default mode.",
+      "revId": "a07d4fc6b7cdbb0b2586b11a76659bdb7bb46399",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0ab45832_166ba2d0",
+        "filename": "extensions/phal/common_utils.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-12-09T11:10:35Z",
+      "side": 1,
+      "message": "same as comment in line 81",
+      "revId": "a07d4fc6b7cdbb0b2586b11a76659bdb7bb46399",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
