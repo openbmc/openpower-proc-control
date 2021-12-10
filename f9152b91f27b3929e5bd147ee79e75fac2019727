@@ -34,6 +34,24 @@
       "revId": "f9152b91f27b3929e5bd147ee79e75fac2019727",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3a9d876e_3ce3dc62",
+        "filename": "procedures/phal/start_host.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-12-10T09:58:59Z",
+      "side": 1,
+      "message": "IPL changes  related to fake guard is merged now.",
+      "parentUuid": "afc9ffd9_415750bd",
+      "revId": "f9152b91f27b3929e5bd147ee79e75fac2019727",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
