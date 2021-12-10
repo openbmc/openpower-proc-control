@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b056d617_f49b4ab2",
+        "filename": "extensions/phal/phal_error.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1000567
+      },
+      "writtenOn": "2021-12-10T15:08:30Z",
+      "side": 1,
+      "message": "this function is appending data to existing list. i think we should use [in,out].\nif it is only [out], which means this function not guaranteeing to preserve the incoming data.",
+      "parentUuid": "c28b3871_2739ef86",
+      "range": {
+        "startLine": 306,
+        "startChar": 10,
+        "endLine": 306,
+        "endChar": 12
+      },
+      "revId": "0cd531bb744a62f7a4d80eb40c5e37898614ebcf",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5281cece_9fdb43ed",
         "filename": "extensions/phal/phal_error.cpp",
         "patchSetId": 5
@@ -85,6 +109,30 @@
       "revId": "0cd531bb744a62f7a4d80eb40c5e37898614ebcf",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0287ea84_38cbd333",
+        "filename": "extensions/phal/phal_error.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 1000567
+      },
+      "writtenOn": "2021-12-10T15:08:30Z",
+      "side": 1,
+      "message": "is there any benifit of using it?",
+      "parentUuid": "399badde_f1e6ce6e",
+      "range": {
+        "startLine": 388,
+        "startChar": 57,
+        "endLine": 388,
+        "endChar": 61
+      },
+      "revId": "0cd531bb744a62f7a4d80eb40c5e37898614ebcf",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }

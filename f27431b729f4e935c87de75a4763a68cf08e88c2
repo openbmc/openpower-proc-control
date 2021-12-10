@@ -16,6 +16,24 @@
       "revId": "f27431b729f4e935c87de75a4763a68cf08e88c2",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2b4e9f33_052c8deb",
+        "filename": "extensions/phal/phal_error.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 370,
+      "author": {
+        "id": 1000567
+      },
+      "writtenOn": "2021-12-10T15:08:30Z",
+      "side": 0,
+      "message": "if we push a patch with just removing callout inside hwcallout loop, it will look like hwcallout loop and ffdcs_data loop, both are doing same thing. just logging the data.\ni think it will create more confusion to push a seprate commit.",
+      "parentUuid": "4f2baf15_fc57a48b",
+      "revId": "f27431b729f4e935c87de75a4763a68cf08e88c2",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
