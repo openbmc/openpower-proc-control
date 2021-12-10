@@ -42,6 +42,48 @@
     },
     {
       "key": {
+        "uuid": "257c6115_20b3d9ca",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000567
+      },
+      "writtenOn": "2021-12-10T11:05:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9c16242b_96c076b0",
+      "revId": "d312c5cdefdb76d5de8787636cbe1bbf602ab966",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "94c6e126_62bcb9ad",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000567
+      },
+      "writtenOn": "2021-12-10T11:05:57Z",
+      "side": 1,
+      "message": "this change is not specific to non-hwp error. Fixed the commit message",
+      "parentUuid": "c48c873c_b0fe99a8",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 36
+      },
+      "revId": "d312c5cdefdb76d5de8787636cbe1bbf602ab966",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fa4e2521_02bfa7c5",
         "filename": "/COMMIT_MSG",
         "patchSetId": 4
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "e708da25_301f9f1f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000567
+      },
+      "writtenOn": "2021-12-10T11:05:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fa4e2521_02bfa7c5",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 63
+      },
+      "revId": "d312c5cdefdb76d5de8787636cbe1bbf602ab966",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eb78fb9f_2fca77f3",
         "filename": "/COMMIT_MSG",
         "patchSetId": 4
@@ -85,6 +151,30 @@
       "revId": "d312c5cdefdb76d5de8787636cbe1bbf602ab966",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "88464b65_155b7f28",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000567
+      },
+      "writtenOn": "2021-12-10T11:05:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eb78fb9f_2fca77f3",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 5
+      },
+      "revId": "d312c5cdefdb76d5de8787636cbe1bbf602ab966",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     },
     {
       "key": {
@@ -159,6 +249,30 @@
     },
     {
       "key": {
+        "uuid": "df03a6ef_b1e81ee4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000567
+      },
+      "writtenOn": "2021-12-10T11:05:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4ff35197_61fa34a0",
+      "range": {
+        "startLine": 56,
+        "startChar": 4,
+        "endLine": 57,
+        "endChar": 27
+      },
+      "revId": "d312c5cdefdb76d5de8787636cbe1bbf602ab966",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3e428d79_717cb245",
         "filename": "/COMMIT_MSG",
         "patchSetId": 4
@@ -212,6 +326,24 @@
     },
     {
       "key": {
+        "uuid": "8a8933be_fa367fe2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000567
+      },
+      "writtenOn": "2021-12-10T11:05:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7e6d3963_b90703a0",
+      "revId": "d312c5cdefdb76d5de8787636cbe1bbf602ab966",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "36c05cd5_ff9020db",
         "filename": "extensions/phal/phal_error.cpp",
         "patchSetId": 4
@@ -232,6 +364,30 @@
       "revId": "d312c5cdefdb76d5de8787636cbe1bbf602ab966",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9fadef95_43b27bd8",
+        "filename": "extensions/phal/phal_error.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1000567
+      },
+      "writtenOn": "2021-12-10T11:05:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "36c05cd5_ff9020db",
+      "range": {
+        "startLine": 308,
+        "startChar": 12,
+        "endLine": 308,
+        "endChar": 41
+      },
+      "revId": "d312c5cdefdb76d5de8787636cbe1bbf602ab966",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     },
     {
       "key": {
@@ -258,6 +414,30 @@
     },
     {
       "key": {
+        "uuid": "057e24b2_89ef9cdc",
+        "filename": "extensions/phal/phal_error.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1000567
+      },
+      "writtenOn": "2021-12-10T11:05:57Z",
+      "side": 1,
+      "message": "this value is already hard coded in this repo.",
+      "parentUuid": "ee7b51c1_3dde46cf",
+      "range": {
+        "startLine": 317,
+        "startChar": 9,
+        "endLine": 317,
+        "endChar": 66
+      },
+      "revId": "d312c5cdefdb76d5de8787636cbe1bbf602ab966",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b8fbd342_c3aec2cf",
         "filename": "extensions/phal/phal_error.cpp",
         "patchSetId": 4
@@ -281,6 +461,30 @@
     },
     {
       "key": {
+        "uuid": "9e54df81_52fa932c",
+        "filename": "extensions/phal/phal_error.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 1000567
+      },
+      "writtenOn": "2021-12-10T11:05:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b8fbd342_c3aec2cf",
+      "range": {
+        "startLine": 384,
+        "startChar": 66,
+        "endLine": 384,
+        "endChar": 75
+      },
+      "revId": "d312c5cdefdb76d5de8787636cbe1bbf602ab966",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "157be34b_182a9193",
         "filename": "extensions/phal/phal_error.cpp",
         "patchSetId": 4
@@ -301,6 +505,30 @@
       "revId": "d312c5cdefdb76d5de8787636cbe1bbf602ab966",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "97baedf3_5066b4d8",
+        "filename": "extensions/phal/phal_error.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 385,
+      "author": {
+        "id": 1000567
+      },
+      "writtenOn": "2021-12-10T11:05:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "157be34b_182a9193",
+      "range": {
+        "startLine": 385,
+        "startChar": 29,
+        "endLine": 385,
+        "endChar": 70
+      },
+      "revId": "d312c5cdefdb76d5de8787636cbe1bbf602ab966",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     },
     {
       "key": {
@@ -354,6 +582,24 @@
       "revId": "d312c5cdefdb76d5de8787636cbe1bbf602ab966",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "71476b91_500060c6",
+        "filename": "extensions/phal/phal_error.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 390,
+      "author": {
+        "id": 1000567
+      },
+      "writtenOn": "2021-12-10T11:05:57Z",
+      "side": 1,
+      "message": "As we discussed, the reference target need not be called out.",
+      "parentUuid": "8986f333_06a475fa",
+      "revId": "d312c5cdefdb76d5de8787636cbe1bbf602ab966",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
     }
   ]
 }
