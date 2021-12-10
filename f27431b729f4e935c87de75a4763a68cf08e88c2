@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4f2baf15_fc57a48b",
+        "filename": "extensions/phal/phal_error.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 370,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-12-10T14:34:27Z",
+      "side": 0,
+      "message": "Looks you are fixing some existing bugs i.e PHAL libekb FFDC.HWP_ErrorInfo.hwcallouts is originally not intended to callouts the available hardware from that list.\n\nJust need to use to get the required information for the additional data to include in the PEL FFDC section because that hardware is used to figure out the platform hardware details to callout/deconfigure/guard based on the given hardware procedure error details and should add into the CDG list - This logic will be driven by the PHAL layer, not in the openpower-proc-control.\n\nI would recommend you, \"Push as a separate patch with details\"",
+      "revId": "f27431b729f4e935c87de75a4763a68cf08e88c2",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
