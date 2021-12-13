@@ -153,6 +153,30 @@
     },
     {
       "key": {
+        "uuid": "fbab2e29_f40d8bb2",
+        "filename": "extensions/phal/phal_error.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1000567
+      },
+      "writtenOn": "2021-12-13T15:22:45Z",
+      "side": 1,
+      "message": "Nothing specific clock errors.\n\nthis is implemented because of this suggestion\nhttps://gerrit.openbmc-project.xyz/c/openbmc/openpower-proc-control/+/49170/4//COMMIT_MSG#57",
+      "parentUuid": "a38a6e44_26fa0e8a",
+      "range": {
+        "startLine": 327,
+        "startChar": 59,
+        "endLine": 327,
+        "endChar": 70
+      },
+      "revId": "0cd531bb744a62f7a4d80eb40c5e37898614ebcf",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "399badde_f1e6ce6e",
         "filename": "extensions/phal/phal_error.cpp",
         "patchSetId": 5
