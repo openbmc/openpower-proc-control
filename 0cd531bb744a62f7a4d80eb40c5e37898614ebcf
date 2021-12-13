@@ -66,6 +66,30 @@
     },
     {
       "key": {
+        "uuid": "a49578da_9379055d",
+        "filename": "extensions/phal/phal_error.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-12-13T02:48:41Z",
+      "side": 1,
+      "message": "If you are thinking, this function is not going to guarntee the modification of the given input data which already exists in the list then, IMO we are not defining the right responsibility for this function. \n\nI would do differently...\n\n```\njson planarCalloutData;\njsonCalloutDataList.emplace_back(planarCalloutData);\n\naddPlanarCallout(jsonCalloutDataList.back());\n\nstatic void addPlanarCalloutDetails(nlohmann::json\u0026 planarCalloutData)\n{\n    ...\n}\n```\n\nBut currently, you are not modifiying anything in this function of the given list (just adding extra element) and I will leave it to you since it is just a documentation comment no functional comment.",
+      "parentUuid": "b056d617_f49b4ab2",
+      "range": {
+        "startLine": 306,
+        "startChar": 10,
+        "endLine": 306,
+        "endChar": 12
+      },
+      "revId": "0cd531bb744a62f7a4d80eb40c5e37898614ebcf",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5281cece_9fdb43ed",
         "filename": "extensions/phal/phal_error.cpp",
         "patchSetId": 5
@@ -173,6 +197,30 @@
       "revId": "0cd531bb744a62f7a4d80eb40c5e37898614ebcf",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f9628f9d_e051e6f1",
+        "filename": "extensions/phal/phal_error.cpp",
+        "patchSetId": 5
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2021-12-13T02:48:41Z",
+      "side": 1,
+      "message": "Yes, \n- empty() is implemented in constant time regardless of the container type i.e O(1).\n- More readability.",
+      "parentUuid": "0287ea84_38cbd333",
+      "range": {
+        "startLine": 388,
+        "startChar": 57,
+        "endLine": 388,
+        "endChar": 61
+      },
+      "revId": "0cd531bb744a62f7a4d80eb40c5e37898614ebcf",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
