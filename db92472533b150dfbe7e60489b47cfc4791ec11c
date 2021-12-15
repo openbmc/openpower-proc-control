@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5bd5cce8_abcce2bb",
+        "filename": "extensions/phal/phal_error.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 574,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-12-15T07:38:10Z",
+      "side": 1,
+      "message": "Error Type with FFDC_TYPE_HWP already have special reason code for generic Plat failures ( sco/cfam? Am lillle conducesd in additional to that what additional help it is getting here?\n\nI2C failures provided by clock code also will have sub reason code for the eraosn for the failures ? that is capuresd as part of FFDC data ?",
+      "revId": "db92472533b150dfbe7e60489b47cfc4791ec11c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
+    }
+  ]
+}
