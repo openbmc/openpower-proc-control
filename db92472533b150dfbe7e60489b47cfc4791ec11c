@@ -16,6 +16,24 @@
       "revId": "db92472533b150dfbe7e60489b47cfc4791ec11c",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "18c6daf4_b8531b36",
+        "filename": "extensions/phal/phal_error.cpp",
+        "patchSetId": 8
+      },
+      "lineNbr": 574,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-12-15T10:13:24Z",
+      "side": 1,
+      "message": "Discussed with Ramesh , and this is useful for  displaying cutsom FFDC data logging side related non-hwp plat faiulyres.",
+      "parentUuid": "5bd5cce8_abcce2bb",
+      "revId": "db92472533b150dfbe7e60489b47cfc4791ec11c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
