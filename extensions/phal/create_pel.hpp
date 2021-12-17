@@ -1,5 +1,7 @@
 #pragma once
 
+#include "xyz/openbmc_project/Logging/Entry/server.hpp"
+
 #include <phal_exception.H>
 
 #include <nlohmann/json.hpp>
@@ -15,7 +17,7 @@ using FFDCData = std::vector<std::pair<std::string, std::string>>;
 using json = nlohmann::json;
 
 using namespace openpower::phal;
-
+using Severity = sdbusplus::xyz::openbmc_project::Logging::server::Entry::Level;
 /**
  * @brief Create PEL with additional parameters and callout
  *
@@ -35,7 +37,8 @@ void createErrorPEL(const std::string& event, const json& calloutData = {},
  * @return Platform log id
  */
 uint32_t createSbeErrorPEL(const std::string& event, const sbeError_t& sbeError,
-                           const FFDCData& ffdcData);
+                           const FFDCData& ffdcData,
+                           const Severity severity = Severity::Error);
 
 /**
  * @brief Create a PEL for the specified event type and additional data
