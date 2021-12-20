@@ -22,6 +22,30 @@
       "revId": "56b9e1df98cf8d465217fd74ae3d01167708350a",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f1be87cb_e2deadcc",
+        "filename": "extensions/phal/create_pel.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2021-12-20T07:07:13Z",
+      "side": 1,
+      "message": "Default behaviou in unrecoverable , This helps user incase user want to force to unrecoverable.\nUnreconerable with service should automatically commit as information, looks like this feature is not eanbled in PEL",
+      "parentUuid": "ba7f868c_a4018d3a",
+      "range": {
+        "startLine": 41,
+        "startChar": 27,
+        "endLine": 41,
+        "endChar": 68
+      },
+      "revId": "56b9e1df98cf8d465217fd74ae3d01167708350a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4",
+      "unresolved": true
     }
   ]
 }
