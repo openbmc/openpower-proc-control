@@ -70,6 +70,30 @@
       },
       "revId": "56b9e1df98cf8d465217fd74ae3d01167708350a",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "15eb249b_96d10ab6",
+        "filename": "extensions/phal/create_pel.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-01-05T05:23:31Z",
+      "side": 1,
+      "message": "Sorry for type ,\" Unrecoverable errors without service action\"",
+      "parentUuid": "6eb91226_390d9e96",
+      "range": {
+        "startLine": 41,
+        "startChar": 27,
+        "endLine": 41,
+        "endChar": 68
+      },
+      "revId": "56b9e1df98cf8d465217fd74ae3d01167708350a",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
