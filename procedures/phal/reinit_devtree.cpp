@@ -135,7 +135,14 @@ void reinitDevtree()
         }
 
         // Step 2: Create temporary devtree file by copying devtree r/o version
-        std::filesystem::copy(CEC_DEVTREE_RO_PATH, tmpDevtreePath, copyOptions);
+        // Symbol links are not created for RO files, compute the lid name
+        // for the RW symbolic link and use it to compute RO file.
+        // Example:
+        // RW file = /media/hostfw/running/DEVTREE -> 81e00672.lid
+        // RO file = /media/hostfw/running-ro/ + 81e00672.lid
+        fs::path filename = fs::read_symlink(CEC_DEVTREE_RW_PATH);
+        fs::path rofile = CEC_DEVTREE_RO_BASE_PATH / filename;
+        std::filesystem::copy(rofile, tmpDevtreePath, copyOptions);
 
         // get r/o version data file pointer
         FILE_Ptr fpImport(fopen(tmpFile.getPath().c_str(), "r"), fclose);
