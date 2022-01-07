@@ -43,10 +43,6 @@ conf_data.set_quoted('CEC_DEVTREE_RW_PATH', get_option('CEC_DEVTREE_RW_PATH'),
                       description : 'Path to the devtree file r/w version'
                     )
 
-conf_data.set_quoted('CEC_DEVTREE_RO_PATH', get_option('CEC_DEVTREE_RO_PATH'),
-                      description : 'Path to the devtree file read only version'
-                    )
-
 conf_data.set_quoted('CEC_INFODB_PATH', get_option('CEC_INFODB_PATH'),
                       description : 'Path to the devtree attributes based database path'
                     )

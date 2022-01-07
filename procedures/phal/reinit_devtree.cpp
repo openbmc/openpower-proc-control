@@ -135,7 +135,19 @@ void reinitDevtree()
         }
 
         // Step 2: Create temporary devtree file by copying devtree r/o version
-        std::filesystem::copy(CEC_DEVTREE_RO_PATH, tmpDevtreePath, copyOptions);
+        // compute the r/o device tree from r/w symbolic link path as symbolic
+        // links are not created for r/o files
+        std::string rwfile = fs::read_symlink(CEC_DEVTREE_RW_PATH);
+        std::regex exp ("running");
+        std::string rofile = std::regex_replace (rwfile, e,"running-ro");
+        if(!fs::exists(rofile))
+        {
+            log<level::ERR>(
+                fmt::format("Read only device tree file ({}) does not exist",
+                        rofile.c_str());
+                throw std::runtime_error("Failed to find RO device tree file");
+        }
+        std::filesystem::copy(rofile, tmpDevtreePath, copyOptions);
 
         // get r/o version data file pointer
         FILE_Ptr fpImport(fopen(tmpFile.getPath().c_str(), "r"), fclose);
