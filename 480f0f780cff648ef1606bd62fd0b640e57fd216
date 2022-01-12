@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "15ba720d_40fe7bdc",
+        "filename": "meson_options.txt",
+        "patchSetId": 4
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000003
+      },
+      "writtenOn": "2022-01-12T14:31:10Z",
+      "side": 1,
+      "message": "The pnor symlink is eventually going to be deprecated so we need to make a change, now it\u0027s a good time since we\u0027re making changes to the dirs, or later before the directory is deprecated.\n\nCurrently:\n/var/lib/phosphor-software-manager/pnor/rw -\u003e /media/hostfw/running\n/var/lib/phosphor-software-manager/hostfw/running -\u003e /media/hostfw/running\n\nWe have 2 choices to replace the pnor dir, we can choose to use the hostfw symlink \"/var/lib/phosphor-software-manager/hostfw/running/DEVTREE\" or the running directory it points to \"/media/hostfw/running/DEVTREE\"",
+      "parentUuid": "4042cebe_53bc0237",
+      "revId": "480f0f780cff648ef1606bd62fd0b640e57fd216",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "756733b0_ba16a10c",
         "filename": "procedures/phal/reinit_devtree.cpp",
         "patchSetId": 4
