@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2277a968_f68790f7",
+        "filename": "meson_options.txt",
+        "patchSetId": 4
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-01-12T05:54:45Z",
+      "side": 1,
+      "message": "@adriana is this chnage is required?  /var/lib/phosphor-software-manager/pnor/rw/DEVTREE provides the symlink right? if this path is chnaging we may need to make chnages in diffrent places.",
+      "revId": "480f0f780cff648ef1606bd62fd0b640e57fd216",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "756733b0_ba16a10c",
+        "filename": "procedures/phal/reinit_devtree.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-01-12T05:54:45Z",
+      "side": 1,
+      "message": "Line 138 and 224 is common code , better to get helper function. which will help any future chnage easy.",
+      "revId": "480f0f780cff648ef1606bd62fd0b640e57fd216",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed4094de_3d714b36",
+        "filename": "procedures/phal/reinit_devtree.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-01-12T05:54:45Z",
+      "side": 1,
+      "message": "replace symbolic link or  symlink,",
+      "range": {
+        "startLine": 223,
+        "startChar": 15,
+        "endLine": 223,
+        "endChar": 27
+      },
+      "revId": "480f0f780cff648ef1606bd62fd0b640e57fd216",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
