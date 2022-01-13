@@ -1,5 +1,6 @@
 #include "create_pel.hpp"
 
+#include "extensions/phal/journal_log.hpp"
 #include "util.hpp"
 
 #include <fcntl.h>
@@ -23,14 +24,39 @@
 
 namespace openpower
 {
-using namespace phosphor::logging;
 
 namespace pel
 {
+using namespace phosphor::logging;
+
+constexpr auto MAX_JOUNRAL_TRACES = 5;
+constexpr static const char* opexecutable = "openpower-proc-control";
 
 constexpr auto loggingObjectPath = "/xyz/openbmc_project/logging";
 constexpr auto loggingInterface = "xyz.openbmc_project.Logging.Create";
 constexpr auto opLoggingInterface = "org.open_power.Logging.PEL";
+
+namespace
+{
+/**
+ * @brief Helper function to fetch the journal traces and append it to FFDC
+ * @param additionalData map to which traces needs to be appended
+ */
+void appendJoundalData(std::map<std::string, std::string>& additionalData)
+{
+    std::optional<std::vector<std::string>> traces =
+        openpower::log::getJournalLog(opexecutable, MAX_JOUNRAL_TRACES);
+    if (traces.has_value())
+    {
+        int count = 0;
+        for (auto trace : traces.value())
+        {
+            std::string log = "Log" + std::to_string(count++);
+            additionalData.emplace(log, trace);
+        }
+    }
+}
+} // namespace
 
 void createErrorPEL(const std::string& event, const json& calloutData,
                     const FFDCData& ffdcData)
@@ -42,6 +68,8 @@ void createErrorPEL(const std::string& event, const json& calloutData,
     {
         additionalData.emplace(data);
     }
+    // add last few journal traces to additional data
+    appendJoundalData(additionalData);
 
     try
     {
@@ -100,6 +128,8 @@ uint32_t createSbeErrorPEL(const std::string& event, const sbeError_t& sbeError,
     {
         additionalData.emplace(data);
     }
+    // add last few journal traces to additional data
+    appendJoundalData(additionalData);
 
     std::vector<std::tuple<
         sdbusplus::xyz::openbmc_project::Logging::server::Create::FFDCFormat,
@@ -171,6 +201,8 @@ void createPEL(const std::string& event, const FFDCData& ffdcData)
     {
         additionalData.emplace(data);
     }
+    // add last few journal traces to additional data
+    appendJoundalData(additionalData);
 
     try
     {
