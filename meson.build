@@ -106,6 +106,7 @@ if build_phal
         'procedures/phal/thread_stopall.cpp',
         'extensions/phal/common_utils.cpp',
         'extensions/phal/pdbg_utils.cpp',
+        'extensions/phal/journal_log.cpp',
         'extensions/phal/create_pel.cpp',
         'extensions/phal/phal_error.cpp',
         'extensions/phal/dump_utils.cpp',
@@ -178,6 +179,7 @@ if build_phal
             'extensions/phal/fw_update_watch.cpp',
             'extensions/phal/pdbg_utils.cpp',
             'extensions/phal/create_pel.cpp',
+            'extensions/phal/journal_log.cpp',
             'util.cpp',
         ],
         dependencies: [
