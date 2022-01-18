@@ -1,0 +1,364 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee0401ab_45cb0ffa",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-01-18T10:12:34Z",
+      "side": 1,
+      "message": "Please add \"PHAL:\" as prefix to the commit message header - we are following that rule for phal specific patches.",
+      "revId": "0be25cd0f75cca7ee2a51a0ad587a09bf24e03d8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7e291508_7ddd95a3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-01-18T10:12:34Z",
+      "side": 1,
+      "message": "We have already adding PHAL traces for few op-proc-control commands so, I think we might make sure whether we are adding the same trace again in the PEL or not.",
+      "revId": "0be25cd0f75cca7ee2a51a0ad587a09bf24e03d8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc3b96eb_621e8327",
+        "filename": "extensions/phal/create_pel.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-01-18T10:12:34Z",
+      "side": 1,
+      "message": "I think, this can be moved inside the appendJoundalData(), right?",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 69
+      },
+      "revId": "0be25cd0f75cca7ee2a51a0ad587a09bf24e03d8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5046aad1_c8a7d225",
+        "filename": "extensions/phal/create_pel.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-01-18T10:12:34Z",
+      "side": 1,
+      "message": "@param[out]?",
+      "range": {
+        "startLine": 42,
+        "startChar": 3,
+        "endLine": 42,
+        "endChar": 9
+      },
+      "revId": "0be25cd0f75cca7ee2a51a0ad587a09bf24e03d8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cbc64e5c_553d1fae",
+        "filename": "extensions/phal/create_pel.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-01-18T10:12:34Z",
+      "side": 1,
+      "message": "Why you are preferring error log additional data parameter rather than the FFDC file (Text format)?\n\nIf FFDC file means, the traces alone will be added as a separate section in the PEL.",
+      "range": {
+        "startLine": 44,
+        "startChar": 59,
+        "endLine": 44,
+        "endChar": 73
+      },
+      "revId": "0be25cd0f75cca7ee2a51a0ad587a09bf24e03d8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c050ca2b_aedcdf40",
+        "filename": "extensions/phal/create_pel.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-01-18T10:12:34Z",
+      "side": 1,
+      "message": "Do we need some trace if we don\u0027t have any trace for the given application id?\n\nI think you might be ignored since that may not happen. If so, I am ok",
+      "revId": "0be25cd0f75cca7ee2a51a0ad587a09bf24e03d8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b9f824f_8c0f7f6a",
+        "filename": "extensions/phal/create_pel.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-01-18T10:12:34Z",
+      "side": 1,
+      "message": "Currently, the \"createErrorPEL()\" API is called in the below commands.\n\n- startHost\n- reinitDevTree\n- threadStopAll\n\nI think, In the startHost, we have a log callback that will add the PHAL traces into PEL so, we might have the same log in the same PEL section (Additional Data), right? no?\n\nDo we need to care that duplicate traces? Or won\u0027t we get duplicate traces?",
+      "revId": "0be25cd0f75cca7ee2a51a0ad587a09bf24e03d8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "732ac3bc_69e09869",
+        "filename": "extensions/phal/create_pel.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-01-18T10:12:34Z",
+      "side": 1,
+      "message": "Same as LN 71 but, the caller commands are different.",
+      "revId": "0be25cd0f75cca7ee2a51a0ad587a09bf24e03d8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7dad703b_daee1782",
+        "filename": "extensions/phal/create_pel.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-01-18T10:12:34Z",
+      "side": 1,
+      "message": "Same as LN 71 but, the caller commands are different.",
+      "revId": "0be25cd0f75cca7ee2a51a0ad587a09bf24e03d8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c8248e60_f2615a5f",
+        "filename": "extensions/phal/journal_log.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-01-18T10:12:34Z",
+      "side": 1,
+      "message": "@brief?",
+      "revId": "0be25cd0f75cca7ee2a51a0ad587a09bf24e03d8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ecea004_cc0b919a",
+        "filename": "extensions/phal/journal_log.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-01-18T10:12:34Z",
+      "side": 1,
+      "message": "@param[in]?",
+      "range": {
+        "startLine": 19,
+        "startChar": 3,
+        "endLine": 19,
+        "endChar": 9
+      },
+      "revId": "0be25cd0f75cca7ee2a51a0ad587a09bf24e03d8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d0cbd96c_850a3164",
+        "filename": "extensions/phal/journal_log.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-01-18T10:12:34Z",
+      "side": 1,
+      "message": "@param[in]?",
+      "range": {
+        "startLine": 20,
+        "startChar": 3,
+        "endLine": 20,
+        "endChar": 9
+      },
+      "revId": "0be25cd0f75cca7ee2a51a0ad587a09bf24e03d8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0453610b_41f6b367",
+        "filename": "extensions/phal/journal_log.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-01-18T10:12:34Z",
+      "side": 1,
+      "message": "Do you need to add some traces?",
+      "revId": "0be25cd0f75cca7ee2a51a0ad587a09bf24e03d8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7213d775_06425137",
+        "filename": "extensions/phal/journal_log.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-01-18T10:12:34Z",
+      "side": 1,
+      "message": "Just like to see your view on this:\n\nLooks, you are reading the trace from reverse order to get the latest trace so, if we are using \"emplace_back()\" it will add at last right i.e Latest [0] --\u003e Oldest [N], right? But, generally, we will look trace from down to upright?",
+      "range": {
+        "startLine": 81,
+        "startChar": 25,
+        "endLine": 81,
+        "endChar": 37
+      },
+      "revId": "0be25cd0f75cca7ee2a51a0ad587a09bf24e03d8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "25d2133a_655a70bb",
+        "filename": "extensions/phal/journal_log.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-01-18T10:12:34Z",
+      "side": 1,
+      "message": "from?",
+      "range": {
+        "startLine": 85,
+        "startChar": 69,
+        "endLine": 85,
+        "endChar": 73
+      },
+      "revId": "0be25cd0f75cca7ee2a51a0ad587a09bf24e03d8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a1dc8d4a_cefdeb0b",
+        "filename": "extensions/phal/journal_log.hpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-01-18T10:12:34Z",
+      "side": 1,
+      "message": "@brief?",
+      "revId": "0be25cd0f75cca7ee2a51a0ad587a09bf24e03d8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "270c2e0f_9d3062ca",
+        "filename": "extensions/phal/journal_log.hpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-01-18T10:12:34Z",
+      "side": 1,
+      "message": "@param[in]?",
+      "range": {
+        "startLine": 12,
+        "startChar": 3,
+        "endLine": 12,
+        "endChar": 9
+      },
+      "revId": "0be25cd0f75cca7ee2a51a0ad587a09bf24e03d8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e5fcc7c_39a8039b",
+        "filename": "extensions/phal/journal_log.hpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-01-18T10:12:34Z",
+      "side": 1,
+      "message": "@param[in]?",
+      "range": {
+        "startLine": 13,
+        "startChar": 3,
+        "endLine": 13,
+        "endChar": 9
+      },
+      "revId": "0be25cd0f75cca7ee2a51a0ad587a09bf24e03d8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
