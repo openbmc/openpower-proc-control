@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "dcfaffce_4441d7dd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-01-18T15:53:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ee0401ab_45cb0ffa",
+      "revId": "0be25cd0f75cca7ee2a51a0ad587a09bf24e03d8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "7e291508_7ddd95a3",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 4
@@ -31,6 +49,24 @@
       "writtenOn": "2022-01-18T10:12:34Z",
       "side": 1,
       "message": "We have already adding PHAL traces for few op-proc-control commands so, I think we might make sure whether we are adding the same trace again in the PEL or not.",
+      "revId": "0be25cd0f75cca7ee2a51a0ad587a09bf24e03d8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dfeb8562_32f8492a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-01-18T15:53:29Z",
+      "side": 1,
+      "message": "I had verified they are coming as different",
+      "parentUuid": "7e291508_7ddd95a3",
       "revId": "0be25cd0f75cca7ee2a51a0ad587a09bf24e03d8",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -60,6 +96,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "21d2ae72_735f6167",
+        "filename": "extensions/phal/create_pel.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-01-18T15:53:29Z",
+      "side": 1,
+      "message": "pros and cons all constants are usually declared at the begin of file so that it is easy",
+      "parentUuid": "cc3b96eb_621e8327",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 69
+      },
+      "revId": "0be25cd0f75cca7ee2a51a0ad587a09bf24e03d8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5046aad1_c8a7d225",
         "filename": "extensions/phal/create_pel.cpp",
         "patchSetId": 4
@@ -71,6 +131,30 @@
       "writtenOn": "2022-01-18T10:12:34Z",
       "side": 1,
       "message": "@param[out]?",
+      "range": {
+        "startLine": 42,
+        "startChar": 3,
+        "endLine": 42,
+        "endChar": 9
+      },
+      "revId": "0be25cd0f75cca7ee2a51a0ad587a09bf24e03d8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "633405e0_704ea2f1",
+        "filename": "extensions/phal/create_pel.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-01-18T15:53:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5046aad1_c8a7d225",
       "range": {
         "startLine": 42,
         "startChar": 3,
@@ -106,6 +190,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8c6b569b_59002886",
+        "filename": "extensions/phal/create_pel.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-01-18T15:53:29Z",
+      "side": 1,
+      "message": "if it is in FFDC file will it come as part of peltool -i ? i will let jayanth comment on it, as he said add it to PEL",
+      "parentUuid": "cbc64e5c_553d1fae",
+      "range": {
+        "startLine": 44,
+        "startChar": 59,
+        "endLine": 44,
+        "endChar": 73
+      },
+      "revId": "0be25cd0f75cca7ee2a51a0ad587a09bf24e03d8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c050ca2b_aedcdf40",
         "filename": "extensions/phal/create_pel.cpp",
         "patchSetId": 4
@@ -117,6 +225,24 @@
       "writtenOn": "2022-01-18T10:12:34Z",
       "side": 1,
       "message": "Do we need some trace if we don\u0027t have any trace for the given application id?\n\nI think you might be ignored since that may not happen. If so, I am ok",
+      "revId": "0be25cd0f75cca7ee2a51a0ad587a09bf24e03d8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e1d2f17_8cb2de04",
+        "filename": "extensions/phal/create_pel.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-01-18T15:53:29Z",
+      "side": 1,
+      "message": "yeah",
+      "parentUuid": "c050ca2b_aedcdf40",
       "revId": "0be25cd0f75cca7ee2a51a0ad587a09bf24e03d8",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -140,6 +266,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "94ea5790_b8567f9d",
+        "filename": "extensions/phal/create_pel.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-01-18T15:53:29Z",
+      "side": 1,
+      "message": "verified no duplicate traces \n\"User Data 1\": {\n    \"Section Version\": \"1\",\n    \"Sub-section type\": \"1\",\n    \"Created by\": \"0x2000\",\n    \"LOG000 2022-01-16 13:42:44\": \"Found a POWER10 OpenBMC based system\\n\",\n    \"LOG001 2022-01-16 13:42:44\": \"Path reference \\\"/proc4/fsi\\\" not found, ignoring\\n\",\n    \"LOG002 2022-01-16 13:42:44\": \"Path reference \\\"/proc4/pib\\\" not found, ignoring\\n\",\n    \"LOG003 2022-01-16 13:42:45\": \"Path reference \\\"/proc5/fsi\\\" not found, ignoring\\n\",\n    \"LOG004 2022-01-16 13:42:45\": \"Path reference \\\"/proc5/pib\\\" not found, ignoring\\n\",\n    \"LOG005 2022-01-16 13:42:45\": \"Path reference \\\"/proc6/fsi\\\" not found, ignoring\\n\",\n    \"LOG006 2022-01-16 13:42:45\": \"Path reference \\\"/proc6/pib\\\" not found, ignoring\\n\",\n    \"LOG007 2022-01-16 13:42:45\": \"Path reference \\\"/proc7/fsi\\\" not found, ignoring\\n\",\n    \"LOG008 2022-01-16 13:42:45\": \"Path reference \\\"/proc7/pib\\\" not found, ignoring\\n\",\n    \"LOG009 2022-01-16 13:42:45\": \"IPL mode set to AUTOBOOT\\n\",\n    \"LOG010 2022-01-16 13:42:45\": \"IPL type NORMAL\\n\",\n    \"Log0\": \"Jan 16 13:42:45 openpower-proc-control[18146]: PHAL FFDC: Return Message[No FFDC, libekb_get_ffdc() called for success case]\",\n    \"Log1\": \"Jan 16 13:42:45 openpower-proc-control[18146]: processBootErrorHelper\",\n    \"Log2\": \"Jan 16 13:42:45 openpower-proc-control[18146]: processBootError: status(false)\",\n    \"Log3\": \"Jan 16 13:42:45 openpower-proc-control[18146]: Exception raised during ipl initialisation\",\n    \"Log4\": \"Jan 16 13:42:45 openpower-proc-control[18146]: TEST error exception creation\",",
+      "parentUuid": "8b9f824f_8c0f7f6a",
+      "revId": "0be25cd0f75cca7ee2a51a0ad587a09bf24e03d8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "732ac3bc_69e09869",
         "filename": "extensions/phal/create_pel.cpp",
         "patchSetId": 4
@@ -151,6 +295,24 @@
       "writtenOn": "2022-01-18T10:12:34Z",
       "side": 1,
       "message": "Same as LN 71 but, the caller commands are different.",
+      "revId": "0be25cd0f75cca7ee2a51a0ad587a09bf24e03d8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae673e17_0ff1f823",
+        "filename": "extensions/phal/create_pel.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-01-18T15:53:29Z",
+      "side": 1,
+      "message": "replied above",
+      "parentUuid": "732ac3bc_69e09869",
       "revId": "0be25cd0f75cca7ee2a51a0ad587a09bf24e03d8",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -172,6 +334,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7993786d_427b873c",
+        "filename": "extensions/phal/create_pel.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-01-18T15:53:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7dad703b_daee1782",
+      "revId": "0be25cd0f75cca7ee2a51a0ad587a09bf24e03d8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c8248e60_f2615a5f",
@@ -189,6 +369,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2a40ca7c_6755723a",
+        "filename": "extensions/phal/journal_log.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-01-18T15:53:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c8248e60_f2615a5f",
+      "revId": "0be25cd0f75cca7ee2a51a0ad587a09bf24e03d8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7ecea004_cc0b919a",
@@ -202,6 +400,30 @@
       "writtenOn": "2022-01-18T10:12:34Z",
       "side": 1,
       "message": "@param[in]?",
+      "range": {
+        "startLine": 19,
+        "startChar": 3,
+        "endLine": 19,
+        "endChar": 9
+      },
+      "revId": "0be25cd0f75cca7ee2a51a0ad587a09bf24e03d8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2a745b38_3402d870",
+        "filename": "extensions/phal/journal_log.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-01-18T15:53:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7ecea004_cc0b919a",
       "range": {
         "startLine": 19,
         "startChar": 3,
@@ -235,6 +457,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f364e0cb_dc16ba6f",
+        "filename": "extensions/phal/journal_log.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-01-18T15:53:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d0cbd96c_850a3164",
+      "range": {
+        "startLine": 20,
+        "startChar": 3,
+        "endLine": 20,
+        "endChar": 9
+      },
+      "revId": "0be25cd0f75cca7ee2a51a0ad587a09bf24e03d8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0453610b_41f6b367",
@@ -254,6 +500,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e672e5f7_7be16338",
+        "filename": "extensions/phal/journal_log.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-01-18T15:53:29Z",
+      "side": 1,
+      "message": "I can",
+      "parentUuid": "0453610b_41f6b367",
+      "revId": "0be25cd0f75cca7ee2a51a0ad587a09bf24e03d8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7213d775_06425137",
         "filename": "extensions/phal/journal_log.cpp",
         "patchSetId": 4
@@ -265,6 +529,30 @@
       "writtenOn": "2022-01-18T10:12:34Z",
       "side": 1,
       "message": "Just like to see your view on this:\n\nLooks, you are reading the trace from reverse order to get the latest trace so, if we are using \"emplace_back()\" it will add at last right i.e Latest [0] --\u003e Oldest [N], right? But, generally, we will look trace from down to upright?",
+      "range": {
+        "startLine": 81,
+        "startChar": 25,
+        "endLine": 81,
+        "endChar": 37
+      },
+      "revId": "0be25cd0f75cca7ee2a51a0ad587a09bf24e03d8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dfe34670_8c1f066c",
+        "filename": "extensions/phal/journal_log.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-01-18T15:53:29Z",
+      "side": 1,
+      "message": "good catch, in createPel helper method i am reading it from reverse, yes latest should show at the end of the trace list",
+      "parentUuid": "7213d775_06425137",
       "range": {
         "startLine": 81,
         "startChar": 25,
@@ -298,6 +586,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3111b1db_1b0d1d7b",
+        "filename": "extensions/phal/journal_log.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-01-18T15:53:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "25d2133a_655a70bb",
+      "range": {
+        "startLine": 85,
+        "startChar": 69,
+        "endLine": 85,
+        "endChar": 73
+      },
+      "revId": "0be25cd0f75cca7ee2a51a0ad587a09bf24e03d8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a1dc8d4a_cefdeb0b",
@@ -311,6 +623,24 @@
       "writtenOn": "2022-01-18T10:12:34Z",
       "side": 1,
       "message": "@brief?",
+      "revId": "0be25cd0f75cca7ee2a51a0ad587a09bf24e03d8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b061bb79_f9ed7b95",
+        "filename": "extensions/phal/journal_log.hpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-01-18T15:53:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a1dc8d4a_cefdeb0b",
       "revId": "0be25cd0f75cca7ee2a51a0ad587a09bf24e03d8",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -338,6 +668,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "38b527a7_c63f3883",
+        "filename": "extensions/phal/journal_log.hpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-01-18T15:53:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "270c2e0f_9d3062ca",
+      "range": {
+        "startLine": 12,
+        "startChar": 3,
+        "endLine": 12,
+        "endChar": 9
+      },
+      "revId": "0be25cd0f75cca7ee2a51a0ad587a09bf24e03d8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9e5fcc7c_39a8039b",
@@ -351,6 +705,30 @@
       "writtenOn": "2022-01-18T10:12:34Z",
       "side": 1,
       "message": "@param[in]?",
+      "range": {
+        "startLine": 13,
+        "startChar": 3,
+        "endLine": 13,
+        "endChar": 9
+      },
+      "revId": "0be25cd0f75cca7ee2a51a0ad587a09bf24e03d8",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "789481d3_aaf1b00b",
+        "filename": "extensions/phal/journal_log.hpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-01-18T15:53:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9e5fcc7c_39a8039b",
       "range": {
         "startLine": 13,
         "startChar": 3,
