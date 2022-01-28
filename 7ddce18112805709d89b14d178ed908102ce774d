@@ -1,0 +1,107 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "75a7be45_3503a85b",
+        "filename": "extensions/phal/create_pel.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-01-28T06:36:20Z",
+      "side": 1,
+      "message": "std::move(), emplace_back just take cares of construcion so it might use constructor only if we use std::move it will use move constructor",
+      "revId": "7ddce18112805709d89b14d178ed908102ce774d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "95b4f359_3dea7318",
+        "filename": "extensions/phal/create_pel.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-01-28T06:36:20Z",
+      "side": 1,
+      "message": "std::move(jsonProcCallout));",
+      "range": {
+        "startLine": 60,
+        "startChar": 41,
+        "endLine": 60,
+        "endChar": 56
+      },
+      "revId": "7ddce18112805709d89b14d178ed908102ce774d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5c9ef35_1b656e80",
+        "filename": "extensions/phal/create_pel.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-01-28T06:36:20Z",
+      "side": 1,
+      "message": "why supress the error, isn;t getLocationCode exception a major issue as it means some thing big in device tree is wrong? just my suggestion",
+      "range": {
+        "startLine": 62,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 5
+      },
+      "revId": "7ddce18112805709d89b14d178ed908102ce774d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "afc91014_2fb1d326",
+        "filename": "extensions/phal/create_pel.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-01-28T06:36:20Z",
+      "side": 1,
+      "message": "this is one of the caess where we need to use new operator or unique_ptr \n\nstd::unique_ptr\u003cFFDCfile\u003e ffdc;\n\nand inside\nif()\n{\n   ffdc \u003d std::make_unique(FFDC())\n}",
+      "revId": "7ddce18112805709d89b14d178ed908102ce774d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5477593_deb195a3",
+        "filename": "extensions/phal/create_pel.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-01-28T06:36:20Z",
+      "side": 1,
+      "message": "do not see a need of this include in this file, may be needed in cpp file?",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 1
+      },
+      "revId": "7ddce18112805709d89b14d178ed908102ce774d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
