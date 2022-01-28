@@ -130,6 +130,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "683110b5_9e27e34b",
+        "filename": "extensions/phal/create_pel.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-01-28T07:51:27Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "b316fa05_ab5cb64e",
+      "range": {
+        "startLine": 62,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 5
+      },
+      "revId": "7ddce18112805709d89b14d178ed908102ce774d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "afc91014_2fb1d326",
