@@ -3,6 +3,69 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ace626b3_41854844",
+        "filename": "extensions/phal/create_pel.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-01-28T16:23:52Z",
+      "side": 1,
+      "message": "Looks like, this function is a helper function and used in this source file alone if so, can you change it as the static function?\n\nJS: Can you add the documentation for this function role?",
+      "range": {
+        "startLine": 38,
+        "startChar": 5,
+        "endLine": 38,
+        "endChar": 18
+      },
+      "revId": "1db7e0754f22f01202c7253905b2daa9b239f198",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "961017f0_d9bc67f3",
+        "filename": "extensions/phal/create_pel.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-01-28T16:23:52Z",
+      "side": 1,
+      "message": "Just doubts, Looks like we are creating the procedure callout, is it the next level support code if so, why we are adding the location code of the processor to callout?",
+      "revId": "1db7e0754f22f01202c7253905b2daa9b239f198",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d786fda3_46cc4433",
+        "filename": "extensions/phal/create_pel.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-01-28T16:23:52Z",
+      "side": 1,
+      "message": "Looks like constructor throws exception, do we handling the exception at the caller place? Or Do we need to continue to create the PEL?",
+      "range": {
+        "startLine": 178,
+        "startChar": 39,
+        "endLine": 178,
+        "endChar": 47
+      },
+      "revId": "1db7e0754f22f01202c7253905b2daa9b239f198",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "023a9656_4b47dcb7",
         "filename": "extensions/phal/create_pel.hpp",
         "patchSetId": 3
