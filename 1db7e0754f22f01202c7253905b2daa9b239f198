@@ -66,6 +66,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3005b9dd_b7b20b18",
+        "filename": "extensions/phal/create_pel.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1001084
+      },
+      "writtenOn": "2022-01-28T20:01:35Z",
+      "side": 1,
+      "message": "Are these always expected to be false?",
+      "range": {
+        "startLine": 57,
+        "startChar": 8,
+        "endLine": 58,
+        "endChar": 43
+      },
+      "revId": "1db7e0754f22f01202c7253905b2daa9b239f198",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d786fda3_46cc4433",
         "filename": "extensions/phal/create_pel.cpp",
         "patchSetId": 3
