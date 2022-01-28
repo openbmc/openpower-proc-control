@@ -43,6 +43,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3a130a2f_e6f845f5",
+        "filename": "extensions/phal/create_pel.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1001084
+      },
+      "writtenOn": "2022-01-28T19:43:05Z",
+      "side": 1,
+      "message": "The location code is usually something like this:\n\"U780C.ND0.RCH0021-P0-C61\"\n\nBut seems to get the following:\n\"Ufcs-P0-C61\"\n\nIs this correct - particularly \u0027Ufcs\u0027 part?",
+      "range": {
+        "startLine": 56,
+        "startChar": 42,
+        "endLine": 56,
+        "endChar": 55
+      },
+      "revId": "1db7e0754f22f01202c7253905b2daa9b239f198",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d786fda3_46cc4433",
         "filename": "extensions/phal/create_pel.cpp",
         "patchSetId": 3
