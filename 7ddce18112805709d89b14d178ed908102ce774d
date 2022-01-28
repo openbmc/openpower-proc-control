@@ -18,6 +18,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "06d09ee7_bf7f45f0",
+        "filename": "extensions/phal/create_pel.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-01-28T07:09:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "75a7be45_3503a85b",
+      "revId": "7ddce18112805709d89b14d178ed908102ce774d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "95b4f359_3dea7318",
@@ -31,6 +49,30 @@
       "writtenOn": "2022-01-28T06:36:20Z",
       "side": 1,
       "message": "std::move(jsonProcCallout));",
+      "range": {
+        "startLine": 60,
+        "startChar": 41,
+        "endLine": 60,
+        "endChar": 56
+      },
+      "revId": "7ddce18112805709d89b14d178ed908102ce774d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e6a746e_8c011418",
+        "filename": "extensions/phal/create_pel.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-01-28T07:09:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "95b4f359_3dea7318",
       "range": {
         "startLine": 60,
         "startChar": 41,
@@ -66,6 +108,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b316fa05_ab5cb64e",
+        "filename": "extensions/phal/create_pel.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-01-28T07:09:54Z",
+      "side": 1,
+      "message": "This function can fail with different reasons.  Since we are in error path and this is additional information, Journal log is sufficient. Focus is to log primary error.",
+      "parentUuid": "a5c9ef35_1b656e80",
+      "range": {
+        "startLine": 62,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 5
+      },
+      "revId": "7ddce18112805709d89b14d178ed908102ce774d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "afc91014_2fb1d326",
         "filename": "extensions/phal/create_pel.cpp",
         "patchSetId": 1
@@ -77,6 +143,24 @@
       "writtenOn": "2022-01-28T06:36:20Z",
       "side": 1,
       "message": "this is one of the caess where we need to use new operator or unique_ptr \n\nstd::unique_ptr\u003cFFDCfile\u003e ffdc;\n\nand inside\nif()\n{\n   ffdc \u003d std::make_unique(FFDC())\n}",
+      "revId": "7ddce18112805709d89b14d178ed908102ce774d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8257f4d8_df7a28c7",
+        "filename": "extensions/phal/create_pel.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-01-28T07:09:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "afc91014_2fb1d326",
       "revId": "7ddce18112805709d89b14d178ed908102ce774d",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -94,6 +178,30 @@
       "writtenOn": "2022-01-28T06:36:20Z",
       "side": 1,
       "message": "do not see a need of this include in this file, may be needed in cpp file?",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 1
+      },
+      "revId": "7ddce18112805709d89b14d178ed908102ce774d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ac3db8b_60c77865",
+        "filename": "extensions/phal/create_pel.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-01-28T07:09:54Z",
+      "side": 1,
+      "message": "using pdbg target.in header file.",
+      "parentUuid": "f5477593_deb195a3",
       "range": {
         "startLine": 12,
         "startChar": 0,
