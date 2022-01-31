@@ -178,6 +178,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2eacf345_e03eb81e",
+        "filename": "extensions/phal/create_pel.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1001084
+      },
+      "writtenOn": "2022-01-31T16:30:24Z",
+      "side": 1,
+      "message": "@Jayanth - this is what I see if I use PEL tool to list the PEL:\n\"User Data 2\": {\n    \"Section Version\": \"1\",\n    \"Sub-section type\": \"1\",\n    \"Created by\": \"0x2000\",\n    \"Data\": [\n        {\n            \"Priority\": \"H\",\n            \"Procedure\": \"BMC0002\"\n        },\n        {\n            \"Deconfigured\": false,\n            \"Guarded\": false,\n            \"LocationCode\": \"Ufcs-P0-C15\",\n            \"Priority\": \"M\"\n        }\n    ]\n}\n\nThe LocationCode is not expanded.\n\nI\u0027m OK if this is correct...",
+      "parentUuid": "61a4b1c1_6c008a63",
+      "range": {
+        "startLine": 56,
+        "startChar": 42,
+        "endLine": 56,
+        "endChar": 55
+      },
+      "revId": "1db7e0754f22f01202c7253905b2daa9b239f198",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3005b9dd_b7b20b18",
