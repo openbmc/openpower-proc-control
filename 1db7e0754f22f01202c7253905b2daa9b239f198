@@ -160,6 +160,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f305448_148f9241",
+        "filename": "extensions/phal/create_pel.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-01-31T08:59:55Z",
+      "side": 1,
+      "message": "@ramesh , required bot procedure callout , Level-2 support and processor callout ( medium) of failing one. TYhsi is the reqiuirement.",
+      "parentUuid": "961017f0_d9bc67f3",
+      "revId": "1db7e0754f22f01202c7253905b2daa9b239f198",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3005b9dd_b7b20b18",
