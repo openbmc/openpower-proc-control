@@ -126,7 +126,7 @@ void setDevtreeEnv()
 {
     // PDBG_DTB environment variable set to CEC device tree path
     static constexpr auto PDBG_DTB_PATH =
-        "/var/lib/phosphor-software-manager/pnor/rw/DEVTREE";
+        "/var/lib/phosphor-software-manager/hostfw/running/DEVTREE";
 
     if (setenv("PDBG_DTB", PDBG_DTB_PATH, 1))
     {
