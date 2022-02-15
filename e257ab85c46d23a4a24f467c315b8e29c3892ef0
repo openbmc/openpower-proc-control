@@ -1,6 +1,40 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "902c705e_4101de03",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-02-15T06:35:40Z",
+      "side": 1,
+      "message": "This is PHAL specific change . Please start commit message PHAL:",
+      "revId": "e257ab85c46d23a4a24f467c315b8e29c3892ef0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "117f6c98_5c1107ce",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-02-15T06:35:40Z",
+      "side": 1,
+      "message": "op-reset-host-check@.service.in  also consumes devtree. some error scenario. this service triggers . I think need to add the same dependncy here also.",
+      "revId": "e257ab85c46d23a4a24f467c315b8e29c3892ef0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "716010c7_424038de",
@@ -14,6 +48,29 @@
       "writtenOn": "2022-02-14T22:34:47Z",
       "side": 1,
       "message": "Found another instances that needed updating.",
+      "revId": "e257ab85c46d23a4a24f467c315b8e29c3892ef0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0b98a7fc_9b35c017",
+        "filename": "extensions/phal/pdbg_utils.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-02-15T06:35:40Z",
+      "side": 1,
+      "message": "https://github.com/openbmc/openpower-proc-control/blob/master/meson_options.txt#L14 already have constants defined related to PDBG_DTB_pATH. based on your earlier discussion , added this change. can you copnfirm what is the final path. This need to be updated various places in PHAL applications.",
+      "range": {
+        "startLine": 129,
+        "startChar": 7,
+        "endLine": 129,
+        "endChar": 68
+      },
       "revId": "e257ab85c46d23a4a24f467c315b8e29c3892ef0",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
