@@ -52,6 +52,23 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a38ad4a2_619dbac3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-02-15T06:39:15Z",
+      "side": 1,
+      "message": "Hi Adriana,\n\nI am not much expert on the OpenBMC state management and different systemd targets that are used in the host start/stop but, I know we are using the PHAL device tree in the below service files (op-proc-control commands) so, I like to know whether those paths need to cover or not based on the service dependency. Maybe, we can wait for Andrew and Jayanth since they introduced most of these service files.\n\n```\nop-reset-host-check@.service.in\nop-reset-host-clear.service.in\nop-stop-instructions@.service.in\nphal-export-devtree@.service.in\nphal-import-devtree@.service.in\nproc-pre-poweroff@.service.in\nxyz.openbmc_project.Control.Host.NMI\n\nstart_host@.service - meta-openpower\n```\n\nand, when does the `openpower-update-bios-attr-table` service get triggered?",
+      "revId": "e257ab85c46d23a4a24f467c315b8e29c3892ef0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0b98a7fc_9b35c017",
@@ -65,6 +82,30 @@
       "writtenOn": "2022-02-15T06:35:40Z",
       "side": 1,
       "message": "https://github.com/openbmc/openpower-proc-control/blob/master/meson_options.txt#L14 already have constants defined related to PDBG_DTB_pATH. based on your earlier discussion , added this change. can you copnfirm what is the final path. This need to be updated various places in PHAL applications.",
+      "range": {
+        "startLine": 129,
+        "startChar": 7,
+        "endLine": 129,
+        "endChar": 68
+      },
+      "revId": "e257ab85c46d23a4a24f467c315b8e29c3892ef0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3167340d_22a6b220",
+        "filename": "extensions/phal/pdbg_utils.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-02-15T06:39:15Z",
+      "side": 1,
+      "message": "+1 we need to update in a few other places as well.",
+      "parentUuid": "0b98a7fc_9b35c017",
       "range": {
         "startLine": 129,
         "startChar": 7,
