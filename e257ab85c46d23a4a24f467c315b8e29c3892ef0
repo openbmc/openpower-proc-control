@@ -18,6 +18,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ea9e8c1_dac40854",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000003
+      },
+      "writtenOn": "2022-02-16T20:42:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "902c705e_4101de03",
+      "revId": "e257ab85c46d23a4a24f467c315b8e29c3892ef0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "117f6c98_5c1107ce",
@@ -31,6 +49,24 @@
       "writtenOn": "2022-02-15T06:35:40Z",
       "side": 1,
       "message": "op-reset-host-check@.service.in  also consumes devtree. some error scenario. this service triggers . I think need to add the same dependncy here also.",
+      "revId": "e257ab85c46d23a4a24f467c315b8e29c3892ef0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b5493a1d_a14a0e97",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000003
+      },
+      "writtenOn": "2022-02-16T20:42:54Z",
+      "side": 1,
+      "message": "Done. Added the dependency to the other service files.",
+      "parentUuid": "117f6c98_5c1107ce",
       "revId": "e257ab85c46d23a4a24f467c315b8e29c3892ef0",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -65,6 +101,24 @@
       "writtenOn": "2022-02-15T06:39:15Z",
       "side": 1,
       "message": "Hi Adriana,\n\nI am not much expert on the OpenBMC state management and different systemd targets that are used in the host start/stop but, I know we are using the PHAL device tree in the below service files (op-proc-control commands) so, I like to know whether those paths need to cover or not based on the service dependency. Maybe, we can wait for Andrew and Jayanth since they introduced most of these service files.\n\n```\nop-reset-host-check@.service.in\nop-reset-host-clear.service.in\nop-stop-instructions@.service.in\nphal-export-devtree@.service.in\nphal-import-devtree@.service.in\nproc-pre-poweroff@.service.in\nxyz.openbmc_project.Control.Host.NMI\n\nstart_host@.service - meta-openpower\n```\n\nand, when does the `openpower-update-bios-attr-table` service get triggered?",
+      "revId": "e257ab85c46d23a4a24f467c315b8e29c3892ef0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d13f0b00_dc35dd6d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000003
+      },
+      "writtenOn": "2022-02-16T20:42:54Z",
+      "side": 1,
+      "message": "Done. Added dependency to the above service files.",
+      "parentUuid": "a38ad4a2_619dbac3",
       "revId": "e257ab85c46d23a4a24f467c315b8e29c3892ef0",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -106,6 +160,30 @@
       "side": 1,
       "message": "+1 we need to update in a few other places as well.",
       "parentUuid": "0b98a7fc_9b35c017",
+      "range": {
+        "startLine": 129,
+        "startChar": 7,
+        "endLine": 129,
+        "endChar": 68
+      },
+      "revId": "e257ab85c46d23a4a24f467c315b8e29c3892ef0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4fd0af00_579d3421",
+        "filename": "extensions/phal/pdbg_utils.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1000003
+      },
+      "writtenOn": "2022-02-16T20:42:54Z",
+      "side": 1,
+      "message": "Done. Using variable from meson options file.",
+      "parentUuid": "3167340d_22a6b220",
       "range": {
         "startLine": 129,
         "startChar": 7,
