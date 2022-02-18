@@ -33,6 +33,24 @@
       "message": "This is only used for P9 , this service is availble in p9 based systems?",
       "revId": "bbb53393c5e2eb2ad4d3ef8401f8481732b84ed0",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ae9e896_a80b10c2",
+        "filename": "service_files/xyz.openbmc_project.Control.Host.NMI.service.in",
+        "patchSetId": 4
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-02-18T14:45:49Z",
+      "side": 1,
+      "message": "Looks it is packaged into all POWER systems as per meson build (https://github.com/openbmc/openpower-proc-control/blob/master/meson.build#L197) and I can see it in the p10 systems.",
+      "parentUuid": "adc00e34_e4cf6030",
+      "revId": "bbb53393c5e2eb2ad4d3ef8401f8481732b84ed0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
