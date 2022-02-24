@@ -16,6 +16,24 @@
       "message": "I\u0027m a little confused on this one. clear_hostdumps_poweroff.service is run in the host-stop target. This service is run in the host-startmin target. Saying this service should run before clear_hostdumps_poweroff doesn\u0027t make sense? Also, if we do this, then the /run/openbmc/mpreboot@%i will always be deleted before clear_hostdumps_poweroff.service runs. I don\u0027t think this change is needed. Because they are in separate targets going in opposite directions, clear_hostdumps_poweroff.service will always run first in the MPIPL path which is I believe what you want.",
       "revId": "1e33457ff747b00797b3f34b728d667ece48d947",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "23449a81_4a757a83",
+        "filename": "service_files/op-continue-mpreboot@.service.in",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000084
+      },
+      "writtenOn": "2022-02-24T18:14:48Z",
+      "side": 1,
+      "message": "sorry good catch, after testing by editing op-enter-reboot service on BMC, I pasted the command on the wrong file fixing",
+      "parentUuid": "46229c7c_04be6e22",
+      "revId": "1e33457ff747b00797b3f34b728d667ece48d947",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
