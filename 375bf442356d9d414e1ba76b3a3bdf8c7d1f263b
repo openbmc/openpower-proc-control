@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0b174f8c_8677c60e",
+        "filename": "extensions/phal/phal_error.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2022-03-22T17:51:14Z",
+      "side": 1,
+      "message": "nit: two words\n\"In case the issue still persists after reboot, recommend replacing the primary processor\"",
+      "range": {
+        "startLine": 268,
+        "startChar": 35,
+        "endLine": 268,
+        "endChar": 41
+      },
+      "revId": "375bf442356d9d414e1ba76b3a3bdf8c7d1f263b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "42d7a01f_0d481594",
+        "filename": "extensions/phal/phal_error.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2022-03-22T17:51:14Z",
+      "side": 1,
+      "message": "Why would we callout the BMC for a non functional processor?",
+      "revId": "375bf442356d9d414e1ba76b3a3bdf8c7d1f263b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f033087b_f2d6aa0c",
+        "filename": "extensions/phal/phal_error.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2022-03-22T17:51:14Z",
+      "side": 1,
+      "message": "I\u0027m surprised the PEL infrastructure doesn\u0027t add this for free with the callout?",
+      "revId": "375bf442356d9d414e1ba76b3a3bdf8c7d1f263b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
