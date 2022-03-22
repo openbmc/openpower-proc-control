@@ -56,6 +56,24 @@
       "message": "I\u0027m surprised the PEL infrastructure doesn\u0027t add this for free with the callout?",
       "revId": "375bf442356d9d414e1ba76b3a3bdf8c7d1f263b",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a200d2a_ab02996a",
+        "filename": "extensions/phal/phal_error.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2022-03-22T18:01:19Z",
+      "side": 1,
+      "message": "There\u0027s no inventory path to call out in this case, only the location code.",
+      "parentUuid": "f033087b_f2d6aa0c",
+      "revId": "375bf442356d9d414e1ba76b3a3bdf8c7d1f263b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
