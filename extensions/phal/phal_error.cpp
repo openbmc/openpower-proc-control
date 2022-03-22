@@ -261,6 +261,71 @@ static std::string getPelPriority(const std::string& phalPriority)
     return it->second;
 }
 
+/**
+ * @brief Helper function to create PEL for non functional boot
+ *        processor related failure.
+ * This function adds the BMC code callout as priority 1 to fix
+ * devtree related software issue. Incase the issue still persist
+ * after reboot recommend to replacing the primary processor.
+ */
+void processNonFunctionalBootProc()
+{
+    json jsonCalloutDataList;
+    json jsonProcedCallout;
+    // Add BMC code callout
+    jsonProcedCallout["Procedure"] = "BMC0001";
+    jsonProcedCallout["Priority"] = "H";
+    jsonCalloutDataList.emplace_back(std::move(jsonProcedCallout));
+
+    // get primary processor
+    struct pdbg_target* procTarget;
+    pdbg_for_each_class_target("proc", procTarget)
+    {
+        if (openpower::phal::isPrimaryProc(procTarget))
+            break;
+        procTarget = nullptr;
+    }
+    // check valid primary processor is available
+    if (procTarget == nullptr)
+    {
+        log<level::ERR>(
+            "processNonFunctionalBootProc: fail to get primary processor");
+    }
+    else
+    {
+        try
+        {
+            ATTR_LOCATION_CODE_Type locationCode = {'\0'};
+            // Get location code information
+            openpower::phal::pdbg::getLocationCode(procTarget, locationCode);
+            json jsonProcCallout;
+            jsonProcCallout["LocationCode"] = locationCode;
+            jsonProcCallout["Deconfigured"] = false;
+            jsonProcCallout["Guarded"] = false;
+            jsonProcCallout["Priority"] = "M";
+            jsonCalloutDataList.emplace_back(std::move(jsonProcCallout));
+        }
+        catch (const std::exception& e)
+        {
+            log<level::ERR>(fmt::format("getLocationCode({}): Exception({})",
+                                        pdbg_target_path(procTarget), e.what())
+                                .c_str());
+        }
+    }
+    // Adding collected phal logs into PEL additional data
+    FFDCData pelAdditionalData;
+    for_each(
+        traceLog.begin(), traceLog.end(),
+        [&pelAdditionalData](std::pair<std::string, std::string>& ele) -> void {
+            pelAdditionalData.emplace_back(ele.first, ele.second);
+        });
+    openpower::pel::createErrorPEL(
+        "org.open_power.PHAL.Error.NonFunctionalBootProc", jsonCalloutDataList,
+        pelAdditionalData);
+    // reset trace log and exit
+    reset();
+}
+
 void processIplErrorCallback(const ipl_error_info& errInfo)
 {
     log<level::INFO>(
@@ -284,6 +349,10 @@ void processIplErrorCallback(const ipl_error_info& errInfo)
             break;
         case IPL_ERR_PLAT:
             processPlatBootError(errInfo);
+            break;
+        case IPL_ERR_PRI_PROC_NON_FUNC:
+            // Handle non functional boot processor error.
+            processNonFunctionalBootProc();
             break;
         default:
             createPEL("org.open_power.PHAL.Error.Boot");
