@@ -26,6 +26,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fb71b2be_75851270",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-03-23T03:50:12Z",
+      "side": 1,
+      "message": "remove",
+      "range": {
+        "startLine": 10,
+        "startChar": 43,
+        "endLine": 10,
+        "endChar": 52
+      },
+      "revId": "375bf442356d9d414e1ba76b3a3bdf8c7d1f263b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0b174f8c_8677c60e",
         "filename": "extensions/phal/phal_error.cpp",
         "patchSetId": 1
@@ -42,6 +65,29 @@
         "startChar": 35,
         "endLine": 268,
         "endChar": 41
+      },
+      "revId": "375bf442356d9d414e1ba76b3a3bdf8c7d1f263b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0202ce5_30af1b69",
+        "filename": "extensions/phal/phal_error.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-03-23T03:50:12Z",
+      "side": 1,
+      "message": "is this software issue?",
+      "range": {
+        "startLine": 267,
+        "startChar": 46,
+        "endLine": 268,
+        "endChar": 34
       },
       "revId": "375bf442356d9d414e1ba76b3a3bdf8c7d1f263b",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
@@ -84,6 +130,69 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ae85030d_ef9d525c",
+        "filename": "extensions/phal/phal_error.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-03-23T03:50:12Z",
+      "side": 1,
+      "message": "struct pdbg_target* procTarget \u003d nullptr?\n\nwhy set the pointer to nullptr for every proc at line 286?",
+      "range": {
+        "startLine": 281,
+        "startChar": 0,
+        "endLine": 281,
+        "endChar": 35
+      },
+      "revId": "375bf442356d9d414e1ba76b3a3bdf8c7d1f263b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4db9172d_0d4e59ad",
+        "filename": "extensions/phal/phal_error.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-03-23T03:50:12Z",
+      "side": 1,
+      "message": "early return? this way we do not need else condition\nif(!procPTr)\n{\n   return;\n}\n....\n...\n\nsuggestion.",
+      "revId": "375bf442356d9d414e1ba76b3a3bdf8c7d1f263b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e59fa6b_d927f020",
+        "filename": "extensions/phal/phal_error.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-03-23T03:50:12Z",
+      "side": 1,
+      "message": "c++ initalization?\nATTR_LOCATION_CODE_Type locationCode \u003d {\u0027\\0};",
+      "range": {
+        "startLine": 298,
+        "startChar": 0,
+        "endLine": 300,
+        "endChar": 62
+      },
+      "revId": "375bf442356d9d414e1ba76b3a3bdf8c7d1f263b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f033087b_f2d6aa0c",
         "filename": "extensions/phal/phal_error.cpp",
         "patchSetId": 1
@@ -113,6 +222,29 @@
       "side": 1,
       "message": "There\u0027s no inventory path to call out in this case, only the location code.",
       "parentUuid": "f033087b_f2d6aa0c",
+      "revId": "375bf442356d9d414e1ba76b3a3bdf8c7d1f263b",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "25869311_be9eef9a",
+        "filename": "extensions/phal/phal_error.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-03-23T03:50:12Z",
+      "side": 1,
+      "message": "do we want to continue and add traces to the log even if we have location code exception?",
+      "range": {
+        "startLine": 310,
+        "startChar": 0,
+        "endLine": 315,
+        "endChar": 9
+      },
       "revId": "375bf442356d9d414e1ba76b3a3bdf8c7d1f263b",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
