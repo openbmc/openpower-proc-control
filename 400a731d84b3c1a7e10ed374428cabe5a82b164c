@@ -16,6 +16,24 @@
       "message": "Please be sure to document new PEL over in PEL registry.",
       "revId": "400a731d84b3c1a7e10ed374428cabe5a82b164c",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bbdc8ff8_0f324814",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-03-24T16:50:20Z",
+      "side": 1,
+      "message": "PEL registry support is already available.  https://gerrit.openbmc-project.xyz/c/openbmc/phosphor-logging/+/51819",
+      "parentUuid": "c95a7087_32b1f87e",
+      "revId": "400a731d84b3c1a7e10ed374428cabe5a82b164c",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
