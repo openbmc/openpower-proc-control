@@ -199,6 +199,7 @@ endif
 unit_files = [
     'service_files/pcie-poweroff@.service',
     'service_files/xyz.openbmc_project.Control.Host.NMI.service',
+    'service_files/op-clear-sys-dump-active@.service',
     'service_files/op-stop-instructions@.service',
     'service_files/op-cfam-reset.service',
     'service_files/op-continue-mpreboot@.service',
