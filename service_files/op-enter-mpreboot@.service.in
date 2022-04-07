@@ -15,6 +15,7 @@ Conflicts=obmc-host-startmin@%i.target
 @ENABLE_PHAL_TRUE@Environment="PDBG_DTB=@CEC_DEVTREE_RW_PATH@"
 RemainAfterExit=yes
 Type=oneshot
+ExecStart=/usr/bin/pldmtool bios SetBIOSAttributeCurrentValue -a pvm_sys_dump_active -d "Enabled"
 ExecStart=/usr/bin/openpower-proc-control enterMpReboot
 ExecStart=/bin/mkdir -p /run/openbmc/
 ExecStart=/bin/touch /run/openbmc/mpreboot@%i

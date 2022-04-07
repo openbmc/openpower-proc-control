@@ -12,6 +12,7 @@ Conflicts=obmc-chassis-poweron@%i.target
 [Service]
 Type=oneshot
 RemainAfterExit=no
+ExecStart=/usr/bin/pldmtool bios SetBIOSAttributeCurrentValue -a pvm_sys_dump_active -d "Disabled"
 ExecStart=/usr/bin/openpower-proc-control prePoweroff
 
 [Install]
