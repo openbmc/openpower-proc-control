@@ -1,0 +1,20 @@
+[Unit]
+Description=Reset pvm_sys_dump_active back to Disabled
+Wants=xyz.openbmc_project.biosconfig_manager.service
+After=xyz.openbmc_project.biosconfig_manager.service
+After=op-enter-mpreboot@%i.service
+After=obmc-host-reset@%i.target
+ConditionPathExists=!/run/openbmc/host@%i-on
+ConditionPathExists=!/run/openbmc/mpreboot@%i
+
+[Service]
+Restart=no
+Type=oneshot
+ExecStart=/bin/sh -c \
+  "busctl set-property xyz.openbmc_project.BIOSConfigManager \
+   /xyz/openbmc_project/bios_config/manager xyz.openbmc_project.BIOSConfig.Manager \
+   PendingAttributes a{s\(sv\)} 1 pvm_sys_dump_active \
+   xyz.openbmc_project.BIOSConfig.Manager.AttributeType.Enumeration s Disabled"
+
+[Install]
+WantedBy=multi-user.target

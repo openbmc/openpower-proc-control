@@ -124,6 +124,7 @@ if build_phal
         'service_files/set-spi-mux.service',
         'service_files/phal-reinit-devtree.service',
         'service_files/proc-pre-poweroff@.service',
+        'service_files/op-clear-sys-dump-active@.service',
         'service_files/op-reset-host-check@.service',
         'service_files/op-reset-host-clear.service',
         'service_files/phal-import-devtree@.service',
