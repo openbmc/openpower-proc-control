@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a6843292_994fc908",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2022-04-07T21:54:42Z",
+      "side": 1,
+      "message": "Would anything bad happen if AC was lost in the middle so it was never cleared?  Assuming BIOS attributes are persisted that is.",
+      "revId": "f5d1714043d6227be21f5c230d67268c54d06ca7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
