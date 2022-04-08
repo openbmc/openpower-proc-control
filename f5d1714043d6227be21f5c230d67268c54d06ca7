@@ -36,6 +36,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b156278_21218879",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2022-04-08T21:15:44Z",
+      "side": 1,
+      "message": "The problem is that a warm re-ipl looks like a MPIPL (which is where we can not clear this). I think I better make sure this gets cleared when the BMC is rebooted and it\u0027s not a r/r.",
+      "parentUuid": "124449f2_1932f206",
+      "revId": "f5d1714043d6227be21f5c230d67268c54d06ca7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "93891c46_906c9788",
@@ -49,6 +67,24 @@
       "writtenOn": "2022-04-08T05:26:35Z",
       "side": 1,
       "message": "I am not big fan of using pldmtool , which is mainly developed for debug purpose. Basically this tool is not handled error scenario propoerly and any tool hang stop all PLDM traffic.  Recently It would be better to make direct d-bus call to set/clear?",
+      "revId": "f5d1714043d6227be21f5c230d67268c54d06ca7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "993f832c_55904bd0",
+        "filename": "service_files/op-enter-mpreboot@.service.in",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2022-04-08T21:15:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "93891c46_906c9788",
       "revId": "f5d1714043d6227be21f5c230d67268c54d06ca7",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
