@@ -54,6 +54,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7e6ef68_e78facf6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2022-04-08T21:17:30Z",
+      "side": 1,
+      "message": "I ended up making a standalone service to reset the BIOS value and put that in the obmc-host-stop@0.target and the multi-user.target. That seemed the cleanest based on your guys comments above.",
+      "parentUuid": "7b156278_21218879",
+      "revId": "f5d1714043d6227be21f5c230d67268c54d06ca7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "93891c46_906c9788",
