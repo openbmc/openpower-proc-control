@@ -63,6 +63,24 @@
       "message": "This is not PHAL specific, should be with other MPIPL files down in unit_files  on line 200.",
       "revId": "6f48562c7772c6e194e0a6e68b0dacb65cf4aa96",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f9dea9e_74ae37d9",
+        "filename": "meson.build",
+        "patchSetId": 2
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2022-04-11T18:10:12Z",
+      "side": 1,
+      "message": "Actually, this will only work on PLDM based systems (since the BIOS is only defined on them). Seems like for now we\u0027ve got PHAL tied to PLDM (P10 based systems) so I\u0027m going to put this service under that category.",
+      "parentUuid": "84e369af_386d2b48",
+      "revId": "6f48562c7772c6e194e0a6e68b0dacb65cf4aa96",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
