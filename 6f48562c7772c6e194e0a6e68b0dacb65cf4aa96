@@ -22,6 +22,47 @@
       },
       "revId": "6f48562c7772c6e194e0a6e68b0dacb65cf4aa96",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6b0a9b53_cc491026",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2022-04-11T15:33:35Z",
+      "side": 1,
+      "message": "Yep, over in https://gerrit.openbmc-project.xyz/c/openbmc/openbmc/+/52771/1/meta-openpower/recipes-phosphor/host/op-proc-control-systemd-links.bb, we will always clear this in host-stop (runs on every power off) and also in our BMC Ready (so we\u0027ll clear it if BMC is AC power cycled)",
+      "parentUuid": "ae6fd28b_58661a67",
+      "range": {
+        "startLine": 20,
+        "startChar": 15,
+        "endLine": 21,
+        "endChar": 41
+      },
+      "revId": "6f48562c7772c6e194e0a6e68b0dacb65cf4aa96",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "84e369af_386d2b48",
+        "filename": "meson.build",
+        "patchSetId": 2
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2022-04-11T15:33:35Z",
+      "side": 1,
+      "message": "This is not PHAL specific, should be with other MPIPL files down in unit_files  on line 200.",
+      "revId": "6f48562c7772c6e194e0a6e68b0dacb65cf4aa96",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
