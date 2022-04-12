@@ -13,6 +13,7 @@ ConditionPathExists=/run/openbmc/mpreboot@%i
 
 [Service]
 @ENABLE_PHAL_TRUE@Environment="PDBG_DTB=@CEC_DEVTREE_RW_PATH@"
+ExecStart=/bin/systemctl restart attn_handler.service
 ExecStart=/bin/rm -f /run/openbmc/mpreboot@%i
 ExecStart=/usr/bin/openpower-proc-control startHostMpReboot
 Type=oneshot
