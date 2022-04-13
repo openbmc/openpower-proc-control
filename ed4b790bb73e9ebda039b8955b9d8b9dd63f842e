@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f516b7c9_63ee3f3b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-04-13T04:18:27Z",
+      "side": 1,
+      "message": "JS: Can you please add \"PHAL: \" as prefix in the commit message header since it is specific to PHAL, right?\n\nWe are following that rule to add PHAL specific code.",
+      "revId": "ed4b790bb73e9ebda039b8955b9d8b9dd63f842e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "53aba5c2_1f3e8b0e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-04-13T04:18:27Z",
+      "side": 1,
+      "message": "Can you please add the Tested tag with the test cases that you tried?\nit will be good if you added the systemd traces too",
+      "revId": "ed4b790bb73e9ebda039b8955b9d8b9dd63f842e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d963bfb_a1db7a52",
+        "filename": "service_files/op-stop-instructions@.service.in",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-04-13T04:18:27Z",
+      "side": 1,
+      "message": "I think, It starts and goes for the next ExecStart i.e LN-18 but, looks like we need to stop attn before the threadStopAll, right? If so, should we use \"ExecStartPre\"? @Andrew any thoughts?\n\nand I am not sure, explicitly calling the systemd stop service is recommended when there are \"Conflicts\" or \"ConditionPathExists\". I like to see @Andrew view on this.",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 9
+      },
+      "revId": "ed4b790bb73e9ebda039b8955b9d8b9dd63f842e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
