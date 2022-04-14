@@ -54,6 +54,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ad1cc15_511848f0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-04-14T04:43:16Z",
+      "side": 1,
+      "message": "It\u0027s my bad, just looked at the PHAL code, and did not look at the p9 specific code.",
+      "parentUuid": "697c9f65_279db88e",
+      "revId": "ed4b790bb73e9ebda039b8955b9d8b9dd63f842e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "53aba5c2_1f3e8b0e",
@@ -150,6 +168,30 @@
       "side": 1,
       "message": "+1",
       "parentUuid": "56785b33_78ceb17d",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 9
+      },
+      "revId": "ed4b790bb73e9ebda039b8955b9d8b9dd63f842e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "07a7fb22_15d0942e",
+        "filename": "service_files/op-stop-instructions@.service.in",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-04-14T04:43:16Z",
+      "side": 1,
+      "message": "Thanks, Andrew for the detailed information.",
+      "parentUuid": "670fd541_7c7f711a",
       "range": {
         "startLine": 17,
         "startChar": 0,
