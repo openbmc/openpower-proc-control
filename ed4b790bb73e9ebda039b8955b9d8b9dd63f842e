@@ -200,6 +200,30 @@
       },
       "revId": "ed4b790bb73e9ebda039b8955b9d8b9dd63f842e",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ecf44d80_e1d33576",
+        "filename": "service_files/op-stop-instructions@.service.in",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-04-18T04:52:41Z",
+      "side": 1,
+      "message": "@andrew @zane . Stop instruction is used to stop the processor instruction. SBE is still active in this widow. And this will lead to stop listening the sbe related attentions. May be current use case this apprcch is good (?) . But still need to look functionally , this is the right place to do it.",
+      "parentUuid": "07a7fb22_15d0942e",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 9
+      },
+      "revId": "ed4b790bb73e9ebda039b8955b9d8b9dd63f842e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
