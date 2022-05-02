@@ -13,7 +13,7 @@ Type=oneshot
 ExecStart=/bin/sh -c \
   "busctl set-property xyz.openbmc_project.BIOSConfigManager \
    /xyz/openbmc_project/bios_config/manager xyz.openbmc_project.BIOSConfig.Manager \
-   PendingAttributes a{s\(sv\)} 1 pvm_sys_dump_active \
+   PendingAttributes a{s\\(sv\\)} 1 pvm_sys_dump_active \
    xyz.openbmc_project.BIOSConfig.Manager.AttributeType.Enumeration s Disabled"
 
 [Install]
