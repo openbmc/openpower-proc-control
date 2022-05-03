@@ -16,6 +16,24 @@
       "message": "Overall looks good. Few points. need clarification for p9 support.\nThis service is common for both Power 9 and 10 is this required for Power9 based systems. Also may change phosphor-debug-collector version bump to support the busctl command in 9.",
       "revId": "43d7407aad9407383d7dfbae887dae60d2663355",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5d27945_26808f79",
+        "filename": "service_files/op-enter-mpreboot@.service.in",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2022-05-03T12:07:32Z",
+      "side": 1,
+      "message": "oh, I didn\u0027t realize we supported mpreboot on P9 systems? This commit wont hurt anything (since even if it does fail we have the || true to always return pass) but I\u0027ll need to look into my other change at line 18. I don\u0027t think that BIOS is defined in P9.\nFor your other question, \"change phosphor-debug-collector version bump to support the busctl command in 9\", I\u0027m not getting you on this one?",
+      "parentUuid": "e5357bde_c7701f8c",
+      "revId": "43d7407aad9407383d7dfbae887dae60d2663355",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
