@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2daa2ae5_ba4ea288",
+        "filename": "service_files/op-enter-mpreboot@.service.in",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-05-04T14:32:07Z",
+      "side": 1,
+      "message": "\"change phosphor-debug-collector version bump to support the busctl command in 9\", I\u0027m not getting you on this one?\n\nDhruv,updated CreateDumpo is good for P9 version of phosphor-debug-collector?",
+      "parentUuid": "7f9c43fd_3cf8dc2d",
+      "revId": "43d7407aad9407383d7dfbae887dae60d2663355",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9aeec62d_45b8f76c",
         "filename": "service_files/op-enter-mpreboot@.service.in",
         "patchSetId": 3
