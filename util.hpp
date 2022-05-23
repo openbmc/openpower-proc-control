@@ -19,5 +19,13 @@ namespace util
  */
 std::string getService(sdbusplus::bus::bus& bus, const std::string& objectPath,
                        const std::string& interface);
+
+/**
+ * Returns true if host is in poweringoff state else false
+ *
+ * @return bool - true if host is powering off
+ */
+bool isHostPoweringOff();
+
 } // namespace util
 } // namespace openpower
