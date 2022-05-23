@@ -7,6 +7,7 @@ extern "C"
 #include "dump_utils.hpp"
 #include "extensions/phal/common_utils.hpp"
 #include "phal_error.hpp"
+#include "util.hpp"
 
 #include <attributes_info.H>
 #include <fmt/format.h>
@@ -31,6 +32,7 @@ namespace phal
 {
 using namespace phosphor::logging;
 using namespace openpower::phal::exception;
+using Severity = sdbusplus::xyz::openbmc_project::Logging::server::Entry::Level;
 
 /**
  * Used to pass buffer to pdbg callback api to get required target
@@ -387,6 +389,70 @@ static void addPlanarCallout(json& jsonCalloutDataList,
     jsonCalloutDataList.emplace_back(jsonCalloutData);
 }
 
+/**
+ * @brief processPoweroffError
+ *
+ * Creates informational PEL for the PLAT/HWP error occured during poweroff
+ *
+ * Not adding callouts from FFDC as the hardware errors in the poweroff path
+ * should be non-visible.  so that we don't throw out extraneous callouts for
+ * power errors or because the CEC is just not in an expected state.
+ *
+ * @param[in] ffdc - FFDC data capturd by the HWP
+ * @param[in] ffdc_prefix - prefix string for logging the data.
+ */
+
+void processPoweroffError(FFDC* ffdc, const std::string& ffdc_prefix)
+{
+    log<level::INFO>("processPoweroffError");
+    try
+    {
+        log<level::INFO>(
+            fmt::format("PHAL FFDC: Return Message[{}]", ffdc->message)
+                .c_str());
+
+        // To store phal trace and other additional data about ffdc.
+        FFDCData pelAdditionalData;
+
+        if (ffdc->ffdc_type == FFDC_TYPE_HWP)
+        {
+            std::string keyWithPrefix(ffdc_prefix + "RC");
+            // Adding hardware procedures return code details
+            pelAdditionalData.emplace_back(keyWithPrefix,
+                                           ffdc->hwp_errorinfo.rc);
+            keyWithPrefix = ffdc_prefix + "RC_DESC";
+            pelAdditionalData.emplace_back(keyWithPrefix,
+                                           ffdc->hwp_errorinfo.rc_desc);
+        }
+        else if ((ffdc->ffdc_type != FFDC_TYPE_NONE) &&
+                 (ffdc->ffdc_type != FFDC_TYPE_UNSUPPORTED))
+        {
+            log<level::ERR>(
+                fmt::format("Unsupported phal FFDC type to create PEL. "
+                            "MSG: {}",
+                            ffdc->message)
+                    .c_str());
+        }
+
+        // Adding collected phal logs into PEL additional data
+        for_each(traceLog.begin(), traceLog.end(),
+                 [&pelAdditionalData](
+                     std::pair<std::string, std::string>& ele) -> void {
+                     pelAdditionalData.emplace_back(ele.first, ele.second);
+                 });
+
+        openpower::pel::createErrorPEL("org.open_power.PHAL.Error.Boot", {},
+                                       pelAdditionalData,
+                                       Severity::Informational);
+    }
+    catch (const std::exception& ex)
+    {
+        reset();
+        throw ex;
+    }
+    reset();
+}
+
 void processBootErrorHelper(FFDC* ffdc, const std::string& ffdc_prefix)
 {
     log<level::INFO>("processBootErrorHelper ");
@@ -640,7 +706,14 @@ void processPlatBootError(const ipl_error_info& errInfo)
     FFDC* ffdc = reinterpret_cast<FFDC*>(errInfo.private_data);
     try
     {
-        processBootErrorHelper(ffdc, "PLAT_");
+        if (util::isHostPoweringOff())
+        {
+            processPoweroffError(ffdc, "PLAT_");
+        }
+        else
+        {
+            processBootErrorHelper(ffdc, "PLAT_");
+        }
     }
     catch (const std::exception& ex)
     {
@@ -661,12 +734,18 @@ void processBootError(bool status)
         // return If no failure during hwp execution
         if (status)
             return;
-
         // Collecting ffdc details from phal
         FFDC ffdc;
         libekb_get_ffdc(ffdc);
 
-        processBootErrorHelper(&ffdc, "HWP_");
+        if (util::isHostPoweringOff())
+        {
+            processPoweroffError(&ffdc, "HWP_");
+        }
+        else
+        {
+            processBootErrorHelper(&ffdc, "HWP_");
+        }
     }
     catch (const std::exception& ex)
     {

@@ -29,9 +29,11 @@ using Severity = sdbusplus::xyz::openbmc_project::Logging::server::Entry::Level;
  * @param[in] event - the event type
  * @param[in] calloutData - callout data to append to PEL
  * @param[in] ffdcData - failure data to append to PEL
+ * @param[in] severity - severity of the log
  */
 void createErrorPEL(const std::string& event, const json& calloutData = {},
-                    const FFDCData& ffdcData = {});
+                    const FFDCData& ffdcData = {},
+                    const Severity severity = Severity::Error);
 
 /**
  * @brief Create SBE boot error PEL and return id
