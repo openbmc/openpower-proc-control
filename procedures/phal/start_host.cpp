@@ -188,6 +188,8 @@ static void
     try
     {
         using json = nlohmann::json;
+        using Severity =
+            sdbusplus::xyz::openbmc_project::Logging::server::Entry::Level;
 
         json jsonCalloutDataList;
         jsonCalloutDataList = json::array();
@@ -197,7 +199,8 @@ static void
         jsonCalloutDataList.emplace_back(jsonCalloutData);
 
         openpower::pel::createErrorPEL("org.open_power.PHAL.Error.Boot",
-                                       jsonCalloutDataList, additionalData);
+                                       jsonCalloutDataList, additionalData,
+                                       Severity::Error);
     }
     catch (const std::exception& e)
     {
