@@ -137,7 +137,7 @@ void threadStopAll(void)
         jsonCalloutDataList.emplace_back(jsonCalloutData);
         openpower::pel::createErrorPEL(
             "org.open_power.Processor.Error.SbeChipOpFailure",
-            jsonCalloutDataList, pelAdditionalData);
+            jsonCalloutDataList, pelAdditionalData, Severity::Informational);
         return;
     }
 }
