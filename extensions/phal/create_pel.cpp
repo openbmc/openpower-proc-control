@@ -79,7 +79,7 @@ static void getSBECallout(struct pdbg_target* procTarget,
 }
 
 void createErrorPEL(const std::string& event, const json& calloutData,
-                    const FFDCData& ffdcData)
+                    const FFDCData& ffdcData, const Severity severity)
 {
     std::map<std::string, std::string> additionalData;
     auto bus = sdbusplus::bus::new_default();
@@ -111,8 +111,7 @@ void createErrorPEL(const std::string& event, const json& calloutData,
                                 loggingInterface, "CreateWithFFDCFiles");
         auto level =
             sdbusplus::xyz::openbmc_project::Logging::server::convertForMessage(
-                sdbusplus::xyz::openbmc_project::Logging::server::Entry::Level::
-                    Error);
+                severity);
         method.append(event, level, additionalData, pelCalloutInfo);
         auto resp = bus.call(method);
     }

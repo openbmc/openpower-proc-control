@@ -112,6 +112,7 @@ if build_phal
         'extensions/phal/phal_error.cpp',
         'extensions/phal/dump_utils.cpp',
         'temporary_file.cpp',
+        'util.cpp',
     ]
     extra_dependencies += [
         dependency('libdt-api'),

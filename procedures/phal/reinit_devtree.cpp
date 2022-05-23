@@ -107,6 +107,8 @@ fs::path computeRODeviceTreePath()
 void reinitDevtree()
 {
     using json = nlohmann::json;
+    using Severity =
+        sdbusplus::xyz::openbmc_project::Logging::server::Entry::Level;
 
     log<level::INFO>("reinitDevtree: started");
 
@@ -213,7 +215,8 @@ void reinitDevtree()
         jsonCalloutData["Priority"] = "M";
         jsonCalloutDataList.emplace_back(jsonCalloutData);
         openpower::pel::createErrorPEL(
-            "org.open_power.PHAL.Error.devtreeReinit", jsonCalloutDataList);
+            "org.open_power.PHAL.Error.devtreeReinit", jsonCalloutDataList, {},
+            Severity::Error);
     }
 
     // Step 4: Update devtree r/w file
@@ -252,7 +255,8 @@ void reinitDevtree()
         jsonCalloutData["Priority"] = "H";
         jsonCalloutDataList.emplace_back(jsonCalloutData);
         openpower::pel::createErrorPEL(
-            "org.open_power.PHAL.Error.devtreeReinit", jsonCalloutDataList);
+            "org.open_power.PHAL.Error.devtreeReinit", jsonCalloutDataList, {},
+            Severity::Error);
         throw;
     }
 }
