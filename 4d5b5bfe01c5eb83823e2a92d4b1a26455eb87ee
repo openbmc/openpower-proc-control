@@ -1,0 +1,9 @@
+Code-Review+2: Jayanth Othayoth <ojayanth@gmail.com>
+Code-Review+1: chirag sharma <chiragsibm@gmail.com>
+Code-Review+1: Dhruvaraj S <dhruvaraj@gmail.com>
+Verified+1: OpenBMC CI <openbmcbump-ci@yahoo.com>
+Submitted-by: Jayanth Othayoth <ojayanth@gmail.com>
+Submitted-at: Tue, 24 May 2022 15:10:47 +0000
+Reviewed-on: https://gerrit.openbmc.org/c/openbmc/openpower-proc-control/+/53911
+Project: openbmc/openpower-proc-control
+Branch: refs/heads/master
