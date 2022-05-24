@@ -18,6 +18,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c471280_7876ca7c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-05-24T05:44:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "776217cb_d329b1d0",
+      "revId": "f85359ad1fd531d1a2ca72ef07a1d1f512574612",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2405920c_4591c561",
@@ -31,6 +49,30 @@
       "writtenOn": "2022-05-24T04:15:52Z",
       "side": 1,
       "message": "??",
+      "range": {
+        "startLine": 11,
+        "startChar": 21,
+        "endLine": 11,
+        "endChar": 26
+      },
+      "revId": "f85359ad1fd531d1a2ca72ef07a1d1f512574612",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "339cb1a1_8fa51eeb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-05-24T05:44:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2405920c_4591c561",
       "range": {
         "startLine": 11,
         "startChar": 21,
@@ -64,6 +106,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "20d40378_234ca9af",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-05-24T05:44:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "854e5b44_e5b1adbe",
+      "range": {
+        "startLine": 15,
+        "startChar": 5,
+        "endLine": 15,
+        "endChar": 13
+      },
+      "revId": "f85359ad1fd531d1a2ca72ef07a1d1f512574612",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5c826853_5ff3ea6b",
@@ -77,6 +143,30 @@
       "writtenOn": "2022-05-24T04:15:52Z",
       "side": 1,
       "message": "Don\u0027t use ibm specific system names \nchange to xxxx",
+      "range": {
+        "startLine": 29,
+        "startChar": 5,
+        "endLine": 29,
+        "endChar": 13
+      },
+      "revId": "f85359ad1fd531d1a2ca72ef07a1d1f512574612",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2263917d_2795050b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-05-24T05:44:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c826853_5ff3ea6b",
       "range": {
         "startLine": 29,
         "startChar": 5,
@@ -127,6 +217,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ca1df59_584b77a7",
+        "filename": "extensions/phal/create_pel.hpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-05-24T05:44:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "469f385c_1e9246cd",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 61
+      },
+      "revId": "f85359ad1fd531d1a2ca72ef07a1d1f512574612",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d0f8daad_8704d000",
@@ -140,6 +254,30 @@
       "writtenOn": "2022-05-24T04:15:52Z",
       "side": 1,
       "message": "Keep one meaningful  log  message.",
+      "range": {
+        "startLine": 407,
+        "startChar": 3,
+        "endLine": 412,
+        "endChar": 26
+      },
+      "revId": "f85359ad1fd531d1a2ca72ef07a1d1f512574612",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d7d94be2_a6ff3fdd",
+        "filename": "extensions/phal/phal_error.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-05-24T05:44:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d0f8daad_8704d000",
       "range": {
         "startLine": 407,
         "startChar": 3,
@@ -169,6 +307,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3fdadcc4_d75f6d85",
+        "filename": "util.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-05-24T05:44:07Z",
+      "side": 1,
+      "message": "not sure why PEL\u0027s will be created when system is in \"Off\" and \"Quiesced\" state? Do you mean state moved to these while PEL;s are created?",
+      "parentUuid": "571245b5_59f46f07",
+      "revId": "f85359ad1fd531d1a2ca72ef07a1d1f512574612",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cb3dde11_fc75451d",
         "filename": "util.hpp",
         "patchSetId": 2
@@ -180,6 +336,24 @@
       "writtenOn": "2022-05-24T04:15:52Z",
       "side": 1,
       "message": "Please update default case details , incase state check failed.better to return false in this case.",
+      "revId": "f85359ad1fd531d1a2ca72ef07a1d1f512574612",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ccc0a627_08862c1f",
+        "filename": "util.hpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-05-24T05:44:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb3dde11_fc75451d",
       "revId": "f85359ad1fd531d1a2ca72ef07a1d1f512574612",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
