@@ -1,0 +1,187 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "776217cb_d329b1d0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-05-24T04:15:52Z",
+      "side": 1,
+      "message": "Start with PHAL:",
+      "revId": "f85359ad1fd531d1a2ca72ef07a1d1f512574612",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2405920c_4591c561",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-05-24T04:15:52Z",
+      "side": 1,
+      "message": "??",
+      "range": {
+        "startLine": 11,
+        "startChar": 21,
+        "endLine": 11,
+        "endChar": 26
+      },
+      "revId": "f85359ad1fd531d1a2ca72ef07a1d1f512574612",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "854e5b44_e5b1adbe",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-05-24T04:15:52Z",
+      "side": 1,
+      "message": "Don\u0027t use ibm specific system names \nchange to xxxx",
+      "range": {
+        "startLine": 15,
+        "startChar": 5,
+        "endLine": 15,
+        "endChar": 13
+      },
+      "revId": "f85359ad1fd531d1a2ca72ef07a1d1f512574612",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c826853_5ff3ea6b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-05-24T04:15:52Z",
+      "side": 1,
+      "message": "Don\u0027t use ibm specific system names \nchange to xxxx",
+      "range": {
+        "startLine": 29,
+        "startChar": 5,
+        "endLine": 29,
+        "endChar": 13
+      },
+      "revId": "f85359ad1fd531d1a2ca72ef07a1d1f512574612",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c80f2b81_59b7bff4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-05-24T04:15:52Z",
+      "side": 1,
+      "message": "Can you verify poweron path failure , and make sure the pel is inlcuded callout/correct severity. Not required to add details here , just  test verification note is good.",
+      "revId": "f85359ad1fd531d1a2ca72ef07a1d1f512574612",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "469f385c_1e9246cd",
+        "filename": "extensions/phal/create_pel.hpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-05-24T04:15:52Z",
+      "side": 1,
+      "message": "Since this common API\u0027 Need to initialize the error with Informational , and user can decide the severity while logging error. This will help to avoid un necessary serviceable events.\n\nReview all the existing use case and make sure passing the correct seevrity. thread_stopall.cpp required information error oter cases unrecoverable is good.",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 61
+      },
+      "revId": "f85359ad1fd531d1a2ca72ef07a1d1f512574612",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d0f8daad_8704d000",
+        "filename": "extensions/phal/phal_error.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-05-24T04:15:52Z",
+      "side": 1,
+      "message": "Keep one meaningful  log  message.",
+      "range": {
+        "startLine": 407,
+        "startChar": 3,
+        "endLine": 412,
+        "endChar": 26
+      },
+      "revId": "f85359ad1fd531d1a2ca72ef07a1d1f512574612",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "571245b5_59f46f07",
+        "filename": "util.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-05-24T04:15:52Z",
+      "side": 1,
+      "message": "Need to include \"off\"and \"Quiesced\" state also.\n@andrew is this check is good to see Host is in poweroff/transition state?",
+      "revId": "f85359ad1fd531d1a2ca72ef07a1d1f512574612",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb3dde11_fc75451d",
+        "filename": "util.hpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-05-24T04:15:52Z",
+      "side": 1,
+      "message": "Please update default case details , incase state check failed.better to return false in this case.",
+      "revId": "f85359ad1fd531d1a2ca72ef07a1d1f512574612",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
