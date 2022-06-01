@@ -13,7 +13,7 @@ ConditionPathExists=!/run/openbmc/mpreboot@%i
 [Service]
 RemainAfterExit=yes
 Type=oneshot
-TimeoutStartSec=10
+TimeoutStartSec=15
 ExecStart=/usr/bin/openpower-proc-control threadStopAll
 
 [Install]
