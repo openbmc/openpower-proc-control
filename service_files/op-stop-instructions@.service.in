@@ -1,8 +1,6 @@
 [Unit]
 Description=Stop instructions for host%i
-Wants=obmc-host-stop-pre@%i.target
 After=obmc-host-stop-pre@%i.target
-Wants=obmc-host-stopping@%i.target
 Before=obmc-host-stopping@%i.target
 After=op-occ-disable@%i.service
 After=openpower-update-bios-attr-table.service
