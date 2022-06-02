@@ -180,8 +180,7 @@ uint32_t createSbeErrorPEL(const std::string& event, const sbeError_t& sbeError,
     std::unique_ptr<FFDCFile> FFDCFilePtr;
     try
     {
-        if (((event == "org.open_power.Processor.Error.SbeBootTimeout") ||
-             (event == "org.open_power.Processor.Error.SbeChipOpTimeout")) &&
+        if ((event == "org.open_power.Processor.Error.SbeBootTimeout") &&
             (severity == Severity::Error))
         {
             json jsonCalloutDataList;
