@@ -150,7 +150,7 @@ void enterMpReboot()
         {
             log<level::ERR>("Could not read HWAS_STATE attribute");
         }
-        if (!hwasState.functional)
+        // if (!hwasState.functional)
         {
             continue;
         }
@@ -171,6 +171,15 @@ void enterMpReboot()
         {
             pidList.push_back(std::move(pid));
         }
+    }
+
+    // if no functional proc found exit with failure
+    if (pidList.size() == 0)
+    {
+        log<level::ERR>("EnterMPReboot is not executed on any procs");
+        openpower::pel::createPEL(
+            "org.open_power.Processor.Error.MemoryPreservingReboot");
+        std::exit(EXIT_FAILURE);
     }
 
     for (auto& p : pidList)
