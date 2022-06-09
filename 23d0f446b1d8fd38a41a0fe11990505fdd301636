@@ -24,6 +24,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "12cf9587_aa140ab4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-06-09T12:58:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b818c60b_b3b15920",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 9
+      },
+      "revId": "23d0f446b1d8fd38a41a0fe11990505fdd301636",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "302a64ad_983cb92e",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-06-09T09:49:51Z",
       "side": 1,
       "message": "Is this fix for some issue? \nPrimary processor never marks non functional by BMC. Theoretically one functional processor will be available during the mpipl request.\nAdd some background on this.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 14
+      },
+      "revId": "23d0f446b1d8fd38a41a0fe11990505fdd301636",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b5a17bc_300b20a5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-06-09T12:58:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "302a64ad_983cb92e",
       "range": {
         "startLine": 9,
         "startChar": 0,
