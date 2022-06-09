@@ -70,6 +70,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "380cb030_7d49348d",
+        "filename": "procedures/phal/enter_mpreboot.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-06-09T12:58:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6a470029_698a223a",
+      "range": {
+        "startLine": 56,
+        "startChar": 3,
+        "endLine": 56,
+        "endChar": 21
+      },
+      "revId": "23d0f446b1d8fd38a41a0fe11990505fdd301636",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d39bdaf9_fd9be901",
@@ -83,6 +107,30 @@
       "writtenOn": "2022-06-09T08:44:32Z",
       "side": 1,
       "message": "MPReboot",
+      "range": {
+        "startLine": 57,
+        "startChar": 21,
+        "endLine": 57,
+        "endChar": 31
+      },
+      "revId": "23d0f446b1d8fd38a41a0fe11990505fdd301636",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "69afe96d_11b93cc4",
+        "filename": "procedures/phal/enter_mpreboot.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-06-09T12:58:36Z",
+      "side": 1,
+      "message": "jayanth above want me to remove this trae",
+      "parentUuid": "d39bdaf9_fd9be901",
       "range": {
         "startLine": 57,
         "startChar": 21,
@@ -110,6 +158,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d187d56_45185a48",
+        "filename": "procedures/phal/enter_mpreboot.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-06-09T12:58:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ca22b6db_f1070fa4",
+      "revId": "23d0f446b1d8fd38a41a0fe11990505fdd301636",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d70d1bb8_8a1829b2",
@@ -123,6 +189,24 @@
       "writtenOn": "2022-06-09T08:44:32Z",
       "side": 1,
       "message": "MPReboot",
+      "revId": "23d0f446b1d8fd38a41a0fe11990505fdd301636",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a6142a92_8af9583a",
+        "filename": "procedures/phal/enter_mpreboot.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-06-09T12:58:36Z",
+      "side": 1,
+      "message": "jayanth above want me to remove this",
+      "parentUuid": "d70d1bb8_8a1829b2",
       "revId": "23d0f446b1d8fd38a41a0fe11990505fdd301636",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -157,6 +241,42 @@
       "writtenOn": "2022-06-09T09:49:51Z",
       "side": 1,
       "message": "you should create PEL here.",
+      "revId": "23d0f446b1d8fd38a41a0fe11990505fdd301636",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b7c6d25_c0c888e5",
+        "filename": "procedures/phal/enter_mpreboot.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-06-09T12:58:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "96ca2fe5_c8b830f8",
+      "revId": "23d0f446b1d8fd38a41a0fe11990505fdd301636",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6eea8a7a_f4e7baa0",
+        "filename": "procedures/phal/enter_mpreboot.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-06-09T12:58:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bab8d184_fe3aa957",
       "revId": "23d0f446b1d8fd38a41a0fe11990505fdd301636",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
