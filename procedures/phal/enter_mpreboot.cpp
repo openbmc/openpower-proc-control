@@ -173,6 +173,14 @@ void enterMpReboot()
         }
     }
 
+    // if no functional proc found exit with failure
+    if (pidList.size() == 0)
+    {
+        log<level::ERR>("EnterMPReboot is not executed on any procs");
+        openpower::pel::createPEL("org.open_power.PHAL.Error.MPReboot");
+        std::exit(EXIT_FAILURE);
+    }
+
     for (auto& p : pidList)
     {
         int status = 0;
