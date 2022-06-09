@@ -3,6 +3,75 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b818c60b_b3b15920",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-06-09T09:49:51Z",
+      "side": 1,
+      "message": "Chnage to PHAL: mpreboot",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 9
+      },
+      "revId": "23d0f446b1d8fd38a41a0fe11990505fdd301636",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "302a64ad_983cb92e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-06-09T09:49:51Z",
+      "side": 1,
+      "message": "Is this fix for some issue? \nPrimary processor never marks non functional by BMC. Theoretically one functional processor will be available during the mpipl request.\nAdd some background on this.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 14
+      },
+      "revId": "23d0f446b1d8fd38a41a0fe11990505fdd301636",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a470029_698a223a",
+        "filename": "procedures/phal/enter_mpreboot.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-06-09T09:49:51Z",
+      "side": 1,
+      "message": "Not required :  mpiplEnter function already logging same info.",
+      "range": {
+        "startLine": 56,
+        "startChar": 3,
+        "endLine": 56,
+        "endChar": 21
+      },
+      "revId": "23d0f446b1d8fd38a41a0fe11990505fdd301636",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d39bdaf9_fd9be901",
         "filename": "procedures/phal/enter_mpreboot.cpp",
         "patchSetId": 1
@@ -20,6 +89,23 @@
         "endLine": 57,
         "endChar": 31
       },
+      "revId": "23d0f446b1d8fd38a41a0fe11990505fdd301636",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca22b6db_f1070fa4",
+        "filename": "procedures/phal/enter_mpreboot.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-06-09T09:49:51Z",
+      "side": 1,
+      "message": "This is not required , pdbg keeps the blue print cerion of the processor target. incase the processor not physically present also this log message prints. existing log information is suffeint for debugging to mpipl is triggers on any processor not.",
       "revId": "23d0f446b1d8fd38a41a0fe11990505fdd301636",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
@@ -54,6 +140,23 @@
       "writtenOn": "2022-06-09T08:44:32Z",
       "side": 1,
       "message": "IMO: EnterMPReboot is not executed on any procs",
+      "revId": "23d0f446b1d8fd38a41a0fe11990505fdd301636",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bab8d184_fe3aa957",
+        "filename": "procedures/phal/enter_mpreboot.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-06-09T09:49:51Z",
+      "side": 1,
+      "message": "you should create PEL here.",
       "revId": "23d0f446b1d8fd38a41a0fe11990505fdd301636",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
