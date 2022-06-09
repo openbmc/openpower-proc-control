@@ -53,7 +53,8 @@ void sbeEnterMpReboot(struct pdbg_target* tgt)
     using namespace openpower::phal::sbe;
     using namespace openpower::phal::exception;
     using namespace phosphor::logging;
-
+    log<level::INFO>(
+        fmt::format("EnterMPIPL: proc({}) ", pdbg_target_index(tgt)).c_str());
     try
     {
         mpiplEnter(tgt);
@@ -152,6 +153,10 @@ void enterMpReboot()
         }
         if (!hwasState.functional)
         {
+            log<level::INFO>(
+                fmt::format("EnterMPIPL proc({}) not functional, ignoring",
+                            pdbg_target_index(target))
+                    .c_str());
             continue;
         }
 
@@ -171,6 +176,13 @@ void enterMpReboot()
         {
             pidList.push_back(std::move(pid));
         }
+    }
+
+    // if no functional proc found exit with failure
+    if (pidList.size() == 0)
+    {
+        log<level::ERR>("EnterMPIPL no functional proc found, exiting");
+        std::exit(EXIT_FAILURE);
     }
 
     for (auto& p : pidList)
