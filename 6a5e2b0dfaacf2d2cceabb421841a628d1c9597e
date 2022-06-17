@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "9fae94e8_a65993a4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-06-17T09:06:29Z",
+      "side": 1,
+      "message": "Please add description ( why this chnage introduced ? )  and tested details.",
+      "revId": "6a5e2b0dfaacf2d2cceabb421841a628d1c9597e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "5f89ae17_944d9cb0",
