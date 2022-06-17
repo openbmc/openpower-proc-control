@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f89ae17_944d9cb0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2022-06-17T01:19:26Z",
+      "side": 1,
+      "message": "Be nice to have a Tested: in the commit message just to be sure we didn\u0027t miss something obvious.",
+      "revId": "6a5e2b0dfaacf2d2cceabb421841a628d1c9597e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
