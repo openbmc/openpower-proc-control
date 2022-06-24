@@ -35,7 +35,7 @@ NMI::NMI(sdbusplus::bus::bus& bus, const char* path) :
     Interface(bus, path), bus(bus), objectPath(path)
 {}
 
-void NMI::nmi()
+void NMI::nmi(const NMISource src)
 {
     using namespace phosphor::logging;
     using InternalFailure =
@@ -52,6 +52,7 @@ void NMI::nmi()
         {
             log<level::ERR>("Failed to stop all threads");
             report<InternalFailure>();
+            lastNMISource(NMISource::None);
             return;
         }
     }
@@ -60,7 +61,11 @@ void NMI::nmi()
     {
         log<level::ERR>("Failed to sreset all threads");
         report<InternalFailure>();
+        lastNMISource(NMISource::None);
+        return;
     }
+
+    lastNMISource(src);
 }
 } // namespace proc
 } // namespace openpower
