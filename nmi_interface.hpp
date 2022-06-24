@@ -33,7 +33,7 @@ class NMI : public Interface
 
     /*  @brief trigger stop followed by soft reset.
      */
-    void nmi() override;
+    void nmi(const NMISource src) override;
 
   private:
     /** @brief sdbus handle */
