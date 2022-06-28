@@ -328,6 +328,83 @@ void processNonFunctionalBootProc()
     reset();
 }
 
+void processClockInfoErrorHelper(FFDC* ffdc)
+{
+    try
+    {
+        log<level::INFO>(
+            fmt::format("processClockInfoErrorHelper: FFDC Message[{}]",
+                        ffdc->message)
+                .c_str());
+
+        // To store callouts details in json format as per pel expectation.
+        json jsonCalloutDataList;
+        jsonCalloutDataList = json::array();
+
+        // To store phal trace and other additional data about ffdc.
+        FFDCData pelAdditionalData;
+
+        // Adding hardware procedures return code details
+        pelAdditionalData.emplace_back("HWP_RC", ffdc->hwp_errorinfo.rc);
+        pelAdditionalData.emplace_back("HWP_RC_DESC",
+                                       ffdc->hwp_errorinfo.rc_desc);
+
+        // Adding hardware procedures required ffdc data for debug
+        for_each(ffdc->hwp_errorinfo.ffdcs_data.begin(),
+                 ffdc->hwp_errorinfo.ffdcs_data.end(),
+                 [&pelAdditionalData](
+                     std::pair<std::string, std::string>& ele) -> void {
+                     std::string keyWithPrefix("HWP_FFDC_");
+                     keyWithPrefix.append(ele.first);
+
+                     pelAdditionalData.emplace_back(keyWithPrefix, ele.second);
+                 });
+        // get clock position information
+        auto clk_pos = 0xFF; // Invalid position.
+        for (auto& hwCallout : ffdc->hwp_errorinfo.hwcallouts)
+        {
+            if ((hwCallout.hwid == "PROC_REF_CLOCK") ||
+                (hwCallout.hwid == "PCI_REF_CLOCK"))
+            {
+                clk_pos = hwCallout.clkPos;
+                break;
+            }
+        }
+
+        // Adding CDG (Only deconfigure) targets details
+        for_each(ffdc->hwp_errorinfo.cdg_targets.begin(),
+                 ffdc->hwp_errorinfo.cdg_targets.end(),
+                 [&pelAdditionalData, &jsonCalloutDataList,
+                  clk_pos](const CDG_Target& cdg_tgt) -> void {
+                     json jsonCalloutData;
+                     std::string pelPriority = "H";
+                     jsonCalloutData["Priority"] = pelPriority; // Not used
+                     jsonCalloutData["SymbolicFRU"] =
+                         "clock-" + std::to_string(clk_pos);
+                     jsonCalloutData["Deconfigured"] = cdg_tgt.deconfigure;
+                     jsonCalloutData["EntityPath"] = cdg_tgt.target_entity_path;
+                     jsonCalloutDataList.emplace_back(jsonCalloutData);
+                 });
+
+        // Adding collected phal logs into PEL additional data
+        for_each(traceLog.begin(), traceLog.end(),
+                 [&pelAdditionalData](
+                     std::pair<std::string, std::string>& ele) -> void {
+                     pelAdditionalData.emplace_back(ele.first, ele.second);
+                 });
+
+        openpower::pel::createErrorPEL("org.open_power.PHAL.Error.SpareClock",
+                                       jsonCalloutDataList, pelAdditionalData,
+                                       Severity::Informational);
+    }
+    catch (const std::exception& ex)
+    {
+        reset();
+        throw ex;
+    }
+    reset();
+}
+
 void processIplErrorCallback(const ipl_error_info& errInfo)
 {
     log<level::INFO>(
@@ -461,6 +538,12 @@ void processBootErrorHelper(FFDC* ffdc, const std::string& ffdc_prefix)
             fmt::format("PHAL FFDC: Return Message[{}]", ffdc->message)
                 .c_str());
 
+        // Special handling for spare clock related errors.
+        if (ffdc->ffdc_type == FFDC_TYPE_SPARE_CLOCK_INFO)
+        {
+            processClockInfoErrorHelper(ffdc);
+            return;
+        }
         // To store callouts details in json format as per pel expectation.
         json jsonCalloutDataList;
         jsonCalloutDataList = json::array();
@@ -864,6 +947,7 @@ void pDBGLogTraceCallbackHelper(int, const char* fmt, va_list ap)
 {
     processLogTraceCallback(NULL, fmt, ap);
 }
+
 } // namespace detail
 
 static inline uint8_t getLogLevelFromEnv(const char* env, const uint8_t dValue)
