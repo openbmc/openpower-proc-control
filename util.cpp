@@ -31,7 +31,7 @@ std::string getService(sdbusplus::bus::bus& bus, const std::string& objectPath,
     {
         log<level::ERR>(fmt::format("D-Bus call exception OBJPATH={}"
                                     "INTERFACE={}  EXCEPTION={}",
-                                    mapperObjectPath, mapperInterface, e.what())
+                                    objectPath, interface, e.what())
                             .c_str());
 
         throw std::runtime_error("Service name is not found");
