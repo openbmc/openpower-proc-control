@@ -16,6 +16,24 @@
       "message": "i think we should do similar to processBootErrorHelper.\nthis functions should have a key_prefix input, and we have to use that to print values",
       "revId": "608c625e04e262a5493ad68a4b7096e79ca48567",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a5ec002_e6232b1c",
+        "filename": "extensions/phal/phal_error.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-07-05T05:14:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "85dc5791_eacad3ec",
+      "revId": "608c625e04e262a5493ad68a4b7096e79ca48567",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
