@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6aed4cf6_ea2b0664",
+        "filename": "extensions/phal/phal_error.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-07-05T12:13:06Z",
+      "side": 1,
+      "message": "what does Not used mean?\njsonCalloutData[\"Priority\"] \u003d \"H\"; \ncan we assign directly",
+      "revId": "cd6ecfb699163b403b823aa73d4d3597201bdc6e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
