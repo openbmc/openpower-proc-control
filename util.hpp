@@ -17,7 +17,7 @@ namespace util
  *
  * @return service name on success and exception on failure
  */
-std::string getService(sdbusplus::bus::bus& bus, const std::string& objectPath,
+std::string getService(sdbusplus::bus_t& bus, const std::string& objectPath,
                        const std::string& interface);
 
 /**

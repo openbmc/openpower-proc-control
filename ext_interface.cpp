@@ -28,7 +28,7 @@ using namespace phosphor::logging;
  *
  * @return distinct dbus name for input interface/path
  **/
-std::string getService(sdbusplus::bus::bus& bus, const std::string& intf,
+std::string getService(sdbusplus::bus_t& bus, const std::string& intf,
                        const std::string& path)
 {
 

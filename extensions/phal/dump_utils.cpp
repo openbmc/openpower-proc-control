@@ -22,8 +22,8 @@ using namespace phosphor::logging;
  * @param[out] inProgress Used to break out of our dbus wait loop
  * @reutn Always non-zero indicating no error, no cascading callbacks
  */
-uint32_t dumpStatusChanged(sdbusplus::message::message& msg,
-                           const std::string& path, bool& inProgress)
+uint32_t dumpStatusChanged(sdbusplus::message_t& msg, const std::string& path,
+                           bool& inProgress)
 {
     // reply (msg) will be a property change message
     std::string interface;
@@ -108,7 +108,7 @@ void requestDump(const DumpParameters& dumpParameters)
     constexpr auto interface = "xyz.openbmc_project.Dump.Create";
     constexpr auto function = "CreateDump";
 
-    sdbusplus::message::message method;
+    sdbusplus::message_t method;
 
     auto bus = sdbusplus::bus::new_default();
 
@@ -140,7 +140,7 @@ void requestDump(const DumpParameters& dumpParameters)
         // monitor dump progress
         monitorDump(reply, dumpParameters.timeout);
     }
-    catch (const sdbusplus::exception::exception& e)
+    catch (const sdbusplus::exception_t& e)
     {
         log<level::ERR>(fmt::format("D-Bus call createDump exception",
                                     "OBJPATH={}, INTERFACE={}, EXCEPTION={}",

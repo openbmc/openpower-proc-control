@@ -31,7 +31,7 @@ namespace openpower
 namespace proc
 {
 
-NMI::NMI(sdbusplus::bus::bus& bus, const char* path) :
+NMI::NMI(sdbusplus::bus_t& bus, const char* path) :
     Interface(bus, path), bus(bus), objectPath(path)
 {}
 

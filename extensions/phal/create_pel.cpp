@@ -115,7 +115,7 @@ void createErrorPEL(const std::string& event, const json& calloutData,
         method.append(event, level, additionalData, pelCalloutInfo);
         auto resp = bus.call(method);
     }
-    catch (const sdbusplus::exception::exception& e)
+    catch (const sdbusplus::exception_t& e)
     {
         log<level::ERR>(
             fmt::format("D-Bus call exception",
@@ -222,7 +222,7 @@ uint32_t createSbeErrorPEL(const std::string& event, const sbeError_t& sbeError,
         response.read(reply);
         plid = std::get<1>(reply); // platform log id is tuple "second"
     }
-    catch (const sdbusplus::exception::exception& e)
+    catch (const sdbusplus::exception_t& e)
     {
         log<level::ERR>(fmt::format("D-Bus call exception",
                                     "OBJPATH={}, INTERFACE={}, EXCEPTION={}",
@@ -263,7 +263,7 @@ void createPEL(const std::string& event, const FFDCData& ffdcData)
         method.append(event, level, additionalData);
         auto resp = bus.call(method);
     }
-    catch (const sdbusplus::exception::exception& e)
+    catch (const sdbusplus::exception_t& e)
     {
         log<level::ERR>(fmt::format("sdbusplus D-Bus call exception",
                                     "OBJPATH={}, INTERFACE={}, EXCEPTION={}",

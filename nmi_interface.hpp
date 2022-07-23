@@ -10,7 +10,7 @@ namespace proc
 {
 
 using Base = sdbusplus::xyz::openbmc_project::Control::Host::server::NMI;
-using Interface = sdbusplus::server::object::object<Base>;
+using Interface = sdbusplus::server::object_t<Base>;
 
 /*  @class NMI
  *  @brief Implementation of NMI (Soft Reset)
@@ -29,7 +29,7 @@ class NMI : public Interface
      *  @param[in] bus - sdbusplus D-Bus to attach to.
      *  @param[in] path - Path to attach to.
      */
-    NMI(sdbusplus::bus::bus& bus, const char* path);
+    NMI(sdbusplus::bus_t& bus, const char* path);
 
     /*  @brief trigger stop followed by soft reset.
      */
@@ -37,7 +37,7 @@ class NMI : public Interface
 
   private:
     /** @brief sdbus handle */
-    sdbusplus::bus::bus& bus;
+    sdbusplus::bus_t& bus;
 
     /** @brief object path */
     std::string objectPath;
