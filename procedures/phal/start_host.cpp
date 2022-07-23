@@ -118,7 +118,7 @@ void setClkNETerminationSite()
         auto result = bus.call(properties);
         result.read(val);
     }
-    catch (const sdbusplus::exception::exception& e)
+    catch (const sdbusplus::exception_t& e)
     {
         log<level::ERR>("Get HW Keyword read from VINI Failed");
         throw std::runtime_error("Get HW Keyword read from VINI Failed");
@@ -264,7 +264,7 @@ static bool allowHwIsolation()
                                                {{"REASON_FOR_PEL", trace}});
         }
     }
-    catch (const sdbusplus::exception::exception& e)
+    catch (const sdbusplus::exception_t& e)
     {
         const auto trace{fmt::format(
             "Exception [{}] to get the HardwareIsolation policy "

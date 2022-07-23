@@ -12,7 +12,7 @@ namespace util
 {
 using namespace phosphor::logging;
 
-std::string getService(sdbusplus::bus::bus& bus, const std::string& objectPath,
+std::string getService(sdbusplus::bus_t& bus, const std::string& objectPath,
                        const std::string& interface)
 {
     constexpr auto mapperBusBame = "xyz.openbmc_project.ObjectMapper";
@@ -27,7 +27,7 @@ std::string getService(sdbusplus::bus::bus& bus, const std::string& objectPath,
         auto reply = bus.call(method);
         reply.read(response);
     }
-    catch (const sdbusplus::exception::exception& e)
+    catch (const sdbusplus::exception_t& e)
     {
         log<level::ERR>(fmt::format("D-Bus call exception OBJPATH={}"
                                     "INTERFACE={}  EXCEPTION={}",

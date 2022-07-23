@@ -33,7 +33,7 @@ using PropertyMap = std::map<PropertyName, Attributes>;
 using InterfaceName = std::string;
 using InterfaceMap = std::map<InterfaceName, PropertyMap>;
 
-void Watch::fwIntfAddedCallback(sdbusplus::message::message& msg)
+void Watch::fwIntfAddedCallback(sdbusplus::message_t& msg)
 {
     //  DBusInterfaceAdded interfaces;
     sdbusplus::message::object_path objectPath;
@@ -43,7 +43,7 @@ void Watch::fwIntfAddedCallback(sdbusplus::message::message& msg)
     {
         msg.read(objectPath, interfaceMap);
     }
-    catch (const sdbusplus::exception::exception& e)
+    catch (const sdbusplus::exception_t& e)
     {
         log<level::ERR>(fmt::format("Failed to parse software add signal"
                                     "Exception [{}] REPLY_SIG [{}]",

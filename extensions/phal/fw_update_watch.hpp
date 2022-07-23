@@ -40,7 +40,7 @@ class Watch
      *  @param[in] bus -  The Dbus bus object
      */
 
-    Watch(sdbusplus::bus::bus& bus) :
+    Watch(sdbusplus::bus_t& bus) :
         addMatch(bus,
                  sdbusplus::bus::match::rules::interfacesAdded() +
                      sdbusplus::bus::match::rules::path(OBJ_SOFTWARE),
@@ -73,7 +73,7 @@ class Watch
      *
      *  @param[in] msg  - Data associated with subscribed signal
      */
-    void fwIntfAddedCallback(sdbusplus::message::message& msg);
+    void fwIntfAddedCallback(sdbusplus::message_t& msg);
 
     /** @brief sdbusplus signal match for software path add */
     sdbusplus::bus::match_t addMatch;

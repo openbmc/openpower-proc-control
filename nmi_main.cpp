@@ -30,7 +30,7 @@ int main(int, char*[])
     pdbg_targets_init(NULL);
 
     // Add sdbusplus ObjectManager
-    sdbusplus::server::manager::manager objManager(bus, BUSPATH_NMI);
+    sdbusplus::server::manager_t objManager(bus, BUSPATH_NMI);
     openpower::proc::NMI NMI(bus, BUSPATH_NMI);
     bus.request_name(BUSNAME_NMI);
 
