@@ -107,6 +107,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ac30916_70f63969",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1000369
+      },
+      "writtenOn": "2022-08-10T19:27:10Z",
+      "side": 1,
+      "message": "Test case for stopping attention handler via op-stop-instructions service was verified by normal shutdown and journal entries.\nTest case for restarting attention handler during MPIPL enter sequence was verified by MPIPL and journal entries.\n                                                                                 \nBefore change to op-stop-instructions (and attn_handler) service                 \ngraceful shutdown - attention handler stopped during soft-off                    \nAug 10 13:22:28 rain135bmc phosphor-host-state-manager[756]: Host state transition request of xyz.openbmc_project.State.Host.Transition.Off\nAug 10 13:22:28 rain135bmc systemd[1]: Stopping The Attention Handler service... \nAug 10 13:22:29 rain135bmc systemd[1]: Starting PLDM soft power off app...       \nAug 10 13:22:29 rain135bmc systemd[1]: Stopped The Attention Handler service.    \n^^^ change moves this from here                                                   \nAug 10 13:22:38 rain135bmc systemd[1]: Finished PLDM soft power off app.         \nAug 10 13:22:38 rain135bmc systemd[1]: Reached target Stop Host0 (Pre).          \nAug 10 13:22:38 rain135bmc systemd[1]: Starting Stop instructions for host0...   \nAug 10 13:22:45 rain135bmc systemd[1]: Finished Stop instructions for host0.     \nAug 10 13:22:45 rain135bmc systemd[1]: Reached target Host0 (Stopping).          \nAug 10 13:22:45 rain135bmc systemd[1]: Reached target Host0 (Stopped).           \nAug 10 13:22:55 rain135bmc systemd[1]: Reached target Stop Host0.                 \n                                                                                 \nAfter change to op-stop-instructions (and attn_handler) service                  \ngraceful shutdown - attention handler stopped during stop-instructions           \nAug 10 17:34:28 p10bmc phosphor-host-state-manager[662]: Host state transition request of xyz.openbmc_project.State.Host.Transition.Off\nAug 10 17:34:28 p10bmc systemd[1]: Starting PLDM soft power off app...           \nAug 10 17:34:38 p10bmc systemd[1]: Finished PLDM soft power off app.             \nAug 10 17:34:38 p10bmc systemd[1]: Reached target Stop Host0 (Pre).              \nAug 10 17:34:39 p10bmc systemd[1]: Starting Stop instructions for host0...       \nAug 10 17:34:39 p10bmc systemd[1]: Stopping The Attention Handler service...     \nAug 10 17:34:39 p10bmc systemd[1]: Stopped The Attention Handler service.        \n^^^ to here                                                                      \nAug 10 17:34:45 p10bmc systemd[1]: Finished Stop instructions for host0.         \nAug 10 17:34:45 p10bmc systemd[1]: Reached target Host0 (Stopping).              \nAug 10 17:34:45 p10bmc systemd[1]: Reached target Host0 (Stopped).               \nAug 10 17:34:53 p10bmc systemd[1]: Reached target Stop Host0.                    \n                                                                                 \nAfter change to op-continue-mp-reboot service                                     \nMPIPL - attention handler is restarted during MPIPL continue                     \nAug 10 19:03:08 rain111bmc systemd[1]: Starting Continue mp reboot on host0...   \nAug 10 19:03:09 rain111bmc systemd[1]: Stopped The Attention Handler service.    \nAug 10 19:03:09 rain111bmc systemd[1]: Started The Attention Handler service.    \nAug 10 19:03:09 rain111bmc openpower-proc-control[10747]: IPL mode set to AUTOBOOT\nAug 10 19:03:09 rain111bmc openpower-proc-control[10747]: IPL type MPIPL         \nAug 10 19:03:09 rain111bmc openpower-proc-control[10747]: ipl_sbe_mpipl_continue: Enter(/proc0)\nAug 10 19:03:10 rain111bmc systemd[1]: Finished Continue mp reboot on host0.",
+      "parentUuid": "62ca157c_5d62c304",
+      "revId": "ed4b790bb73e9ebda039b8955b9d8b9dd63f842e",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "486f37a1_7b78152b",
