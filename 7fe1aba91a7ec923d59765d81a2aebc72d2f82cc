@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c3cd360e_0fbc6b10",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000369
+      },
+      "writtenOn": "2022-08-30T14:56:52Z",
+      "side": 1,
+      "message": "Without\nAug 29 14:30:53 witherspoon systemd[1]: Starting Stop instructions for host0...\nAug 29 14:30:54 witherspoon sh[716]: Failed to stop attn_handler.service: Unit attn_handler.service not loaded.\nAug 29 14:30:54 witherspoon systemd[1]: op-stop-instructions@0.service: Main process exited, code\u003dexited, status\u003d5/NOTINSTALLED\nAug 29 14:30:54 witherspoon systemd[1]: op-stop-instructions@0.service: Failed with result \u0027exit-code\u0027.\nAug 29 14:30:54 witherspoon systemd[1]: Failed to start Stop instructions for host0.\n\nWith\nAug 29 14:42:09 witherspoon systemd[1]: Starting Stop instructions for host0...\nAug 29 14:42:10 witherspoon sh[507]: Failed to stop attn_handler.service: Unit attn_handler.service not loaded.\nAug 29 14:42:10 witherspoon echo[511]: op-stop-insruction still going \u003c-- removed in commit\nAug 29 14:42:10 witherspoon systemd[1]: phosphor-reset-sensor-states@0.service: Deactivated successfully.\nAug 29 14:42:10 witherspoon systemd[1]: Finished Reset host sensors.\nAug 29 14:42:10 witherspoon systemd[1]: Finished Stop instructions for host0.",
+      "revId": "7fe1aba91a7ec923d59765d81a2aebc72d2f82cc",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
