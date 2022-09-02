@@ -3,7 +3,6 @@
 #include <fmt/format.h>
 
 #include <phosphor-logging/elog-errors.hpp>
-#include <sdeventplus/event.hpp>
 
 int main()
 {
@@ -13,15 +12,11 @@ int main()
     {
         auto bus = sdbusplus::bus::new_default();
 
-        auto event = sdeventplus::Event::get_default();
-
         // create watch for interface added in software update.
         openpower::phal::fwupdate::Watch eWatch(bus);
 
-        bus.attach_event(event.get(), SD_EVENT_PRIORITY_NORMAL);
-
         // Watch for software update
-        eventRet = event.loop();
+        bus.process_loop();
     }
     catch (const std::exception& e)
     {

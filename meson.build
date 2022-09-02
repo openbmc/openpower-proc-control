@@ -188,7 +188,6 @@ if build_phal
         dependencies: [
             dependency('phosphor-logging'),
             dependency('sdbusplus'),
-            dependency('sdeventplus'),
             dependency('fmt'),
             dependency('phosphor-dbus-interfaces'),
             cxx.find_library('pdbg'),
