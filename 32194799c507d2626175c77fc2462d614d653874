@@ -39,6 +39,24 @@
       "message": "Is there code to look at that has this new implementation? I think my main concern is whether we can end up in an endless reboot loop if SBE RC keeps swapping sides and restarting internally. We no longer have the high level reboot count protecting us from endless reboots.",
       "revId": "32194799c507d2626175c77fc2462d614d653874",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "557706c5_ee368539",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-09-07T04:52:14Z",
+      "side": 1,
+      "message": "+1",
+      "parentUuid": "3d831885_1675c648",
+      "revId": "32194799c507d2626175c77fc2462d614d653874",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
