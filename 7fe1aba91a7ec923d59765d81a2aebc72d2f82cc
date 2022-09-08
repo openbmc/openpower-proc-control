@@ -1,0 +1,9 @@
+Verified+1: OpenBMC CI <openbmcbump-ci@yahoo.com>
+Code-Review+1: Andrew Geissler <andrew@geissonator.com>
+Code-Review+1: Zane Shelley <zshelle@us.ibm.com>
+Code-Review+2: Jayanth Othayoth <ojayanth@gmail.com>
+Submitted-by: Jayanth Othayoth <ojayanth@gmail.com>
+Submitted-at: Thu, 08 Sep 2022 15:18:22 +0000
+Reviewed-on: https://gerrit.openbmc.org/c/openbmc/openpower-proc-control/+/56870
+Project: openbmc/openpower-proc-control
+Branch: refs/heads/master
