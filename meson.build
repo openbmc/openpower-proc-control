@@ -196,6 +196,27 @@ if build_phal
        ],
        install: true
    )
+
+   executable(
+       'openpower-clock-data-logger',
+       [
+            'extensions/phal/clock_logger_main.cpp',
+            'extensions/phal/clock_logger.cpp',
+            'extensions/phal/clock_logger.hpp',
+            'extensions/phal/create_pel.cpp',
+            'util.cpp',
+       ],
+       dependencies: [
+             cxx.find_library('dtree'),
+             cxx.find_library('pdbg'),
+             cxx.find_library('phal'),
+             dependency('libdt-api'),
+             dependency('phosphor-logging'),
+             dependency('sdbusplus'),
+             dependency('sdeventplus'),
+       ],
+       install: true
+)
 endif
 
 unit_files = [
