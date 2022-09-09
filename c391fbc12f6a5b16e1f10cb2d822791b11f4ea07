@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "64a09ee5_15468d5d",
+        "filename": "extensions/phal/clock_logger.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2022-09-09T15:00:21Z",
+      "side": 1,
+      "message": "Wouldn\u0027t you always want to create the first log 24 hours after power on, meaning you\u0027d have to watch that property?",
+      "revId": "c391fbc12f6a5b16e1f10cb2d822791b11f4ea07",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b74b96e_f64931e9",
+        "filename": "extensions/phal/clock_logger.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2022-09-09T15:00:21Z",
+      "side": 1,
+      "message": "since this  is a new application, you may as well start off using lg2?",
+      "range": {
+        "startLine": 48,
+        "startChar": 7,
+        "endLine": 48,
+        "endChar": 23
+      },
+      "revId": "c391fbc12f6a5b16e1f10cb2d822791b11f4ea07",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
