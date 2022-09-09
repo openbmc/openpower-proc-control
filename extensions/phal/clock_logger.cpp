@@ -150,10 +150,45 @@ void Manager::createClockDataLog()
         ssECVal << "0x" << std::setfill('0') << std::setw(10) << std::hex
                 << (uint16_t)ecVal;
         clockDataLog.push_back(std::make_pair(ssEC.str(), ssECVal.str()));
+
+        // Add CFAM register information.
+        addCFAMData(procTarget, clockDataLog);
     }
 
     openpower::pel::createPEL("org.open_power.PHAL.Info.ClockDailyLog",
                               clockDataLog);
+}
+
+void Manager::addCFAMData(struct pdbg_target* proc,
+                          openpower::pel::FFDCData& clockDataLog)
+{
+
+    // collect Processor CFAM register data
+    std::vector<int> procCFAMAddr = {0x1007, 0x2804, 0x2810, 0x2813, 0x2814,
+                                     0x2815, 0x2816, 0x281D, 0x281E};
+
+    auto index = std::to_string(pdbg_target_index(proc));
+
+    for (int addr : procCFAMAddr)
+    {
+        auto val = 0xDEADBEEF;
+        try
+        {
+            val = openpower::phal::pdbg::getCFAM(proc, addr);
+        }
+        catch (const std::exception& e)
+        {
+            error("getCFAM on {TARGET} thrown exception({ERROR}): Addr ({REG})",
+                  "TARGET", pdbg_target_path(proc), "ERROR", e.what(), "REG",
+                  addr);
+        }
+        std::stringstream ssData;
+        ssData << "0x" << std::setfill('0') << std::setw(8) << std::hex << val;
+        std::stringstream ssAddr;
+        ssAddr << "Proc" << index << " REG 0x" << std::hex << addr;
+        // update the data
+        clockDataLog.push_back(make_pair(ssAddr.str(), ssData.str()));
+    }
 }
 
 } // namespace openpower::phal::clock
