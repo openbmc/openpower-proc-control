@@ -4,6 +4,8 @@
 
 #include <phosphor-logging/elog.hpp>
 
+#include <sstream>
+#include <variant>
 #include <vector>
 
 namespace openpower
@@ -89,5 +91,40 @@ bool isHostPoweringOff()
     }
     return false;
 }
+
+std::string getChassisPowerState()
+{
+    std::string powerState{};
+    try
+    {
+        auto bus = sdbusplus::bus::new_default();
+        auto properties =
+            bus.new_method_call("xyz.openbmc_project.State.Chassis",
+                                "/xyz/openbmc_project/state/chassis0",
+                                "org.freedesktop.DBus.Properties", "Get");
+        properties.append("xyz.openbmc_project.State.Chassis");
+        properties.append("CurrentPowerState");
+        auto result = bus.call(properties);
+        std::variant<std::string> val;
+        result.read(val);
+        if (auto pVal = std::get_if<std::string>(&val))
+        {
+            powerState = *pVal;
+        }
+    }
+
+    catch (const std::exception& ex)
+    {
+        log<level::ERR>(
+            fmt::format("Failed to read CurrentPowerState property ({})",
+                        ex.what())
+                .c_str());
+    }
+
+    log<level::DEBUG>(fmt::format("Power state is: {} ", powerState).c_str());
+
+    return powerState;
+}
+
 } // namespace util
 } // namespace openpower

@@ -28,5 +28,11 @@ std::string getService(sdbusplus::bus_t& bus, const std::string& objectPath,
  */
 bool isHostPoweringOff();
 
+/**
+ * @brief Returns the power state for chassis0
+ * @return The chassis power state.
+ */
+std::string getChassisPowerState();
+
 } // namespace util
 } // namespace openpower
