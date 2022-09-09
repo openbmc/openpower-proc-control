@@ -66,6 +66,15 @@ class Manager
      */
     void createClockDataLog();
 
+    /**
+     * @brief Add processor specific CFAM data to daily logger.
+     *
+     * @param[in] proc - pdbg processor target
+     * @param[out] ffdcData - reference to clock data log
+     */
+    void addCFAMData(struct pdbg_target* proc,
+                     openpower::pel::FFDCData& clockDataLog);
+
   private:
     /* The sdeventplus even loop to use */
     sdeventplus::Event _event;
