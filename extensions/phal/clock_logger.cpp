@@ -155,6 +155,9 @@ void Manager::createClockDataLog()
         addCFAMData(procTarget, clockDataLog);
     }
 
+    // Add clock register information
+    addClockRegData(clockDataLog);
+
     openpower::pel::createPEL("org.open_power.PHAL.Info.ClockDailyLog",
                               clockDataLog);
 }
@@ -187,6 +190,82 @@ void Manager::addCFAMData(struct pdbg_target* proc,
         ssAddr << "Proc" << index << " REG 0x" << std::hex << addr;
         // update the data
         clockDataLog.push_back(make_pair(ssAddr.str(), ssData.str()));
+    }
+}
+
+void Manager::addClockRegData(openpower::pel::FFDCData& clockDataLog)
+{
+    info("Adding clock register information to daily logger");
+
+    struct pdbg_target* clockTarget;
+    pdbg_for_each_class_target("oscrefclk", clockTarget)
+    {
+        ATTR_HWAS_STATE_Type hwasState;
+        if (DT_GET_PROP(ATTR_HWAS_STATE, clockTarget, hwasState))
+        {
+            error("({TARGET}) Could not read HWAS_STATE attribute", "TARGET",
+                  pdbg_target_path(clockTarget));
+            continue;
+        }
+
+        if (!hwasState.present)
+        {
+            continue;
+        }
+
+        std::string funState = "Non Functional";
+
+        if (hwasState.functional)
+        {
+            funState = "Functional";
+        }
+
+        auto index = std::to_string(pdbg_target_index(clockTarget));
+
+        std::stringstream ssState;
+        ssState << "Clock" << index;
+        clockDataLog.push_back(std::make_pair(ssState.str(), funState));
+
+        // Add clcok device path information
+        std::stringstream ssName;
+        ssName << "Clock" << index << " path";
+        clockDataLog.push_back(
+            std::make_pair(ssName.str(), pdbg_target_path(clockTarget)));
+
+        auto status = pdbg_target_probe(clockTarget);
+        if (status != PDBG_TARGET_ENABLED)
+        {
+            continue;
+        }
+
+        // Update Buffer with clock I2C register data.
+        auto constexpr I2C_READ_SIZE = 0x08;
+        auto constexpr I2C_ADDR_MAX = 0xFF;
+
+        for (auto addr = 0; addr <= I2C_ADDR_MAX; addr += I2C_READ_SIZE)
+        {
+            std::stringstream ssData;
+
+            uint8_t data[0x8];
+            auto i2cRc = i2c_read(clockTarget, 0, addr, I2C_READ_SIZE, data);
+            if (i2cRc)
+            {
+                error("({TARGET}) I2C read error({ERROR}) reported {ADDRESS} ",
+                      "TARGET", pdbg_target_path(clockTarget), "ERROR", i2cRc,
+                      "ADDRESS", addr);
+                continue;
+            }
+
+            for (auto i = 0; i < I2C_READ_SIZE; i++)
+            {
+                ssData << " " << std::hex << std::setfill('0') << std::setw(2)
+                       << (uint16_t)data[i];
+            }
+            std::stringstream ssAddr;
+            ssAddr << "Clock" << index << "_0x" << std::hex << std::setfill('0')
+                   << std::setw(2) << addr;
+            clockDataLog.push_back(make_pair(ssAddr.str(), ssData.str()));
+        }
     }
 }
 
