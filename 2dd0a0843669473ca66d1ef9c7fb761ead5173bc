@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b08e310b_eaeadc52",
+        "filename": "util.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2022-09-09T14:44:13Z",
+      "side": 1,
+      "message": "You don\u0027t need to call this anymore.  Any issues with the call will result in an exception.",
+      "range": {
+        "startLine": 108,
+        "startChar": 7,
+        "endLine": 108,
+        "endChar": 38
+      },
+      "revId": "2dd0a0843669473ca66d1ef9c7fb761ead5173bc",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fba3ca04_db297969",
+        "filename": "util.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2022-09-09T14:44:13Z",
+      "side": 1,
+      "message": "DEBUG?",
+      "range": {
+        "startLine": 127,
+        "startChar": 7,
+        "endLine": 127,
+        "endChar": 19
+      },
+      "revId": "2dd0a0843669473ca66d1ef9c7fb761ead5173bc",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
