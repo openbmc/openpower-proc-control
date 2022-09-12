@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4eeefdd7_9a912a08",
+        "filename": "extensions/phal/clock_logger.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2022-09-12T15:28:03Z",
+      "side": 1,
+      "message": "should probably be const",
+      "revId": "6b4dd4bbc072459d990e7ae529ab69ec0a588a73",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
