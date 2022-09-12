@@ -131,6 +131,7 @@ if build_phal
         'service_files/phal-import-devtree@.service',
         'service_files/phal-export-devtree@.service',
         'service_files/phal-create-boottime-guard-indicator.service',
+        'service_files/op-clock-data-logger@.service',
     ]
     unit_subs.set('ENABLE_PHAL_TRUE', '')
 endif
