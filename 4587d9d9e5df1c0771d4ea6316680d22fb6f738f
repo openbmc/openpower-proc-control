@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5b1c406c_0faf9d79",
+        "filename": "extensions/phal/clock_logger.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2022-09-12T15:32:03Z",
+      "side": 1,
+      "message": "debug?",
+      "range": {
+        "startLine": 199,
+        "startChar": 4,
+        "endLine": 199,
+        "endChar": 8
+      },
+      "revId": "4587d9d9e5df1c0771d4ea6316680d22fb6f738f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b1676419_0100c6c6",
+        "filename": "extensions/phal/clock_logger.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2022-09-12T15:32:03Z",
+      "side": 1,
+      "message": "nit: spelling",
+      "range": {
+        "startLine": 248,
+        "startChar": 58,
+        "endLine": 248,
+        "endChar": 67
+      },
+      "revId": "4587d9d9e5df1c0771d4ea6316680d22fb6f738f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
