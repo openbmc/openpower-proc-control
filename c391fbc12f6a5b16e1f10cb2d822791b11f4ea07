@@ -36,6 +36,24 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d06f690f_78a7a094",
+        "filename": "extensions/phal/clock_logger.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1000008
+      },
+      "writtenOn": "2022-09-12T15:26:22Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "1432116d_b63a8f13",
+      "revId": "c391fbc12f6a5b16e1f10cb2d822791b11f4ea07",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3b74b96e_f64931e9",
