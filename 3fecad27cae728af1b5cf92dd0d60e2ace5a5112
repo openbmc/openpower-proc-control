@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "10c0b4f7_601491d6",
+        "filename": "extensions/phal/clock_logger.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1000567
+      },
+      "writtenOn": "2022-09-13T07:39:22Z",
+      "side": 1,
+      "message": "why we are constructing this name here.\nwe will get this from device tree, right? (osc-0/osc-1)\n\nAlso, i think we have to print ATTR_POS and i2c-port here",
+      "range": {
+        "startLine": 226,
+        "startChar": 8,
+        "endLine": 226,
+        "endChar": 36
+      },
+      "revId": "3fecad27cae728af1b5cf92dd0d60e2ace5a5112",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
