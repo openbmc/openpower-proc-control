@@ -22,6 +22,30 @@
       },
       "revId": "f796dcfdc6923d0abf924b6d9bbf1b763b3735ae",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2e2c8663_1f27202b",
+        "filename": "extensions/phal/clock_logger.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-09-13T06:25:02Z",
+      "side": 1,
+      "message": "Theoretically This service is going active only Cahssis power is on. \nIntentionally skipped pel here , to avoid additional info logs.",
+      "parentUuid": "4005bd6a_1a5913fd",
+      "range": {
+        "startLine": 83,
+        "startChar": 8,
+        "endLine": 86,
+        "endChar": 42
+      },
+      "revId": "f796dcfdc6923d0abf924b6d9bbf1b763b3735ae",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
