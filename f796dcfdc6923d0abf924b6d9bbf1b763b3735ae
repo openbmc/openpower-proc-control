@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4005bd6a_1a5913fd",
+        "filename": "extensions/phal/clock_logger.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1000567
+      },
+      "writtenOn": "2022-09-13T06:04:07Z",
+      "side": 1,
+      "message": "can we create same PEL with empty data and this error.\n\nby this we will always get a pel once in 24 hrs.",
+      "range": {
+        "startLine": 83,
+        "startChar": 8,
+        "endLine": 86,
+        "endChar": 42
+      },
+      "revId": "f796dcfdc6923d0abf924b6d9bbf1b763b3735ae",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
