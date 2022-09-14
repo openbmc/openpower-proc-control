@@ -46,6 +46,30 @@
       },
       "revId": "f796dcfdc6923d0abf924b6d9bbf1b763b3735ae",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f55c4be_ce814699",
+        "filename": "extensions/phal/clock_logger.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-09-14T02:25:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2e2c8663_1f27202b",
+      "range": {
+        "startLine": 83,
+        "startChar": 8,
+        "endLine": 86,
+        "endChar": 42
+      },
+      "revId": "f796dcfdc6923d0abf924b6d9bbf1b763b3735ae",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
