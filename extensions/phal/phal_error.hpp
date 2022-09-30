@@ -57,6 +57,15 @@ void processBootError(bool status);
 void processSbeBootError();
 
 /**
+ * @brief Process Guard File Read failure status
+ *
+ * This function is used for Guard File Read failure handling during
+ * boot. It collects the traces and create a PEL
+ * Also resets the trace buffer.
+ */
+void processGuardFileReadError(const ipl_error_info& errInfo);
+
+/**
  * @brief Reset trace log list
  */
 void reset();

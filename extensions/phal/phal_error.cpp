@@ -14,6 +14,7 @@ extern "C"
 #include <libekb.H>
 #include <libphal.H>
 
+#include <libguard/guard_interface.hpp>
 #include <nlohmann/json.hpp>
 #include <phosphor-logging/elog.hpp>
 
@@ -442,6 +443,9 @@ void processIplErrorCallback(const ipl_error_info& errInfo)
         case IPL_ERR_PRI_PROC_NON_FUNC:
             // Handle non functional boot processor error.
             processNonFunctionalBootProc();
+            break;
+        case IPL_ERR_GUARD_FILE_READ:
+            processGuardFileReadError(errInfo);
             break;
         default:
             createPEL("org.open_power.PHAL.Error.Boot");
@@ -944,6 +948,33 @@ void processSbeBootError()
             // TODO revist error handling.
         }
     }
+}
+
+void processGuardFileReadError(const ipl_error_info& errInfo)
+{
+    json jsonCalloutDataList{};
+
+    // Adding collected phal logs into PEL additional data
+    FFDCData pelAdditionalData;
+
+    std::string retGuardFilePath = openpower::guard::getGuardFilePath();
+    pelAdditionalData.emplace_back("FileLocation", retGuardFilePath);
+
+    char* errorReasonPtr = reinterpret_cast<char*>(errInfo.private_data);
+    std::string errorReason = std::string(errorReasonPtr);
+    pelAdditionalData.emplace_back("Reason", errorReason);
+
+    for_each(
+        traceLog.begin(), traceLog.end(),
+        [&pelAdditionalData](std::pair<std::string, std::string>& ele) -> void {
+            pelAdditionalData.emplace_back(ele.first, ele.second);
+        });
+
+    openpower::pel::createErrorPEL("xyz.openbmc_project.Common.File.Error.Read",
+                                   jsonCalloutDataList, pelAdditionalData,
+                                   Severity::Warning);
+    // reset trace log and exit
+    reset();
 }
 
 void reset()

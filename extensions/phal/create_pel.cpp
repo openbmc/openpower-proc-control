@@ -91,18 +91,21 @@ void createErrorPEL(const std::string& event, const json& calloutData,
 
     try
     {
-        FFDCFile ffdcFile(calloutData);
-
         std::vector<std::tuple<sdbusplus::xyz::openbmc_project::Logging::
                                    server::Create::FFDCFormat,
                                uint8_t, uint8_t, sdbusplus::message::unix_fd>>
             pelCalloutInfo;
 
-        pelCalloutInfo.push_back(
-            std::make_tuple(sdbusplus::xyz::openbmc_project::Logging::server::
-                                Create::FFDCFormat::JSON,
-                            static_cast<uint8_t>(0xCA),
-                            static_cast<uint8_t>(0x01), ffdcFile.getFileFD()));
+        if (!calloutData.is_null())
+        {
+            FFDCFile ffdcFile(calloutData);
+
+            pelCalloutInfo.push_back(std::make_tuple(
+                sdbusplus::xyz::openbmc_project::Logging::server::Create::
+                    FFDCFormat::JSON,
+                static_cast<uint8_t>(0xCA), static_cast<uint8_t>(0x01),
+                ffdcFile.getFileFD()));
+        }
 
         std::string service =
             util::getService(bus, loggingObjectPath, loggingInterface);
