@@ -443,6 +443,9 @@ void processIplErrorCallback(const ipl_error_info& errInfo)
             // Handle non functional boot processor error.
             processNonFunctionalBootProc();
             break;
+        case IPL_ERR_INVALID_GUARD_FILE:
+            processInvalidGuardFileError();
+            break;
         default:
             createPEL("org.open_power.PHAL.Error.Boot");
             // reset trace log and exit
@@ -944,6 +947,26 @@ void processSbeBootError()
             // TODO revist error handling.
         }
     }
+}
+
+void processInvalidGuardFileError()
+{
+    json jsonCalloutDataList{};
+
+    // Adding collected phal logs into PEL additional data
+    FFDCData pelAdditionalData;
+
+    for_each(
+        traceLog.begin(), traceLog.end(),
+        [&pelAdditionalData](std::pair<std::string, std::string>& ele) -> void {
+            pelAdditionalData.emplace_back(ele.first, ele.second);
+        });
+
+    openpower::pel::createErrorPEL("org.open_power.PHAL.Error.InvalidGuardFile",
+                                   jsonCalloutDataList, pelAdditionalData,
+                                   Severity::Warning);
+    // reset trace log and exit
+    reset();
 }
 
 void reset()
