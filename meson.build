@@ -120,6 +120,7 @@ if build_phal
         cxx.find_library('ipl'),
         cxx.find_library('phal'),
         cxx.find_library('dtree'),
+        cxx.find_library('libguard'),
     ]
     extra_unit_files = [
         'service_files/set-spi-mux.service',
