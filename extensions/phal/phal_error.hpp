@@ -57,6 +57,15 @@ void processBootError(bool status);
 void processSbeBootError();
 
 /**
+ * @brief Process Invalid Guard File failure status
+ *
+ * This function is used process invalid Guard File handling during
+ * boot. It collects the traces and create a PEL
+ * Also resets the trace buffer.
+ */
+void processInvalidGuardFileError();
+
+/**
  * @brief Reset trace log list
  */
 void reset();
