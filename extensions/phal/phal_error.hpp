@@ -57,6 +57,14 @@ void processBootError(bool status);
 void processSbeBootError();
 
 /**
+ * @brief Process Guard Partition Access Error
+ *
+ * This function is used process access error related to guard partition during
+ * boot. It collects the traces and create a PEL
+ */
+void processGuardPartitionAccessError();
+
+/**
  * @brief Reset trace log list
  */
 void reset();

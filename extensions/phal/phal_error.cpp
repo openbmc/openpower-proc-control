@@ -443,6 +443,9 @@ void processIplErrorCallback(const ipl_error_info& errInfo)
             // Handle non functional boot processor error.
             processNonFunctionalBootProc();
             break;
+        case IPL_ERR_GUARD_PARTITION_ACCESS:
+            processGuardPartitionAccessError();
+            break;
         default:
             createPEL("org.open_power.PHAL.Error.Boot");
             // reset trace log and exit
@@ -944,6 +947,21 @@ void processSbeBootError()
             // TODO revist error handling.
         }
     }
+}
+
+void processGuardPartitionAccessError()
+{
+    // Adding collected phal logs into PEL additional data
+    FFDCData pelAdditionalData;
+
+    for_each(
+        traceLog.begin(), traceLog.end(),
+        [&pelAdditionalData](std::pair<std::string, std::string>& ele) -> void {
+            pelAdditionalData.emplace_back(ele.first, ele.second);
+        });
+
+    openpower::pel::createPEL("org.open_power.PHAL.Error.GuardPartitionAccess",
+                              pelAdditionalData);
 }
 
 void reset()
