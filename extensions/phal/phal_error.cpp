@@ -14,6 +14,8 @@ extern "C"
 #include <libekb.H>
 #include <libphal.H>
 
+#include <libguard/guard_interface.hpp>
+#include <libguard/guard_log.hpp>
 #include <nlohmann/json.hpp>
 #include <phosphor-logging/elog.hpp>
 
@@ -442,6 +444,9 @@ void processIplErrorCallback(const ipl_error_info& errInfo)
         case IPL_ERR_PRI_PROC_NON_FUNC:
             // Handle non functional boot processor error.
             processNonFunctionalBootProc();
+            break;
+        case IPL_ERR_GUARD_FILE_READ:
+            processGuardFileReadError();
             break;
         default:
             createPEL("org.open_power.PHAL.Error.Boot");
@@ -946,6 +951,26 @@ void processSbeBootError()
     }
 }
 
+void processGuardFileReadError()
+{
+    json jsonCalloutDataList{};
+
+    // Adding collected phal logs into PEL additional data
+    FFDCData pelAdditionalData;
+
+    for_each(
+        traceLog.begin(), traceLog.end(),
+        [&pelAdditionalData](std::pair<std::string, std::string>& ele) -> void {
+            pelAdditionalData.emplace_back(ele.first, ele.second);
+        });
+
+    openpower::pel::createErrorPEL("org.open_power.PHAL.Error.InvalidGuardFile",
+                                   jsonCalloutDataList, pelAdditionalData,
+                                   Severity::Warning);
+    // reset trace log and exit
+    reset();
+}
+
 void reset()
 {
     // reset the trace log and counter
@@ -989,6 +1014,8 @@ void addBootErrorCallbacks()
     pdbg_set_logfunc(detail::pDBGLogTraceCallbackHelper);
     libekb_set_logfunc(detail::processLogTraceCallback, NULL);
     ipl_set_logfunc(detail::processLogTraceCallback, NULL);
+    openpower::guard::log::guard_set_logfunc(detail::processLogTraceCallback,
+                                             NULL);
 
     // add callback for ipl failures
     ipl_set_error_callback_func(detail::processIplErrorCallback);
