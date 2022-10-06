@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1f1469fd_6b8d4daf",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-10-06T15:41:43Z",
+      "side": 1,
+      "message": "this to indicate it is predictive error",
+      "range": {
+        "startLine": 190,
+        "startChar": 0,
+        "endLine": 192,
+        "endChar": 21
+      },
+      "revId": "8dd319103a5b034c5b0f4b3fbe14ac6d11e91bea",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2e30be53_6d3fd11a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-10-06T15:41:43Z",
+      "side": 1,
+      "message": "only these 2",
+      "range": {
+        "startLine": 213,
+        "startChar": 0,
+        "endLine": 215,
+        "endChar": 6
+      },
+      "revId": "8dd319103a5b034c5b0f4b3fbe14ac6d11e91bea",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5dbd75e_2a277eb9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-10-06T15:41:43Z",
+      "side": 1,
+      "message": "remove",
+      "range": {
+        "startLine": 248,
+        "startChar": 0,
+        "endLine": 266,
+        "endChar": 2
+      },
+      "revId": "8dd319103a5b034c5b0f4b3fbe14ac6d11e91bea",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "29cf1cdf_26126b36",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-10-06T15:41:43Z",
+      "side": 1,
+      "message": "probably only these 2 lines sufficient",
+      "range": {
+        "startLine": 292,
+        "startChar": 0,
+        "endLine": 293,
+        "endChar": 67
+      },
+      "revId": "8dd319103a5b034c5b0f4b3fbe14ac6d11e91bea",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7178ee3_bade90c1",
+        "filename": "extensions/phal/create_pel.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-10-06T15:41:43Z",
+      "side": 1,
+      "message": "this will impact others using this method and do not see need for this change.",
+      "range": {
+        "startLine": 94,
+        "startChar": 0,
+        "endLine": 108,
+        "endChar": 9
+      },
+      "revId": "8dd319103a5b034c5b0f4b3fbe14ac6d11e91bea",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "009d978e_7bdb94a8",
+        "filename": "extensions/phal/phal_error.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1019,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-10-06T15:41:43Z",
+      "side": 1,
+      "message": "this change is irerelvant to this commit and it is not explained in the commit message",
+      "range": {
+        "startLine": 1017,
+        "startChar": 0,
+        "endLine": 1019,
+        "endChar": 0
+      },
+      "revId": "8dd319103a5b034c5b0f4b3fbe14ac6d11e91bea",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ffa78a2_6fcabf2d",
+        "filename": "extensions/phal/phal_error.hpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-10-06T15:41:43Z",
+      "side": 1,
+      "message": "should we still call it read error",
+      "range": {
+        "startLine": 66,
+        "startChar": 5,
+        "endLine": 66,
+        "endChar": 30
+      },
+      "revId": "8dd319103a5b034c5b0f4b3fbe14ac6d11e91bea",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
