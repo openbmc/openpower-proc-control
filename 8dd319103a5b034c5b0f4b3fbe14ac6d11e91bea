@@ -118,6 +118,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fbf1b156_8b6f3429",
+        "filename": "extensions/phal/phal_error.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-10-06T15:43:51Z",
+      "side": 1,
+      "message": "do we need 2? should go into logging guard traces commit",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 33
+      },
+      "revId": "8dd319103a5b034c5b0f4b3fbe14ac6d11e91bea",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "009d978e_7bdb94a8",
         "filename": "extensions/phal/phal_error.cpp",
         "patchSetId": 4
@@ -158,6 +181,23 @@
         "endLine": 66,
         "endChar": 30
       },
+      "revId": "8dd319103a5b034c5b0f4b3fbe14ac6d11e91bea",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4686b758_e3a15639",
+        "filename": "meson.build",
+        "patchSetId": 4
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2022-10-06T15:43:51Z",
+      "side": 1,
+      "message": "this should go into \"enabling logging of guard library traces\" commit",
       "revId": "8dd319103a5b034c5b0f4b3fbe14ac6d11e91bea",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
