@@ -24,6 +24,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "272d0f76_340a7831",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1001592
+      },
+      "writtenOn": "2022-10-10T13:38:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1f1469fd_6b8d4daf",
+      "range": {
+        "startLine": 190,
+        "startChar": 0,
+        "endLine": 192,
+        "endChar": 21
+      },
+      "revId": "8dd319103a5b034c5b0f4b3fbe14ac6d11e91bea",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2e30be53_6d3fd11a",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-10-06T15:41:43Z",
       "side": 1,
       "message": "only these 2",
+      "range": {
+        "startLine": 213,
+        "startChar": 0,
+        "endLine": 215,
+        "endChar": 6
+      },
+      "revId": "8dd319103a5b034c5b0f4b3fbe14ac6d11e91bea",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9582cad5_8e160605",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1001592
+      },
+      "writtenOn": "2022-10-10T13:38:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2e30be53_6d3fd11a",
       "range": {
         "startLine": 213,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f196601_93504834",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 1001592
+      },
+      "writtenOn": "2022-10-10T13:38:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f5dbd75e_2a277eb9",
+      "range": {
+        "startLine": 248,
+        "startChar": 0,
+        "endLine": 266,
+        "endChar": 2
+      },
+      "revId": "8dd319103a5b034c5b0f4b3fbe14ac6d11e91bea",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "29cf1cdf_26126b36",
@@ -83,6 +155,30 @@
       "writtenOn": "2022-10-06T15:41:43Z",
       "side": 1,
       "message": "probably only these 2 lines sufficient",
+      "range": {
+        "startLine": 292,
+        "startChar": 0,
+        "endLine": 293,
+        "endChar": 67
+      },
+      "revId": "8dd319103a5b034c5b0f4b3fbe14ac6d11e91bea",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8dfb8495_628f1b09",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1001592
+      },
+      "writtenOn": "2022-10-10T13:38:03Z",
+      "side": 1,
+      "message": "Sure. I will update it",
+      "parentUuid": "29cf1cdf_26126b36",
       "range": {
         "startLine": 292,
         "startChar": 0,
@@ -116,6 +212,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "387a0e19_bfd59132",
+        "filename": "extensions/phal/create_pel.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1001592
+      },
+      "writtenOn": "2022-10-10T13:38:03Z",
+      "side": 1,
+      "message": "We need this change, if not it will add another callout even if the callout list is empty",
+      "parentUuid": "e7178ee3_bade90c1",
+      "range": {
+        "startLine": 94,
+        "startChar": 0,
+        "endLine": 108,
+        "endChar": 9
+      },
+      "revId": "8dd319103a5b034c5b0f4b3fbe14ac6d11e91bea",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fbf1b156_8b6f3429",
@@ -129,6 +249,30 @@
       "writtenOn": "2022-10-06T15:43:51Z",
       "side": 1,
       "message": "do we need 2? should go into logging guard traces commit",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 33
+      },
+      "revId": "8dd319103a5b034c5b0f4b3fbe14ac6d11e91bea",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "03298548_f0bde1b4",
+        "filename": "extensions/phal/phal_error.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1001592
+      },
+      "writtenOn": "2022-10-10T13:38:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fbf1b156_8b6f3429",
       "range": {
         "startLine": 16,
         "startChar": 0,
@@ -162,6 +306,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b8b29b0e_c23370bd",
+        "filename": "extensions/phal/phal_error.cpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 1019,
+      "author": {
+        "id": 1001592
+      },
+      "writtenOn": "2022-10-10T13:38:03Z",
+      "side": 1,
+      "message": "Removed the changes. Will commit it later as part of a different commit",
+      "parentUuid": "009d978e_7bdb94a8",
+      "range": {
+        "startLine": 1017,
+        "startChar": 0,
+        "endLine": 1019,
+        "endChar": 0
+      },
+      "revId": "8dd319103a5b034c5b0f4b3fbe14ac6d11e91bea",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7ffa78a2_6fcabf2d",
@@ -185,6 +353,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b05d7e6_0417e8a9",
+        "filename": "extensions/phal/phal_error.hpp",
+        "patchSetId": 4
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1001592
+      },
+      "writtenOn": "2022-10-10T13:38:03Z",
+      "side": 1,
+      "message": "I will rename it",
+      "parentUuid": "7ffa78a2_6fcabf2d",
+      "range": {
+        "startLine": 66,
+        "startChar": 5,
+        "endLine": 66,
+        "endChar": 30
+      },
+      "revId": "8dd319103a5b034c5b0f4b3fbe14ac6d11e91bea",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4686b758_e3a15639",
@@ -198,6 +390,24 @@
       "writtenOn": "2022-10-06T15:43:51Z",
       "side": 1,
       "message": "this should go into \"enabling logging of guard library traces\" commit",
+      "revId": "8dd319103a5b034c5b0f4b3fbe14ac6d11e91bea",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "86a7080b_3b5b5575",
+        "filename": "meson.build",
+        "patchSetId": 4
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1001592
+      },
+      "writtenOn": "2022-10-10T13:38:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4686b758_e3a15639",
       "revId": "8dd319103a5b034c5b0f4b3fbe14ac6d11e91bea",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
