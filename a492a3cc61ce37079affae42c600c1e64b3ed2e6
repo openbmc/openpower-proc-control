@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "817d36d5_f27d6d48",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 10
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-10-10T16:04:47Z",
+      "side": 1,
+      "message": "I think you are passing error severity as \"Error\" so that means it should be an \"Unrecoverable\" error, right? https://github.com/openbmc/phosphor-logging/blob/master/extensions/openpower-pels/severity.cpp#L36",
+      "range": {
+        "startLine": 27,
+        "startChar": 8,
+        "endLine": 27,
+        "endChar": 51
+      },
+      "revId": "a492a3cc61ce37079affae42c600c1e64b3ed2e6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a1a6f867_90dd0114",
+        "filename": "extensions/phal/phal_error.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 966,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-10-10T16:04:47Z",
+      "side": 1,
+      "message": "Same as https://gerrit.openbmc.org/c/openbmc/openpower-proc-control/+/57682/10/extensions/phal/phal_error.hpp#64",
+      "range": {
+        "startLine": 966,
+        "startChar": 4,
+        "endLine": 966,
+        "endChar": 9
+      },
+      "revId": "a492a3cc61ce37079affae42c600c1e64b3ed2e6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "982fc61b_cb4f5649",
+        "filename": "extensions/phal/phal_error.hpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2022-10-10T16:04:47Z",
+      "side": 1,
+      "message": "I think we should not reset the trace because we are trying to continue the IPLing, right? if so, we will lose all traces if we are hitting any error after the \"IPL_ERR_INVALID_GUARD_FILE\".",
+      "revId": "a492a3cc61ce37079affae42c600c1e64b3ed2e6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
