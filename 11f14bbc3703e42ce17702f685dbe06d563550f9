@@ -24,6 +24,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ddc657b3_6a2c2ce6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 12
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1001592
+      },
+      "writtenOn": "2022-10-11T15:43:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bd08fc72_5d545a13",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 1
+      },
+      "revId": "11f14bbc3703e42ce17702f685dbe06d563550f9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9688f096_47d9b40d",
@@ -47,6 +71,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f1be0368_6c598f12",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 12
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1001592
+      },
+      "writtenOn": "2022-10-11T15:43:50Z",
+      "side": 1,
+      "message": "Will address",
+      "parentUuid": "9688f096_47d9b40d",
+      "range": {
+        "startLine": 10,
+        "startChar": 13,
+        "endLine": 10,
+        "endChar": 54
+      },
+      "revId": "11f14bbc3703e42ce17702f685dbe06d563550f9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e459ea95_e2ed63b8",
@@ -60,6 +108,24 @@
       "writtenOn": "2022-10-11T14:15:41Z",
       "side": 1,
       "message": "It will be great if you added like, \"why we did not reset the buffer for this error case alone\" in the commit message",
+      "revId": "11f14bbc3703e42ce17702f685dbe06d563550f9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f0253aed_ca1cb954",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001592
+      },
+      "writtenOn": "2022-10-11T15:43:50Z",
+      "side": 1,
+      "message": "I think adding it to the commit message shall confuse. So believe better not to add.",
+      "parentUuid": "e459ea95_e2ed63b8",
       "revId": "11f14bbc3703e42ce17702f685dbe06d563550f9",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
