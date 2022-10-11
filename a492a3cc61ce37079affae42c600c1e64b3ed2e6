@@ -24,6 +24,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "27bf3da4_1dfb9458",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 10
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1001592
+      },
+      "writtenOn": "2022-10-11T07:31:50Z",
+      "side": 1,
+      "message": "I am passing error severity as warning. It was decided that we will keep it as predictive. That part is in the openpower-proc-control",
+      "parentUuid": "817d36d5_f27d6d48",
+      "range": {
+        "startLine": 27,
+        "startChar": 8,
+        "endLine": 27,
+        "endChar": 51
+      },
+      "revId": "a492a3cc61ce37079affae42c600c1e64b3ed2e6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a1a6f867_90dd0114",
@@ -47,6 +71,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ec81555c_bb0e7324",
+        "filename": "extensions/phal/phal_error.cpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 966,
+      "author": {
+        "id": 1001592
+      },
+      "writtenOn": "2022-10-11T07:31:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a1a6f867_90dd0114",
+      "range": {
+        "startLine": 966,
+        "startChar": 4,
+        "endLine": 966,
+        "endChar": 9
+      },
+      "revId": "a492a3cc61ce37079affae42c600c1e64b3ed2e6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "982fc61b_cb4f5649",
@@ -60,6 +108,24 @@
       "writtenOn": "2022-10-10T16:04:47Z",
       "side": 1,
       "message": "I think we should not reset the trace because we are trying to continue the IPLing, right? if so, we will lose all traces if we are hitting any error after the \"IPL_ERR_INVALID_GUARD_FILE\".",
+      "revId": "a492a3cc61ce37079affae42c600c1e64b3ed2e6",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f03b26ac_6bcc76cc",
+        "filename": "extensions/phal/phal_error.hpp",
+        "patchSetId": 10
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1001592
+      },
+      "writtenOn": "2022-10-11T07:31:50Z",
+      "side": 1,
+      "message": "Resetting the trace removes it only from the internal vector that we use for adding the log to the PEL. We reset because those are already added to the PEL log. This will not clear any further messages.",
+      "parentUuid": "982fc61b_cb4f5649",
       "revId": "a492a3cc61ce37079affae42c600c1e64b3ed2e6",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
