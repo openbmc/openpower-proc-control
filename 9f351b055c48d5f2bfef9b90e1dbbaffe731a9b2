@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "46ec798f_7bc627b9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-10-12T11:21:56Z",
+      "side": 1,
+      "message": "LGTM , Required phosphor-logging commit related to new error code support.",
+      "revId": "9f351b055c48d5f2bfef9b90e1dbbaffe731a9b2",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
