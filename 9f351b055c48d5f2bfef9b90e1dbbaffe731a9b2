@@ -16,6 +16,23 @@
       "message": "LGTM , Required phosphor-logging commit related to new error code support.",
       "revId": "9f351b055c48d5f2bfef9b90e1dbbaffe731a9b2",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e1bc99e0_d7ac2cea",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2022-10-13T10:39:57Z",
+      "side": 1,
+      "message": "Required IPL version bump and phosphor-logging support before merging this code.",
+      "revId": "9f351b055c48d5f2bfef9b90e1dbbaffe731a9b2",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
