@@ -50,6 +50,42 @@
       "message": "Please share IPL version bump link.",
       "revId": "9f351b055c48d5f2bfef9b90e1dbbaffe731a9b2",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ffadbb14_2e1520b6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001592
+      },
+      "writtenOn": "2022-10-14T04:54:01Z",
+      "side": 1,
+      "message": "IPL version bump completed and the changes are in fw1030.00-5.6 (https://github.ibm.com/openbmc/openbmc/pull/2910/files)\nI will get the phosphor-logging merged.",
+      "parentUuid": "e1bc99e0_d7ac2cea",
+      "revId": "9f351b055c48d5f2bfef9b90e1dbbaffe731a9b2",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9cfacaa2_07519575",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001592
+      },
+      "writtenOn": "2022-10-14T04:54:01Z",
+      "side": 1,
+      "message": "https://github.ibm.com/openbmc/openbmc/pull/2910/files",
+      "parentUuid": "3aa0456c_27866034",
+      "revId": "9f351b055c48d5f2bfef9b90e1dbbaffe731a9b2",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
