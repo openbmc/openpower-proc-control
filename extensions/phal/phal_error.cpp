@@ -387,7 +387,7 @@ void processClockInfoErrorHelper(FFDC* ffdc, const std::string& ffdc_prefix)
                  [&pelAdditionalData, &jsonCalloutDataList,
                   clk_pos](const CDG_Target& cdg_tgt) -> void {
                      json jsonCalloutData;
-                     std::string pelPriority = "H";
+                     std::string pelPriority = "L";
                      jsonCalloutData["Priority"] = pelPriority; // Not used
                      jsonCalloutData["SymbolicFRU"] =
                          "REFCLK" + std::to_string(clk_pos);
