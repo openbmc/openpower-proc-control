@@ -1,0 +1,10 @@
+Verified+1: OpenBMC CI <openbmcbump-ci@yahoo.com>
+Code-Review+1: MARRI DEVENDER RAO <devenrao@in.ibm.com>
+Code-Review+1: Matt Spinler <spinler@us.ibm.com>
+Code-Review+1: Aravind T <aravynd@gmail.com>
+Code-Review+2: Jayanth Othayoth <ojayanth@gmail.com>
+Submitted-by: Jayanth Othayoth <ojayanth@gmail.com>
+Submitted-at: Fri, 18 Nov 2022 06:37:14 +0000
+Reviewed-on: https://gerrit.openbmc.org/c/openbmc/openpower-proc-control/+/58770
+Project: openbmc/openpower-proc-control
+Branch: refs/heads/master
