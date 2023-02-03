@@ -10,6 +10,7 @@ extern "C"
 #include "registration.hpp"
 
 #include <phosphor-logging/log.hpp>
+#include <sdbusplus/bus.hpp>
 
 #include <cstdio>
 #include <fstream>
@@ -22,6 +23,30 @@ namespace phal
 
 using namespace openpower::cfam::p10;
 using namespace phosphor::logging;
+
+/** Best effort function to create a BMC dump */
+void createBmcDump()
+{
+    auto bus = sdbusplus::bus::new_default();
+
+    auto method = bus.new_method_call(
+        "xyz.openbmc_project.Dump.Manager", "/xyz/openbmc_project/dump/bmc",
+        "xyz.openbmc_project.Dump.Create", "CreateDump");
+    method.append(
+        std::vector<
+            std::pair<std::string, std::variant<std::string, uint64_t>>>());
+    try
+    {
+        bus.call_noreply(method);
+    }
+    catch (const sdbusplus::exception_t& e)
+    {
+        log<level::ERR>("Exception raised creating BMC dump",
+                        entry("EXCEPTION=%s", e.what()));
+        // just continue, failing to collect a dump should not cause further
+        // issues in this path
+    }
+}
 
 /**
  * This is the backup plan to ensuring the host is not running before the
@@ -96,6 +121,10 @@ void checkHostRunning()
         std::snprintf(buf.get(), size, HOST_RUNNING_FILE, 0);
         std::ofstream outfile(buf.get());
         outfile.close();
+
+        // Try to create BMC dump for further debug
+        createBmcDump();
+
         return;
     }
 
