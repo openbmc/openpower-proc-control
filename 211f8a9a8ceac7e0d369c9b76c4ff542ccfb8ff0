@@ -16,6 +16,24 @@
       "message": "I think we should also enhance user initiated dump contents to collect required hw register to debug issue related to BMC to Host communication path. These data is missing in the existing user initiated dump.",
       "revId": "211f8a9a8ceac7e0d369c9b76c4ff542ccfb8ff0",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "79b9f2db_ddf04060",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-02-06T03:32:33Z",
+      "side": 1,
+      "message": "oh yeah, we def need that. Is adding that tough to do/",
+      "parentUuid": "3187a4c6_383ab6f4",
+      "revId": "211f8a9a8ceac7e0d369c9b76c4ff542ccfb8ff0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ],
   "submitRequirementResults": []
