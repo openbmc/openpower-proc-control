@@ -55,8 +55,10 @@ uint32_t createSbeErrorPEL(const std::string& event, const sbeError_t& sbeError,
  *
  *  @param[in]  event - the event type
  *  @param[in] ffdcData - failure data to append to PEL
+ *  @param[in] severity - severity of the log
  */
-void createPEL(const std::string& event, const FFDCData& ffdcData = {});
+void createPEL(const std::string& event, const FFDCData& ffdcData = {},
+               const Severity severity = Severity::Error);
 
 /**
  * @class FFDCFile

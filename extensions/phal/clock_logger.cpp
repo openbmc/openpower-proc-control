@@ -159,7 +159,7 @@ void Manager::createClockDataLog()
     addClockRegData(clockDataLog);
 
     openpower::pel::createPEL("org.open_power.PHAL.Info.ClockDailyLog",
-                              clockDataLog);
+                              clockDataLog, Severity::Informational);
 }
 
 void Manager::addCFAMData(struct pdbg_target* proc,

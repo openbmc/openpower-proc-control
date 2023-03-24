@@ -239,7 +239,8 @@ uint32_t createSbeErrorPEL(const std::string& event, const sbeError_t& sbeError,
     return plid;
 }
 
-void createPEL(const std::string& event, const FFDCData& ffdcData)
+void createPEL(const std::string& event, const FFDCData& ffdcData,
+               const Severity severity)
 {
     std::map<std::string, std::string> additionalData;
     auto bus = sdbusplus::bus::new_default();
@@ -258,8 +259,7 @@ void createPEL(const std::string& event, const FFDCData& ffdcData)
                                           loggingInterface, "Create");
         auto level =
             sdbusplus::xyz::openbmc_project::Logging::server::convertForMessage(
-                sdbusplus::xyz::openbmc_project::Logging::server::Entry::Level::
-                    Error);
+                severity);
         method.append(event, level, additionalData);
         auto resp = bus.call(method);
     }
