@@ -10,7 +10,7 @@ project(
     ],
     license: 'Apache-2.0',
     version: '1.0',
-    meson_version: '>=0.57.0',
+    meson_version: '>=0.58.0',
 )
 add_project_arguments('-Wno-psabi', language: 'cpp')
 
@@ -228,9 +228,9 @@ unit_files = [
     'service_files/op-enter-mpreboot@.service',
 ] + extra_unit_files
 
-systemd_system_unit_dir = dependency('systemd').get_pkgconfig_variable(
+systemd_system_unit_dir = dependency('systemd').get_variable(
     'systemdsystemunitdir',
-    define_variable: ['prefix', get_option('prefix')])
+    pkgconfig_define: ['prefix', get_option('prefix')])
 foreach u : unit_files
     configure_file(
         configuration: unit_subs,
