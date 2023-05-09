@@ -19,4 +19,4 @@ Type=oneshot
 ExecStart=/usr/bin/openpower-proc-control checkHostRunning
 
 [Install]
-WantedBy=obmc-host-reset@%i.target
+#WantedBy=obmc-host-reset@%i.target

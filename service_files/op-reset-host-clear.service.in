@@ -11,4 +11,4 @@ Type=oneshot
 ExecStart=/usr/bin/openpower-proc-control clearHostRunning
 
 [Install]
-WantedBy=obmc-host-stop@0.target
+#WantedBy=obmc-host-stop@0.target

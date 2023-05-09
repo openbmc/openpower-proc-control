@@ -11,5 +11,5 @@ ExecStart=/bin/mkdir -p /tmp/phal
 ExecStart=/bin/touch /tmp/phal/boottime_guard_indicator
 
 [Install]
-WantedBy=obmc-host-start@0.target
-WantedBy=obmc-host-quiesce@0.target
+#WantedBy=obmc-host-start@0.target
+#WantedBy=obmc-host-quiesce@0.target

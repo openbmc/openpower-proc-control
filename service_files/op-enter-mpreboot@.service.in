@@ -30,4 +30,4 @@ ExecStart=/bin/touch /run/openbmc/mpreboot@%i
 ExecStart=/bin/sh -c "busctl set-property  xyz.openbmc_project.State.Host /xyz/openbmc_project/state/host%i xyz.openbmc_project.State.Host RestartCause s  xyz.openbmc_project.State.Host.RestartCause.HostCrash"
 
 [Install]
-WantedBy=obmc-host-diagnostic-mode@%i.target
+#WantedBy=obmc-host-diagnostic-mode@%i.target
