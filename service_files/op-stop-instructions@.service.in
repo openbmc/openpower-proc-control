@@ -17,4 +17,4 @@ ExecStart=/bin/sh -c 'systemctl stop attn_handler.service || true'
 ExecStart=/usr/bin/openpower-proc-control threadStopAll
 
 [Install]
-WantedBy=obmc-host-stop@%i.target
+#WantedBy=obmc-host-stop@%i.target

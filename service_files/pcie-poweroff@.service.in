@@ -8,4 +8,4 @@ Type=oneshot
 ExecStart=@bindir@/openpower-proc-control cleanupPcie
 
 [Install]
-WantedBy=obmc-chassis-poweroff@%i.target
+#WantedBy=obmc-chassis-poweroff@%i.target

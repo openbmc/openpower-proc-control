@@ -15,4 +15,4 @@ RemainAfterExit=no
 ExecStart=/usr/bin/openpower-proc-control prePoweroff
 
 [Install]
-WantedBy=obmc-power-stop-pre@%i.target
+#WantedBy=obmc-power-stop-pre@%i.target

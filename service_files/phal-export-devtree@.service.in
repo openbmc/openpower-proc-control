@@ -11,4 +11,4 @@ Type=simple
 ExecStart=/usr/bin/phal-export-devtree
 
 [Install]
-WantedBy=obmc-host-startmin@0.target
+#WantedBy=obmc-host-startmin@0.target

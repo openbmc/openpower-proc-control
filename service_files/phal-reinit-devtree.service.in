@@ -12,4 +12,4 @@ ExecStart=/bin/rm -f /var/lib/phal/exportdevtree
 ExecStart=/usr/bin/openpower-proc-control reinitDevtree
 
 [Install]
-RequiredBy=obmc-host-start@0.target
+#RequiredBy=obmc-host-start@0.target
