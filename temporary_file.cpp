@@ -17,8 +17,8 @@ using namespace phosphor::logging;
 TemporaryFile::TemporaryFile()
 {
     // Build template path required by mkstemp()
-    std::string templatePath =
-        fs::temp_directory_path() / "openpower-proc-control-XXXXXX";
+    std::string templatePath = fs::temp_directory_path() /
+                               "openpower-proc-control-XXXXXX";
 
     // Generate unique file name, create file, and open it.  The XXXXXX
     // characters are replaced by mkstemp() to make the file name unique.

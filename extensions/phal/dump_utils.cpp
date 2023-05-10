@@ -73,7 +73,7 @@ void monitorDump(const std::string& path, const uint32_t timeout)
             sdbusplus::bus::match::rules::propertiesChanged(
                 path.c_str(), matchInterface.c_str()),
             [&](auto& msg) {
-                return dumpStatusChanged(msg, path, inProgress);
+        return dumpStatusChanged(msg, path, inProgress);
             });
 
     // wait for dump status to be completed (complete == true)
@@ -115,8 +115,8 @@ void requestDump(const DumpParameters& dumpParameters)
     try
     {
         std::string service = util::getService(bus, path, interface);
-        auto method =
-            bus.new_method_call(service.c_str(), path, interface, function);
+        auto method = bus.new_method_call(service.c_str(), path, interface,
+                                          function);
 
         // dbus call arguments
         std::map<std::string, std::variant<std::string, uint64_t>> createParams;

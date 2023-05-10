@@ -90,8 +90,7 @@ class Targeting
      */
     Targeting(const std::string& fsiMasterDev, const std::string& fsiSlaveDir);
 
-    Targeting() : Targeting(fsiMasterDevPath, fsiSlaveBaseDir)
-    {}
+    Targeting() : Targeting(fsiMasterDevPath, fsiSlaveBaseDir) {}
 
     ~Targeting() = default;
     Targeting(const Targeting&) = default;

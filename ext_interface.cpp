@@ -31,7 +31,6 @@ using namespace phosphor::logging;
 std::string getService(sdbusplus::bus_t& bus, const std::string& intf,
                        const std::string& path)
 {
-
     auto mapper = bus.new_method_call(MAPPER_BUSNAME, MAPPER_PATH,
                                       MAPPER_INTERFACE, "GetObject");
 
@@ -62,8 +61,8 @@ uint32_t getBootCount()
 {
     auto bus = sdbusplus::bus::new_default();
 
-    auto rebootSvc =
-        getService(bus, REBOOTCOUNTER_INTERFACE, REBOOTCOUNTER_PATH);
+    auto rebootSvc = getService(bus, REBOOTCOUNTER_INTERFACE,
+                                REBOOTCOUNTER_PATH);
 
     auto method = bus.new_method_call(rebootSvc.c_str(), REBOOTCOUNTER_PATH,
                                       "org.freedesktop.DBus.Properties", "Get");

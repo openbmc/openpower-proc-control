@@ -22,7 +22,6 @@
 
 int main(int, char*[])
 {
-
     constexpr auto BUSPATH_NMI = "/xyz/openbmc_project/control/host0/nmi";
     constexpr auto BUSNAME_NMI = "xyz.openbmc_project.Control.Host.NMI";
     auto bus = sdbusplus::bus::new_default();

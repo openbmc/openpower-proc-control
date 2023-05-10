@@ -104,11 +104,11 @@ void createErrorPEL(const std::string& event, const json& calloutData,
                             static_cast<uint8_t>(0xCA),
                             static_cast<uint8_t>(0x01), ffdcFile.getFileFD()));
 
-        std::string service =
-            util::getService(bus, loggingObjectPath, loggingInterface);
-        auto method =
-            bus.new_method_call(service.c_str(), loggingObjectPath,
-                                loggingInterface, "CreateWithFFDCFiles");
+        std::string service = util::getService(bus, loggingObjectPath,
+                                               loggingInterface);
+        auto method = bus.new_method_call(service.c_str(), loggingObjectPath,
+                                          loggingInterface,
+                                          "CreateWithFFDCFiles");
         auto level =
             sdbusplus::xyz::openbmc_project::Logging::server::convertForMessage(
                 severity);
@@ -204,11 +204,11 @@ uint32_t createSbeErrorPEL(const std::string& event, const sbeError_t& sbeError,
 
     try
     {
-        std::string service =
-            util::getService(bus, loggingObjectPath, opLoggingInterface);
-        auto method =
-            bus.new_method_call(service.c_str(), loggingObjectPath,
-                                opLoggingInterface, "CreatePELWithFFDCFiles");
+        std::string service = util::getService(bus, loggingObjectPath,
+                                               opLoggingInterface);
+        auto method = bus.new_method_call(service.c_str(), loggingObjectPath,
+                                          opLoggingInterface,
+                                          "CreatePELWithFFDCFiles");
         auto level =
             sdbusplus::xyz::openbmc_project::Logging::server::convertForMessage(
                 severity);
@@ -253,8 +253,8 @@ void createPEL(const std::string& event, const FFDCData& ffdcData,
 
     try
     {
-        std::string service =
-            util::getService(bus, loggingObjectPath, loggingInterface);
+        std::string service = util::getService(bus, loggingObjectPath,
+                                               loggingInterface);
         auto method = bus.new_method_call(service.c_str(), loggingObjectPath,
                                           loggingInterface, "Create");
         auto level =

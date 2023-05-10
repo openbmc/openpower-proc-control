@@ -58,7 +58,6 @@ class TargetingTest : public ::testing::Test
 
 TEST_F(TargetingTest, CreateTargets)
 {
-
     // Test that we always create the first Target
     {
         Targeting targets{masterDir, _slaveDir};

@@ -155,9 +155,9 @@ void reinitDevtree()
             }
 
             // Step 1: export devtree data based on the reinit attribute list.
-            auto ret =
-                dtree_cronus_export(CEC_DEVTREE_RW_PATH, CEC_INFODB_PATH,
-                                    DEVTREE_REINIT_ATTRS_LIST, fpExport.get());
+            auto ret = dtree_cronus_export(CEC_DEVTREE_RW_PATH, CEC_INFODB_PATH,
+                                           DEVTREE_REINIT_ATTRS_LIST,
+                                           fpExport.get());
             if (ret)
             {
                 log<level::ERR>(

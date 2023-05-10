@@ -165,7 +165,6 @@ void Manager::createClockDataLog()
 void Manager::addCFAMData(struct pdbg_target* proc,
                           openpower::pel::FFDCData& clockDataLog)
 {
-
     // collect Processor CFAM register data
     const std::vector<int> procCFAMAddr = {
         0x1007, 0x2804, 0x2810, 0x2813, 0x2814, 0x2815, 0x2816, 0x281D, 0x281E};

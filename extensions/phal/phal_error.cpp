@@ -389,8 +389,8 @@ void processClockInfoErrorHelper(FFDC* ffdc, const std::string& ffdc_prefix)
                      json jsonCalloutData;
                      std::string pelPriority = "L";
                      jsonCalloutData["Priority"] = pelPriority; // Not used
-                     jsonCalloutData["SymbolicFRU"] =
-                         "REFCLK" + std::to_string(clk_pos);
+                     jsonCalloutData["SymbolicFRU"] = "REFCLK" +
+                                                      std::to_string(clk_pos);
                      jsonCalloutData["Deconfigured"] = cdg_tgt.deconfigure;
                      jsonCalloutData["EntityPath"] = cdg_tgt.target_entity_path;
                      jsonCalloutDataList.emplace_back(jsonCalloutData);
@@ -928,8 +928,8 @@ void processSbeBootError()
     uint32_t index = pdbg_target_index(procTarget);
     pelAdditionalData.emplace_back("SRC6", std::to_string(index << 16));
     // Create SBE Error with FFDC data.
-    auto logId =
-        createSbeErrorPEL(event, sbeError, pelAdditionalData, procTarget);
+    auto logId = createSbeErrorPEL(event, sbeError, pelAdditionalData,
+                                   procTarget);
 
     if (dumpIsRequired)
     {

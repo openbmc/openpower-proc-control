@@ -24,7 +24,6 @@ using namespace phosphor::logging;
  */
 void cfamReset()
 {
-
     // First look if system supports kernel sysfs based cfam reset
     // If it does then write a 1 and let the kernel handle the reset
     std::ofstream file;

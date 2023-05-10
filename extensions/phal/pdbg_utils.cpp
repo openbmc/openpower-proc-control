@@ -21,7 +21,6 @@ using namespace phosphor::logging;
 
 pdbg_target* getFsiTarget(struct pdbg_target* procTarget)
 {
-
     struct pdbg_target* fsiTarget = nullptr;
     pdbg_for_each_target("fsi", procTarget, fsiTarget)
     {
@@ -68,7 +67,6 @@ uint32_t probeTarget(struct pdbg_target* procTarget)
 uint32_t getCFAM(struct pdbg_target* procTarget, const uint32_t reg,
                  uint32_t& val)
 {
-
     pdbg_target* fsiTarget = getFsiTarget(procTarget);
     if (nullptr == fsiTarget)
     {

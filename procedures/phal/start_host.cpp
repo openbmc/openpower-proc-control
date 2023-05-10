@@ -157,7 +157,6 @@ void setClkNETerminationSite()
     struct pdbg_target* procTarget;
     pdbg_for_each_class_target("proc", procTarget)
     {
-
         if (DT_SET_PROP(ATTR_SYS_CLK_NE_TERMINATION_SITE, procTarget,
                         clockTerm))
         {
