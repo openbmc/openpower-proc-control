@@ -912,6 +912,12 @@ void processSbeBootError()
         dumpIsRequired = true;
     }
 
+    if (!openpower::phal::isPrimaryProc(procTarget))
+    {
+        log<level::ERR>(fmt::format("Swarnendu-Debug-Msg: (In op-proc-control) Returned proc target is not a primary processor").c_str());
+        return;
+    }
+
     std::string event;
 
     if ((sbeError.errType() == SBE_FFDC_NO_DATA) ||
