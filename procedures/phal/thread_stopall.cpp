@@ -77,7 +77,8 @@ void threadStopAll(void)
                 {
                     log<level::ERR>(
                         fmt::format("threadStopAll failed({}) on proc({})",
-                                    errType, pdbg_target_index(procTarget))
+                                    static_cast<int>(errType),
+                                    pdbg_target_index(procTarget))
                             .c_str());
 
                     uint32_t index = pdbg_target_index(procTarget);
