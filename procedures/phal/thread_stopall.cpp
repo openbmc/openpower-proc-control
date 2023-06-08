@@ -4,6 +4,7 @@
 
 #include <attributes_info.H>
 #include <fmt/format.h>
+#include <libipl.H>
 #include <libphal.H>
 #include <phal_exception.H>
 extern "C"
@@ -76,8 +77,12 @@ void threadStopAll(void)
                 if (errType == SBE_CMD_FAILED)
                 {
                     log<level::ERR>(
-                        fmt::format("threadStopAll failed({}) on proc({})",
-                                    errType, pdbg_target_index(procTarget))
+                        fmt::format(
+                            "threadStopAll failed({}) on proc({})",
+                            static_cast<
+                                std::underlying_type<ipl_error_type>::type>(
+                                errType),
+                            pdbg_target_index(procTarget))
                             .c_str());
 
                     uint32_t index = pdbg_target_index(procTarget);

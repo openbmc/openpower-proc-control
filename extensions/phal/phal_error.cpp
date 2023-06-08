@@ -418,7 +418,9 @@ void processClockInfoErrorHelper(FFDC* ffdc, const std::string& ffdc_prefix)
 void processIplErrorCallback(const ipl_error_info& errInfo)
 {
     log<level::INFO>(
-        fmt::format("processIplErrorCallback: Error type({})", errInfo.type)
+        fmt::format("processIplErrorCallback: Error type({})",
+                    static_cast<std::underlying_type<ipl_error_type>::type>(
+                        errInfo.type))
             .c_str());
 
     switch (errInfo.type)
