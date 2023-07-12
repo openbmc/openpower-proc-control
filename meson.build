@@ -4,13 +4,13 @@ project(
     default_options: [
         'warning_level=3',
         'werror=true',
-        'cpp_std=c++20',
+        'cpp_std=c++23',
         'buildtype=debugoptimized',
         'b_ndebug=if-release',
     ],
     license: 'Apache-2.0',
     version: '1.0',
-    meson_version: '>=0.58.0',
+    meson_version: '>=1.1.1',
 )
 add_project_arguments('-Wno-psabi', language: 'cpp')
 
