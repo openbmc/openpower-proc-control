@@ -236,6 +236,30 @@
       },
       "revId": "fd50943156ad2d250398d6726d517745dbb88b5f",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c1fbe2d4_055f3cb3",
+        "filename": "service_files/op-clear-sys-dump-active@.service.in",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000004
+      },
+      "writtenOn": "2023-08-03T18:05:03Z",
+      "side": 1,
+      "message": "\u003e #WantedBy\u003dobmc-host-quiesce@%i.target seems to be added newly here .is this reaaly required?\n\nYeah, we document the behavior in the service file with a comment so users don\u0027t have to track down the bitbake recipe to know where it\u0027s being installed.",
+      "parentUuid": "261cd753_f28b2a07",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 37
+      },
+      "revId": "fd50943156ad2d250398d6726d517745dbb88b5f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
