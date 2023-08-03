@@ -4,6 +4,7 @@ Wants=xyz.openbmc_project.biosconfig_manager.service
 After=xyz.openbmc_project.biosconfig_manager.service
 After=op-enter-mpreboot@%i.service
 After=obmc-host-reset@%i.target
+After=obmc-host-quiesce@%i.target
 ConditionPathExists=!/run/openbmc/host@%i-on
 ConditionPathExists=!/run/openbmc/mpreboot@%i
 
@@ -17,4 +18,5 @@ ExecStart=/bin/sh -c \
    xyz.openbmc_project.BIOSConfig.Manager.AttributeType.Enumeration s Disabled"
 
 [Install]
-WantedBy=multi-user.target
+#WantedBy=multi-user.target
+#WantedBy=obmc-host-quiesce@%i.target
