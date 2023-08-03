@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "870bbd85_ddca8807",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2023-08-03T07:53:19Z",
+      "side": 1,
+      "message": "Just a doubt,\n\nis there a chance that dump is available in the host memory which is not offloaded but, we hit a TI/some error that forced the host into quiesced state and we boot the host again (suppose the Autoboot is enabled), whether we will able to offload the previous dump and PHYP change the \"pvm_sys_dump_active\" BIOS attribute or is it not persisted since the host itself down?\n\nWhy I am asking is, is there any logic that dependent on this BIOS attribute to offload the pending dump? If yes, we may see a problem in that case, right?",
+      "revId": "fd50943156ad2d250398d6726d517745dbb88b5f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa98ac5e_894bae87",
+        "filename": "service_files/op-clear-sys-dump-active@.service.in",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2023-08-03T07:53:19Z",
+      "side": 1,
+      "message": "Please include the reason why are we commenting this in the commit message.\n\nI think, In the openbmc/openbmc repo, we will create the symlink file in the openpower-proc-contorl recipe so I hope you aware that. If yes, please add that gerrit patch details in this commit message for the reference.",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 37
+      },
+      "revId": "fd50943156ad2d250398d6726d517745dbb88b5f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
