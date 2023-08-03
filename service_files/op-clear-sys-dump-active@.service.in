@@ -16,5 +16,7 @@ ExecStart=/bin/sh -c \
    PendingAttributes a{s\\(sv\\)} 1 pvm_sys_dump_active \
    xyz.openbmc_project.BIOSConfig.Manager.AttributeType.Enumeration s Disabled"
 
+#The corresponding bitbake recipe will do the actual installation
 [Install]
-WantedBy=multi-user.target
+#WantedBy=multi-user.target
+#WantedBy=obmc-host-quiesce@%i.target
