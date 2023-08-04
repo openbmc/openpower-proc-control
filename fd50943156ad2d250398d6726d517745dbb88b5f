@@ -260,6 +260,30 @@
       },
       "revId": "fd50943156ad2d250398d6726d517745dbb88b5f",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1f76474a_2e6ab949",
+        "filename": "service_files/op-clear-sys-dump-active@.service.in",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1000086
+      },
+      "writtenOn": "2023-08-04T01:25:29Z",
+      "side": 1,
+      "message": "Thanks for the update . Looks like now the changes , is only documention to support https://gerrit.openbmc.org/c/openbmc/openbmc/+/65709 changes.\n@deepkala please update commit message accordingly to help to track the \"why\" this commit is used for.",
+      "parentUuid": "c1fbe2d4_055f3cb3",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 37
+      },
+      "revId": "fd50943156ad2d250398d6726d517745dbb88b5f",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
