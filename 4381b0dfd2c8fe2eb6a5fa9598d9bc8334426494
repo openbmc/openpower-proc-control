@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3be8782a_038e09e8",
+        "filename": "extensions/phal/clock_logger.hpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2023-09-13T10:15:38Z",
+      "side": 1,
+      "message": "as format is not used in this file it would have been better to remove this inlcude itself.",
+      "revId": "4381b0dfd2c8fe2eb6a5fa9598d9bc8334426494",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd724e49_745d4cc0",
+        "filename": "extensions/phal/phal_error.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2023-09-13T10:15:38Z",
+      "side": 1,
+      "message": "I guess expected value s like 0a0b0b.... and here we will get 0xa0xb0xc, we are missing 02x which is equivalent to setw(2) i,e 1 will be printed as 01\n\nbetter is as shown in below code \n\n#include \u003ciostream\u003e\n#include \u003ccstdint\u003e\n#include \u003cformat\u003e\n\nint main() {\n    std::uint8_t array[20] \u003d {0x1, 0x3, 0x5, 0x7, 0x9, 0xb, 0xD, 0xF, 0x0, 0x2,\n                             0x45, 0x67, 0x89, 0xAB, 0xCD, 0xEF, 0x00, 0x11, 0x22, 0x33};\n\n    std::string formatted;\n    for (auto value : array) {\n        formatted +\u003d std::format(\"{:02X}\", value);\n    }\n\n    std::cout \u003c\u003c formatted \u003c\u003c std::endl;\n\n    return 0;\n}\n\noutput 01030507090B0D0F0002456789ABCDEF00112233\n\n\nor else above code could be changed as\n\n   ss \u003c\u003c std::hex \u003c\u003c std::setw(2) \n               \u003c\u003c static_cast\u003cint\u003e(targetInfo.physBinPath[a]);",
+      "range": {
+        "startLine": 171,
+        "startChar": 1,
+        "endLine": 176,
+        "endChar": 9
+      },
+      "revId": "4381b0dfd2c8fe2eb6a5fa9598d9bc8334426494",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
