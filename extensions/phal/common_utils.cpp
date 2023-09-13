@@ -5,7 +5,6 @@
 #include "extensions/phal/pdbg_utils.hpp"
 #include "extensions/phal/phal_error.hpp"
 
-#include <fmt/format.h>
 #include <libekb.H>
 
 #include <phosphor-logging/log.hpp>

@@ -6,7 +6,6 @@
 #include "create_pel.hpp"
 #include "pdbg_utils.hpp"
 
-#include <fmt/format.h>
 #include <sys/stat.h>
 #include <sys/wait.h>
 #include <unistd.h>
@@ -16,6 +15,7 @@
 #include <sdbusplus/exception.hpp>
 
 #include <filesystem>
+#include <format>
 
 namespace openpower
 {
@@ -45,7 +45,7 @@ void Watch::fwIntfAddedCallback(sdbusplus::message_t& msg)
     }
     catch (const sdbusplus::exception_t& e)
     {
-        log<level::ERR>(fmt::format("Failed to parse software add signal"
+        log<level::ERR>(std::format("Failed to parse software add signal"
                                     "Exception [{}] REPLY_SIG [{}]",
                                     e.what(), msg.get_signature())
                             .c_str());
@@ -94,7 +94,7 @@ void Watch::fwIntfAddedCallback(sdbusplus::message_t& msg)
         catch (const fs::filesystem_error& e)
         {
             log<level::ERR>(
-                fmt::format("Filesystem error reported Error:({})", e.what())
+                std::format("Filesystem error reported Error:({})", e.what())
                     .c_str());
             throw std::runtime_error(e.what());
         }
@@ -115,7 +115,7 @@ void exportDevtree()
     if (!fs::exists(path))
     {
         log<level::ERR>(
-            fmt::format("devtree export filter file is not available: ({})",
+            std::format("devtree export filter file is not available: ({})",
                         DEVTREE_EXPORT_FILTER_FILE)
                 .c_str());
         openpower::pel::createPEL(ERROR_DEVTREE_BACKUP);
@@ -152,7 +152,7 @@ void exportDevtree()
         execl("/bin/sh", "sh", "-c", cmd.c_str(), 0);
 
         auto error = errno;
-        log<level::ERR>(fmt::format("Error occurred during attributes function "
+        log<level::ERR>(std::format("Error occurred during attributes function "
                                     "execution, errno({})",
                                     error)
                             .c_str());

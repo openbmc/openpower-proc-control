@@ -17,8 +17,6 @@
 
 #include "extensions/phal/create_pel.hpp"
 
-#include <fmt/format.h>
-
 #include <sdeventplus/utility/timer.hpp>
 
 #include <chrono>

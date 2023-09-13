@@ -8,9 +8,9 @@ extern "C"
 #include "extensions/phal/pdbg_utils.hpp"
 #include "extensions/phal/phal_error.hpp"
 
-#include <fmt/format.h>
-
 #include <phosphor-logging/log.hpp>
+
+#include <format>
 
 namespace openpower
 {
@@ -128,7 +128,7 @@ void setDevtreeEnv()
     if (setenv("PDBG_DTB", CEC_DEVTREE_RW_PATH, 1))
     {
         log<level::ERR>(
-            fmt::format("Failed to set PDBG_DTB: ({})", strerror(errno))
+            std::format("Failed to set PDBG_DTB: ({})", strerror(errno))
                 .c_str());
         throw std::runtime_error("Failed to set PDBG_DTB");
     }
@@ -143,7 +143,7 @@ void setPdataInfoDBEnv()
     if (setenv("PDATA_INFODB", PDATA_INFODB_PATH, 1))
     {
         log<level::ERR>(
-            fmt::format("Failed to set PDATA_INFODB: ({})", strerror(errno))
+            std::format("Failed to set PDATA_INFODB: ({})", strerror(errno))
                 .c_str());
         throw std::runtime_error("Failed to set PDATA_INFODB");
     }

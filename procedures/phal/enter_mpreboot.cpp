@@ -26,7 +26,6 @@ extern "C"
 #include "extensions/phal/dump_utils.hpp"
 
 #include <attributes_info.H>
-#include <fmt/format.h>
 #include <libphal.H>
 #include <phal_exception.H>
 #include <sys/wait.h>
@@ -34,6 +33,7 @@ extern "C"
 
 #include <phosphor-logging/log.hpp>
 
+#include <format>
 #include <system_error>
 #include <vector>
 
@@ -65,13 +65,13 @@ void sbeEnterMpReboot(struct pdbg_target* tgt)
             // SBE is not ready to accept chip-ops,
             // Skip the request, no additional error handling required.
             log<level::INFO>(
-                fmt::format("EnterMPIPL: Skipping ({}) on proc({})",
+                std::format("EnterMPIPL: Skipping ({}) on proc({})",
                             sbeError.what(), pdbg_target_index(tgt))
                     .c_str());
             return;
         }
 
-        log<level::ERR>(fmt::format("EnterMPIPL failed({}) on proc({})",
+        log<level::ERR>(std::format("EnterMPIPL failed({}) on proc({})",
                                     sbeError.what(), pdbg_target_index(tgt))
                             .c_str());
 
@@ -117,7 +117,7 @@ void sbeEnterMpReboot(struct pdbg_target* tgt)
     catch (const phalError_t& phalError)
     {
         // Failure reported
-        log<level::ERR>(fmt::format("captureFFDC: Exception({}) on proc({})",
+        log<level::ERR>(std::format("captureFFDC: Exception({}) on proc({})",
                                     phalError.what(), pdbg_target_index(tgt))
                             .c_str());
         openpower::pel::createPEL(
@@ -126,7 +126,7 @@ void sbeEnterMpReboot(struct pdbg_target* tgt)
     }
 
     log<level::INFO>(
-        fmt::format("Enter MPIPL completed on proc({})", pdbg_target_index(tgt))
+        std::format("Enter MPIPL completed on proc({})", pdbg_target_index(tgt))
             .c_str());
 }
 

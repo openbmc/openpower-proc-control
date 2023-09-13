@@ -2,12 +2,12 @@
 
 #include "util.hpp"
 
-#include <fmt/format.h>
-
 #include <phosphor-logging/log.hpp>
 #include <sdbusplus/bus.hpp>
 #include <sdbusplus/exception.hpp>
 #include <sdbusplus/server.hpp>
+
+#include <format>
 
 namespace openpower::phal::dump
 {
@@ -43,7 +43,7 @@ uint32_t dumpStatusChanged(sdbusplus::message_t& msg, const std::string& path,
                                     "OperationStatus.InProgress" != *status))
         {
             // dump is done, trace some info and change in progress flag
-            log<level::INFO>(fmt::format("Dump status({}) : path={}",
+            log<level::INFO>(std::format("Dump status({}) : path={}",
                                          status->c_str(), path.c_str())
                                  .c_str());
             inProgress = false;
@@ -100,7 +100,7 @@ void monitorDump(const std::string& path, const uint32_t timeout)
 
 void requestDump(const DumpParameters& dumpParameters)
 {
-    log<level::INFO>(fmt::format("Requesting Dump PEL({}) Index({})",
+    log<level::INFO>(std::format("Requesting Dump PEL({}) Index({})",
                                  dumpParameters.logId, dumpParameters.unitId)
                          .c_str());
 
@@ -142,7 +142,7 @@ void requestDump(const DumpParameters& dumpParameters)
     }
     catch (const sdbusplus::exception_t& e)
     {
-        log<level::ERR>(fmt::format("D-Bus call createDump exception",
+        log<level::ERR>(std::format("D-Bus call createDump exception",
                                     "OBJPATH={}, INTERFACE={}, EXCEPTION={}",
                                     path, interface, e.what())
                             .c_str());
@@ -152,7 +152,7 @@ void requestDump(const DumpParameters& dumpParameters)
         {
             // Dump is disabled, Skip the dump collection.
             log<level::INFO>(
-                fmt::format("Dump is disabled on({}), skipping dump collection",
+                std::format("Dump is disabled on({}), skipping dump collection",
                             dumpParameters.unitId)
                     .c_str());
         }
