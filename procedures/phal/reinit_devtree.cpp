@@ -23,7 +23,16 @@ namespace openpower
 namespace phal
 {
 using namespace phosphor::logging;
-using FILE_Ptr = std::unique_ptr<FILE, decltype(&::fclose)>;
+
+struct FileCloser
+{
+    void operator()(FILE* fp) const
+    {
+        fclose(fp);
+    }
+};
+using FILE_Ptr = std::unique_ptr<FILE, FileCloser>;
+
 namespace fs = std::filesystem;
 
 void applyAttrOverride(fs::path& devtreeFile)
@@ -36,7 +45,7 @@ void applyAttrOverride(fs::path& devtreeFile)
     }
 
     // Open attribute override file in r/o mode
-    FILE_Ptr fpOverride(fopen(DEVTREE_ATTR_OVERRIDE_PATH, "r"), fclose);
+    FILE_Ptr fpOverride(fopen(DEVTREE_ATTR_OVERRIDE_PATH, "r"), FileCloser());
 
     // Update Devtree with attribute override data.
     auto ret = dtree_cronus_import(devtreeFile.c_str(), CEC_INFODB_PATH,
@@ -142,7 +151,8 @@ void reinitDevtree()
 
         {
             // get temporary datafile pointer.
-            FILE_Ptr fpExport(fopen(tmpFile.getPath().c_str(), "w+"), fclose);
+            FILE_Ptr fpExport(fopen(tmpFile.getPath().c_str(), "w+"),
+                              FileCloser());
 
             if (fpExport.get() == nullptr)
             {
@@ -174,7 +184,7 @@ void reinitDevtree()
         std::filesystem::copy(roFilePath, tmpDevtreePath, copyOptions);
 
         // get r/o version data file pointer
-        FILE_Ptr fpImport(fopen(tmpFile.getPath().c_str(), "r"), fclose);
+        FILE_Ptr fpImport(fopen(tmpFile.getPath().c_str(), "r"), FileCloser());
         if (fpImport.get() == nullptr)
         {
             log<level::ERR>(
