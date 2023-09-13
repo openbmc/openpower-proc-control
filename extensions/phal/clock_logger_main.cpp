@@ -16,8 +16,6 @@
 
 #include "extensions/phal/clock_logger.hpp"
 
-#include <fmt/format.h>
-
 #include <phosphor-logging/lg2.hpp>
 #include <sdbusplus/bus.hpp>
 #include <sdeventplus/source/event.hpp>

@@ -3,10 +3,11 @@
 #include "registration.hpp"
 
 #include <attributes_info.H>
-#include <fmt/format.h>
 #include <libipl.H>
 #include <libphal.H>
 #include <phal_exception.H>
+
+#include <format>
 extern "C"
 {
 #include <libpdbg.h>
@@ -55,7 +56,7 @@ void threadStopAll(void)
             if (DT_GET_PROP(ATTR_HWAS_STATE, procTarget, hwasState))
             {
                 log<level::ERR>(
-                    fmt::format("({})Could not read HWAS_STATE attribute",
+                    std::format("({})Could not read HWAS_STATE attribute",
                                 pdbg_target_path(procTarget))
                         .c_str());
                 continue;
@@ -77,7 +78,7 @@ void threadStopAll(void)
                 if (errType == SBE_CMD_FAILED)
                 {
                     log<level::ERR>(
-                        fmt::format(
+                        std::format(
                             "threadStopAll failed({}) on proc({})",
                             static_cast<
                                 std::underlying_type<ipl_error_type>::type>(
@@ -105,7 +106,7 @@ void threadStopAll(void)
                     // SBE is not ready to accept chip-ops,
                     // Skip the request, no additional error handling required.
                     log<level::INFO>(
-                        fmt::format("threadStopAll: Skipping ({}) on proc({})",
+                        std::format("threadStopAll: Skipping ({}) on proc({})",
                                     sbeError.what(),
                                     pdbg_target_index(procTarget))
                             .c_str());
@@ -113,7 +114,7 @@ void threadStopAll(void)
                 continue;
             }
             log<level::INFO>(
-                fmt::format("Processor thread stopall completed on proc({})",
+                std::format("Processor thread stopall completed on proc({})",
                             pdbg_target_index(procTarget))
                     .c_str());
         }
@@ -125,7 +126,7 @@ void threadStopAll(void)
         // Dont throw exception on failure because, need to proceed
         // further to complete power-off/reboot.
         log<level::ERR>(
-            fmt::format("threadStopAll: Exception({})", ex.what()).c_str());
+            std::format("threadStopAll: Exception({})", ex.what()).c_str());
 
         // To store additional data about ffdc.
         FFDCData pelAdditionalData;

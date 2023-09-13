@@ -22,12 +22,12 @@ extern "C"
 #include <libpdbg_sbe.h>
 }
 
-#include <fmt/format.h>
 #include <sys/wait.h>
 #include <unistd.h>
 
 #include <phosphor-logging/log.hpp>
 
+#include <format>
 #include <system_error>
 #include <vector>
 
@@ -53,7 +53,7 @@ void sbeEnterMpReboot(struct pdbg_target* tgt)
     }
 
     log<level::INFO>(
-        fmt::format("Enter MPIPL completed on proc({})", pdbg_target_index(tgt))
+        std::format("Enter MPIPL completed on proc({})", pdbg_target_index(tgt))
             .c_str());
 }
 

@@ -1,6 +1,5 @@
 #include "registration.hpp"
 
-#include <fmt/format.h>
 extern "C"
 {
 #include <libpdbg.h>
