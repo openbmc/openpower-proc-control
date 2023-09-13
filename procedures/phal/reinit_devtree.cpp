@@ -5,13 +5,13 @@
 #include "temporary_file.hpp"
 
 #include <fcntl.h>
-#include <fmt/format.h>
 
 #include <nlohmann/json.hpp>
 #include <phosphor-logging/elog-errors.hpp>
 
 #include <cstdio>
 #include <filesystem>
+#include <format>
 
 extern "C"
 {
@@ -44,7 +44,7 @@ void applyAttrOverride(fs::path& devtreeFile)
     if (ret)
     {
         log<level::ERR>(
-            fmt::format("Failed({}) to update attribute override data", ret)
+            std::format("Failed({}) to update attribute override data", ret)
                 .c_str());
         throw std::runtime_error(
             "applyAttrOverride: dtree_cronus_import failed");
@@ -67,7 +67,7 @@ fs::path computeRODeviceTreePath()
     if (rwFileName.empty())
     {
         std::string err =
-            fmt::format("Failed to read the target file "
+            std::format("Failed to read the target file "
                         "for the RW device tree symbolic link ({})",
                         CEC_DEVTREE_RW_PATH);
         log<level::ERR>(err.c_str());
@@ -76,7 +76,7 @@ fs::path computeRODeviceTreePath()
     fs::path roFilePath = CEC_DEVTREE_RO_BASE_PATH / rwFileName;
     if (!fs::exists(roFilePath))
     {
-        auto err = fmt::format("RO device tree file ({}) does not "
+        auto err = std::format("RO device tree file ({}) does not "
                                "exit ",
                                roFilePath.string());
         log<level::ERR>(err.c_str());
@@ -130,7 +130,7 @@ void reinitDevtree()
         if (!fs::exists(attrFile))
         {
             log<level::ERR>(
-                fmt::format(
+                std::format(
                     "devtree attribute export list file is not available: ({})",
                     DEVTREE_REINIT_ATTRS_LIST)
                     .c_str());
@@ -147,7 +147,7 @@ void reinitDevtree()
             if (fpExport.get() == nullptr)
             {
                 log<level::ERR>(
-                    fmt::format("Temporary data file failed to open: ({})",
+                    std::format("Temporary data file failed to open: ({})",
                                 tmpFile.getPath().c_str())
                         .c_str());
                 throw std::runtime_error(
@@ -161,7 +161,7 @@ void reinitDevtree()
             if (ret)
             {
                 log<level::ERR>(
-                    fmt::format("Failed({}) to collect attribute export data",
+                    std::format("Failed({}) to collect attribute export data",
                                 ret)
                         .c_str());
                 throw std::runtime_error(
@@ -178,7 +178,7 @@ void reinitDevtree()
         if (fpImport.get() == nullptr)
         {
             log<level::ERR>(
-                fmt::format("import, temporary data file failed to open: ({})",
+                std::format("import, temporary data file failed to open: ({})",
                             tmpFile.getPath().c_str())
                     .c_str());
             throw std::runtime_error(
@@ -191,7 +191,7 @@ void reinitDevtree()
         if (ret)
         {
             log<level::ERR>(
-                fmt::format("Failed({}) to update attribute data", ret)
+                std::format("Failed({}) to update attribute data", ret)
                     .c_str());
             throw std::runtime_error(
                 "reinitDevtree: dtree_cronus_import function failed");
@@ -207,7 +207,7 @@ void reinitDevtree()
         // Any failures during temporary file re-init should create PEL
         // and continue with current version of devtree file to allow boot.
         log<level::ERR>(
-            fmt::format("reinitDevtree failed ({})", e.what()).c_str());
+            std::format("reinitDevtree failed ({})", e.what()).c_str());
         json jsonCalloutDataList;
         jsonCalloutDataList = json::array();
         json jsonCalloutData;
@@ -245,7 +245,7 @@ void reinitDevtree()
         // PEL, with code callout. Also failed the service.
         // and continue with current version of devtree file to allow boot.
         log<level::ERR>(
-            fmt::format("reinitDevtree r/w version update failed ({})",
+            std::format("reinitDevtree r/w version update failed ({})",
                         e.what())
                 .c_str());
         json jsonCalloutDataList;

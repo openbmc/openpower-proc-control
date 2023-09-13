@@ -4,7 +4,6 @@
 #include "extensions/phal/pdbg_utils.hpp"
 #include "registration.hpp"
 
-#include <fmt/format.h>
 #include <sys/wait.h>
 #include <unistd.h>
 
@@ -14,6 +13,7 @@
 #include <xyz/openbmc_project/Common/error.hpp>
 
 #include <filesystem>
+#include <format>
 
 namespace openpower
 {
@@ -52,7 +52,7 @@ void importDevtree()
         execl("/bin/sh", "sh", "-c", cmd.c_str(), 0);
 
         auto error = errno;
-        log<level::ERR>(fmt::format("Error occurred during attributes import "
+        log<level::ERR>(std::format("Error occurred during attributes import "
                                     "execution, errno({})",
                                     error)
                             .c_str());
@@ -84,7 +84,7 @@ void importDevtree()
     }
     catch (const fs::filesystem_error& e)
     { // Log message and continue. Data already applied successfully.
-        log<level::ERR>(fmt::format("File({}) delete failed Error:({})",
+        log<level::ERR>(std::format("File({}) delete failed Error:({})",
                                     DEVTREE_EXP_FILE, e.what())
                             .c_str());
     }

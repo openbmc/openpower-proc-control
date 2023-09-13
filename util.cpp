@@ -1,9 +1,8 @@
 #include "util.hpp"
 
-#include <fmt/format.h>
-
 #include <phosphor-logging/elog.hpp>
 
+#include <format>
 #include <sstream>
 #include <variant>
 #include <vector>
@@ -31,7 +30,7 @@ std::string getService(sdbusplus::bus_t& bus, const std::string& objectPath,
     }
     catch (const sdbusplus::exception_t& e)
     {
-        log<level::ERR>(fmt::format("D-Bus call exception OBJPATH={}"
+        log<level::ERR>(std::format("D-Bus call exception OBJPATH={}"
                                     "INTERFACE={}  EXCEPTION={}",
                                     objectPath, interface, e.what())
                             .c_str());
@@ -67,7 +66,7 @@ bool isHostPoweringOff()
         const std::string* state = std::get_if<std::string>(&retval);
         if (state == nullptr)
         {
-            std::string err = fmt::format(
+            std::string err = std::format(
                 "CurrentHostState property is not set ({})", object);
             log<level::ERR>(err.c_str());
             return false;
@@ -85,7 +84,7 @@ bool isHostPoweringOff()
     catch (const std::exception& ex)
     {
         log<level::ERR>(
-            fmt::format("Failed to read CurrentHostState property ({})",
+            std::format("Failed to read CurrentHostState property ({})",
                         ex.what())
                 .c_str());
     }
@@ -116,12 +115,12 @@ std::string getChassisPowerState()
     catch (const std::exception& ex)
     {
         log<level::ERR>(
-            fmt::format("Failed to read CurrentPowerState property ({})",
+            std::format("Failed to read CurrentPowerState property ({})",
                         ex.what())
                 .c_str());
     }
 
-    log<level::DEBUG>(fmt::format("Power state is: {} ", powerState).c_str());
+    log<level::DEBUG>(std::format("Power state is: {} ", powerState).c_str());
 
     return powerState;
 }
