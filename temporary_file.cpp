@@ -1,6 +1,5 @@
 #include "temporary_file.hpp"
 
-#include <fmt/format.h>
 #include <unistd.h>
 
 #include <phosphor-logging/elog-errors.hpp>

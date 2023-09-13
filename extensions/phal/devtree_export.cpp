@@ -1,9 +1,9 @@
 #include "fw_update_watch.hpp"
 
-#include <fmt/format.h>
-
 #include <phosphor-logging/elog-errors.hpp>
 #include <sdeventplus/event.hpp>
+
+#include <format>
 
 int main()
 {
@@ -27,7 +27,7 @@ int main()
     {
         using namespace phosphor::logging;
         log<level::ERR>(
-            fmt::format("Exception reported: [{}]", e.what()).c_str());
+            std::format("Exception reported: [{}]", e.what()).c_str());
     }
 
     return eventRet;

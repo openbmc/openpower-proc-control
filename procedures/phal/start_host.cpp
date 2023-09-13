@@ -10,13 +10,14 @@ extern "C"
 #include "extensions/phal/phal_error.hpp"
 #include "util.hpp"
 
-#include <fmt/format.h>
 #include <libekb.H>
 
 #include <ext_interface.hpp>
 #include <nlohmann/json.hpp>
 #include <phosphor-logging/log.hpp>
 #include <registration.hpp>
+
+#include <format>
 
 namespace openpower
 {
@@ -131,13 +132,13 @@ void setClkNETerminationSite()
     if (hwKwdSize != hwData.size())
     {
         log<level::ERR>(
-            fmt::format("Incorrect VINI records HW Keyword data size({})",
+            std::format("Incorrect VINI records HW Keyword data size({})",
                         hwData.size())
                 .c_str());
         throw std::runtime_error("Incorrect VINI records HW Keyword data size");
     }
 
-    log<level::DEBUG>(fmt::format("VINI Records HW[0]:{} HW[1]:{}",
+    log<level::DEBUG>(std::format("VINI Records HW[0]:{} HW[1]:{}",
                                   hwData.at(0), hwData.at(1))
                           .c_str());
 
@@ -206,7 +207,7 @@ static void
         // Don't throw exception since the caller might call in the error path
         // and even we should allow the hardware isolation by default.
         log<level::ERR>(
-            fmt::format("Exception [{}], failed to create the error log "
+            std::format("Exception [{}], failed to create the error log "
                         "for the hardware isolation policy settings failures.",
                         e.what())
                 .c_str());
@@ -252,7 +253,7 @@ static bool allowHwIsolation()
         }
         else
         {
-            const auto trace{fmt::format(
+            const auto trace{std::format(
                 "Failed to read the HardwareIsolation policy "
                 "from the path [{}] interface [{}]. Continuing with "
                 "default mode(allow_hw_isolation)",
@@ -265,7 +266,7 @@ static bool allowHwIsolation()
     }
     catch (const sdbusplus::exception_t& e)
     {
-        const auto trace{fmt::format(
+        const auto trace{std::format(
             "Exception [{}] to get the HardwareIsolation policy "
             "from the path [{}] interface [{}]. Continuing with "
             "default mode (allow_hw_isolation)",
