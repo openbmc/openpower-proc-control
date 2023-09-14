@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "94297fe1_26b74aea",
+        "filename": "extensions/phal/phal_error.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1000089
+      },
+      "writtenOn": "2023-09-14T04:58:52Z",
+      "side": 1,
+      "message": "do we need fmt +\u003d ?",
+      "revId": "0d3672ab18bd20624f7ae69cb4913231f542093d",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
