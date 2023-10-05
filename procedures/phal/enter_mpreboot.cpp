@@ -78,7 +78,8 @@ void sbeEnterMpReboot(struct pdbg_target* tgt)
         std::string event;
         bool dumpIsRequired = false;
 
-        if (sbeError.errType() == SBE_CMD_TIMEOUT)
+        if ((sbeError.errType() == SBE_CMD_TIMEOUT) ||
+            (sbeError.errType() == SBE_EXTRACT_RC))
         {
             event = "org.open_power.Processor.Error.SbeChipOpTimeout";
             dumpIsRequired = true;
