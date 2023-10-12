@@ -16,6 +16,24 @@
       "message": "Remove this line",
       "revId": "773fd244bbf229c8ece3a1fcf7944486d2fed1f9",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bcf59e7a_01608005",
+        "filename": "extensions/phal/clock_logger.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1001592
+      },
+      "writtenOn": "2023-10-12T11:30:24Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "a4d7f55a_a27ae427",
+      "revId": "773fd244bbf229c8ece3a1fcf7944486d2fed1f9",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
