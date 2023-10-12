@@ -78,18 +78,6 @@ void Manager::timerExpired()
 
 void Manager::createClockDataLog()
 {
-    // check chassis power state.
-    auto powerState = openpower::util::getChassisPowerState();
-
-    if (powerState != "xyz.openbmc_project.State.Chassis.PowerState.On")
-    {
-        warning("The chassis power state({POWERSTATE}) is not ON, Skipping "
-                "clock data "
-                "logging",
-                "POWERSTATE", powerState);
-        return;
-    }
-
     // Data logger storage
     FFDCData clockDataLog;
 
