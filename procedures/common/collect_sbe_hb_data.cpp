@@ -34,23 +34,23 @@ union sbeMsgReg_t
     struct
     {
 #if __BYTE_ORDER == __LITTLE_ENDIAN
-        uint32_t reserved2 : 6;
-        uint32_t minorStep : 6;
-        uint32_t majorStep : 8;
-        uint32_t currState : 4;
-        uint32_t prevState : 4;
-        uint32_t reserved1 : 2;
-        uint32_t asyncFFDC : 1;
-        uint32_t sbeBooted : 1;
+        uint32_t reserved2:6;
+        uint32_t minorStep:6;
+        uint32_t majorStep:8;
+        uint32_t currState:4;
+        uint32_t prevState:4;
+        uint32_t reserved1:2;
+        uint32_t asyncFFDC:1;
+        uint32_t sbeBooted:1;
 #else
-        uint32_t sbeBooted : 1;
-        uint32_t asyncFFDC : 1;
-        uint32_t reserved1 : 2;
-        uint32_t prevState : 4;
-        uint32_t currState : 4;
-        uint32_t majorStep : 8;
-        uint32_t minorStep : 6;
-        uint32_t reserved2 : 6;
+        uint32_t sbeBooted:1;
+        uint32_t asyncFFDC:1;
+        uint32_t reserved1:2;
+        uint32_t prevState:4;
+        uint32_t currState:4;
+        uint32_t majorStep:8;
+        uint32_t minorStep:6;
+        uint32_t reserved2:6;
 #endif
     } PACK;
 };
@@ -62,21 +62,21 @@ union MboxScratch5_HB_t
     struct
     {
 #if __BYTE_ORDER == __LITTLE_ENDIAN
-        uint32_t minorStep : 8;    // 24:31
-        uint32_t majorStep : 8;    // 16:23
-        uint32_t internalStep : 4; // 12:15
-        uint32_t reserved : 2;     // 10:11
-        uint32_t stepFinish : 1;   // 9
-        uint32_t stepStart : 1;    // 8
-        uint32_t magic : 8;        // 0:7
+        uint32_t minorStep:8;    // 24:31
+        uint32_t majorStep:8;    // 16:23
+        uint32_t internalStep:4; // 12:15
+        uint32_t reserved:2;     // 10:11
+        uint32_t stepFinish:1;   // 9
+        uint32_t stepStart:1;    // 8
+        uint32_t magic:8;        // 0:7
 #else
-        uint32_t magic : 8;        // 0:7
-        uint32_t stepStart : 1;    // 8
-        uint32_t stepFinish : 1;   // 9
-        uint32_t reserved : 2;     // 10:11
-        uint32_t internalStep : 4; // 12:15
-        uint32_t majorStep : 8;    // 16:23
-        uint32_t minorStep : 8;    // 24:31
+        uint32_t magic:8;        // 0:7
+        uint32_t stepStart:1;    // 8
+        uint32_t stepFinish:1;   // 9
+        uint32_t reserved:2;     // 10:11
+        uint32_t internalStep:4; // 12:15
+        uint32_t majorStep:8;    // 16:23
+        uint32_t minorStep:8;    // 24:31
 #endif
     } PACK;
 };
