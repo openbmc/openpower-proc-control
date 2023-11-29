@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "30eab479_3f39c253",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2023-11-29T13:14:34Z",
+      "side": 1,
+      "message": "Matt: can you look at this build failure and let me know what you\u0027d like done?  There are a bunch of \u0027auto\u0027 features, some of which conflict with each other.  I\u0027m not sure what you\u0027d like as the default set for CI.",
+      "revId": "f1c8c64725836b0980a3475991c1f81441db1778",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
