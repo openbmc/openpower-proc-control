@@ -34,6 +34,24 @@
       "parentUuid": "30eab479_3f39c253",
       "revId": "f1c8c64725836b0980a3475991c1f81441db1778",
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "44a5a152_28c9dcd9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2023-12-05T02:13:07Z",
+      "side": 1,
+      "message": "```\n/var/jenkins-openbmc/workspace/ci-repository/openbmc/openpower-proc-control \u003e meson setup --reconfigure build -Db_colorout\u003dnever -Dwerror\u003dtrue -Dwarning_level\u003d3 -Ddebug\u003dtrue -Doptimization\u003dg \n\n\nmeson.build:69:4: ERROR: Problem encountered: phal and p9 cannot be selected at the same time\n```\n\nLooks like both features (phal and p9) are enabled/auto, which is not allowed\n\nThe \"auto_feature\" default value is \"auto\" so I guess the \"auto\" value is set and we are getting true from \"allowed()\" for both features?",
+      "parentUuid": "1971fea7_662e2c06",
+      "revId": "f1c8c64725836b0980a3475991c1f81441db1778",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     }
   ]
 }
