@@ -98,7 +98,7 @@ std::string getChassisPowerState()
     {
         auto bus = sdbusplus::bus::new_default();
         auto properties =
-            bus.new_method_call("xyz.openbmc_project.State.Chassis",
+            bus.new_method_call("xyz.openbmc_project.State.Chassis0",
                                 "/xyz/openbmc_project/state/chassis0",
                                 "org.freedesktop.DBus.Properties", "Get");
         properties.append("xyz.openbmc_project.State.Chassis");
