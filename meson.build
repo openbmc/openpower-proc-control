@@ -27,6 +27,7 @@ cxx = meson.get_compiler('cpp')
 extra_sources = []
 extra_dependencies = []
 extra_unit_files = []
+extra_scripts = []
 
 # Configuration header file(config.h) generation
 conf_data = configuration_data()
@@ -132,7 +133,11 @@ if build_phal
         'service_files/phal-export-devtree@.service',
         'service_files/phal-create-boottime-guard-indicator.service',
         'service_files/op-clock-data-logger@.service',
+        'service_files/phal-recover-devtree@.service',
     ]
+    extra_scripts += [
+        'procedures/phal/recover_lid_files',
+     ]
     unit_subs.set('ENABLE_PHAL_TRUE', '')
 endif
 
@@ -216,7 +221,16 @@ if build_phal
              dependency('sdeventplus'),
        ],
        install: true
-)
+    )
+    fs = import('fs')
+    foreach s : extra_scripts
+        fs.copyfile(
+            s,
+            install: true,
+            install_mode: 'rwxr-xr-x',
+            install_dir: get_option('bindir')
+        )
+    endforeach
 endif
 
 unit_files = [
