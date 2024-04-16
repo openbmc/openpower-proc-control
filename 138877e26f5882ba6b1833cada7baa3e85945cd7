@@ -1,0 +1,232 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee0b30f8_c8daa560",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2024-04-16T01:49:05Z",
+      "side": 1,
+      "message": "I think, this change should be pushed into openpower-pnor-code-mgmt, not in this repo since we are trying to recover corrupted PNOR partitions and this is not specific PHAL issue.",
+      "revId": "138877e26f5882ba6b1833cada7baa3e85945cd7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c361639_2b7a9c34",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2024-04-16T01:49:05Z",
+      "side": 1,
+      "message": "Please add test result.",
+      "revId": "138877e26f5882ba6b1833cada7baa3e85945cd7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f671aa6_1c175f0b",
+        "filename": "procedures/phal/recover_lid_files",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2024-04-16T01:49:05Z",
+      "side": 1,
+      "message": "Please add LICENCE info\n\n```\n# SPDX-License-Identifier: Apache-2.0\n```",
+      "revId": "138877e26f5882ba6b1833cada7baa3e85945cd7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1812a84c_5cd23760",
+        "filename": "procedures/phal/recover_lid_files",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2024-04-16T01:49:05Z",
+      "side": 1,
+      "message": "whitespace",
+      "revId": "138877e26f5882ba6b1833cada7baa3e85945cd7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "293cd13a_f6aa758e",
+        "filename": "procedures/phal/recover_lid_files",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2024-04-16T01:49:05Z",
+      "side": 1,
+      "message": "Suggestion: You could use `grep \u0027PRESERVED\\|DEVTREE\u0027 \"${ro_dir}/81e00994.lid\"`",
+      "range": {
+        "startLine": 10,
+        "startChar": 13,
+        "endLine": 11,
+        "endChar": 38
+      },
+      "revId": "138877e26f5882ba6b1833cada7baa3e85945cd7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9cfccaa_b3919020",
+        "filename": "procedures/phal/recover_lid_files",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2024-04-16T01:49:05Z",
+      "side": 1,
+      "message": "Please use indentation since its continues of the previous line",
+      "range": {
+        "startLine": 11,
+        "startChar": 1,
+        "endLine": 11,
+        "endChar": 39
+      },
+      "revId": "138877e26f5882ba6b1833cada7baa3e85945cd7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa361cc6_b1299b1a",
+        "filename": "procedures/phal/recover_lid_files",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2024-04-16T01:49:05Z",
+      "side": 1,
+      "message": "I feel this comment should go before LN23",
+      "revId": "138877e26f5882ba6b1833cada7baa3e85945cd7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f83115b9_c34790d7",
+        "filename": "procedures/phal/recover_lid_files",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2024-04-16T01:49:05Z",
+      "side": 1,
+      "message": "Why is it under the PHAL error? It should be generic, right?\n\nand I could not see the same message registry info, please add the respective gerrit link if its up for the review.",
+      "range": {
+        "startLine": 31,
+        "startChar": 6,
+        "endLine": 31,
+        "endChar": 25
+      },
+      "revId": "138877e26f5882ba6b1833cada7baa3e85945cd7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "40e3b19b_6fe1d033",
+        "filename": "procedures/phal/recover_lid_files",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2024-04-16T01:49:05Z",
+      "side": 1,
+      "message": "How are you associating the dump with the above created PELs?",
+      "revId": "138877e26f5882ba6b1833cada7baa3e85945cd7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f485a033_e1b3080f",
+        "filename": "service_files/phal-recover-devtree@.service.in",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2024-04-16T01:49:05Z",
+      "side": 1,
+      "message": "I feel, we should not indicate as PHAL specific.\n\n`recover_pnor_partition.service`",
+      "revId": "138877e26f5882ba6b1833cada7baa3e85945cd7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a437c3b7_2005726f",
+        "filename": "service_files/phal-recover-devtree@.service.in",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2024-04-16T01:49:05Z",
+      "side": 1,
+      "message": "Why this unit is in template? any specific reason?",
+      "revId": "138877e26f5882ba6b1833cada7baa3e85945cd7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1592cbdf_79b36543",
+        "filename": "service_files/phal-recover-devtree@.service.in",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2024-04-16T01:49:05Z",
+      "side": 1,
+      "message": "I feel, we should not indicate as PHAL specific. \n\n`Recover PNOR partitions`??",
+      "range": {
+        "startLine": 2,
+        "startChar": 27,
+        "endLine": 2,
+        "endChar": 39
+      },
+      "revId": "138877e26f5882ba6b1833cada7baa3e85945cd7",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
