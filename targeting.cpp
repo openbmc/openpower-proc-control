@@ -62,8 +62,7 @@ std::unique_ptr<Target>& Targeting::getTarget(size_t pos)
 
 Targeting::Targeting(const std::string& fsiMasterDev,
                      const std::string& fsiSlaveDir) :
-    fsiMasterPath(fsiMasterDev),
-    fsiSlaveBasePath(fsiSlaveDir)
+    fsiMasterPath(fsiMasterDev), fsiSlaveBasePath(fsiSlaveDir)
 {
     std::regex exp{"fsi1/slave@([0-9]{2}):00", std::regex::extended};
 
