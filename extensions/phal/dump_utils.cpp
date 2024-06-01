@@ -104,7 +104,7 @@ void requestDump(const DumpParameters& dumpParameters)
                                  dumpParameters.logId, dumpParameters.unitId)
                          .c_str());
 
-    constexpr auto path = "/org/openpower/dump";
+    constexpr auto path = "/xyz/openbmc_project/dump/system";
     constexpr auto interface = "xyz.openbmc_project.Dump.Create";
     constexpr auto function = "CreateDump";
 
