@@ -28,3 +28,7 @@ option('DEVTREE_REINIT_ATTRS_LIST', type : 'string',
         description : 'Path to the phal devtree reinit attribute list file'
 )
 
+option('op_dump_obj_path', type: 'string',
+        value: '/org/openpower/dump',
+        description : 'Object path requesting OpenPOWER dumps')
+

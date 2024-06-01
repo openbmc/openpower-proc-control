@@ -54,6 +54,10 @@ conf_data.set_quoted('DEVTREE_REINIT_ATTRS_LIST', get_option('DEVTREE_REINIT_ATT
                       description : 'Path to the phal devtree reinit attribute list file'
                     )
 
+conf_data.set_quoted('OP_DUMP_OBJ_PATH', get_option('op_dump_obj_path'),
+                      description : 'Object path requesting OpenPOWER dumps'
+                    )
+
 configure_file(configuration : conf_data,
                output : 'config.h'
               )

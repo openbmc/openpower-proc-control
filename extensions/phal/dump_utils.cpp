@@ -1,3 +1,5 @@
+#include "config.h"
+
 #include "dump_utils.hpp"
 
 #include "util.hpp"
@@ -104,7 +106,7 @@ void requestDump(const DumpParameters& dumpParameters)
                                  dumpParameters.logId, dumpParameters.unitId)
                          .c_str());
 
-    constexpr auto path = "/org/openpower/dump";
+    constexpr auto path = OP_DUMP_OBJ_PATH;
     constexpr auto interface = "xyz.openbmc_project.Dump.Create";
     constexpr auto function = "CreateDump";
 
