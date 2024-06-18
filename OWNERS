@@ -37,6 +37,7 @@ owners:
 reviewers:
 - geissonator@yahoo.com
 - rameshi1@in.ibm.com
+- dhruvaraj@in.ibm.com
 
 matchers:
 
@@ -50,3 +51,6 @@ openbmc:
 - name: Ramesh Iyyar
   email: rameshi1@in.ibm.com
   discord: Ramesh I
+- name: Dhruvaraj Subhashchandran
+  email: dhruvaraj@in.ibm.com
+  discord: dhruvibm
