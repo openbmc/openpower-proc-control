@@ -136,6 +136,33 @@ if build_phal
     unit_subs.set('ENABLE_PHAL_TRUE', '')
 endif
 
+libgpiodcxx_dep = dependency('libgpiodcxx', default_options: ['bindings=cxx'])
+sdbusplus_dep = dependency('sdbusplus')
+sdeventplus_dep = dependency('sdeventplus')
+pdi_dep = dependency('phosphor-dbus-interfaces')
+phosphor_logging_dep = dependency('phosphor-logging')
+
+gtest = dependency('gtest', main: true, disabler: true, required: false, include_type: 'system')
+if get_option('tests').allowed()
+    if not gtest.found()
+        gtest_proj = import('cmake').subproject('gtest', required: false)
+        if gtest_proj.found()
+            gtest = declare_dependency(
+                dependencies: [
+                    dependency('threads'),
+                    gtest_proj.dependency('gtest'),
+                    gtest_proj.dependency('gtest_main'),
+                ]
+            )
+        else
+            assert(
+                not get_option('tests').enabled(),
+                'Googletest is required if tests are enabled'
+            )
+        endif
+    endif
+endif
+
 executable(
     'openpower-proc-control',
     [
@@ -150,11 +177,11 @@ executable(
         'util.cpp',
     ] + extra_sources,
     dependencies: [
-        dependency('libgpiodcxx'),
+        libgpiodcxx_dep,
         cxx.find_library('pdbg'),
-        dependency('phosphor-dbus-interfaces'),
-        dependency('phosphor-logging'),
-        dependency('sdbusplus'),
+        pdi_dep,
+        phosphor_logging_dep,
+        sdbusplus_dep,
         dependency('threads'),
         dependency('fmt'),
     ] + extra_dependencies,
@@ -169,9 +196,9 @@ executable(
     ],
     dependencies: [
         cxx.find_library('pdbg'),
-        dependency('phosphor-dbus-interfaces'),
-        dependency('phosphor-logging'),
-        dependency('sdbusplus'),
+        pdi_dep,
+        phosphor_logging_dep,
+        sdbusplus_dep,
    ],
    install: true
 )
@@ -187,11 +214,10 @@ if build_phal
             'util.cpp',
         ],
         dependencies: [
-            dependency('phosphor-logging'),
-            dependency('sdbusplus'),
-            dependency('sdeventplus'),
-            dependency('fmt'),
-            dependency('phosphor-dbus-interfaces'),
+            phosphor_logging_dep,
+            sdbusplus_dep,
+            sdeventplus_dep,
+            pdi_dep,
             cxx.find_library('pdbg'),
             cxx.find_library('phal'),
        ],
@@ -211,9 +237,9 @@ if build_phal
              cxx.find_library('pdbg'),
              cxx.find_library('phal'),
              dependency('libdt-api'),
-             dependency('phosphor-logging'),
-             dependency('sdbusplus'),
-             dependency('sdeventplus'),
+             phosphor_logging_dep,
+             sdbusplus_dep,
+             sdeventplus_dep,
        ],
        install: true
 )
@@ -250,7 +276,7 @@ if not get_option('tests').disabled()
             'targeting.cpp',
             'filedescriptor.cpp',
             dependencies: [
-                dependency('gtest', main: true),
+                gtest,
                 dependency('phosphor-logging'),
             ],
             implicit_include_directories: false,
