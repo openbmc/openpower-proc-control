@@ -136,6 +136,29 @@ if build_phal
     unit_subs.set('ENABLE_PHAL_TRUE', '')
 endif
 
+libgpiodcxx = dependency('libgpiodcxx', default_options: ['bindings=cxx'])
+
+gtest = dependency('gtest', main: true, disabler: true, required: false, include_type: 'system')
+if get_option('tests').allowed()
+    if not gtest.found()
+        gtest_proj = import('cmake').subproject('gtest', required: false)
+        if gtest_proj.found()
+            gtest = declare_dependency(
+                dependencies: [
+                    dependency('threads'),
+                    gtest_proj.dependency('gtest'),
+                    gtest_proj.dependency('gtest_main'),
+                ]
+            )
+        else
+            assert(
+                not get_option('tests').enabled(),
+                'Googletest is required if tests are enabled'
+            )
+        endif
+    endif
+endif
+
 executable(
     'openpower-proc-control',
     [
@@ -150,7 +173,7 @@ executable(
         'util.cpp',
     ] + extra_sources,
     dependencies: [
-        dependency('libgpiodcxx'),
+        libgpiodcxx,
         cxx.find_library('pdbg'),
         dependency('phosphor-dbus-interfaces'),
         dependency('phosphor-logging'),
@@ -250,7 +273,7 @@ if not get_option('tests').disabled()
             'targeting.cpp',
             'filedescriptor.cpp',
             dependencies: [
-                dependency('gtest', main: true),
+                gtest,
                 dependency('phosphor-logging'),
             ],
             implicit_include_directories: false,

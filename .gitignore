@@ -1,3 +1,6 @@
 # meson
 /build
 /builddir
+subprojects/*
+!subprojects/*.wrap
+!subprojects/packagefiles
