@@ -48,6 +48,30 @@
       "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4dc57ac7_1ca748d7",
+        "filename": "README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2024-08-05T06:52:28Z",
+      "side": 1,
+      "message": "oh ok 😞, I will check in my next patch...Thanks.",
+      "parentUuid": "d1a1d243_28d8e508",
+      "range": {
+        "startLine": 9,
+        "startChar": 4,
+        "endLine": 10,
+        "endChar": 24
+      },
+      "revId": "18632fd159658f6a5963cc654d9430e3b5e07eec",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "71d64789_a1514ea7",
