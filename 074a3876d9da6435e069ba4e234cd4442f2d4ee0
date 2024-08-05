@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff4afc9b_658f656c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2024-08-05T03:19:58Z",
+      "side": 1,
+      "message": "The sdbusplus fallback is failing when it looks for systemd (tested without the SDK environment):\n\n```\nsubprojects/sdbusplus/meson.build:14:17: ERROR: Dependency \"libsystemd\" not found, tried pkgconfig\n```\n\nShould we install systemd, or could we add a wrap file for systemd as well?\n\nI tried to find a wrap file for systemd but couldn\u0027t locate one. Is it expected that the user compiling openpower-proc-control in a standalone environment will need to install systemd themselves?",
+      "revId": "074a3876d9da6435e069ba4e234cd4442f2d4ee0",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
