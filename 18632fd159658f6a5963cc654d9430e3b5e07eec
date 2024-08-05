@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f55c77a0_f33e6348",
+        "filename": "README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2024-08-05T06:27:52Z",
+      "side": 1,
+      "message": "Please include these commands in the code block, as you\u0027re removing the old code block due to Markdown style issues.",
+      "range": {
+        "startLine": 9,
+        "startChar": 4,
+        "endLine": 10,
+        "endChar": 24
+      },
+      "revId": "18632fd159658f6a5963cc654d9430e3b5e07eec",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71d64789_a1514ea7",
+        "filename": "README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2024-08-05T06:27:52Z",
+      "side": 1,
+      "message": "Please include these commands in the code block, as you\u0027re removing the old code block due to Markdown style issues.",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 24
+      },
+      "revId": "18632fd159658f6a5963cc654d9430e3b5e07eec",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
