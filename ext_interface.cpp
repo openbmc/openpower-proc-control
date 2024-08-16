@@ -61,8 +61,8 @@ uint32_t getBootCount()
 {
     auto bus = sdbusplus::bus::new_default();
 
-    auto rebootSvc = getService(bus, REBOOTCOUNTER_INTERFACE,
-                                REBOOTCOUNTER_PATH);
+    auto rebootSvc =
+        getService(bus, REBOOTCOUNTER_INTERFACE, REBOOTCOUNTER_PATH);
 
     auto method = bus.new_method_call(rebootSvc.c_str(), REBOOTCOUNTER_PATH,
                                       "org.freedesktop.DBus.Properties", "Get");

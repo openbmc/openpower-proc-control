@@ -180,10 +180,9 @@ void setClkNETerminationSite()
  *
  * @return void
  */
-static void
-    createPELForHwIsolationSettingsErr(const std::string& procedureCode,
-                                       const std::string& priority,
-                                       const pel::FFDCData& additionalData)
+static void createPELForHwIsolationSettingsErr(
+    const std::string& procedureCode, const std::string& priority,
+    const pel::FFDCData& additionalData)
 {
     try
     {
