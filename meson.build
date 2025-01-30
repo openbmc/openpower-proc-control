@@ -69,15 +69,15 @@ unit_subs.set('CEC_DEVTREE_RW_PATH', get_option('CEC_DEVTREE_RW_PATH'),
                description : 'Path to the devtree file r/w version'
              )
 
-if get_option('phal').enabled() and get_option('p9').enabled()
+if get_option('phal').allowed() and get_option('p9').allowed()
     error('phal and p9 cannot be selected at the same time')
 endif
 
-build_p9 = not get_option('p9').disabled()
-build_openfsi = not get_option('openfsi').disabled()
-build_phal = get_option('phal').enabled()
+build_p9 = get_option('p9').allowed()
+build_openfsi = get_option('openfsi').allowed()
+build_phal = get_option('phal').allowed()
 
-if get_option('phal').enabled() and not get_option('p9').disabled()
+if get_option('phal').allowed() and get_option('p9').allowed()
     build_p9 = false
 endif
 
@@ -271,7 +271,7 @@ foreach u : unit_files
     )
 endforeach
 
-if not get_option('tests').disabled()
+if get_option('tests').allowed()
     test(
         'utest',
         executable(
