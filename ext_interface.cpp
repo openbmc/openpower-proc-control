@@ -11,8 +11,8 @@ constexpr auto MAPPER_INTERFACE = "xyz.openbmc_project.ObjectMapper";
 
 // Reboot count
 constexpr auto REBOOTCOUNTER_PATH("/xyz/openbmc_project/state/host0");
-constexpr auto
-    REBOOTCOUNTER_INTERFACE("xyz.openbmc_project.Control.Boot.RebootAttempts");
+constexpr auto REBOOTCOUNTER_INTERFACE(
+    "xyz.openbmc_project.Control.Boot.RebootAttempts");
 
 using namespace phosphor::logging;
 
