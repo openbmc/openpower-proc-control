@@ -3,32 +3,47 @@ option('p9', type: 'feature', description: 'Enable support for POWER9')
 option('openfsi', type: 'feature', description: 'Enable support for OpenFSI')
 option('phal', type: 'feature', description: 'Enable support for PHAL')
 
-option('DEVTREE_EXPORT_FILTER_FILE', type : 'string',
-        value : '/usr/share/pdata/preserved_attrs_list',
-        description : 'Path to the phal devtree export filter file'
+option(
+    'DEVTREE_EXPORT_FILTER_FILE',
+    type: 'string',
+    value: '/usr/share/pdata/preserved_attrs_list',
+    description: 'Path to the phal devtree export filter file',
 )
-option('DEVTREE_EXP_FILE', type : 'string',
-        value : '/var/lib/phal/exportdevtree',
-        description : 'Path to the devtree export copy file'
+option(
+    'DEVTREE_EXP_FILE',
+    type: 'string',
+    value: '/var/lib/phal/exportdevtree',
+    description: 'Path to the devtree export copy file',
 )
-option('CEC_DEVTREE_RW_PATH', type : 'string',
-        value : '/media/hostfw/running/DEVTREE',
-        description : 'Path to the devtree file r/w version'
+option(
+    'CEC_DEVTREE_RW_PATH',
+    type: 'string',
+    value: '/media/hostfw/running/DEVTREE',
+    description: 'Path to the devtree file r/w version',
 )
-option('CEC_DEVTREE_RO_BASE_PATH', type : 'string',
-        value : '/media/hostfw/running-ro/',
-        description : 'Base path to the devtree file read only version'
+option(
+    'CEC_DEVTREE_RO_BASE_PATH',
+    type: 'string',
+    value: '/media/hostfw/running-ro/',
+    description: 'Base path to the devtree file read only version',
 )
-option('CEC_INFODB_PATH', type : 'string',
-        value : '/usr/share/pdata/attributes_info.db',
-        description : 'Path to the devtree attributes based database path'
+option(
+    'CEC_INFODB_PATH',
+    type: 'string',
+    value: '/usr/share/pdata/attributes_info.db',
+    description: 'Path to the devtree attributes based database path',
 )
-option('DEVTREE_REINIT_ATTRS_LIST', type : 'string',
-        value : '/usr/share/pdata/reinit_devtree_attrs_list',
-        description : 'Path to the phal devtree reinit attribute list file'
+option(
+    'DEVTREE_REINIT_ATTRS_LIST',
+    type: 'string',
+    value: '/usr/share/pdata/reinit_devtree_attrs_list',
+    description: 'Path to the phal devtree reinit attribute list file',
 )
 
-option('op_dump_obj_path', type: 'string',
-        value: '/org/openpower/dump',
-        description : 'Object path requesting OpenPOWER dumps')
+option(
+    'op_dump_obj_path',
+    type: 'string',
+    value: '/org/openpower/dump',
+    description: 'Object path requesting OpenPOWER dumps',
+)
 
