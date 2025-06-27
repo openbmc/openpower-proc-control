@@ -140,7 +140,16 @@ void enterMpReboot()
     struct pdbg_target* target;
     std::vector<pid_t> pidList;
     bool failed = false;
-    pdbg_targets_init(NULL);
+
+    pdbg_set_loglevel(PDBG_NOTICE);
+
+    if (!pdbg_targets_init(NULL))
+    {
+        log<level::ERR>("pdbg target init failed");
+        openpower::pel::createPEL("org.open_power.PHAL.Error.MPReboot");
+        std::exit(EXIT_FAILURE);
+    }
+
     ATTR_HWAS_STATE_Type hwasState;
 
     log<level::INFO>("Starting memory preserving reboot");
@@ -152,6 +161,10 @@ void enterMpReboot()
         }
         if (!hwasState.functional)
         {
+            log<level::INFO>(
+                std::format("proc({}) is not functional",
+                            Add commentMore actions pdbg_target_index(target))
+                    .c_str());
             continue;
         }
 
