@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "178cbdd7_da16c8c5",
+        "filename": "procedures/phal/enter_mpreboot.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2025-06-30T14:48:09Z",
+      "side": 1,
+      "message": "Please use `pdbg_set_loglevel(getLogLevelFromEnv(\"PDBG_LOG\", PDBG_INFO))` so that the log level can be controlled dynamically via the PDBG_LOG environment variable, avoiding the need to recompile the code when debugging traces needed from the PHAL layer.\n\nWhy are we using `PDBG_NOTICE` as log level than PDBG_INFO (which is the default level)?",
+      "revId": "2194438bfa67dc72aeecad9c072b73bb67914cdd",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e5fa8c2e_f8748813",
+        "filename": "procedures/phal/enter_mpreboot.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1000427
+      },
+      "writtenOn": "2025-06-30T14:48:09Z",
+      "side": 1,
+      "message": "FYI, if you want PHAL traces to be captured in the PEL—similar to how it\u0027s done for the Start Host command—you\u0027ll need to set up a corresponding callback. I assume you\u0027re aiming to improve debuggability with these changes, so just sharing this for your reference.",
+      "revId": "2194438bfa67dc72aeecad9c072b73bb67914cdd",
+      "serverId": "adbd0a64-1f21-4d83-b585-671fe73cb6e4"
+    }
+  ]
+}
