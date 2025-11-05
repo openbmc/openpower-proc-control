@@ -39,12 +39,6 @@ std::string getService(sdbusplus::bus_t& bus, const std::string& intf,
 
     auto mapperResponseMsg = bus.call(mapper);
 
-    if (mapperResponseMsg.is_method_error())
-    {
-        // TODO openbmc/openbmc#851 - Once available, throw returned error
-        throw std::runtime_error("ERROR in mapper call");
-    }
-
     std::map<std::string, std::vector<std::string>> mapperResponse;
     mapperResponseMsg.read(mapperResponse);
 
@@ -69,12 +63,7 @@ uint32_t getBootCount()
 
     method.append(REBOOTCOUNTER_INTERFACE, "AttemptsLeft");
     auto reply = bus.call(method);
-    if (reply.is_method_error())
-    {
-        log<level::ERR>("Error in BOOTCOUNT getValue");
-        // TODO openbmc/openbmc#851 - Once available, throw returned error
-        throw std::runtime_error("ERROR in reading BOOTCOUNT");
-    }
+
     std::variant<uint32_t> rebootCount;
     reply.read(rebootCount);
 
