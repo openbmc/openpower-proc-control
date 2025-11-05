@@ -242,9 +242,7 @@ static bool allowHwIsolation()
 
         auto reply = bus.call(method);
 
-        std::variant<bool> resp;
-
-        reply.read(resp);
+        auto resp = reply.unpack<std::variant<bool>>();
 
         if (const bool* enabledPropVal = std::get_if<bool>(&resp))
         {

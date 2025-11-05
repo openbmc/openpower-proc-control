@@ -39,8 +39,9 @@ std::string getService(sdbusplus::bus_t& bus, const std::string& intf,
 
     auto mapperResponseMsg = bus.call(mapper);
 
-    std::map<std::string, std::vector<std::string>> mapperResponse;
-    mapperResponseMsg.read(mapperResponse);
+    auto mapperResponse =
+        mapperResponseMsg
+            .unpack<std::map<std::string, std::vector<std::string>>>();
 
     if (mapperResponse.empty())
     {
@@ -64,8 +65,7 @@ uint32_t getBootCount()
     method.append(REBOOTCOUNTER_INTERFACE, "AttemptsLeft");
     auto reply = bus.call(method);
 
-    std::variant<uint32_t> rebootCount;
-    reply.read(rebootCount);
+    auto rebootCount = reply.unpack<std::variant<uint32_t>>();
 
     return std::get<uint32_t>(rebootCount);
 }

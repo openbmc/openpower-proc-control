@@ -104,8 +104,8 @@ std::string getChassisPowerState()
         properties.append("xyz.openbmc_project.State.Chassis");
         properties.append("CurrentPowerState");
         auto result = bus.call(properties);
-        std::variant<std::string> val;
-        result.read(val);
+        auto val = result.unpack<std::variant<std::string>>();
+
         if (auto pVal = std::get_if<std::string>(&val))
         {
             powerState = *pVal;
