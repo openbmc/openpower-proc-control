@@ -12,4 +12,4 @@ Type=oneshot
 ExecStart=/usr/bin/openpower-proc-control importDevtree
 
 [Install]
-WantedBy=multi-user.target
+# Handled by bitbake recipe
