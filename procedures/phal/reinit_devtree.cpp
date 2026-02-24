@@ -244,7 +244,7 @@ void reinitDevtree()
         {
             // Attempt boot with genesis mode attribute data.
             fs::path roFilePath = computeRODeviceTreePath();
-            log<level::WARNING>("reinitDevtree: DEVTREE(r/w) initilizing with "
+            log<level::WARNING>("reinitDevtree: DEVTREE(r/w) initializing with "
                                 "genesis mode attribute data");
             std::filesystem::copy(roFilePath, CEC_DEVTREE_RW_PATH, copyOptions);
         }

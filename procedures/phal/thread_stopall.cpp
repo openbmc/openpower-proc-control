@@ -26,7 +26,7 @@ using namespace phosphor::logging;
  * @brief Stop instruction executions on all functional threads in the
  *        host processors.
  *        This procedure is used to stop all threads in the system in
- *        Attempt best case approch. Like issue processor level stopall
+ *        Attempt best case approach. Like issue processor level stopall
  *        chip-op with ignore hardware error mode. Since this function
  *        is used in power-off/error path, ignore the internal error now.
  */

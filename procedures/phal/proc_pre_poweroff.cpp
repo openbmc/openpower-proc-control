@@ -25,7 +25,7 @@ void prePoweroff(void)
                         entry("EXCEPTION=%s", ex.what()));
         openpower::pel::detail::processBootError(false);
         // Dont throw exception on failure because, we need to proceed
-        // further eventhough there is failure for proc-pre-poweroff
+        // further even though there is failure for proc-pre-poweroff
         return;
     }
 
@@ -38,7 +38,7 @@ void prePoweroff(void)
     {
         log<level::ERR>("pre_poweroff failed");
         // Dont throw exception on failure because, we need to proceed
-        // further eventhough there is failure for proc-pre-poweroff
+        // further even though there is failure for proc-pre-poweroff
         return;
     }
 }

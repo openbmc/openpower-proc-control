@@ -19,7 +19,7 @@ using namespace phosphor::logging;
 void phal_init(enum ipl_mode mode)
 {
     // TODO: Setting boot error callback should not be in common code
-    //       because, we wont get proper reason in PEL for failure.
+    //       because, we won't get proper reason in PEL for failure.
     //       So, need to make code like caller of this function pass error
     //       handling callback.
     // add callback methods for debug traces and for boot failures

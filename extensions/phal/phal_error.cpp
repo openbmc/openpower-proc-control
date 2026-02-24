@@ -111,7 +111,7 @@ int pdbgCallbackToGetTgtReqAttrsVal(struct pdbg_target* target,
     }
 
     // Found Target, now collect the required attributes associated to the
-    // target. Incase of any attribute read failure, initialize the data with
+    // target. In case of any attribute read failure, initialize the data with
     // default value.
     try
     {
@@ -204,7 +204,7 @@ static int counter = 0;
 static std::vector<std::pair<std::string, std::string>> traceLog;
 
 /**
- * @brief Process platform realted boot failure
+ * @brief Process platform related boot failure
  *
  * @param[in] errInfo - error details
  */
@@ -273,7 +273,7 @@ static std::string getPelPriority(const std::string& phalPriority)
  * @brief Helper function to create PEL for non functional boot
  *        processor related failure.
  * This function adds the BMC code callout as priority 1 to fix
- * devtree related software issue. Incase the issue still persist
+ * devtree related software issue. In case the issue still persist
  * after reboot recommend to replacing the primary processor.
  */
 void processNonFunctionalBootProc()
@@ -339,7 +339,7 @@ void processNonFunctionalBootProc()
  *
  * Creates informational PEL for spare clock failure
  *
- * @param[in] ffdc - FFDC data capturd by the HWP
+ * @param[in] ffdc - FFDC data captured by the HWP
  * @param[in] ffdc_prefix - prefix string for logging the data.
  */
 void processClockInfoErrorHelper(FFDC* ffdc, const std::string& ffdc_prefix)
@@ -490,13 +490,13 @@ static void addPlanarCallout(json& jsonCalloutDataList,
 /**
  * @brief processPoweroffError
  *
- * Creates informational PEL for the PLAT/HWP error occured during poweroff
+ * Creates informational PEL for the PLAT/HWP error occurred during poweroff
  *
  * Not adding callouts from FFDC as the hardware errors in the poweroff path
  * should be non-visible.  so that we don't throw out extraneous callouts for
  * power errors or because the CEC is just not in an expected state.
  *
- * @param[in] ffdc - FFDC data capturd by the HWP
+ * @param[in] ffdc - FFDC data captured by the HWP
  * @param[in] ffdc_prefix - prefix string for logging the data.
  */
 
@@ -774,7 +774,7 @@ void processBootErrorHelper(FFDC* ffdc, const std::string& ffdc_prefix)
         std::sort(jsonCalloutDataList.begin(), jsonCalloutDataList.end(),
                   [](const json& aEle, const json& bEle) -> bool {
                       // Considering b element having higher priority than a
-                      // element or Both element will be same priorty (to keep
+                      // element or Both element will be same priority (to keep
                       // same order which are given by phal when two callouts
                       // are having same priority)
                       if (((aEle["Priority"] == "M") &&

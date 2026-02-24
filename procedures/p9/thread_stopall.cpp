@@ -32,7 +32,7 @@ void threadStopAll(void)
 
     pdbg_for_each_class_target("pib", pibTarget)
     {
-        // probe pib traget.
+        // probe pib target.
         pdbg_target_probe(pibTarget);
     }
 
