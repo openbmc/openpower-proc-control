@@ -36,7 +36,7 @@ using InterfaceMap = std::map<InterfaceName, PropertyMap>;
 void Watch::fwIntfAddedCallback(sdbusplus::message_t& msg)
 {
     //  DBusInterfaceAdded interfaces;
-    sdbusplus::message::object_path objectPath;
+    sdbusplus::object_path objectPath;
     InterfaceMap interfaceMap;
 
     try

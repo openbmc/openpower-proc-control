@@ -136,7 +136,7 @@ void requestDump(const DumpParameters& dumpParameters)
         auto response = bus.call(method);
 
         // reply will be type dbus::ObjectPath
-        auto reply = response.unpack<sdbusplus::message::object_path>();
+        auto reply = response.unpack<sdbusplus::object_path>();
 
         // monitor dump progress
         monitorDump(reply, dumpParameters.timeout);
