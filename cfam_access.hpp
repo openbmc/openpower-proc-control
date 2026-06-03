@@ -2,6 +2,7 @@
 
 #include "targeting.hpp"
 
+#include <cstdint>
 #include <memory>
 
 namespace openpower
