@@ -42,8 +42,8 @@ class Watch
 
     Watch(sdbusplus::bus_t& bus) :
         addMatch(bus,
-                 sdbusplus::bus::match::rules::interfacesAdded() +
-                     sdbusplus::bus::match::rules::path(OBJ_SOFTWARE),
+                 sdbusplus::match_rules::interfacesAdded() +
+                     sdbusplus::match_rules::path(OBJ_SOFTWARE),
                  std::bind(std::mem_fn(&Watch::fwIntfAddedCallback), this,
                            std::placeholders::_1))
     {}
@@ -76,7 +76,7 @@ class Watch
     void fwIntfAddedCallback(sdbusplus::message_t& msg);
 
     /** @brief sdbusplus signal match for software path add */
-    sdbusplus::bus::match_t addMatch;
+    sdbusplus::match addMatch;
 
     /** @brief indicates whether software update is going on */
     bool softwareUpdateInProgress = false;
