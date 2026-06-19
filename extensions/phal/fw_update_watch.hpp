@@ -76,7 +76,7 @@ class Watch
     void fwIntfAddedCallback(sdbusplus::message_t& msg);
 
     /** @brief sdbusplus signal match for software path add */
-    sdbusplus::bus::match_t addMatch;
+    sdbusplus::match addMatch;
 
     /** @brief indicates whether software update is going on */
     bool softwareUpdateInProgress = false;
