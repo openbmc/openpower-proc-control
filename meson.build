@@ -140,6 +140,7 @@ if build_phal
     extra_unit_files = [
         'service_files/set-spi-mux.service',
         'service_files/phal-reinit-devtree.service',
+        'service_files/phal-rm-genesis-boot-flag.service',
         'service_files/proc-pre-poweroff@.service',
         'service_files/op-clear-sys-dump-active@.service',
         'service_files/op-reset-host-check@.service',

@@ -2,14 +2,14 @@
 Description=Reinit POWER CEC system device tree
 Before=start_host@0.service
 After=openpower-update-bios-attr-table.service
-ConditionPathExists=!/run/openbmc/host@0-on
+ConditionPathExists=!/var/lib/phal/genesisboot
+ConditionPathExists=!/run/openbmc/mpreboot@0
 
 [Service]
 Type=oneshot
 RemainAfterExit=no
-ExecStart=/bin/rm -f /var/lib/phal/genesisboot
 ExecStart=/bin/rm -f /var/lib/phal/exportdevtree
 ExecStart=/usr/bin/openpower-proc-control reinitDevtree
 
 [Install]
-#RequiredBy=obmc-host-start@0.target
+#RequiredBy=obmc-host-startmin@0.target

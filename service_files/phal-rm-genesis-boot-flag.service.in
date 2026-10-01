@@ -1,0 +1,13 @@
+[Unit]
+Description=Remove PHAL genesis boot flag for cold boot or post-quiesce
+ConditionPathExists=!/run/openbmc/mpreboot@0
+Before=phal-reinit-devtree.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=no
+ExecStart=/bin/rm -f /var/lib/phal/genesisboot
+
+[Install]
+#RequiredBy=obmc-host-start@0.target
+#RequiredBy=obmc-host-quiesce@0.target
