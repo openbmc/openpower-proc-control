@@ -1,7 +1,6 @@
 [Unit]
 Description=Set the SPI mux
 ConditionPathExists=!/run/openbmc/chassis@0-on
-After=phosphor-reset-chassis-running@0.service
 After=phosphor-wait-power-off@0.service
 
 [Service]
