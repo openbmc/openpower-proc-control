@@ -113,7 +113,7 @@ void sbeEnterMpReboot(struct pdbg_target* tgt)
         }
         throw;
     }
-    // Capture genaral libphal error
+    // Capture general libphal error
     catch (const phalError_t& phalError)
     {
         // Failure reported

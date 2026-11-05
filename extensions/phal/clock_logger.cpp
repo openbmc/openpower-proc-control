@@ -213,7 +213,7 @@ void Manager::addClockRegData(openpower::pel::FFDCData& clockDataLog)
         ssState << "Clock" << index;
         clockDataLog.push_back(std::make_pair(ssState.str(), funState));
 
-        // Add clcok device path information
+        // Add clock device path information
         std::stringstream ssName;
         ssName << "Clock" << index << " path";
         clockDataLog.push_back(

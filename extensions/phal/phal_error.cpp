@@ -953,7 +953,7 @@ void processSbeBootError()
         {
             // Allowing call back to handle the error gracefully.
             log<level::ERR>("Dump collection failed");
-            // TODO revist error handling.
+            // TODO revisit error handling.
         }
     }
 }

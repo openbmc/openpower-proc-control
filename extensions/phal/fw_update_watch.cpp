@@ -88,7 +88,7 @@ void Watch::fwIntfAddedCallback(sdbusplus::message_t& msg)
 
         try
         {
-            // Colect device tree data
+            // Collect device tree data
             openpower::phal::fwupdate::exportDevtree();
         }
         catch (const fs::filesystem_error& e)

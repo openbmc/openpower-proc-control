@@ -97,7 +97,7 @@ void selectBootSeeprom()
  */
 void setClkNETerminationSite()
 {
-    // Get Motherborad VINI Recored "HW" keyword
+    // Get Motherboard VINI Recorded "HW" keyword
     constexpr auto objPath =
         "/xyz/openbmc_project/inventory/system/chassis/motherboard";
     constexpr auto kwdVpdInf = "com.ibm.ipzvpd.VINI";
